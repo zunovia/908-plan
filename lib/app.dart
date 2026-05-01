@@ -108,6 +108,12 @@ final routerProvider = Provider<GoRouter>((ref) {
         ],
       ),
 
+      // Monthly report (fullscreen)
+      GoRoute(
+        path: '/reports/monthly',
+        builder: (_, __) => const MonthlyReportScreen(),
+      ),
+
       // Recording (fullscreen)
       GoRoute(
         path: '/recording',
@@ -116,20 +122,6 @@ final routerProvider = Provider<GoRouter>((ref) {
           final duration = int.tryParse(durationStr ?? '') ?? 30;
           return RecordingScreen(durationSeconds: duration);
         },
-      ),
-
-      // Report details
-      GoRoute(
-        path: '/reports/weekly/:id',
-        builder: (_, state) => WeeklyReportScreen(
-          reportId: state.pathParameters['id'],
-        ),
-      ),
-      GoRoute(
-        path: '/reports/monthly/:id',
-        builder: (_, state) => MonthlyReportScreen(
-          reportId: state.pathParameters['id'],
-        ),
       ),
 
       // Demo

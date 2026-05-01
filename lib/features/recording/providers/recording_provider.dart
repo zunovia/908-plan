@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
@@ -142,6 +143,16 @@ class RecordingNotifier extends Notifier<RecordingState> {
 
     final repo = ref.read(localRecordingRepositoryProvider);
     await repo.saveRecording(recording);
+
+    // Delete WAV file after analysis — metrics are saved in Hive
+    try {
+      final file = File(path);
+      if (await file.exists()) {
+        await file.delete();
+      }
+    } catch (_) {
+      // Non-fatal: OS will eventually reclaim temp directory
+    }
 
     state = state.copyWith(
       isRecording: false,

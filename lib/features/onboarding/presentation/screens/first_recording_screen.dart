@@ -21,7 +21,7 @@ class FirstRecordingScreen extends ConsumerWidget {
               Align(
                 alignment: Alignment.topRight,
                 child: Text(
-                  '6/6',
+                  '5/5',
                   style: AppTypography.caption.copyWith(
                     color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.4),
                   ),

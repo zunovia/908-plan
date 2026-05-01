@@ -25,13 +25,17 @@ class AuthService {
   }
 
   Future<UserCredential> linkWithApple() async {
+    final user = _auth.currentUser;
+    if (user == null) throw StateError('No authenticated user to link');
     final provider = OAuthProvider('apple.com');
-    return await _auth.currentUser!.linkWithProvider(provider);
+    return await user.linkWithProvider(provider);
   }
 
   Future<UserCredential> linkWithGoogle() async {
+    final user = _auth.currentUser;
+    if (user == null) throw StateError('No authenticated user to link');
     final provider = GoogleAuthProvider();
-    return await _auth.currentUser!.linkWithProvider(provider);
+    return await user.linkWithProvider(provider);
   }
 
   Future<void> signOut() async {

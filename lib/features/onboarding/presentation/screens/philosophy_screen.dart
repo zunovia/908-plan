@@ -26,7 +26,7 @@ class PhilosophyScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.topRight,
                 child: Text(
-                  '1/6',
+                  '1/5',
                   style: AppTypography.caption.copyWith(
                     color: isDark
                         ? AppColors.darkTextMuted
