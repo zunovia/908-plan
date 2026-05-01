@@ -12,9 +12,7 @@ import '../widgets/highlight_card.dart';
 import '../../providers/report_provider.dart';
 
 class MonthlyReportScreen extends ConsumerStatefulWidget {
-  final String? reportId;
-
-  const MonthlyReportScreen({super.key, this.reportId});
+  const MonthlyReportScreen({super.key});
 
   @override
   ConsumerState<MonthlyReportScreen> createState() =>

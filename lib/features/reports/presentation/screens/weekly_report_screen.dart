@@ -13,9 +13,7 @@ import '../widgets/normalization_card.dart';
 import '../../providers/report_provider.dart';
 
 class WeeklyReportScreen extends ConsumerStatefulWidget {
-  final String? reportId;
-
-  const WeeklyReportScreen({super.key, this.reportId});
+  const WeeklyReportScreen({super.key});
 
   @override
   ConsumerState<WeeklyReportScreen> createState() =>

@@ -4,8 +4,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_ce/hive_ce.dart';
 
 import 'app.dart';
+import 'core/audio/sound_manager.dart';
+import 'core/providers/audio_providers.dart';
 import 'core/providers/storage_providers.dart';
 import 'core/storage/local_db.dart';
+import 'core/storage/secure_storage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,10 +24,18 @@ Future<void> main() async {
   final localDb = LocalDb();
   await localDb.init();
 
+  // Read sound preference before any screen renders to prevent
+  // splash sounds from playing when user has disabled them.
+  final secureStorage = SecureStorageService();
+  final soundEnabled = await secureStorage.getSoundEnabled();
+  final soundManager = SoundManager()..enabled = soundEnabled;
+
   runApp(
     ProviderScope(
       overrides: [
         localDbProvider.overrideWithValue(localDb),
+        secureStorageProvider.overrideWithValue(secureStorage),
+        soundManagerProvider.overrideWithValue(soundManager),
       ],
       child: const ZeroApp(),
     ),

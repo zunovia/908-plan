@@ -18,15 +18,7 @@ class MetaphorScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: AppSpacing.md),
-              Align(
-                alignment: Alignment.topRight,
-                child: Text(
-                  '2/6',
-                  style: AppTypography.caption.copyWith(
-                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.4),
-                  ),
-                ),
-              ),
+              const SizedBox(height: AppSpacing.md),
               const Spacer(),
               TextFadeIn(
                 text: 'あなたの声は、\n静かな湖のようなものです。\n\n'

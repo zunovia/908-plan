@@ -32,7 +32,7 @@ class NotificationScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.topRight,
                 child: Text(
-                  '5/6',
+                  '4/5',
                   style: AppTypography.caption.copyWith(
                     color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.4),
                   ),
