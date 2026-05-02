@@ -21,8 +21,11 @@ class DailyPromptCard extends StatelessWidget {
         const SizedBox(height: AppSpacing.sm),
         Text(
           '「$prompt」',
-          style: AppTypography.miniInsight.copyWith(
+          style: AppTypography.body.copyWith(
             color: Theme.of(context).colorScheme.onSurface,
+            fontWeight: FontWeight.w700,
+            fontSize: 16,
+            height: 1.7,
           ),
           textAlign: TextAlign.center,
         ),
