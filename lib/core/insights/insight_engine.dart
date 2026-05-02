@@ -143,7 +143,7 @@ class InsightEngine {
           metrics[maxIdx].energy > metrics[maxIdx - 1].energy ? '上がった' : '下がった';
       out.add(_ScoredInquiry(
         score: maxDelta * 5,
-        text: '$dayNameに声のエネルギーが$directionようです。何がありましたか？',
+        text: '$dayNameに声のエネルギーが$directionようです。その日の印象を振り返ってみてください。',
       ));
     }
   }
@@ -160,7 +160,7 @@ class InsightEngine {
       final dayName = dayFormat.format(most.date);
       out.add(_ScoredInquiry(
         score: most.expressionRange * 1.5,
-        text: '$dayNameは表現が豊かでした。どんな気持ちでしたか？',
+        text: '$dayNameは表現が豊かでした。感情が声にのった一日だったようです。',
       ));
     }
   }
@@ -184,7 +184,7 @@ class InsightEngine {
       final half = diff > 0 ? '後半' : '前半';
       out.add(_ScoredInquiry(
         score: diff.abs() * 4,
-        text: '週の${half}に声がクリアになっています。何か変化がありましたか？',
+        text: '週の${half}に声がクリアになっています。生活のリズムが反映されているのかもしれません。',
       ));
     }
   }
@@ -197,7 +197,7 @@ class InsightEngine {
     if (stdDev > 0.5) {
       out.add(_ScoredInquiry(
         score: stdDev * 2,
-        text: '話すペースに波があった週でした。リズムの変化を感じましたか？',
+        text: '話すペースに波があった週でした。日々のリズムがそのまま声に表れています。',
       ));
     }
   }
@@ -243,7 +243,7 @@ class InsightEngine {
     if (maxE < 0.35) {
       out.add(_ScoredInquiry(
         score: (0.35 - maxE) * 4,
-        text: '全体的に静かな週でした。身体はどう感じていましたか？',
+        text: '全体的に静かな週でした。身体が休息を求めていたのかもしれません。',
       ));
     }
   }
@@ -378,7 +378,7 @@ class InsightEngine {
 
   static String _comparisonNuance(String metric, double diff) {
     final absDiff = diff.abs();
-    if (absDiff > 0.2) return '大きな変化です。何か心当たりはありますか？';
+    if (absDiff > 0.2) return '大きな変化が見られます。声が新しいリズムに移行しているようです。';
     if (absDiff > 0.1) return 'はっきりとした変化が見られます。';
     return '小さな変化ですが、耳を澄ませてみてください。';
   }
