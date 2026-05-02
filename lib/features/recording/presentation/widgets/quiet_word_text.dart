@@ -73,7 +73,7 @@ class _QuietWordTextState extends ConsumerState<QuietWordText>
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
           child: Text(
-            '「今日の声は、\n昨日と似ていましたか？」',
+            '「今日の声を、\nそっと手放します。」',
             style: AppTypography.philosophy.copyWith(
               color: Theme.of(context).colorScheme.onSurface,
             ),
