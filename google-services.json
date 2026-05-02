@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "48545467989",
+    "project_id": "zero-app-d63df",
+    "storage_bucket": "zero-app-d63df.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48545467989:android:b23d4110215db8f87d4edc",
+        "android_client_info": {
+          "package_name": "com.example.zero_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgEqz8hc4BFA1K6fFnUDjSQp8Mea-6XC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
