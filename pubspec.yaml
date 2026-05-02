@@ -24,7 +24,7 @@ dependencies:
   firebase_auth: ^5.0.0
 
   # Audio
-  record: 5.1.0
+  record: ^6.0.0
   audioplayers: ^6.0.0
 
   # Audio Analysis
