@@ -1,0 +1,57 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.0'
+          channel: 'stable'
+
+      - name: Generate Android project
+        run: flutter create --project-name zero_app --org com.example --platforms android .
+
+      - name: Set minSdkVersion to 23
+        run: |
+          sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 23/' android/app/build.gradle.kts 2>/dev/null || \
+          sed -i 's/minSdkVersion flutter.minSdkVersion/minSdkVersion 23/' android/app/build.gradle 2>/dev/null || \
+          sed -i 's/minSdk =.*/minSdk = 23/' android/app/build.gradle.kts
+
+      - name: Add Firebase (Google Services plugin)
+        run: |
+          # For Kotlin DSL (build.gradle.kts) — Flutter 3.22+ default
+          if [ -f android/app/build.gradle.kts ]; then
+            # Add google-services plugin to app-level
+            sed -i '/^plugins {/a\    id("com.google.gms.google-services")' android/app/build.gradle.kts
+            # Add classpath to settings.gradle.kts
+            sed -i '/id("com.android.application")/a\    id("com.google.gms.google-services") version "4.4.2" apply false' android/settings.gradle.kts 2>/dev/null || true
+          fi
+          # For Groovy DSL (build.gradle) — fallback
+          if [ -f android/app/build.gradle ] && [ ! -f android/app/build.gradle.kts ]; then
+            echo "apply plugin: 'com.google.gms.google-services'" >> android/app/build.gradle
+            sed -i '/dependencies {/a\        classpath "com.google.gms:google-services:4.4.2"' android/build.gradle 2>/dev/null || true
+          fi
+
+      - name: Decode google-services.json
+        run: echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 -d > android/app/google-services.json
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Build debug APK
+        run: flutter build apk --debug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: zero-app-debug
+          path: build/app/outputs/flutter-apk/app-debug.apk
