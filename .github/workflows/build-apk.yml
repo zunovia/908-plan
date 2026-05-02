@@ -22,44 +22,49 @@ jobs:
         with:
           flutter-version: '3.27.0'
           channel: 'stable'
+          cache: true
+
+      - name: Restore debug keystore cache
+        id: keystore-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.android/debug.keystore
+          key: debug-keystore-v1
+
+      - name: Generate debug keystore if not cached
+        if: steps.keystore-cache.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/.android
+          keytool -genkey -v \
+            -keystore ~/.android/debug.keystore \
+            -alias androiddebugkey \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -storepass android \
+            -keypass android \
+            -dname "CN=Zero Debug,O=Zero App,C=JP"
 
       - name: Generate Android project
         run: flutter create --project-name zero_app --org com.example --platforms android .
 
-      - name: Debug generated files
-        run: |
-          echo "=== android/ contents ==="
-          find android -name "*.gradle*" -o -name "*.properties" | head -20
-          echo "=== app/build.gradle ==="
-          cat android/app/build.gradle 2>/dev/null || cat android/app/build.gradle.kts 2>/dev/null || echo "NOT FOUND"
-          echo "=== settings.gradle ==="
-          cat android/settings.gradle 2>/dev/null || cat android/settings.gradle.kts 2>/dev/null || echo "NOT FOUND"
-
       - name: Configure Firebase and minSdkVersion
         run: |
-          # Detect which DSL is used
           if [ -f android/app/build.gradle.kts ]; then
             echo "Kotlin DSL detected"
-            # minSdkVersion
             sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 23/' android/app/build.gradle.kts
             sed -i 's/minSdk = .*$/minSdk = 23/' android/app/build.gradle.kts
-            # Add google-services plugin
             sed -i '/^plugins {/a\    id("com.google.gms.google-services")' android/app/build.gradle.kts
-            # settings.gradle.kts
             if [ -f android/settings.gradle.kts ]; then
               sed -i '/id("com.android.application")/a\    id("com.google.gms.google-services") version "4.4.2" apply false' android/settings.gradle.kts
             fi
           elif [ -f android/app/build.gradle ]; then
             echo "Groovy DSL detected"
-            # minSdkVersion
             sed -i "s/minSdk = flutter.minSdkVersion/minSdk = 23/" android/app/build.gradle
             sed -i "s/minSdkVersion flutter.minSdkVersion/minSdkVersion 23/" android/app/build.gradle
-            # Add google-services plugin at end of app/build.gradle
             echo "" >> android/app/build.gradle
             echo "apply plugin: 'com.google.gms.google-services'" >> android/app/build.gradle
-            # Add dependency to project-level build.gradle or settings.gradle
             if [ -f android/settings.gradle ]; then
-              # Flutter 3.27 uses settings.gradle with plugins block
               sed -i '/id "com.android.application"/a\    id "com.google.gms.google-services" version "4.4.2" apply false' android/settings.gradle
             elif [ -f android/build.gradle ]; then
               sed -i '/dependencies {/a\        classpath "com.google.gms:google-services:4.4.2"' android/build.gradle
@@ -69,7 +74,6 @@ jobs:
       - name: Add Android permissions for recording
         run: |
           MANIFEST="android/app/src/main/AndroidManifest.xml"
-          # Add RECORD_AUDIO and INTERNET permissions
           sed -i '/<manifest/a\    <uses-permission android:name="android.permission.RECORD_AUDIO"/>\n    <uses-permission android:name="android.permission.INTERNET"/>' "$MANIFEST"
 
       - name: Place google-services.json
@@ -86,3 +90,4 @@ jobs:
         with:
           name: zero-app-debug
           path: build/app/outputs/flutter-apk/app-debug.apk
+          retention-days: 30
