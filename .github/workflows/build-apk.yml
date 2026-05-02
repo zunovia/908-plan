@@ -11,35 +11,66 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0'
+          flutter-version: '3.27.0'
           channel: 'stable'
 
       - name: Generate Android project
         run: flutter create --project-name zero_app --org com.example --platforms android .
 
-      - name: Set minSdkVersion to 23
+      - name: Debug generated files
         run: |
-          sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 23/' android/app/build.gradle.kts 2>/dev/null || \
-          sed -i 's/minSdkVersion flutter.minSdkVersion/minSdkVersion 23/' android/app/build.gradle 2>/dev/null || \
-          sed -i 's/minSdk =.*/minSdk = 23/' android/app/build.gradle.kts
+          echo "=== android/ contents ==="
+          find android -name "*.gradle*" -o -name "*.properties" | head -20
+          echo "=== app/build.gradle ==="
+          cat android/app/build.gradle 2>/dev/null || cat android/app/build.gradle.kts 2>/dev/null || echo "NOT FOUND"
+          echo "=== settings.gradle ==="
+          cat android/settings.gradle 2>/dev/null || cat android/settings.gradle.kts 2>/dev/null || echo "NOT FOUND"
 
-      - name: Add Firebase (Google Services plugin)
+      - name: Configure Firebase and minSdkVersion
         run: |
-          # For Kotlin DSL (build.gradle.kts) — Flutter 3.22+ default
+          # Detect which DSL is used
           if [ -f android/app/build.gradle.kts ]; then
-            # Add google-services plugin to app-level
+            echo "Kotlin DSL detected"
+            # minSdkVersion
+            sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 23/' android/app/build.gradle.kts
+            sed -i 's/minSdk = .*$/minSdk = 23/' android/app/build.gradle.kts
+            # Add google-services plugin
             sed -i '/^plugins {/a\    id("com.google.gms.google-services")' android/app/build.gradle.kts
-            # Add classpath to settings.gradle.kts
-            sed -i '/id("com.android.application")/a\    id("com.google.gms.google-services") version "4.4.2" apply false' android/settings.gradle.kts 2>/dev/null || true
-          fi
-          # For Groovy DSL (build.gradle) — fallback
-          if [ -f android/app/build.gradle ] && [ ! -f android/app/build.gradle.kts ]; then
+            # settings.gradle.kts
+            if [ -f android/settings.gradle.kts ]; then
+              sed -i '/id("com.android.application")/a\    id("com.google.gms.google-services") version "4.4.2" apply false' android/settings.gradle.kts
+            fi
+          elif [ -f android/app/build.gradle ]; then
+            echo "Groovy DSL detected"
+            # minSdkVersion
+            sed -i "s/minSdk = flutter.minSdkVersion/minSdk = 23/" android/app/build.gradle
+            sed -i "s/minSdkVersion flutter.minSdkVersion/minSdkVersion 23/" android/app/build.gradle
+            # Add google-services plugin at end of app/build.gradle
+            echo "" >> android/app/build.gradle
             echo "apply plugin: 'com.google.gms.google-services'" >> android/app/build.gradle
-            sed -i '/dependencies {/a\        classpath "com.google.gms:google-services:4.4.2"' android/build.gradle 2>/dev/null || true
+            # Add dependency to project-level build.gradle or settings.gradle
+            if [ -f android/settings.gradle ]; then
+              # Flutter 3.27 uses settings.gradle with plugins block
+              sed -i '/id "com.android.application"/a\    id "com.google.gms.google-services" version "4.4.2" apply false' android/settings.gradle
+            elif [ -f android/build.gradle ]; then
+              sed -i '/dependencies {/a\        classpath "com.google.gms:google-services:4.4.2"' android/build.gradle
+            fi
           fi
+
+      - name: Add Android permissions for recording
+        run: |
+          MANIFEST="android/app/src/main/AndroidManifest.xml"
+          # Add RECORD_AUDIO and INTERNET permissions
+          sed -i '/<manifest/a\    <uses-permission android:name="android.permission.RECORD_AUDIO"/>\n    <uses-permission android:name="android.permission.INTERNET"/>' "$MANIFEST"
 
       - name: Decode google-services.json
         run: echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 -d > android/app/google-services.json
