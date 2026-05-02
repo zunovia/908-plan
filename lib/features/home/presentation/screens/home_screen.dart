@@ -5,9 +5,9 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_typography.dart';
 import '../../../../shared/widgets/zero_app_bar.dart';
-import '../widgets/mini_trend_chart.dart';
 import '../widgets/daily_prompt_card.dart';
 import '../widgets/duration_selector.dart';
+import '../widgets/zero_score_section.dart';
 import '../../providers/home_provider.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -20,23 +20,26 @@ class HomeScreen extends ConsumerWidget {
     return Scaffold(
       appBar: const ZeroAppBar(title: 'Zero'),
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
           child: Column(
             children: [
               const SizedBox(height: AppSpacing.lg),
+              // ZERO score + stage badge + convergence ring
+              const ZeroScoreSection(),
+              const SizedBox(height: AppSpacing.lg),
               // Streak count
               Text(
                 homeState.streak > 0
-                    ? '${homeState.streak}日連続'
+                    ? '${homeState.streak}日連続記録中'
                     : '今日から始めよう',
-                style: AppTypography.heading.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
+                style: AppTypography.body.copyWith(
+                  color: Theme.of(context)
+                      .colorScheme
+                      .onSurface
+                      .withValues(alpha: 0.65),
                 ),
               ),
-              const SizedBox(height: AppSpacing.lg),
-              // Weekly mini chart (only if >= 7 days)
-              if (homeState.hasEnoughData) const MiniTrendChart(),
               const SizedBox(height: AppSpacing.lg),
               // Daily prompt
               DailyPromptCard(prompt: homeState.dailyPrompt),
@@ -48,15 +51,15 @@ class HomeScreen extends ConsumerWidget {
                   ref.read(homeProvider.notifier).setDuration(duration);
                 },
               ),
-              const Spacer(),
+              const SizedBox(height: AppSpacing.xl),
               // Recording button
               Semantics(
                 button: true,
                 label: '録音を開始',
                 child: GestureDetector(
                   onTap: () => context.push(
-                  '/recording?duration=${homeState.selectedDuration.seconds}',
-                ),
+                    '/recording?duration=${homeState.selectedDuration.seconds}',
+                  ),
                   child: Container(
                     width: 80,
                     height: 80,
