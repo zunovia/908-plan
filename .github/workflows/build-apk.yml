@@ -72,8 +72,8 @@ jobs:
           # Add RECORD_AUDIO and INTERNET permissions
           sed -i '/<manifest/a\    <uses-permission android:name="android.permission.RECORD_AUDIO"/>\n    <uses-permission android:name="android.permission.INTERNET"/>' "$MANIFEST"
 
-      - name: Decode google-services.json
-        run: echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 -d > android/app/google-services.json
+      - name: Place google-services.json
+        run: cp google-services.json android/app/google-services.json
 
       - name: Get dependencies
         run: flutter pub get
