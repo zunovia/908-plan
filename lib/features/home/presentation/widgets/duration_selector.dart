@@ -29,9 +29,10 @@ class DurationSelector extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: RecordingDuration.values.map((duration) {
         final isSelected = duration == selected;
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xs),
-          child: ChoiceChip(
+        return Flexible(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 2),
+            child: ChoiceChip(
             label: Text(
               duration.label,
               style: AppTypography.caption.copyWith(
@@ -47,6 +48,7 @@ class DurationSelector extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
             ),
+          ),
           ),
         );
       }).toList(),
