@@ -148,7 +148,7 @@ class ZeroApp extends ConsumerWidget {
     );
 
     return MaterialApp.router(
-      title: 'Voicell',
+      title: 'Voxna',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,

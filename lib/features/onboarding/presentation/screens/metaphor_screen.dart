@@ -24,7 +24,7 @@ class MetaphorScreen extends StatelessWidget {
                 text: 'あなたの声は、\n静かな湖のようなものです。\n\n'
                     '場面によって風が吹き、\n波の形が変わる。\n'
                     'でも湖は一つです。\n\n'
-                    'Voicellは、\nその湖面を映す場所です。\n\n'
+                    'Voxnaは、\nその湖面を映す場所です。\n\n'
                     '毎日30秒、\n声を聴かせてください。\n'
                     '波の下にある、\n静かな響きが見えてきます。',
                 style: AppTypography.philosophy,

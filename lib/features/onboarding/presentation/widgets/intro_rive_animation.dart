@@ -226,7 +226,7 @@ class _IntroRiveAnimationState extends State<IntroRiveAnimation>
 
   Widget _logoContent() {
     return Image.asset(
-      'assets/images/voicell_logo.png',
+      'assets/images/voxna_logo.png',
       width: 200,
       fit: BoxFit.contain,
     );

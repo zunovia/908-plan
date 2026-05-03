@@ -1,5 +1,5 @@
 name: zero_app
-description: Voicell — 声の鏡。毎日30秒の声から、あなたの無意識のパターンを映し出す。
+description: Voxna — 声の鏡。毎日30秒の声から、あなたの無意識のパターンを映し出す。
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -57,9 +57,9 @@ dev_dependencies:
 flutter_launcher_icons:
   android: true
   ios: false
-  image_path: "assets/images/voicell_logo.png"
+  image_path: "assets/images/voxna_logo.png"
   adaptive_icon_background: "#FFFFFF"
-  adaptive_icon_foreground: "assets/images/voicell_logo.png"
+  adaptive_icon_foreground: "assets/images/voxna_logo.png"
 
 flutter:
   uses-material-design: true
