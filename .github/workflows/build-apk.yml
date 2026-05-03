@@ -175,8 +175,15 @@ jobs:
           MANIFEST="android/app/src/main/AndroidManifest.xml"
           sed -i 's/android:label="zero_app"/android:label="Voxna"/' "$MANIFEST"
 
-      - name: Add proguard rules
-        run: cp proguard-rules.pro android/app/proguard-rules.pro
+      - name: Configure proguard for release
+        run: |
+          cp proguard-rules.pro android/app/proguard-rules.pro
+          # Enable proguard in build.gradle for release buildType
+          if [ -f android/app/build.gradle ]; then
+            sed -i '/buildTypes {/,/release {/{s/release {/release {\n            minifyEnabled false\n            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"/}' android/app/build.gradle
+          elif [ -f android/app/build.gradle.kts ]; then
+            sed -i '/buildTypes {/,/release {/{s/release {/release {\n            isMinifyEnabled = false\n            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")/}' android/app/build.gradle.kts
+          fi
 
       - name: Generate app icons
         run: dart run flutter_launcher_icons
@@ -191,7 +198,7 @@ jobs:
         run: flutter gen-l10n
 
       - name: Build release AAB
-        run: flutter build appbundle --release
+        run: flutter build appbundle --release --no-shrink
 
       - name: Upload release AAB
         uses: actions/upload-artifact@v4
