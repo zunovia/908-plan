@@ -48,8 +48,10 @@ jobs:
       - name: Generate Android project
         run: |
           cp pubspec.yaml pubspec.yaml.bak
-          flutter create --project-name zero_app --org com.voxna --platforms android .
+          cp l10n.yaml l10n.yaml.bak
+          flutter create --project-name zero_app --org com.voxna --platforms android --no-pub .
           cp pubspec.yaml.bak pubspec.yaml
+          cp l10n.yaml.bak l10n.yaml
 
       - name: Configure build.gradle
         run: |
@@ -136,8 +138,10 @@ jobs:
       - name: Generate Android project
         run: |
           cp pubspec.yaml pubspec.yaml.bak
-          flutter create --project-name zero_app --org com.voxna --platforms android .
+          cp l10n.yaml l10n.yaml.bak
+          flutter create --project-name zero_app --org com.voxna --platforms android --no-pub .
           cp pubspec.yaml.bak pubspec.yaml
+          cp l10n.yaml.bak l10n.yaml
 
       - name: Configure build.gradle for release
         run: |
