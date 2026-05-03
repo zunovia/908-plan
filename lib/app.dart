@@ -148,7 +148,7 @@ class ZeroApp extends ConsumerWidget {
     );
 
     return MaterialApp.router(
-      title: 'Zero',
+      title: 'Voicell',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,

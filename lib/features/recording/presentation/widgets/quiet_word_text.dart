@@ -20,6 +20,7 @@ class _QuietWordTextState extends ConsumerState<QuietWordText>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _fadeAnimation;
+  bool _completed = false;
 
   @override
   void initState() {
@@ -48,7 +49,8 @@ class _QuietWordTextState extends ConsumerState<QuietWordText>
 
     _controller.forward();
     _controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed && mounted) {
+      if (status == AnimationStatus.completed && mounted && !_completed) {
+        _completed = true;
         widget.onComplete();
       }
     });
@@ -59,6 +61,13 @@ class _QuietWordTextState extends ConsumerState<QuietWordText>
     });
   }
 
+  void _handleTapSkip() {
+    if (_completed) return;
+    _completed = true;
+    _controller.stop();
+    widget.onComplete();
+  }
+
   @override
   void dispose() {
     _controller.dispose();
@@ -67,18 +76,37 @@ class _QuietWordTextState extends ConsumerState<QuietWordText>
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: FadeTransition(
-        opacity: _fadeAnimation,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
-          child: Text(
-            '「今日の声を、\nそっと手放します。」',
-            style: AppTypography.philosophy.copyWith(
-              color: Theme.of(context).colorScheme.onSurface,
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: _handleTapSkip,
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FadeTransition(
+              opacity: _fadeAnimation,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+                child: Text(
+                  '「今日の声を、\nそっと手放します。」',
+                  style: AppTypography.philosophy.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
-            textAlign: TextAlign.center,
-          ),
+            const SizedBox(height: 24),
+            Text(
+              'タップでスキップ',
+              style: AppTypography.caption.copyWith(
+                color: Theme.of(context)
+                    .colorScheme
+                    .onSurface
+                    .withValues(alpha: 0.3),
+              ),
+            ),
+          ],
         ),
       ),
     );

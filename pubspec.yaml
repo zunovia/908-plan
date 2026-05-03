@@ -1,5 +1,5 @@
 name: zero_app
-description: Zero — 声の鏡。毎日30秒の声から、あなたの無意識のパターンを映し出す。
+description: Voicell — 声の鏡。毎日30秒の声から、あなたの無意識のパターンを映し出す。
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -58,3 +58,4 @@ flutter:
 
   assets:
     - assets/sounds/
+    - assets/images/

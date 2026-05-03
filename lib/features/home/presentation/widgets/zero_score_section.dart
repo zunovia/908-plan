@@ -35,7 +35,7 @@ class ZeroScoreSection extends ConsumerWidget {
               zeroScore != null ? '${zeroScore.score}' : '--',
               style: AppTypography.data.copyWith(
                 fontSize: 56,
-                fontWeight: FontWeight.w200,
+                fontWeight: FontWeight.w300,
                 height: 1.1,
                 color: zeroScore != null
                     ? _scoreColor(zeroScore.score, isDark)
@@ -159,12 +159,12 @@ class _StageBadge extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.symmetric(
-        horizontal: AppSpacing.sm,
-        vertical: 3,
+        horizontal: 12,
+        vertical: 4,
       ),
       decoration: BoxDecoration(
         color: bg,
-        borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
+        borderRadius: BorderRadius.circular(16),
         border: isZero
             ? Border.all(
                 color: (isDark
@@ -265,7 +265,7 @@ class _PlaceholderPainter extends CustomPainter {
 
     final paint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 2.0
+      ..strokeWidth = 3.5
       ..strokeCap = StrokeCap.round;
 
     final baseColor = isDark ? AppColors.darkTextMuted : AppColors.lightTextMuted;
@@ -325,8 +325,8 @@ class _RingLegend extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
-                    width: 6,
-                    height: 6,
+                    width: 8,
+                    height: 8,
                     decoration: BoxDecoration(
                       color: item.color,
                       shape: BoxShape.circle,
@@ -336,7 +336,7 @@ class _RingLegend extends StatelessWidget {
                   Text(
                     item.name,
                     style: AppTypography.caption.copyWith(
-                      fontSize: 10,
+                      fontSize: 11,
                       color: Theme.of(context)
                           .colorScheme
                           .onSurface

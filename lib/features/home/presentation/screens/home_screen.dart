@@ -18,7 +18,7 @@ class HomeScreen extends ConsumerWidget {
     final homeState = ref.watch(homeProvider);
 
     return Scaffold(
-      appBar: const ZeroAppBar(title: 'Zero'),
+      appBar: const ZeroAppBar(title: 'Voicell'),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),

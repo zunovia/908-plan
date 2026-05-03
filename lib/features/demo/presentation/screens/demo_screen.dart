@@ -20,7 +20,7 @@ class DemoScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Zeroを体験する',
+              'Voicellを体験する',
               style: AppTypography.heading.copyWith(
                 color: Theme.of(context).colorScheme.onSurface,
               ),
