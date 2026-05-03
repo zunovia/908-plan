@@ -1,0 +1,353 @@
+{
+  "@@locale": "ja",
+
+  "nav_home": "ホーム",
+  "nav_reports": "レポート",
+  "nav_history": "履歴",
+  "nav_settings": "設定",
+
+  "common_cancel": "キャンセル",
+  "common_skip": "スキップ",
+  "common_next": "次へ",
+  "common_start": "始める",
+  "common_done": "完了",
+  "common_tap_to_skip": "タップでスキップ",
+  "common_intro_skip": "スキップ →",
+
+  "onboarding_philosophy_text": "あなたには、\n自分では聴こえない\n声がある。\n\nそれが聴こえたとき、\n繰り返しは\n静かになる。",
+  "onboarding_philosophy_highlight_voice": "声",
+  "onboarding_philosophy_highlight_inaudible": "聴こえない",
+  "onboarding_philosophy_highlight_quiet": "静かになる",
+  "onboarding_about_words": "この言葉について",
+  "onboarding_metaphor_text": "あなたの声は、\n静かな湖のようなものです。\n\n場面によって風が吹き、\n波の形が変わる。\nでも湖は一つです。\n\nVoxnaは、\nその湖面を映す場所です。\n\n毎日30秒、\n声を聴かせてください。\n波の下にある、\n静かな響きが見えてきます。",
+  "onboarding_mechanism_text": "このアプリは\n声の「響き」を聴きます。\n\n言葉の内容は\n分析しません。\n\n声の高さ、テンポ、\n揺らぎ、沈黙——\nそこにあなたの\nパターンが映ります。",
+  "onboarding_mic_text": "声を聴くために\nマイクを使います。\n\n録音データは\nサーバーに保存されません。\n声から抽出された数値だけが\n残ります。\n\n声そのものは、\nあなただけのものです。",
+  "onboarding_mic_permission_required": "マイクの許可が必要です。",
+  "onboarding_mic_open_settings": "設定を開く",
+  "onboarding_mic_allow": "許可する",
+  "onboarding_notification_text": "週に一度、\nあなたの声の変化を\nお届けします。\n\n通知が届いたとき、\n見てください。",
+  "onboarding_notification_allow": "通知を受け取る",
+  "onboarding_notification_later": "あとで",
+  "onboarding_first_question": "今、何を感じていますか？",
+  "onboarding_first_seconds": "30秒",
+  "onboarding_start_recording": "録音を開始",
+
+  "home_streak": "{count}日連続記録中",
+  "@home_streak": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "home_start_today": "今日から始めよう",
+  "home_daily_prompt_label": "今日の問いかけ:",
+  "home_daily_prompt_quote": "「{prompt}」",
+  "@home_daily_prompt_quote": {
+    "placeholders": {
+      "prompt": { "type": "String" }
+    }
+  },
+  "home_weekly_voice": "今週の声",
+  "home_collecting_data": "データを収集中...",
+  "home_days_recording": "{count}日間記録中",
+  "@home_days_recording": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+
+  "duration_short": "ひと息15秒",
+  "duration_normal": "いつもの30秒",
+  "duration_long": "じっくり60秒",
+
+  "score_voice_stability": "声の安定スコア",
+  "score_show_after_7days": "7日分記録後に表示",
+  "score_insufficient_data": "データ不足",
+  "score_energy": "エネルギー",
+  "score_clarity": "明瞭度",
+  "score_expression": "抑揚",
+  "score_tempo": "テンポ",
+
+  "recording_cancel": "キャンセル",
+  "recording_done": "完了",
+
+  "assessment_calm": "穏やか",
+  "assessment_normal": "普通",
+  "assessment_shaky": "揺れている",
+  "assessment_unknown": "わからない",
+  "assessment_question": "今の声、\nどう感じましたか？",
+
+  "insight_voice_received": "あなたの声を\n受け取りました。",
+  "insight_fallback_nuance": "これがどう変化していくかは、時間が教えてくれます。",
+  "insight_mini_tempo": "今日の声のテンポは、\n1秒あたり{tempoStr}音節でした。\n{nuance}",
+  "@insight_mini_tempo": {
+    "placeholders": {
+      "tempoStr": { "type": "String" },
+      "nuance": { "type": "String" }
+    }
+  },
+  "insight_mini_energy": "今日の声のエネルギーは{pct}%でした。\n{nuance}",
+  "@insight_mini_energy": {
+    "placeholders": {
+      "pct": { "type": "int" },
+      "nuance": { "type": "String" }
+    }
+  },
+  "insight_mini_clarity": "今日の声の明瞭度は{pct}%でした。\n{nuance}",
+  "@insight_mini_clarity": {
+    "placeholders": {
+      "pct": { "type": "int" },
+      "nuance": { "type": "String" }
+    }
+  },
+  "insight_mini_expression": "今日の声の抑揚スコアは{pct}%でした。\n{nuance}",
+  "@insight_mini_expression": {
+    "placeholders": {
+      "pct": { "type": "int" },
+      "nuance": { "type": "String" }
+    }
+  },
+  "insight_nuance_quiet": "静かで落ち着いた声でした。",
+  "insight_nuance_normal": "いつもの自分に近い声かもしれません。",
+  "insight_nuance_strong": "力強さのある声でした。",
+  "insight_tempo_slow": "ゆったりとした語りのリズムでした。",
+  "insight_tempo_normal": "自然なペースの語りでした。",
+  "insight_tempo_fast": "テンポの速い語りでした。",
+
+  "insight_weekly_fallback": "今週の声に、耳を澄ませてみてください。",
+  "insight_energy_spike": "{dayName}に声のエネルギーが{direction}ようです。その日の印象を振り返ってみてください。",
+  "@insight_energy_spike": {
+    "placeholders": {
+      "dayName": { "type": "String" },
+      "direction": { "type": "String" }
+    }
+  },
+  "insight_direction_up": "上がった",
+  "insight_direction_down": "下がった",
+  "insight_expression_rich": "{dayName}は表現が豊かでした。感情が声にのった一日だったようです。",
+  "@insight_expression_rich": {
+    "placeholders": {
+      "dayName": { "type": "String" }
+    }
+  },
+  "insight_clarity_trend": "週の{half}に声がクリアになっています。生活のリズムが反映されているのかもしれません。",
+  "@insight_clarity_trend": {
+    "placeholders": {
+      "half": { "type": "String" }
+    }
+  },
+  "insight_half_second": "後半",
+  "insight_half_first": "前半",
+  "insight_tempo_variation": "話すペースに波があった週でした。日々のリズムがそのまま声に表れています。",
+  "insight_tempo_consistency": "一定のリズムで話せた週でした。安定した日々だったのかもしれません。",
+  "insight_energy_clarity_diverge": "声の力強さと明瞭さが別の方向に動いた週でした。",
+  "insight_low_energy_week": "全体的に静かな週でした。身体が休息を求めていたのかもしれません。",
+  "insight_high_expression": "感情が豊かに声に表れた週でした。",
+  "insight_weekend_weekday_diff": "平日と週末で声の印象が違いました。",
+  "insight_stable_week": "穏やかで安定した一週間でした。",
+
+  "insight_monthly_same": "声の各指標は先月と同水準です。",
+  "insight_monthly_change": "{metric}が先月より{direction}います。{nuance}",
+  "@insight_monthly_change": {
+    "placeholders": {
+      "metric": { "type": "String" },
+      "direction": { "type": "String" },
+      "nuance": { "type": "String" }
+    }
+  },
+  "insight_monthly_direction_up": "高まって",
+  "insight_monthly_direction_down": "低下して",
+  "insight_monthly_nuance_large": "大きな変化が見られます。声が新しいリズムに移行しているようです。",
+  "insight_monthly_nuance_clear": "はっきりとした変化が見られます。",
+  "insight_monthly_nuance_small": "小さな変化ですが、耳を澄ませてみてください。",
+
+  "insight_metric_energy": "エネルギー",
+  "insight_metric_clarity": "明瞭度",
+  "insight_metric_expression": "抑揚",
+  "insight_metric_tempo": "テンポ",
+
+  "insight_highlight_lively": "最も生き生きしていた日: {dayName}",
+  "@insight_highlight_lively": {
+    "placeholders": {
+      "dayName": { "type": "String" }
+    }
+  },
+  "insight_highlight_clear": "最もクリアだった日: {dayName}",
+  "@insight_highlight_clear": {
+    "placeholders": {
+      "dayName": { "type": "String" }
+    }
+  },
+  "insight_highlight_expressive": "最も表現豊かだった日: {dayName}",
+  "@insight_highlight_expressive": {
+    "placeholders": {
+      "dayName": { "type": "String" }
+    }
+  },
+
+  "quiet_word_text": "「今日の声を、\nそっと手放します。」",
+
+  "history_title": "履歴",
+  "history_legend": "● = 録音あり  ○ = なし",
+  "history_empty": "まだ録音がありません。\n最初の声を記録してみましょう。",
+  "calendar_prev_month": "前月",
+  "calendar_next_month": "次月",
+  "calendar_year_month": "{year}年{month}月",
+  "@calendar_year_month": {
+    "placeholders": {
+      "year": { "type": "int" },
+      "month": { "type": "int" }
+    }
+  },
+  "calendar_weekdays": "月,火,水,木,金,土,日",
+
+  "detail_no_recording": "この日の録音はありません",
+  "detail_duration": "録音時間",
+  "detail_duration_seconds": "{count}秒",
+  "@detail_duration_seconds": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "detail_self_assessment": "自己評価",
+  "detail_tempo": "テンポ",
+  "detail_tempo_value": "{value}音節/秒",
+  "@detail_tempo_value": {
+    "placeholders": {
+      "value": { "type": "String" }
+    }
+  },
+  "detail_energy": "エネルギー",
+  "detail_clarity": "明瞭度",
+  "detail_expression_range": "表現幅",
+  "detail_other_recordings": "他 {count} 件の録音",
+  "@detail_other_recordings": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+
+  "settings_title": "設定",
+  "settings_account": "アカウント",
+  "settings_login_anonymous": "ログイン状態: 匿名",
+  "settings_login_linked": "ログイン状態: 連携済み",
+  "settings_link_account": "アカウント連携",
+  "settings_sound": "音の設定",
+  "settings_sound_effects": "効果音",
+  "settings_binaural": "バイノーラル",
+  "settings_notification": "通知",
+  "settings_report_notification": "レポート通知",
+  "settings_reminder": "リマインダー",
+  "settings_not_set": "未設定",
+  "settings_reminder_help": "リマインダー時刻を選択",
+  "settings_reminder_clear": "クリア",
+  "settings_reminder_set": "設定",
+  "settings_theme": "テーマ",
+  "settings_theme_dark": "ダーク",
+  "settings_theme_light": "ライト",
+  "settings_theme_auto": "自動",
+  "settings_language": "言語",
+  "settings_lang_system": "自動",
+  "settings_lang_ja": "日本語",
+  "settings_lang_en": "English",
+  "settings_lang_es": "Español",
+  "settings_lang_pt": "Português",
+  "settings_other": "その他",
+  "settings_view_demo": "デモを見る",
+  "settings_privacy_policy": "プライバシーポリシー",
+  "settings_terms": "利用規約",
+  "settings_pause_active": "お休みモード中",
+  "settings_pause": "休む",
+  "settings_delete_account": "アカウント削除",
+
+  "link_title": "アカウント連携",
+  "link_description": "データを安全に保護するため、アカウントを連携してください。",
+  "link_apple": "Appleで連携",
+  "link_google": "Googleで連携",
+  "link_success": "アカウントを連携しました",
+  "link_error_already_used": "このアカウントは既に別のユーザーに連携されています。",
+  "link_error_already_linked": "このプロバイダーは既に連携済みです。",
+  "link_error_cancelled": "連携がキャンセルされました。",
+  "link_error_generic": "アカウント連携に失敗しました。もう一度お試しください。",
+
+  "pause_resume_title": "お休みモードを解除",
+  "pause_resume_description": "通知やリマインダーを再開します。",
+  "pause_resumed": "お休みモードを解除しました",
+  "pause_resume_button": "再開する",
+  "pause_title": "お休みモード",
+  "pause_description": "通知やリマインダーを一時停止します。\nいつでも再開できます。",
+  "pause_activated": "お休みモードを有効にしました",
+  "pause_button": "休む",
+
+  "delete_title": "アカウント削除",
+  "delete_description": "すべてのデータが完全に削除されます。\nこの操作は取り消せません。",
+  "delete_failed": "削除に失敗しました: {error}",
+  "@delete_failed": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "delete_button": "削除する",
+
+  "report_weekly": "週間レポート",
+  "report_monthly": "月間レポート",
+  "report_monthly_comparison": "先月との比較",
+  "report_monthly_tone_natural": "月の中で声のトーンが変化するのは自然なことです。",
+  "report_voice_trend": "声のトレンド",
+  "report_no_data": "データがまだありません",
+  "report_energy": "エネルギー",
+  "report_clarity": "明瞭度",
+  "report_expression": "表現幅",
+  "report_highlight": "ハイライト",
+  "report_highlight_insufficient": "まだ十分なデータがありません",
+  "report_inquiry": "問いかけ",
+  "report_inquiry_fallback": "今週の声に、耳を澄ませてみてください。",
+  "report_normalization": "週の中で声のトーンが変動するのは自然なことです。\n変化そのものが、あなたの声の個性です。",
+  "report_date_range_monthly": "{year}年{month}月",
+  "@report_date_range_monthly": {
+    "placeholders": {
+      "year": { "type": "int" },
+      "month": { "type": "int" }
+    }
+  },
+
+  "demo_title": "デモ",
+  "demo_experience_voxna": "Voxnaを体験する",
+  "demo_sample_report": "サンプルレポートを見る",
+  "demo_weekly_report": "ウィークリーレポート",
+  "demo_features": "機能一覧",
+  "demo_feature_daily": "毎日30秒の声の記録",
+  "demo_feature_ai": "AIによる問いかけ",
+  "demo_feature_reports": "週次・月次レポート",
+  "demo_feature_patterns": "声のパターン追跡",
+  "demo_start": "始める →",
+  "demo_sample_title": "サンプルレポート",
+  "demo_sample_data": "サンプルデータ",
+  "demo_highlight": "最も生き生きしていた日: 木曜日\n最も静かだった日: 水曜日",
+
+  "prompt_0": "今、頭の中にあることを話してください",
+  "prompt_1": "今日の朝、最初に感じたことは何でしたか",
+  "prompt_2": "いま、身体のどこに力が入っていますか",
+  "prompt_3": "最近、時間を忘れて没頭したことはありますか",
+  "prompt_4": "今の気分を色で表すと何色ですか",
+  "prompt_5": "最近、誰かに言いたかったけど言えなかったことはありますか",
+  "prompt_6": "今日、一番心に残った瞬間は何ですか",
+  "prompt_7": "最近の自分を動物に例えると何ですか",
+  "prompt_8": "今、目を閉じて聞こえる音は何ですか",
+  "prompt_9": "最近、自分を褒めたいと思ったことはありますか",
+  "prompt_10": "今の自分に必要なものは何だと思いますか",
+  "prompt_11": "最近、笑ったのはいつですか。何がおかしかったですか",
+  "prompt_12": "子どもの頃に好きだったことで、最近していないことはありますか",
+  "prompt_13": "今日の天気は、あなたの気持ちとどう関係していますか",
+  "prompt_14": "最近、新しく気づいたことはありますか",
+  "prompt_15": "今の自分を一言で表すとしたら、何と言いますか",
+  "prompt_16": "最近、感謝したいと思った人は誰ですか",
+  "prompt_17": "今、どこか遠くに行けるとしたらどこに行きたいですか",
+  "prompt_18": "最近、夢中になって読んだもの・見たものはありますか",
+  "prompt_19": "今日の終わりに、どんな気持ちでいたいですか",
+
+  "privacy_title": "プライバシーポリシー",
+  "privacy_body": "Voxna プライバシーポリシー\n\n最終更新日: 2025年1月1日\n\n1. 収集する情報\nVoxnaは以下の情報を収集します。\n・音声録音データ（端末内にのみ保存）\n・声の分析メトリクス（エネルギー、明瞭度、表現幅、テンポ）\n・自己評価データ\n・アプリ設定情報\n\n2. データの保存\nすべてのデータは端末のローカルストレージに保存されます。音声データおよび分析結果は外部サーバーに送信されません。\n\n3. データの利用目的\n収集したデータは、声の変化の可視化およびレポート生成の目的にのみ使用します。\n\n4. データの共有\nお客様のデータを第三者と共有することはありません。\n\n5. データの削除\nアプリの「アカウント削除」機能またはアプリのアンインストールにより、すべてのデータが削除されます。\n\n6. お問い合わせ\n本ポリシーに関するご質問は、アプリ内のフィードバック機能よりお問い合わせください。",
+
+  "terms_title": "利用規約",
+  "terms_body": "Voxna 利用規約\n\n最終更新日: 2025年1月1日\n\n1. サービスの概要\nVoxnaは、毎日の声の記録を通じて自己理解を深めるためのアプリケーションです。\n\n2. 利用条件\n・本アプリは個人利用を目的としています\n・録音した音声の著作権はユーザーに帰属します\n・アプリの不正利用や改変は禁止します\n\n3. 免責事項\n・本アプリは医療診断を目的としたものではありません\n・声の分析結果はあくまで参考情報です\n・データの損失について、開発者は責任を負いません\n\n4. サービスの変更・終了\n開発者は、事前の通知なくサービスの内容を変更、または終了する場合があります。\n\n5. 準拠法\n本規約は日本法に準拠します。"
+}

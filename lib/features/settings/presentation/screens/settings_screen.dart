@@ -1,6 +1,7 @@
 import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,26 +18,27 @@ class SettingsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
     final settings = ref.watch(settingsProvider);
 
     return Scaffold(
-      appBar: const ZeroAppBar(title: '設定'),
+      appBar: ZeroAppBar(title: l10n.settings_title),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(AppSpacing.lg),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Account section
-            _sectionTitle(context, 'アカウント'),
+            _sectionTitle(context, l10n.settings_account),
             ZeroCard(
               child: Column(
                 children: [
                   SettingTile(
-                    title: 'ログイン状態: ${settings.isAnonymous ? "匿名" : "連携済み"}',
+                    title: settings.isAnonymous ? l10n.settings_login_anonymous : l10n.settings_login_linked,
                     trailing: settings.isAnonymous
                         ? TextButton(
                             onPressed: () => _showLinkAccountSheet(context, ref),
-                            child: const Text('アカウント連携'),
+                            child: Text(l10n.settings_link_account),
                           )
                         : null,
                   ),
@@ -47,12 +49,12 @@ class SettingsScreen extends ConsumerWidget {
             const SizedBox(height: AppSpacing.lg),
 
             // Sound section
-            _sectionTitle(context, '音の設定'),
+            _sectionTitle(context, l10n.settings_sound),
             ZeroCard(
               child: Column(
                 children: [
                   SettingTile(
-                    title: '効果音',
+                    title: l10n.settings_sound_effects,
                     trailing: Switch(
                       value: settings.soundEnabled,
                       onChanged: (value) {
@@ -61,7 +63,7 @@ class SettingsScreen extends ConsumerWidget {
                     ),
                   ),
                   SettingTile(
-                    title: 'バイノーラル',
+                    title: l10n.settings_binaural,
                     trailing: Switch(
                       value: settings.binauralEnabled,
                       onChanged: (value) {
@@ -76,12 +78,12 @@ class SettingsScreen extends ConsumerWidget {
             const SizedBox(height: AppSpacing.lg),
 
             // Notification section
-            _sectionTitle(context, '通知'),
+            _sectionTitle(context, l10n.settings_notification),
             ZeroCard(
               child: Column(
                 children: [
                   SettingTile(
-                    title: 'レポート通知',
+                    title: l10n.settings_report_notification,
                     trailing: Switch(
                       value: settings.reportNotification,
                       onChanged: (value) {
@@ -90,9 +92,9 @@ class SettingsScreen extends ConsumerWidget {
                     ),
                   ),
                   SettingTile(
-                    title: 'リマインダー',
+                    title: l10n.settings_reminder,
                     trailing: Text(
-                      settings.reminderTime ?? '未設定',
+                      settings.reminderTime ?? l10n.settings_not_set,
                       style: AppTypography.body.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -101,9 +103,9 @@ class SettingsScreen extends ConsumerWidget {
                       final picked = await showTimePicker(
                         context: context,
                         initialTime: _parseTime(settings.reminderTime),
-                        helpText: 'リマインダー時刻を選択',
-                        cancelText: 'クリア',
-                        confirmText: '設定',
+                        helpText: l10n.settings_reminder_help,
+                        cancelText: l10n.settings_reminder_clear,
+                        confirmText: l10n.settings_reminder_set,
                       );
                       if (!context.mounted) return;
                       if (picked != null) {
@@ -122,13 +124,30 @@ class SettingsScreen extends ConsumerWidget {
             const SizedBox(height: AppSpacing.lg),
 
             // Theme section
-            _sectionTitle(context, 'テーマ'),
+            _sectionTitle(context, l10n.settings_theme),
             ZeroCard(
               child: Row(
                 children: [
-                  _themeChip(context, ref, 'ダーク', 'dark', settings.themeMode),
-                  _themeChip(context, ref, 'ライト', 'light', settings.themeMode),
-                  _themeChip(context, ref, '自動', 'system', settings.themeMode),
+                  _themeChip(context, ref, l10n.settings_theme_dark, 'dark', settings.themeMode),
+                  _themeChip(context, ref, l10n.settings_theme_light, 'light', settings.themeMode),
+                  _themeChip(context, ref, l10n.settings_theme_auto, 'system', settings.themeMode),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: AppSpacing.lg),
+
+            // Language section
+            _sectionTitle(context, l10n.settings_language),
+            ZeroCard(
+              child: Wrap(
+                runSpacing: AppSpacing.xs,
+                children: [
+                  _languageChip(context, ref, l10n.settings_lang_system, 'system', settings.localeCode),
+                  _languageChip(context, ref, l10n.settings_lang_ja, 'ja', settings.localeCode),
+                  _languageChip(context, ref, l10n.settings_lang_en, 'en', settings.localeCode),
+                  _languageChip(context, ref, l10n.settings_lang_es, 'es', settings.localeCode),
+                  _languageChip(context, ref, l10n.settings_lang_pt, 'pt', settings.localeCode),
                 ],
               ),
             ),
@@ -136,39 +155,39 @@ class SettingsScreen extends ConsumerWidget {
             const SizedBox(height: AppSpacing.lg),
 
             // Other section
-            _sectionTitle(context, 'その他'),
+            _sectionTitle(context, l10n.settings_other),
             ZeroCard(
               child: Column(
                 children: [
                   SettingTile(
-                    title: 'デモを見る',
+                    title: l10n.settings_view_demo,
                     onTap: () => context.push('/demo'),
                   ),
                   SettingTile(
-                    title: 'プライバシーポリシー',
+                    title: l10n.settings_privacy_policy,
                     onTap: () => _showLegalSheet(
                       context,
-                      'プライバシーポリシー',
-                      _privacyPolicyText,
+                      l10n.privacy_title,
+                      l10n.privacy_body,
                     ),
                   ),
                   SettingTile(
-                    title: '利用規約',
+                    title: l10n.settings_terms,
                     onTap: () => _showLegalSheet(
                       context,
-                      '利用規約',
-                      _termsText,
+                      l10n.terms_title,
+                      l10n.terms_body,
                     ),
                   ),
                   SettingTile(
-                    title: settings.pauseMode ? 'お休みモード中' : '休む',
+                    title: settings.pauseMode ? l10n.settings_pause_active : l10n.settings_pause,
                     trailing: settings.pauseMode
                         ? const Icon(Icons.pause_circle, size: 20)
                         : null,
                     onTap: () => _showPauseDialog(context, ref, settings.pauseMode),
                   ),
                   SettingTile(
-                    title: 'アカウント削除',
+                    title: l10n.settings_delete_account,
                     titleColor: Colors.red,
                     onTap: () => _showDeleteDialog(context, ref),
                   ),
@@ -204,6 +223,7 @@ class SettingsScreen extends ConsumerWidget {
   }
 
   void _showLinkAccountSheet(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
     final messenger = ScaffoldMessenger.of(context);
     showModalBottomSheet(
       context: context,
@@ -232,7 +252,7 @@ class SettingsScreen extends ConsumerWidget {
               ),
               const SizedBox(height: AppSpacing.md),
               Text(
-                'アカウント連携',
+                l10n.link_title,
                 style: AppTypography.heading.copyWith(
                   color: Theme.of(sheetContext).colorScheme.onSurface,
                 ),
@@ -240,7 +260,7 @@ class SettingsScreen extends ConsumerWidget {
               ),
               const SizedBox(height: AppSpacing.sm),
               Text(
-                'データを安全に保護するため、アカウントを連携してください。',
+                l10n.link_description,
                 style: AppTypography.body.copyWith(
                   color: Theme.of(sheetContext)
                       .colorScheme
@@ -254,19 +274,19 @@ class SettingsScreen extends ConsumerWidget {
                 FilledButton.icon(
                   onPressed: () async {
                     Navigator.pop(sheetContext);
-                    await _linkAccount(ref, messenger, LinkProvider.apple);
+                    await _linkAccount(ref, messenger, LinkProvider.apple, l10n);
                   },
                   icon: const Icon(Icons.apple),
-                  label: const Text('Appleで連携'),
+                  label: Text(l10n.link_apple),
                 ),
               if (Platform.isIOS) const SizedBox(height: AppSpacing.sm),
               OutlinedButton.icon(
                 onPressed: () async {
                   Navigator.pop(sheetContext);
-                  await _linkAccount(ref, messenger, LinkProvider.google);
+                  await _linkAccount(ref, messenger, LinkProvider.google, l10n);
                 },
                 icon: const Icon(Icons.g_mobiledata),
-                label: const Text('Googleで連携'),
+                label: Text(l10n.link_google),
               ),
               const SizedBox(height: AppSpacing.md),
             ],
@@ -280,6 +300,7 @@ class SettingsScreen extends ConsumerWidget {
     WidgetRef ref,
     ScaffoldMessengerState messenger,
     LinkProvider provider,
+    AppLocalizations l10n,
   ) async {
     try {
       final auth = ref.read(authServiceProvider);
@@ -289,28 +310,28 @@ class SettingsScreen extends ConsumerWidget {
         await auth.linkWithGoogle();
       }
       messenger.showSnackBar(
-        const SnackBar(content: Text('アカウントを連携しました')),
+        SnackBar(content: Text(l10n.link_success)),
       );
     } catch (e) {
-      final message = _linkErrorMessage(e);
+      final message = _linkErrorMessage(e, l10n);
       messenger.showSnackBar(
         SnackBar(content: Text(message)),
       );
     }
   }
 
-  String _linkErrorMessage(Object error) {
+  String _linkErrorMessage(Object error, AppLocalizations l10n) {
     if (error.toString().contains('credential-already-in-use')) {
-      return 'このアカウントは既に別のユーザーに連携されています。';
+      return l10n.link_error_already_used;
     }
     if (error.toString().contains('provider-already-linked')) {
-      return 'このプロバイダーは既に連携済みです。';
+      return l10n.link_error_already_linked;
     }
     if (error.toString().contains('cancelled') ||
         error.toString().contains('canceled')) {
-      return '連携がキャンセルされました。';
+      return l10n.link_error_cancelled;
     }
-    return 'アカウント連携に失敗しました。もう一度お試しください。';
+    return l10n.link_error_generic;
   }
 
   void _showLegalSheet(BuildContext context, String title, String body) {
@@ -374,28 +395,29 @@ class SettingsScreen extends ConsumerWidget {
   }
 
   void _showPauseDialog(BuildContext context, WidgetRef ref, bool currentlyPaused) {
+    final l10n = AppLocalizations.of(context);
     final messenger = ScaffoldMessenger.of(context);
     if (currentlyPaused) {
       // Resume from pause
       showDialog(
         context: context,
         builder: (dialogContext) => AlertDialog(
-          title: const Text('お休みモードを解除'),
-          content: const Text('通知やリマインダーを再開します。'),
+          title: Text(l10n.pause_resume_title),
+          content: Text(l10n.pause_resume_description),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(dialogContext),
-              child: const Text('キャンセル'),
+              child: Text(l10n.common_cancel),
             ),
             FilledButton(
               onPressed: () {
                 ref.read(settingsProvider.notifier).setPauseMode(false);
                 Navigator.pop(dialogContext);
                 messenger.showSnackBar(
-                  const SnackBar(content: Text('お休みモードを解除しました')),
+                  SnackBar(content: Text(l10n.pause_resumed)),
                 );
               },
-              child: const Text('再開する'),
+              child: Text(l10n.pause_resume_button),
             ),
           ],
         ),
@@ -405,24 +427,22 @@ class SettingsScreen extends ConsumerWidget {
       showDialog(
         context: context,
         builder: (dialogContext) => AlertDialog(
-          title: const Text('お休みモード'),
-          content: const Text(
-            '通知やリマインダーを一時停止します。\nいつでも再開できます。',
-          ),
+          title: Text(l10n.pause_title),
+          content: Text(l10n.pause_description),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(dialogContext),
-              child: const Text('キャンセル'),
+              child: Text(l10n.common_cancel),
             ),
             FilledButton(
               onPressed: () {
                 ref.read(settingsProvider.notifier).setPauseMode(true);
                 Navigator.pop(dialogContext);
                 messenger.showSnackBar(
-                  const SnackBar(content: Text('お休みモードを有効にしました')),
+                  SnackBar(content: Text(l10n.pause_activated)),
                 );
               },
-              child: const Text('休む'),
+              child: Text(l10n.pause_button),
             ),
           ],
         ),
@@ -431,18 +451,17 @@ class SettingsScreen extends ConsumerWidget {
   }
 
   void _showDeleteDialog(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
     final messenger = ScaffoldMessenger.of(context);
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('アカウント削除'),
-        content: const Text(
-          'すべてのデータが完全に削除されます。\nこの操作は取り消せません。',
-        ),
+        title: Text(l10n.delete_title),
+        content: Text(l10n.delete_description),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext),
-            child: const Text('キャンセル'),
+            child: Text(l10n.common_cancel),
           ),
           FilledButton(
             style: FilledButton.styleFrom(
@@ -456,11 +475,11 @@ class SettingsScreen extends ConsumerWidget {
                 context.go('/');
               } catch (e) {
                 messenger.showSnackBar(
-                  SnackBar(content: Text('削除に失敗しました: $e')),
+                  SnackBar(content: Text(l10n.delete_failed(e.toString()))),
                 );
               }
             },
-            child: const Text('削除する'),
+            child: Text(l10n.delete_button),
           ),
         ],
       ),
@@ -488,60 +507,26 @@ class SettingsScreen extends ConsumerWidget {
       ),
     );
   }
+
+  Widget _languageChip(
+    BuildContext context,
+    WidgetRef ref,
+    String label,
+    String value,
+    String currentLocale,
+  ) {
+    final isSelected = value == currentLocale;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xs),
+      child: ChoiceChip(
+        label: Text(label),
+        selected: isSelected,
+        onSelected: (_) {
+          ref.read(settingsProvider.notifier).setLocale(value);
+        },
+      ),
+    );
+  }
 }
 
 enum LinkProvider { apple, google }
-
-const _privacyPolicyText = '''
-Voxna プライバシーポリシー
-
-最終更新日: 2025年1月1日
-
-1. 収集する情報
-Voxnaは以下の情報を収集します。
-・音声録音データ（端末内にのみ保存）
-・声の分析メトリクス（エネルギー、明瞭度、表現幅、テンポ）
-・自己評価データ
-・アプリ設定情報
-
-2. データの保存
-すべてのデータは端末のローカルストレージに保存されます。音声データおよび分析結果は外部サーバーに送信されません。
-
-3. データの利用目的
-収集したデータは、声の変化の可視化およびレポート生成の目的にのみ使用します。
-
-4. データの共有
-お客様のデータを第三者と共有することはありません。
-
-5. データの削除
-アプリの「アカウント削除」機能またはアプリのアンインストールにより、すべてのデータが削除されます。
-
-6. お問い合わせ
-本ポリシーに関するご質問は、アプリ内のフィードバック機能よりお問い合わせください。
-''';
-
-const _termsText = '''
-Voxna 利用規約
-
-最終更新日: 2025年1月1日
-
-1. サービスの概要
-Voxnaは、毎日の声の記録を通じて自己理解を深めるためのアプリケーションです。
-
-2. 利用条件
-・本アプリは個人利用を目的としています
-・録音した音声の著作権はユーザーに帰属します
-・アプリの不正利用や改変は禁止します
-
-3. 免責事項
-・本アプリは医療診断を目的としたものではありません
-・声の分析結果はあくまで参考情報です
-・データの損失について、開発者は責任を負いません
-
-4. サービスの変更・終了
-開発者は、事前の通知なくサービスの内容を変更、または終了する場合があります。
-
-5. 準拠法
-本規約は日本法に準拠します。
-''';
-

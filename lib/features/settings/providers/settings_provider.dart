@@ -12,6 +12,7 @@ class SettingsState {
   final bool reportNotification;
   final String? reminderTime;
   final String themeMode; // 'dark', 'light', 'system'
+  final String localeCode; // 'system', 'ja', 'en', 'es', 'pt'
   final bool pauseMode;
 
   const SettingsState({
@@ -21,6 +22,7 @@ class SettingsState {
     this.reportNotification = true,
     this.reminderTime,
     this.themeMode = 'system',
+    this.localeCode = 'system',
     this.pauseMode = false,
   });
 
@@ -31,6 +33,7 @@ class SettingsState {
     bool? reportNotification,
     Object? reminderTime = _sentinel,
     String? themeMode,
+    String? localeCode,
     bool? pauseMode,
   }) {
     return SettingsState(
@@ -42,6 +45,7 @@ class SettingsState {
           ? this.reminderTime
           : reminderTime as String?,
       themeMode: themeMode ?? this.themeMode,
+      localeCode: localeCode ?? this.localeCode,
       pauseMode: pauseMode ?? this.pauseMode,
     );
   }
@@ -66,6 +70,7 @@ class SettingsNotifier extends Notifier<SettingsState> {
     final reportNotification = await storage.getReportNotification();
     final reminderTime = await storage.getReminderTime();
     final themeMode = await storage.getThemeMode();
+    final localeCode = await storage.getLocale();
     final pauseMode = await storage.getPauseMode();
 
     state = state.copyWith(
@@ -74,6 +79,7 @@ class SettingsNotifier extends Notifier<SettingsState> {
       reportNotification: reportNotification,
       reminderTime: reminderTime,
       themeMode: themeMode ?? 'system',
+      localeCode: localeCode ?? 'system',
       pauseMode: pauseMode,
     );
     ref.read(soundManagerProvider).enabled = soundEnabled;
@@ -103,6 +109,11 @@ class SettingsNotifier extends Notifier<SettingsState> {
   void setThemeMode(String mode) {
     state = state.copyWith(themeMode: mode);
     ref.read(secureStorageProvider).setThemeMode(mode);
+  }
+
+  void setLocale(String code) {
+    state = state.copyWith(localeCode: code);
+    ref.read(secureStorageProvider).setLocale(code == 'system' ? null : code);
   }
 
   void setPauseMode(bool value) {
