@@ -46,7 +46,10 @@ jobs:
             -dname "CN=Voxna Debug,O=Sur Communication,C=JP"
 
       - name: Generate Android project
-        run: flutter create --project-name zero_app --org com.voxna --platforms android .
+        run: |
+          cp pubspec.yaml pubspec.yaml.bak
+          flutter create --project-name zero_app --org com.voxna --platforms android .
+          cp pubspec.yaml.bak pubspec.yaml
 
       - name: Configure build.gradle
         run: |
@@ -131,7 +134,10 @@ jobs:
           cache: true
 
       - name: Generate Android project
-        run: flutter create --project-name zero_app --org com.voxna --platforms android .
+        run: |
+          cp pubspec.yaml pubspec.yaml.bak
+          flutter create --project-name zero_app --org com.voxna --platforms android .
+          cp pubspec.yaml.bak pubspec.yaml
 
       - name: Configure build.gradle for release
         run: |
