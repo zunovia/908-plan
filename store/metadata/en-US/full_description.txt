@@ -1,0 +1,22 @@
+Voxna is an app that deepens self-understanding through 30 seconds of daily voice recording.
+
+You have a voice you cannot hear yourself.
+When you hear it, the repetitions become quiet.
+
+FEATURES
+- 30-second daily voice recording
+- AI-powered voice analysis (energy, clarity, expression range, tempo)
+- Weekly & monthly reports to visualize changes
+- Inquiry prompts based on your voice patterns
+
+PRIVACY FIRST
+- Voice recordings are never sent to any server
+- All data is stored only on your device
+- Only extracted metrics are used for analysis
+
+FOR YOU IF
+- You want to notice changes in your voice
+- You want to reflect on daily condition through your voice
+- You want to engage with your voice as part of mindfulness practice
+
+ON YOUR WAY TO ZERO — toward the stillness within your voice.

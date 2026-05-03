@@ -1,4 +1,4 @@
-name: Build Android APK
+name: Build Android
 
 on:
   push:
@@ -43,25 +43,30 @@ jobs:
             -validity 10000 \
             -storepass android \
             -keypass android \
-            -dname "CN=Zero Debug,O=Zero App,C=JP"
+            -dname "CN=Voxna Debug,O=Sur Communication,C=JP"
 
       - name: Generate Android project
-        run: flutter create --project-name zero_app --org com.example --platforms android .
+        run: flutter create --project-name zero_app --org com.voxna --platforms android .
 
-      - name: Configure Firebase and minSdkVersion
+      - name: Configure build.gradle
         run: |
           if [ -f android/app/build.gradle.kts ]; then
-            echo "Kotlin DSL detected"
+            sed -i 's/applicationId = "com.voxna.zero_app"/applicationId = "com.voxna.app"/' android/app/build.gradle.kts
             sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 23/' android/app/build.gradle.kts
             sed -i 's/minSdk = .*$/minSdk = 23/' android/app/build.gradle.kts
+            sed -i 's/targetSdk = flutter.targetSdkVersion/targetSdk = 34/' android/app/build.gradle.kts
+            sed -i 's/targetSdk = .*$/targetSdk = 34/' android/app/build.gradle.kts
             sed -i '/^plugins {/a\    id("com.google.gms.google-services")' android/app/build.gradle.kts
             if [ -f android/settings.gradle.kts ]; then
               sed -i '/id("com.android.application")/a\    id("com.google.gms.google-services") version "4.4.2" apply false' android/settings.gradle.kts
             fi
           elif [ -f android/app/build.gradle ]; then
-            echo "Groovy DSL detected"
+            sed -i 's/applicationId = "com.voxna.zero_app"/applicationId = "com.voxna.app"/' android/app/build.gradle
+            sed -i "s/applicationId \"com.voxna.zero_app\"/applicationId \"com.voxna.app\"/" android/app/build.gradle
             sed -i "s/minSdk = flutter.minSdkVersion/minSdk = 23/" android/app/build.gradle
             sed -i "s/minSdkVersion flutter.minSdkVersion/minSdkVersion 23/" android/app/build.gradle
+            sed -i "s/targetSdk = flutter.targetSdkVersion/targetSdk = 34/" android/app/build.gradle
+            sed -i "s/targetSdkVersion flutter.targetSdkVersion/targetSdkVersion 34/" android/app/build.gradle
             echo "" >> android/app/build.gradle
             echo "apply plugin: 'com.google.gms.google-services'" >> android/app/build.gradle
             if [ -f android/settings.gradle ]; then
@@ -81,6 +86,9 @@ jobs:
           MANIFEST="android/app/src/main/AndroidManifest.xml"
           sed -i 's/android:label="zero_app"/android:label="Voxna"/' "$MANIFEST"
 
+      - name: Add proguard rules
+        run: cp proguard-rules.pro android/app/proguard-rules.pro
+
       - name: Generate app icons
         run: dart run flutter_launcher_icons
 
@@ -90,12 +98,100 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
+      - name: Generate l10n
+        run: flutter gen-l10n
+
       - name: Build debug APK
         run: flutter build apk --debug
 
-      - name: Upload APK
+      - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: zero-app-debug
+          name: voxna-debug-apk
           path: build/app/outputs/flutter-apk/app-debug.apk
           retention-days: 30
+
+  release:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.27.0'
+          channel: 'stable'
+          cache: true
+
+      - name: Generate Android project
+        run: flutter create --project-name zero_app --org com.voxna --platforms android .
+
+      - name: Configure build.gradle for release
+        run: |
+          if [ -f android/app/build.gradle.kts ]; then
+            sed -i 's/applicationId = "com.voxna.zero_app"/applicationId = "com.voxna.app"/' android/app/build.gradle.kts
+            sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 23/' android/app/build.gradle.kts
+            sed -i 's/minSdk = .*$/minSdk = 23/' android/app/build.gradle.kts
+            sed -i 's/targetSdk = flutter.targetSdkVersion/targetSdk = 34/' android/app/build.gradle.kts
+            sed -i 's/targetSdk = .*$/targetSdk = 34/' android/app/build.gradle.kts
+            sed -i '/^plugins {/a\    id("com.google.gms.google-services")' android/app/build.gradle.kts
+            if [ -f android/settings.gradle.kts ]; then
+              sed -i '/id("com.android.application")/a\    id("com.google.gms.google-services") version "4.4.2" apply false' android/settings.gradle.kts
+            fi
+          elif [ -f android/app/build.gradle ]; then
+            sed -i 's/applicationId = "com.voxna.zero_app"/applicationId = "com.voxna.app"/' android/app/build.gradle
+            sed -i "s/applicationId \"com.voxna.zero_app\"/applicationId \"com.voxna.app\"/" android/app/build.gradle
+            sed -i "s/minSdk = flutter.minSdkVersion/minSdk = 23/" android/app/build.gradle
+            sed -i "s/minSdkVersion flutter.minSdkVersion/minSdkVersion 23/" android/app/build.gradle
+            sed -i "s/targetSdk = flutter.targetSdkVersion/targetSdk = 34/" android/app/build.gradle
+            sed -i "s/targetSdkVersion flutter.targetSdkVersion/targetSdkVersion 34/" android/app/build.gradle
+            echo "" >> android/app/build.gradle
+            echo "apply plugin: 'com.google.gms.google-services'" >> android/app/build.gradle
+            if [ -f android/settings.gradle ]; then
+              sed -i '/id "com.android.application"/a\    id "com.google.gms.google-services" version "4.4.2" apply false' android/settings.gradle
+            elif [ -f android/build.gradle ]; then
+              sed -i '/dependencies {/a\        classpath "com.google.gms:google-services:4.4.2"' android/build.gradle
+            fi
+          fi
+
+      - name: Add Android permissions for recording
+        run: |
+          MANIFEST="android/app/src/main/AndroidManifest.xml"
+          sed -i '/<manifest/a\    <uses-permission android:name="android.permission.RECORD_AUDIO"/>\n    <uses-permission android:name="android.permission.INTERNET"/>' "$MANIFEST"
+
+      - name: Set app label to Voxna
+        run: |
+          MANIFEST="android/app/src/main/AndroidManifest.xml"
+          sed -i 's/android:label="zero_app"/android:label="Voxna"/' "$MANIFEST"
+
+      - name: Add proguard rules
+        run: cp proguard-rules.pro android/app/proguard-rules.pro
+
+      - name: Generate app icons
+        run: dart run flutter_launcher_icons
+
+      - name: Place google-services.json
+        run: cp google-services.json android/app/google-services.json
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Generate l10n
+        run: flutter gen-l10n
+
+      - name: Build release AAB
+        run: flutter build appbundle --release
+
+      - name: Upload release AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: voxna-release-aab
+          path: build/app/outputs/bundle/release/app-release.aab
+          retention-days: 90

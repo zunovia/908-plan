@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import 'core/theme/app_theme.dart';
@@ -146,10 +147,16 @@ class ZeroApp extends ConsumerWidget {
     final themeMode = ref.watch(
       settingsProvider.select((s) => s.themeMode),
     );
+    final localeCode = ref.watch(
+      settingsProvider.select((s) => s.localeCode),
+    );
 
     return MaterialApp.router(
       title: 'Voxna',
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: localeCode == 'system' ? null : Locale(localeCode),
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: switch (themeMode) {

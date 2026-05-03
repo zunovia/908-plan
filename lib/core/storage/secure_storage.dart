@@ -15,6 +15,7 @@ class SecureStorageService {
   static const _keyReportNotification = 'report_notification';
   static const _keyReminderTime = 'reminder_time';
   static const _keyPauseMode = 'pause_mode';
+  static const _keyLocale = 'locale';
 
   Future<void> setOnboardingComplete(bool value) =>
       _storage.write(key: _keyOnboardingComplete, value: value.toString());
@@ -70,6 +71,16 @@ class SecureStorageService {
     final value = await _storage.read(key: _keyPauseMode);
     return value == 'true'; // default false
   }
+
+  Future<void> setLocale(String? locale) async {
+    if (locale == null) {
+      await _storage.delete(key: _keyLocale);
+    } else {
+      await _storage.write(key: _keyLocale, value: locale);
+    }
+  }
+
+  Future<String?> getLocale() => _storage.read(key: _keyLocale);
 
   Future<void> deleteAll() => _storage.deleteAll();
 }
