@@ -109,18 +109,18 @@ class _ConvergenceRingPainter extends CustomPainter {
 
       // Draw background track
       final trackPaint = Paint()
-        ..color = spec.color.withValues(alpha: 0.08)
+        ..color = spec.color.withValues(alpha: 0.12)
         ..style = PaintingStyle.stroke
-        ..strokeWidth = 2.5
+        ..strokeWidth = 4.0
         ..strokeCap = StrokeCap.round;
 
       canvas.drawCircle(center, outerRadius - slotWidth / 2, trackPaint);
 
       // Draw active arc (270 degrees, starting from top)
       final arcPaint = Paint()
-        ..color = spec.color.withValues(alpha: spec.value > 0.05 ? 0.85 : 0.2)
+        ..color = spec.color.withValues(alpha: spec.value > 0.05 ? 0.95 : 0.2)
         ..style = PaintingStyle.stroke
-        ..strokeWidth = 3.0
+        ..strokeWidth = 5.5
         ..strokeCap = StrokeCap.round;
 
       final sweepAngle = 2 * math.pi * 0.75; // 270 degrees
@@ -144,7 +144,7 @@ class _ConvergenceRingPainter extends CustomPainter {
         ..color = (isDark ? AppColors.darkAccentWarm : AppColors.lightAccentWarm)
             .withValues(alpha: (centerGlow - 0.5) * 0.6)
         ..style = PaintingStyle.fill;
-      canvas.drawCircle(center, 8 * centerGlow, glowPaint);
+      canvas.drawCircle(center, 10 * centerGlow, glowPaint);
     }
   }
 

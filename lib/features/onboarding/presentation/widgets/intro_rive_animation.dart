@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_durations.dart';
-import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_typography.dart';
 import '../painters/intro_painter.dart';
 import '../painters/particle.dart';
@@ -136,7 +135,7 @@ class _IntroRiveAnimationState extends State<IntroRiveAnimation>
         final skipVisible = _showSkip && !_skipping && progress < _phase3End;
 
         return Container(
-          color: const Color(0xFF0A0A0F),
+          color: Colors.white,
           child: Stack(
             children: [
               // CustomPaint for phases 1-3
@@ -164,9 +163,9 @@ class _IntroRiveAnimationState extends State<IntroRiveAnimation>
                 Positioned.fill(
                   child: ColoredBox(
                     color: Color.fromRGBO(
-                      10,
-                      10,
-                      15,
+                      255,
+                      255,
+                      255,
                       ((progress - _phase4End) / (1.0 - _phase4End))
                           .clamp(0.0, 1.0),
                     ),
@@ -187,7 +186,7 @@ class _IntroRiveAnimationState extends State<IntroRiveAnimation>
                       child: Text(
                         'スキップ →',
                         style: AppTypography.caption.copyWith(
-                          color: const Color(0xFFE8E6E0),
+                          color: const Color(0xFF333333),
                         ),
                       ),
                     ),
@@ -213,7 +212,7 @@ class _IntroRiveAnimationState extends State<IntroRiveAnimation>
                 : 1.0;
 
         return Container(
-          color: const Color(0xFF0A0A0F),
+          color: Colors.white,
           child: Center(
             child: Opacity(
               opacity: opacity,
@@ -226,27 +225,10 @@ class _IntroRiveAnimationState extends State<IntroRiveAnimation>
   }
 
   Widget _logoContent() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          'Zero',
-          style: AppTypography.philosophy.copyWith(
-            color: const Color(0xFFE8E6E0),
-            fontSize: 32,
-            letterSpacing: 8,
-            fontWeight: FontWeight.w300,
-            height: null,
-          ),
-        ),
-        const SizedBox(height: AppSpacing.sm),
-        Text(
-          '声の、鏡。',
-          style: AppTypography.caption.copyWith(
-            color: const Color(0xFFE8E6E0).withValues(alpha: 0.6),
-          ),
-        ),
-      ],
+    return Image.asset(
+      'assets/images/voicell_logo.png',
+      width: 200,
+      fit: BoxFit.contain,
     );
   }
 }

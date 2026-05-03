@@ -493,12 +493,12 @@ class SettingsScreen extends ConsumerWidget {
 enum LinkProvider { apple, google }
 
 const _privacyPolicyText = '''
-Zero プライバシーポリシー
+Voicell プライバシーポリシー
 
 最終更新日: 2025年1月1日
 
 1. 収集する情報
-Zeroは以下の情報を収集します。
+Voicellは以下の情報を収集します。
 ・音声録音データ（端末内にのみ保存）
 ・声の分析メトリクス（エネルギー、明瞭度、表現幅、テンポ）
 ・自己評価データ
@@ -521,12 +521,12 @@ Zeroは以下の情報を収集します。
 ''';
 
 const _termsText = '''
-Zero 利用規約
+Voicell 利用規約
 
 最終更新日: 2025年1月1日
 
 1. サービスの概要
-Zeroは、毎日の声の記録を通じて自己理解を深めるためのアプリケーションです。
+Voicellは、毎日の声の記録を通じて自己理解を深めるためのアプリケーションです。
 
 2. 利用条件
 ・本アプリは個人利用を目的としています
