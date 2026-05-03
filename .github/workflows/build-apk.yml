@@ -76,6 +76,14 @@ jobs:
           MANIFEST="android/app/src/main/AndroidManifest.xml"
           sed -i '/<manifest/a\    <uses-permission android:name="android.permission.RECORD_AUDIO"/>\n    <uses-permission android:name="android.permission.INTERNET"/>' "$MANIFEST"
 
+      - name: Set app label to Voicell
+        run: |
+          MANIFEST="android/app/src/main/AndroidManifest.xml"
+          sed -i 's/android:label="zero_app"/android:label="Voicell"/' "$MANIFEST"
+
+      - name: Generate app icons
+        run: dart run flutter_launcher_icons
+
       - name: Place google-services.json
         run: cp google-services.json android/app/google-services.json
 
