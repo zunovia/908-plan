@@ -132,6 +132,18 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Generate upload keystore
+        run: |
+          keytool -genkey -v \
+            -keystore android/app/upload-keystore.jks \
+            -alias upload \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -storepass voxna2024 \
+            -keypass voxna2024 \
+            -dname "CN=Voxna,O=Sur Communication,C=JP"
+
       - name: Generate Android project
         run: |
           flutter create --project-name zero_app --org com.voxna --platforms android --no-pub .
@@ -139,29 +151,60 @@ jobs:
 
       - name: Configure build.gradle for release
         run: |
-          if [ -f android/app/build.gradle.kts ]; then
-            sed -i 's/applicationId = "com.voxna.zero_app"/applicationId = "com.voxna.app"/' android/app/build.gradle.kts
-            sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 23/' android/app/build.gradle.kts
-            sed -i 's/minSdk = .*$/minSdk = 23/' android/app/build.gradle.kts
-            sed -i 's/targetSdk = flutter.targetSdkVersion/targetSdk = 34/' android/app/build.gradle.kts
-            sed -i 's/targetSdk = .*$/targetSdk = 34/' android/app/build.gradle.kts
-            sed -i '/^plugins {/a\    id("com.google.gms.google-services")' android/app/build.gradle.kts
-            if [ -f android/settings.gradle.kts ]; then
-              sed -i '/id("com.android.application")/a\    id("com.google.gms.google-services") version "4.4.2" apply false' android/settings.gradle.kts
-            fi
-          elif [ -f android/app/build.gradle ]; then
+          # Create key.properties
+          cat > android/key.properties << 'PROPS'
+          storePassword=voxna2024
+          keyPassword=voxna2024
+          keyAlias=upload
+          storeFile=upload-keystore.jks
+          PROPS
+
+          if [ -f android/app/build.gradle ]; then
+            # Add signing config reference at top of android block
+            sed -i '/^android {/a\
+            def keystoreProperties = new Properties()\ndef keystorePropertiesFile = rootProject.file("key.properties")\nif (keystorePropertiesFile.exists()) {\n    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))\n}' android/app/build.gradle
+
+            # Add signingConfigs block before buildTypes
+            sed -i '/buildTypes {/i\
+            signingConfigs {\n    release {\n        keyAlias keystoreProperties["keyAlias"]\n        keyPassword keystoreProperties["keyPassword"]\n        storeFile file(keystoreProperties["storeFile"])\n        storePassword keystoreProperties["storePassword"]\n    }\n}' android/app/build.gradle
+
+            # Replace debug signing with release signing in release buildType
+            sed -i 's/signingConfig signingConfigs.debug/signingConfig signingConfigs.release/' android/app/build.gradle
+
+            # applicationId and SDK versions
             sed -i 's/applicationId = "com.voxna.zero_app"/applicationId = "com.voxna.app"/' android/app/build.gradle
             sed -i "s/applicationId \"com.voxna.zero_app\"/applicationId \"com.voxna.app\"/" android/app/build.gradle
             sed -i "s/minSdk = flutter.minSdkVersion/minSdk = 23/" android/app/build.gradle
             sed -i "s/minSdkVersion flutter.minSdkVersion/minSdkVersion 23/" android/app/build.gradle
             sed -i "s/targetSdk = flutter.targetSdkVersion/targetSdk = 34/" android/app/build.gradle
             sed -i "s/targetSdkVersion flutter.targetSdkVersion/targetSdkVersion 34/" android/app/build.gradle
+
+            # Disable R8 minification
+            sed -i 's/minifyEnabled true/minifyEnabled false/' android/app/build.gradle
+            sed -i 's/shrinkResources true/shrinkResources false/' android/app/build.gradle
+            if ! grep -q "minifyEnabled" android/app/build.gradle; then
+              sed -i '/signingConfig signingConfigs.release/a\            minifyEnabled false' android/app/build.gradle
+            fi
+
+            # Google Services plugin
             echo "" >> android/app/build.gradle
             echo "apply plugin: 'com.google.gms.google-services'" >> android/app/build.gradle
             if [ -f android/settings.gradle ]; then
               sed -i '/id "com.android.application"/a\    id "com.google.gms.google-services" version "4.4.2" apply false' android/settings.gradle
             elif [ -f android/build.gradle ]; then
               sed -i '/dependencies {/a\        classpath "com.google.gms:google-services:4.4.2"' android/build.gradle
+            fi
+
+          elif [ -f android/app/build.gradle.kts ]; then
+            sed -i 's/applicationId = "com.voxna.zero_app"/applicationId = "com.voxna.app"/' android/app/build.gradle.kts
+            sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 23/' android/app/build.gradle.kts
+            sed -i 's/minSdk = .*$/minSdk = 23/' android/app/build.gradle.kts
+            sed -i 's/targetSdk = flutter.targetSdkVersion/targetSdk = 34/' android/app/build.gradle.kts
+            sed -i 's/targetSdk = .*$/targetSdk = 34/' android/app/build.gradle.kts
+            sed -i 's/isMinifyEnabled = true/isMinifyEnabled = false/' android/app/build.gradle.kts
+            sed -i '/^plugins {/a\    id("com.google.gms.google-services")' android/app/build.gradle.kts
+            if [ -f android/settings.gradle.kts ]; then
+              sed -i '/id("com.android.application")/a\    id("com.google.gms.google-services") version "4.4.2" apply false' android/settings.gradle.kts
             fi
           fi
 
@@ -174,25 +217,6 @@ jobs:
         run: |
           MANIFEST="android/app/src/main/AndroidManifest.xml"
           sed -i 's/android:label="zero_app"/android:label="Voxna"/' "$MANIFEST"
-
-      - name: Disable R8 minification for release
-        run: |
-          # Flutter 3.27 generates Groovy build.gradle with minifyEnabled in release
-          # We must explicitly disable it to avoid Play Core missing class errors
-          if [ -f android/app/build.gradle ]; then
-            sed -i 's/minifyEnabled true/minifyEnabled false/' android/app/build.gradle
-            sed -i 's/shrinkResources true/shrinkResources false/' android/app/build.gradle
-            # If minifyEnabled isn't present, inject it into release block
-            if ! grep -q "minifyEnabled" android/app/build.gradle; then
-              sed -i '/signingConfig signingConfigs.debug/a\            minifyEnabled false' android/app/build.gradle
-            fi
-          elif [ -f android/app/build.gradle.kts ]; then
-            sed -i 's/isMinifyEnabled = true/isMinifyEnabled = false/' android/app/build.gradle.kts
-            sed -i 's/isShrinkResources = true/isShrinkResources = false/' android/app/build.gradle.kts
-            if ! grep -q "isMinifyEnabled" android/app/build.gradle.kts; then
-              sed -i '/signingConfig = signingConfigs.getByName("debug")/a\            isMinifyEnabled = false' android/app/build.gradle.kts
-            fi
-          fi
 
       - name: Generate app icons
         run: dart run flutter_launcher_icons
