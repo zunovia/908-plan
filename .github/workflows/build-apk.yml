@@ -132,6 +132,11 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Generate Android project
+        run: |
+          flutter create --project-name zero_app --org com.voxna --platforms android --no-pub .
+          git checkout -- pubspec.yaml l10n.yaml
+
       - name: Generate upload keystore
         run: |
           keytool -genkey -v \
@@ -143,11 +148,6 @@ jobs:
             -storepass voxna2024 \
             -keypass voxna2024 \
             -dname "CN=Voxna,O=Sur Communication,C=JP"
-
-      - name: Generate Android project
-        run: |
-          flutter create --project-name zero_app --org com.voxna --platforms android --no-pub .
-          git checkout -- pubspec.yaml l10n.yaml
 
       - name: Configure build.gradle for release
         run: |
