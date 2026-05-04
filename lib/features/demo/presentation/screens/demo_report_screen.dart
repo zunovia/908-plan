@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_typography.dart';
@@ -14,6 +15,7 @@ class DemoReportScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final now = DateTime.now();
     final weekStart = now.subtract(Duration(days: now.weekday - 1));
 
@@ -28,7 +30,7 @@ class DemoReportScreen extends StatelessWidget {
     });
 
     return Scaffold(
-      appBar: const ZeroAppBar(title: 'サンプルレポート'),
+      appBar: ZeroAppBar(title: l10n.demo_sample_title),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(AppSpacing.lg),
         child: Column(
@@ -47,7 +49,7 @@ class DemoReportScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
               ),
               child: Text(
-                'サンプルデータ',
+                l10n.demo_sample_data,
                 style: AppTypography.caption.copyWith(
                   color: Theme.of(context).colorScheme.primary,
                 ),
@@ -55,7 +57,7 @@ class DemoReportScreen extends StatelessWidget {
             ),
             const SizedBox(height: AppSpacing.md),
             Text(
-              'ウィークリーレポート',
+              l10n.demo_weekly_report,
               style: AppTypography.body.copyWith(
                 color: Theme.of(context)
                     .colorScheme
@@ -67,8 +69,7 @@ class DemoReportScreen extends StatelessWidget {
             TrendLineChart(metrics: metrics),
             const SizedBox(height: AppSpacing.lg),
             HighlightCard(
-              highlight:
-                  '最も生き生きしていた日: 木曜日\n最も静かだった日: 水曜日',
+              highlight: l10n.demo_highlight,
             ),
             const SizedBox(height: AppSpacing.lg),
             const InquiryCard(),

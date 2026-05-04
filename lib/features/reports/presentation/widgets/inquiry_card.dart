@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_typography.dart';
@@ -11,14 +12,15 @@ class InquiryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final text = inquiry ?? '今週の声に、耳を澄ませてみてください。';
+    final l10n = AppLocalizations.of(context);
+    final text = inquiry ?? l10n.report_inquiry_fallback;
 
     return ZeroCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '問いかけ',
+            l10n.report_inquiry,
             style: AppTypography.heading.copyWith(
               color: Theme.of(context).colorScheme.onSurface,
               fontSize: 16,

@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_spacing.dart';
@@ -13,6 +14,7 @@ class MiniTrendChart extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
     final homeState = ref.watch(homeProvider);
     final spots = _buildSpots(homeState.recentRecordings);
     final accent = Theme.of(context).colorScheme.primary;
@@ -22,7 +24,7 @@ class MiniTrendChart extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '今週の声',
+            l10n.home_weekly_voice,
             style: AppTypography.body.copyWith(
               color: Theme.of(context).colorScheme.onSurface,
             ),
@@ -33,7 +35,7 @@ class MiniTrendChart extends ConsumerWidget {
             child: spots.length < 2
                 ? Center(
                     child: Text(
-                      'データを収集中...',
+                      l10n.home_collecting_data,
                       style: AppTypography.caption.copyWith(
                         color: Theme.of(context)
                             .colorScheme
@@ -77,7 +79,7 @@ class MiniTrendChart extends ConsumerWidget {
           ),
           const SizedBox(height: AppSpacing.sm),
           Text(
-            '${homeState.dayCount}日間記録中',
+            l10n.home_days_recording(homeState.dayCount),
             style: AppTypography.caption.copyWith(
               color: Theme.of(context)
                   .colorScheme

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_typography.dart';
@@ -54,6 +55,7 @@ class _CalendarGridState extends State<CalendarGrid> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final year = _displayedMonth.year;
     final month = _displayedMonth.month;
     final daysInMonth = DateUtils.getDaysInMonth(year, month);
@@ -68,12 +70,12 @@ class _CalendarGridState extends State<CalendarGrid> {
           children: [
             IconButton(
               icon: const Icon(Icons.chevron_left, size: 20),
-              tooltip: '前月',
+              tooltip: l10n.calendar_prev_month,
               onPressed: _previousMonth,
               visualDensity: VisualDensity.compact,
             ),
             Text(
-              '$year年$month月',
+              l10n.calendar_year_month(year, month),
               style: AppTypography.heading.copyWith(
                 color: Theme.of(context).colorScheme.onSurface,
                 fontSize: 16,
@@ -90,7 +92,7 @@ class _CalendarGridState extends State<CalendarGrid> {
                         .withValues(alpha: 0.2)
                     : null,
               ),
-              tooltip: '次月',
+              tooltip: l10n.calendar_next_month,
               onPressed: isCurrentMonth ? null : _nextMonth,
               visualDensity: VisualDensity.compact,
             ),
@@ -99,7 +101,7 @@ class _CalendarGridState extends State<CalendarGrid> {
         const SizedBox(height: AppSpacing.sm),
         // Weekday headers
         Row(
-          children: ['月', '火', '水', '木', '金', '土', '日']
+          children: l10n.calendar_weekdays.split(',')
               .map((d) => Expanded(
                     child: Center(
                       child: Text(

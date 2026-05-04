@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_spacing.dart';
@@ -12,15 +13,16 @@ class DemoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
-      appBar: const ZeroAppBar(title: 'デモ'),
+      appBar: ZeroAppBar(title: l10n.demo_title),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(AppSpacing.lg),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Voxnaを体験する',
+              l10n.demo_experience_voxna,
               style: AppTypography.heading.copyWith(
                 color: Theme.of(context).colorScheme.onSurface,
               ),
@@ -30,13 +32,13 @@ class DemoScreen extends StatelessWidget {
             ZeroCard(
               child: ListTile(
                 title: Text(
-                  'サンプルレポートを見る',
+                  l10n.demo_sample_report,
                   style: AppTypography.body.copyWith(
                     color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
                 subtitle: Text(
-                  'ウィークリーレポート',
+                  l10n.demo_weekly_report,
                   style: AppTypography.caption.copyWith(
                     color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
                   ),
@@ -56,24 +58,24 @@ class DemoScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '機能一覧',
+                    l10n.demo_features,
                     style: AppTypography.heading.copyWith(
                       color: Theme.of(context).colorScheme.onSurface,
                       fontSize: 16,
                     ),
                   ),
                   const SizedBox(height: AppSpacing.md),
-                  _featureItem(context, '毎日30秒の声の記録'),
-                  _featureItem(context, 'AIによる問いかけ'),
-                  _featureItem(context, '週次・月次レポート'),
-                  _featureItem(context, '声のパターン追跡'),
+                  _featureItem(context, l10n.demo_feature_daily),
+                  _featureItem(context, l10n.demo_feature_ai),
+                  _featureItem(context, l10n.demo_feature_reports),
+                  _featureItem(context, l10n.demo_feature_patterns),
                 ],
               ),
             ),
             const SizedBox(height: AppSpacing.xl),
             Center(
               child: ZeroButton(
-                label: '始める →',
+                label: l10n.demo_start,
                 onPressed: () => context.go('/home'),
               ),
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,6 +12,7 @@ class FirstRecordingScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -29,7 +31,7 @@ class FirstRecordingScreen extends ConsumerWidget {
               ),
               const Spacer(),
               Text(
-                '今、何を感じていますか？',
+                l10n.onboarding_first_question,
                 style: AppTypography.philosophy.copyWith(
                   color: Theme.of(context).colorScheme.onSurface,
                 ),
@@ -39,7 +41,7 @@ class FirstRecordingScreen extends ConsumerWidget {
               // Recording button — 80dp circle
               Semantics(
                 button: true,
-                label: '録音を開始',
+                label: l10n.onboarding_start_recording,
                 child: GestureDetector(
                   onTap: () {
                     // Mark onboarding complete and navigate to recording
@@ -63,7 +65,7 @@ class FirstRecordingScreen extends ConsumerWidget {
               ),
               const SizedBox(height: AppSpacing.md),
               Text(
-                '30秒',
+                l10n.onboarding_first_seconds,
                 style: AppTypography.caption.copyWith(
                   color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.4),
                 ),

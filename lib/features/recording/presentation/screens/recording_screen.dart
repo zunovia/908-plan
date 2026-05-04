@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -73,7 +74,7 @@ class RecordingScreen extends ConsumerWidget {
                 HapticFeedback.selectionClick();
                 await ref
                     .read(recordingProvider.notifier)
-                    .saveSelfAssessment(assessment.label);
+                    .saveSelfAssessment(assessment.name);
                 ref.read(recordingPhaseProvider.notifier).nextPhase();
               },
               onSkip: () {
@@ -129,6 +130,7 @@ class _RecordingViewState extends ConsumerState<_RecordingView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final recordingState = ref.watch(recordingProvider);
     final elapsed = recordingState.elapsed;
     final total = recordingState.totalDuration;
@@ -152,7 +154,7 @@ class _RecordingViewState extends ConsumerState<_RecordingView> {
             alignment: Alignment.topRight,
             child: IconButton(
               icon: const Icon(Icons.close),
-              tooltip: 'キャンセル',
+              tooltip: l10n.recording_cancel,
               onPressed: widget.onCancel,
             ),
           ),
@@ -174,7 +176,7 @@ class _RecordingViewState extends ConsumerState<_RecordingView> {
               // onFinished is triggered by ref.listen above when isRecording becomes false
             },
             icon: const Icon(Icons.stop),
-            label: const Text('完了'),
+            label: Text(l10n.recording_done),
             style: ElevatedButton.styleFrom(
               backgroundColor: Theme.of(context).colorScheme.primary,
               shape: RoundedRectangleBorder(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/audio/sound_manager.dart';
@@ -36,10 +37,11 @@ class _MonthlyReportScreenState extends ConsumerState<MonthlyReportScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final reportState = ref.watch(monthlyReportProvider);
 
     return Scaffold(
-      appBar: const ZeroAppBar(title: '月間レポート'),
+      appBar: ZeroAppBar(title: l10n.report_monthly),
       body: reportState.isLoading
           ? const Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
@@ -67,7 +69,7 @@ class _MonthlyReportScreenState extends ConsumerState<MonthlyReportScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '先月との比較',
+                      l10n.report_monthly_comparison,
                       style: AppTypography.heading.copyWith(
                         color: Theme.of(context).colorScheme.onSurface,
                         fontSize: 16,
@@ -87,7 +89,7 @@ class _MonthlyReportScreenState extends ConsumerState<MonthlyReportScreen> {
               const SizedBox(height: AppSpacing.lg),
             ZeroCard(
               child: Text(
-                '月の中で声のトーンが変化するのは自然なことです。',
+                l10n.report_monthly_tone_natural,
                 style: AppTypography.body.copyWith(
                   color: Theme.of(context)
                       .colorScheme

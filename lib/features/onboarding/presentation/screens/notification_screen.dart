@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -20,6 +21,7 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
@@ -46,20 +48,19 @@ class NotificationScreen extends StatelessWidget {
               ),
               const SizedBox(height: AppSpacing.lg),
               TextFadeIn(
-                text: '週に一度、\nあなたの声の変化を\nお届けします。\n\n'
-                    '通知が届いたとき、\n見てください。',
+                text: l10n.onboarding_notification_text,
                 style: AppTypography.philosophy,
               ),
               const Spacer(),
               ZeroButton(
-                label: '通知を受け取る',
+                label: l10n.onboarding_notification_allow,
                 onPressed: () => _requestNotification(context),
               ),
               const SizedBox(height: AppSpacing.md),
               TextButton(
                 onPressed: () => context.go('/onboarding/first-recording'),
                 child: Text(
-                  'あとで',
+                  l10n.onboarding_notification_later,
                   style: AppTypography.caption.copyWith(
                     color: isDark
                         ? AppColors.darkTextMuted

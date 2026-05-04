@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/audio/sound_manager.dart';
@@ -37,10 +38,11 @@ class _WeeklyReportScreenState extends ConsumerState<WeeklyReportScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final reportState = ref.watch(reportProvider);
 
     return Scaffold(
-      appBar: const ZeroAppBar(title: '週間レポート'),
+      appBar: ZeroAppBar(title: l10n.report_weekly),
       body: reportState.isLoading
           ? const Center(child: CircularProgressIndicator())
           : SingleChildScrollView(

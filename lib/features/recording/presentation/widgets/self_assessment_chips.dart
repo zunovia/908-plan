@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_typography.dart';
 import '../../../../core/constants/app_colors.dart';
 
 enum SelfAssessment {
-  calm('穏やか'),
-  normal('普通'),
-  shaky('揺れている'),
-  unknown('わからない');
+  calm,
+  normal,
+  shaky,
+  unknown;
 
-  final String label;
-  const SelfAssessment(this.label);
+  String label(AppLocalizations l10n) => switch (this) {
+    calm => l10n.assessment_calm,
+    normal => l10n.assessment_normal,
+    shaky => l10n.assessment_shaky,
+    unknown => l10n.assessment_unknown,
+  };
 }
 
 class SelfAssessmentChips extends StatelessWidget {
@@ -26,6 +31,7 @@ class SelfAssessmentChips extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Padding(
@@ -34,7 +40,7 @@ class SelfAssessmentChips extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            '今の声、\nどう感じましたか？',
+            l10n.assessment_question,
             style: AppTypography.philosophy.copyWith(
               color: Theme.of(context).colorScheme.onSurface,
             ),
@@ -48,7 +54,7 @@ class SelfAssessmentChips extends StatelessWidget {
             children: SelfAssessment.values.map((assessment) {
               return ActionChip(
                 label: Text(
-                  assessment.label,
+                  assessment.label(l10n),
                   style: AppTypography.body.copyWith(
                     color: Theme.of(context).colorScheme.onSurface,
                   ),
@@ -66,7 +72,7 @@ class SelfAssessmentChips extends StatelessWidget {
           TextButton(
             onPressed: onSkip,
             child: Text(
-              'スキップ',
+              l10n.common_skip,
               style: AppTypography.caption.copyWith(
                 color: isDark
                     ? AppColors.darkTextMuted

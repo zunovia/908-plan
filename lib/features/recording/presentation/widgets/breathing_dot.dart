@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/audio/sound_manager.dart';
@@ -63,6 +64,7 @@ class _BreathingDotState extends ConsumerState<BreathingDot>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: _handleTapSkip,
@@ -83,7 +85,7 @@ class _BreathingDotState extends ConsumerState<BreathingDot>
             ),
             const SizedBox(height: 24),
             Text(
-              'タップでスキップ',
+              l10n.common_tap_to_skip,
               style: AppTypography.caption.copyWith(
                 color: Theme.of(context)
                     .colorScheme

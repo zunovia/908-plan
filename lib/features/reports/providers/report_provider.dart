@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
@@ -49,7 +52,10 @@ class ReportNotifier extends Notifier<ReportState> {
     return const ReportState(isLoading: true);
   }
 
-  void _loadWeeklyReport() {
+  void _loadWeeklyReport() async {
+    final locale = PlatformDispatcher.instance.locale;
+    final l10n = await AppLocalizations.delegate.load(locale);
+
     final repo = ref.read(localRecordingRepositoryProvider);
     final now = DateTime.now();
 
@@ -61,12 +67,12 @@ class ReportNotifier extends Notifier<ReportState> {
     final recordings = repo.getRecordingsInRange(weekStart, weekEnd);
     final dailyMetrics = _aggregateByDay(recordings, weekStart, 7);
 
-    final highlight = InsightEngine.generateHighlight(dailyMetrics);
+    final highlight = InsightEngine.generateHighlight(dailyMetrics, l10n);
     final dateFormat = DateFormat('M/d');
     final dateRange =
         '${dateFormat.format(weekStart)} - ${dateFormat.format(weekEnd.subtract(const Duration(days: 1)))}';
 
-    final inquiry = InsightEngine.generateWeeklyInquiry(dailyMetrics);
+    final inquiry = InsightEngine.generateWeeklyInquiry(dailyMetrics, l10n);
 
     state = ReportState(
       dateRange: dateRange,
@@ -93,7 +99,10 @@ class MonthlyReportNotifier extends Notifier<ReportState> {
     return const ReportState(isLoading: true);
   }
 
-  void _loadMonthlyReport() {
+  void _loadMonthlyReport() async {
+    final locale = PlatformDispatcher.instance.locale;
+    final l10n = await AppLocalizations.delegate.load(locale);
+
     final repo = ref.read(localRecordingRepositoryProvider);
     final now = DateTime.now();
 
@@ -104,15 +113,15 @@ class MonthlyReportNotifier extends Notifier<ReportState> {
     final recordings = repo.getRecordingsInRange(monthStart, monthEnd);
     final dailyMetrics = _aggregateByDay(recordings, monthStart, daysInMonth);
 
-    final highlight = InsightEngine.generateHighlight(dailyMetrics);
-    final dateRange = '${now.year}年${now.month}月';
+    final highlight = InsightEngine.generateHighlight(dailyMetrics, l10n);
+    final dateRange = l10n.report_date_range_monthly(now.year, now.month);
 
     // Compare with previous month
     final prevMonthStart = DateTime(now.year, now.month - 1, 1);
     final prevRecordings =
         repo.getRecordingsInRange(prevMonthStart, monthStart);
     final comparison =
-        InsightEngine.generateMonthlyComparison(dailyMetrics, prevRecordings);
+        InsightEngine.generateMonthlyComparison(dailyMetrics, prevRecordings, l10n);
 
     state = ReportState(
       dateRange: dateRange,

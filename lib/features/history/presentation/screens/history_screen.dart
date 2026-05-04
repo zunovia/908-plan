@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_spacing.dart';
@@ -13,10 +14,11 @@ class HistoryScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
     final historyState = ref.watch(historyProvider);
 
     return Scaffold(
-      appBar: const ZeroAppBar(title: '履歴'),
+      appBar: ZeroAppBar(title: l10n.history_title),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(AppSpacing.lg),
         child: Column(
@@ -31,7 +33,7 @@ class HistoryScreen extends ConsumerWidget {
             ),
             const SizedBox(height: AppSpacing.sm),
             Text(
-              '● = 録音あり  ○ = なし',
+              l10n.history_legend,
               style: AppTypography.caption.copyWith(
                 color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.4),
               ),
@@ -47,7 +49,7 @@ class HistoryScreen extends ConsumerWidget {
                 padding: const EdgeInsets.only(top: AppSpacing.xl),
                 child: Center(
                   child: Text(
-                    'まだ録音がありません。\n最初の声を記録してみましょう。',
+                    l10n.history_empty,
                     style: AppTypography.body.copyWith(
                       color: Theme.of(context)
                           .colorScheme
