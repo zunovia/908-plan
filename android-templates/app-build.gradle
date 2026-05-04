@@ -1,0 +1,68 @@
+// Template for Voxna release build.
+// Copied over the flutter-generated android/app/build.gradle by CI
+// before building the release AAB.
+//
+// Based on Flutter 3.27 Groovy DSL new-project format.
+// The flutter-plugin-loader (registered in settings.gradle) injects the
+// Flutter Gradle plugin, so no manual "apply from: flutter.gradle" is needed.
+
+// ---------------------------------------------------------------------------
+// Load signing properties from android/key.properties (written by CI).
+// The block is evaluated at configuration time; storeFile is resolved
+// relative to the android/app/ directory via file(), which is correct
+// because key.properties sets storeFile=upload-keystore.jks (file lives at
+// android/app/upload-keystore.jks after keytool runs in CI).
+// ---------------------------------------------------------------------------
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystorePropertiesFile.withReader('UTF-8') { reader ->
+        keystoreProperties.load(reader)
+    }
+}
+
+plugins {
+    id "com.android.application"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+}
+
+android {
+    namespace "com.voxna.app"
+    compileSdk 34
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.voxna.app"
+        minSdk 23
+        targetSdk 34
+        versionCode flutter.versionCode
+        versionName flutter.versionName
+    }
+
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+}
+
+flutter {
+    source "../.."
+}
