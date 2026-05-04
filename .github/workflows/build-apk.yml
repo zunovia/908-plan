@@ -137,17 +137,9 @@ jobs:
           flutter create --project-name zero_app --org com.voxna --platforms android --no-pub .
           git checkout -- pubspec.yaml l10n.yaml
 
-      - name: Generate upload keystore
+      - name: Decode upload keystore from secret
         run: |
-          keytool -genkey -v \
-            -keystore android/app/upload-keystore.jks \
-            -alias upload \
-            -keyalg RSA \
-            -keysize 2048 \
-            -validity 10000 \
-            -storepass voxna2024 \
-            -keypass voxna2024 \
-            -dname "CN=Voxna,O=Sur Communication,C=JP"
+          echo "${{ secrets.UPLOAD_KEYSTORE }}" | base64 -d > android/app/upload-keystore.jks
 
       - name: Configure build.gradle for release
         run: |
