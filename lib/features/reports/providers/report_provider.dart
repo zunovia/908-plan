@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import '../../../core/insights/insight_engine.dart';
 import '../../../core/providers/storage_providers.dart';
 import '../../recording/data/recording_model.dart';
+import '../../settings/providers/settings_provider.dart';
 import '../data/report_model.dart';
 
 class ReportState {
@@ -48,13 +49,18 @@ class ReportState {
 class ReportNotifier extends Notifier<ReportState> {
   @override
   ReportState build() {
-    Future.microtask(_loadWeeklyReport);
+    final localeCode = ref.watch(
+      settingsProvider.select((s) => s.localeCode),
+    );
+    Future.microtask(() => _loadWeeklyReport(localeCode));
     return const ReportState(isLoading: true);
   }
 
-  void _loadWeeklyReport() async {
-    final locale = PlatformDispatcher.instance.locale;
-    final l10n = await AppLocalizations.delegate.load(locale);
+  void _loadWeeklyReport(String localeCode) async {
+    final resolvedLocale = localeCode == 'system'
+        ? PlatformDispatcher.instance.locale
+        : Locale(localeCode);
+    final l10n = await AppLocalizations.delegate.load(resolvedLocale);
 
     final repo = ref.read(localRecordingRepositoryProvider);
     final now = DateTime.now();
@@ -83,7 +89,10 @@ class ReportNotifier extends Notifier<ReportState> {
     );
   }
 
-  void refresh() => _loadWeeklyReport();
+  void refresh() {
+    final localeCode = ref.read(settingsProvider).localeCode;
+    _loadWeeklyReport(localeCode);
+  }
 }
 
 final reportProvider = NotifierProvider<ReportNotifier, ReportState>(
@@ -95,13 +104,18 @@ final reportProvider = NotifierProvider<ReportNotifier, ReportState>(
 class MonthlyReportNotifier extends Notifier<ReportState> {
   @override
   ReportState build() {
-    Future.microtask(_loadMonthlyReport);
+    final localeCode = ref.watch(
+      settingsProvider.select((s) => s.localeCode),
+    );
+    Future.microtask(() => _loadMonthlyReport(localeCode));
     return const ReportState(isLoading: true);
   }
 
-  void _loadMonthlyReport() async {
-    final locale = PlatformDispatcher.instance.locale;
-    final l10n = await AppLocalizations.delegate.load(locale);
+  void _loadMonthlyReport(String localeCode) async {
+    final resolvedLocale = localeCode == 'system'
+        ? PlatformDispatcher.instance.locale
+        : Locale(localeCode);
+    final l10n = await AppLocalizations.delegate.load(resolvedLocale);
 
     final repo = ref.read(localRecordingRepositoryProvider);
     final now = DateTime.now();
@@ -132,7 +146,10 @@ class MonthlyReportNotifier extends Notifier<ReportState> {
     );
   }
 
-  void refresh() => _loadMonthlyReport();
+  void refresh() {
+    final localeCode = ref.read(settingsProvider).localeCode;
+    _loadMonthlyReport(localeCode);
+  }
 }
 
 final monthlyReportProvider =
