@@ -1,26 +1,12 @@
-const _prompts = <String>[
-  '今、頭の中にあることを話してください',
-  '今日の朝、最初に感じたことは何でしたか',
-  'いま、身体のどこに力が入っていますか',
-  '最近、時間を忘れて没頭したことはありますか',
-  '今の気分を色で表すと何色ですか',
-  '最近、誰かに言いたかったけど言えなかったことはありますか',
-  '今日、一番心に残った瞬間は何ですか',
-  '最近の自分を動物に例えると何ですか',
-  '今、目を閉じて聞こえる音は何ですか',
-  '最近、自分を褒めたいと思ったことはありますか',
-  '今の自分に必要なものは何だと思いますか',
-  '最近、笑ったのはいつですか。何がおかしかったですか',
-  '子どもの頃に好きだったことで、最近していないことはありますか',
-  '今日の天気は、あなたの気持ちとどう関係していますか',
-  '最近、新しく気づいたことはありますか',
-  '今の自分を一言で表すとしたら、何と言いますか',
-  '最近、感謝したいと思った人は誰ですか',
-  '今、どこか遠くに行けるとしたらどこに行きたいですか',
-  '最近、夢中になって読んだもの・見たものはありますか',
-  '今日の終わりに、どんな気持ちでいたいですか',
-];
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-String getDailyPrompt(int dayNumber) {
-  return _prompts[dayNumber % _prompts.length];
+String getDailyPrompt(AppLocalizations l10n, int dayNumber) {
+  final prompts = [
+    l10n.prompt_0, l10n.prompt_1, l10n.prompt_2, l10n.prompt_3,
+    l10n.prompt_4, l10n.prompt_5, l10n.prompt_6, l10n.prompt_7,
+    l10n.prompt_8, l10n.prompt_9, l10n.prompt_10, l10n.prompt_11,
+    l10n.prompt_12, l10n.prompt_13, l10n.prompt_14, l10n.prompt_15,
+    l10n.prompt_16, l10n.prompt_17, l10n.prompt_18, l10n.prompt_19,
+  ];
+  return prompts[dayNumber % prompts.length];
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_colors.dart';
@@ -16,6 +17,7 @@ class ZeroScoreSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
     final homeState = ref.watch(homeProvider);
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
@@ -63,7 +65,7 @@ class ZeroScoreSection extends ConsumerWidget {
                     _InsufficientDataBadge(isDark: isDark),
                   const SizedBox(height: AppSpacing.xs),
                   Text(
-                    zeroScore != null ? '声の安定スコア' : '7日分記録後に表示',
+                    zeroScore != null ? l10n.score_voice_stability : l10n.score_show_after_7days,
                     style: AppTypography.caption.copyWith(
                       color: Theme.of(context)
                           .colorScheme
@@ -208,7 +210,7 @@ class _InsufficientDataBadge extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
       ),
       child: Text(
-        'データ不足',
+        AppLocalizations.of(context).score_insufficient_data,
         style: AppTypography.caption.copyWith(
           color: Theme.of(context)
               .colorScheme
@@ -289,25 +291,26 @@ class _RingLegend extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final items = [
       _LegendItem(
         label: 'E',
-        name: 'エネルギー',
+        name: l10n.score_energy,
         color: isDark ? AppColors.darkAccentWarm : AppColors.lightAccentWarm,
       ),
       _LegendItem(
         label: 'C',
-        name: '明瞭度',
+        name: l10n.score_clarity,
         color: isDark ? AppColors.darkAccentCool : AppColors.lightAccentCool,
       ),
       _LegendItem(
         label: 'X',
-        name: '抑揚',
+        name: l10n.score_expression,
         color: isDark ? AppColors.darkAccentCalm : AppColors.lightAccentCalm,
       ),
       _LegendItem(
         label: 'T',
-        name: 'テンポ',
+        name: l10n.score_tempo,
         color: isDark
             ? const Color(0xFF9A7EC4)
             : const Color(0xFF7A5EB8),

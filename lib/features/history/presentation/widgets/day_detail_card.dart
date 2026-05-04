@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/constants/app_spacing.dart';
@@ -16,9 +17,20 @@ class DayDetailCard extends StatelessWidget {
     required this.recordings,
   });
 
+  String _localizeAssessment(String value, AppLocalizations l10n) {
+    return switch (value) {
+      'calm' => l10n.assessment_calm,
+      'normal' => l10n.assessment_normal,
+      'shaky' => l10n.assessment_shaky,
+      'unknown' => l10n.assessment_unknown,
+      _ => value,
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
-    final dateFormat = DateFormat('M/d (E)', 'ja');
+    final l10n = AppLocalizations.of(context);
+    final dateFormat = DateFormat('M/d (E)', Localizations.localeOf(context).languageCode);
 
     if (recordings.isEmpty) {
       return ZeroCard(
@@ -34,7 +46,7 @@ class DayDetailCard extends StatelessWidget {
             ),
             const SizedBox(height: AppSpacing.md),
             Text(
-              'この日の録音はありません',
+              l10n.detail_no_recording,
               style: AppTypography.body.copyWith(
                 color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
               ),
@@ -57,22 +69,22 @@ class DayDetailCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppSpacing.md),
-          _detailRow(context, '録音時間', '${r.durationSeconds}秒'),
+          _detailRow(context, l10n.detail_duration, l10n.detail_duration_seconds(r.durationSeconds)),
           if (r.selfAssessment != null)
-            _detailRow(context, '自己評価', r.selfAssessment!),
+            _detailRow(context, l10n.detail_self_assessment, _localizeAssessment(r.selfAssessment!, l10n)),
           if (r.tempo != null)
-            _detailRow(context, 'テンポ', '${r.tempo!.toStringAsFixed(1)}音節/秒'),
+            _detailRow(context, l10n.detail_tempo, l10n.detail_tempo_value(r.tempo!.toStringAsFixed(1))),
           if (r.energy != null)
-            _detailRow(context, 'エネルギー', r.energy!.toStringAsFixed(2)),
+            _detailRow(context, l10n.detail_energy, r.energy!.toStringAsFixed(2)),
           if (r.clarity != null)
-            _detailRow(context, '明瞭度', r.clarity!.toStringAsFixed(2)),
+            _detailRow(context, l10n.detail_clarity, r.clarity!.toStringAsFixed(2)),
           if (r.expressionRange != null)
-            _detailRow(context, '表現幅', r.expressionRange!.toStringAsFixed(2)),
+            _detailRow(context, l10n.detail_expression_range, r.expressionRange!.toStringAsFixed(2)),
           if (recordings.length > 1)
             Padding(
               padding: const EdgeInsets.only(top: AppSpacing.sm),
               child: Text(
-                '他 ${recordings.length - 1} 件の録音',
+                l10n.detail_other_recordings(recordings.length - 1),
                 style: AppTypography.caption.copyWith(
                   color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
                 ),

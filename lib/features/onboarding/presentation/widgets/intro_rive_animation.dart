@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../core/constants/app_durations.dart';
 import '../../../../core/constants/app_typography.dart';
@@ -124,6 +125,7 @@ class _IntroRiveAnimationState extends State<IntroRiveAnimation>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     if (!widget.isFirstLaunch || _skipping) {
       return _buildLogoOnly();
     }
@@ -184,7 +186,7 @@ class _IntroRiveAnimationState extends State<IntroRiveAnimation>
                     child: GestureDetector(
                       onTap: _handleSkip,
                       child: Text(
-                        'スキップ →',
+                        l10n.common_intro_skip,
                         style: AppTypography.caption.copyWith(
                           color: const Color(0xFF333333),
                         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_spacing.dart';
@@ -11,6 +12,7 @@ class MetaphorScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -21,17 +23,12 @@ class MetaphorScreen extends StatelessWidget {
               const SizedBox(height: AppSpacing.md),
               const Spacer(),
               TextFadeIn(
-                text: 'あなたの声は、\n静かな湖のようなものです。\n\n'
-                    '場面によって風が吹き、\n波の形が変わる。\n'
-                    'でも湖は一つです。\n\n'
-                    'Voxnaは、\nその湖面を映す場所です。\n\n'
-                    '毎日30秒、\n声を聴かせてください。\n'
-                    '波の下にある、\n静かな響きが見えてきます。',
+                text: l10n.onboarding_metaphor_text,
                 style: AppTypography.philosophy,
               ),
               const Spacer(),
               ZeroButton(
-                label: '始める',
+                label: l10n.common_start,
                 onPressed: () => context.go('/onboarding/mechanism'),
               ),
               const SizedBox(height: AppSpacing.xl),

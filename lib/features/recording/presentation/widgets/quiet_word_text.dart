@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/audio/sound_manager.dart';
@@ -76,6 +77,7 @@ class _QuietWordTextState extends ConsumerState<QuietWordText>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: _handleTapSkip,
@@ -88,7 +90,7 @@ class _QuietWordTextState extends ConsumerState<QuietWordText>
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
                 child: Text(
-                  '「今日の声を、\nそっと手放します。」',
+                  l10n.quiet_word_text,
                   style: AppTypography.philosophy.copyWith(
                     color: Theme.of(context).colorScheme.onSurface,
                   ),
@@ -98,7 +100,7 @@ class _QuietWordTextState extends ConsumerState<QuietWordText>
             ),
             const SizedBox(height: 24),
             Text(
-              'タップでスキップ',
+              l10n.common_tap_to_skip,
               style: AppTypography.caption.copyWith(
                 color: Theme.of(context)
                     .colorScheme

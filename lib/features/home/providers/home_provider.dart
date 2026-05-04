@@ -2,13 +2,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/providers/storage_providers.dart';
 import '../../recording/data/recording_model.dart';
-import '../data/daily_prompts.dart';
 import '../presentation/widgets/duration_selector.dart';
 
 class HomeState {
   final int dayCount;
   final int streak;
-  final String dailyPrompt;
+  final int promptDayNumber;
   final RecordingDuration selectedDuration;
   final List<RecordingModel> recentRecordings;
   final bool hasEnoughData;
@@ -16,7 +15,7 @@ class HomeState {
   const HomeState({
     this.dayCount = 0,
     this.streak = 0,
-    this.dailyPrompt = '',
+    this.promptDayNumber = 0,
     this.selectedDuration = RecordingDuration.normal30,
     this.recentRecordings = const [],
     this.hasEnoughData = false,
@@ -25,7 +24,7 @@ class HomeState {
   HomeState copyWith({
     int? dayCount,
     int? streak,
-    String? dailyPrompt,
+    int? promptDayNumber,
     RecordingDuration? selectedDuration,
     List<RecordingModel>? recentRecordings,
     bool? hasEnoughData,
@@ -33,7 +32,7 @@ class HomeState {
     return HomeState(
       dayCount: dayCount ?? this.dayCount,
       streak: streak ?? this.streak,
-      dailyPrompt: dailyPrompt ?? this.dailyPrompt,
+      promptDayNumber: promptDayNumber ?? this.promptDayNumber,
       selectedDuration: selectedDuration ?? this.selectedDuration,
       recentRecordings: recentRecordings ?? this.recentRecordings,
       hasEnoughData: hasEnoughData ?? this.hasEnoughData,
@@ -63,7 +62,7 @@ class HomeNotifier extends Notifier<HomeState> {
     return current.copyWith(
       dayCount: dayCount,
       streak: streak,
-      dailyPrompt: getDailyPrompt(dayCount),
+      promptDayNumber: dayCount,
       recentRecordings: recentRecordings,
       hasEnoughData: dayCount >= 7,
     );

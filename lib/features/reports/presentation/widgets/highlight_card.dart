@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_typography.dart';
@@ -11,14 +12,15 @@ class HighlightCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final text = highlight ?? 'まだ十分なデータがありません';
+    final l10n = AppLocalizations.of(context);
+    final text = highlight ?? l10n.report_highlight_insufficient;
 
     return ZeroCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'ハイライト',
+            l10n.report_highlight,
             style: AppTypography.heading.copyWith(
               color: Theme.of(context).colorScheme.onSurface,
               fontSize: 16,

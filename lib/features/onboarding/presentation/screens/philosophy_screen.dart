@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_colors.dart';
@@ -12,6 +13,7 @@ class PhilosophyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final accentWarm =
         isDark ? AppColors.darkAccentWarm : AppColors.lightAccentWarm;
@@ -36,22 +38,21 @@ class PhilosophyScreen extends StatelessWidget {
               ),
               const Spacer(),
               TextFadeIn(
-                text: 'あなたには、\n自分では聴こえない\n声がある。\n\n'
-                    'それが聴こえたとき、\n繰り返しは\n静かになる。',
+                text: l10n.onboarding_philosophy_text,
                 style: AppTypography.philosophy,
-                highlightWords: ['声', '聴こえない', '静かになる'],
+                highlightWords: [l10n.onboarding_philosophy_highlight_voice, l10n.onboarding_philosophy_highlight_inaudible, l10n.onboarding_philosophy_highlight_quiet],
                 highlightColor: accentWarm,
               ),
               const Spacer(),
               ZeroButton(
-                label: '始める',
+                label: l10n.common_start,
                 onPressed: () => context.go('/onboarding/mechanism'),
               ),
               const SizedBox(height: AppSpacing.md),
               TextButton(
                 onPressed: () => context.push('/onboarding/metaphor'),
                 child: Text(
-                  'この言葉について',
+                  l10n.onboarding_about_words,
                   style: AppTypography.caption.copyWith(
                     color: isDark
                         ? AppColors.darkTextMuted

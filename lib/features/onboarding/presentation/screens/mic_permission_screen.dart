@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -28,6 +29,7 @@ class _MicPermissionScreenState extends State<MicPermissionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -52,16 +54,13 @@ class _MicPermissionScreenState extends State<MicPermissionScreen> {
               ),
               const SizedBox(height: AppSpacing.lg),
               TextFadeIn(
-                text: '声を聴くために\nマイクを使います。\n\n'
-                    '録音データは\nサーバーに保存されません。\n'
-                    '声から抽出された数値だけが\n残ります。\n\n'
-                    '声そのものは、\nあなただけのものです。',
+                text: l10n.onboarding_mic_text,
                 style: AppTypography.philosophy,
               ),
               if (_denied) ...[
                 const SizedBox(height: AppSpacing.md),
                 Text(
-                  'マイクの許可が必要です。',
+                  l10n.onboarding_mic_permission_required,
                   style: AppTypography.caption.copyWith(
                     color: Theme.of(context).colorScheme.primary,
                   ),
@@ -70,12 +69,12 @@ class _MicPermissionScreenState extends State<MicPermissionScreen> {
                 const SizedBox(height: AppSpacing.sm),
                 TextButton(
                   onPressed: () => openAppSettings(),
-                  child: const Text('設定を開く'),
+                  child: Text(l10n.onboarding_mic_open_settings),
                 ),
               ],
               const Spacer(),
               ZeroButton(
-                label: '許可する',
+                label: l10n.onboarding_mic_allow,
                 onPressed: _requestPermission,
               ),
               const SizedBox(height: AppSpacing.xl),

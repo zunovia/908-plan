@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_spacing.dart';
@@ -15,10 +16,11 @@ class MiniInsightCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
     final recordingState = ref.watch(recordingProvider);
 
     // Get insight text from InsightEngine
-    String insightText = '今日の声のテンポは、\n1秒あたり3.0音節でした。\n自然なペースの語りでした。';
+    String insightText = l10n.insight_mini_tempo('3.0', l10n.insight_tempo_normal);
     final lastId = recordingState.lastRecordingId;
     if (lastId != null) {
       final repo = ref.read(localRecordingRepositoryProvider);
@@ -26,14 +28,14 @@ class MiniInsightCard extends ConsumerWidget {
       final lastRecording =
           recordings.where((r) => r.id == lastId).firstOrNull;
       if (lastRecording != null) {
-        insightText = InsightEngine.generateMiniInsight(lastRecording);
+        insightText = InsightEngine.generateMiniInsight(lastRecording, l10n);
       }
     }
 
     // Split into main line and nuance line
     final lines = insightText.split('\n');
     final mainText = lines.length >= 2 ? '${lines[0]}\n${lines[1]}' : lines[0];
-    final nuanceText = lines.length >= 3 ? lines[2] : 'これがどう変化していくかは、時間が教えてくれます。';
+    final nuanceText = lines.length >= 3 ? lines[2] : l10n.insight_fallback_nuance;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
@@ -41,7 +43,7 @@ class MiniInsightCard extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'あなたの声を\n受け取りました。',
+            l10n.insight_voice_received,
             style: AppTypography.philosophy.copyWith(
               color: Theme.of(context).colorScheme.onSurface,
             ),
@@ -68,7 +70,7 @@ class MiniInsightCard extends ConsumerWidget {
           ),
           const SizedBox(height: AppSpacing.xl),
           ZeroButton(
-            label: '次へ',
+            label: l10n.common_next,
             onPressed: onNext,
           ),
         ],

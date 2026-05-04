@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_spacing.dart';
@@ -11,6 +12,7 @@ class MechanismScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -35,15 +37,12 @@ class MechanismScreen extends StatelessWidget {
               ),
               const SizedBox(height: AppSpacing.lg),
               TextFadeIn(
-                text: 'このアプリは\n声の「響き」を聴きます。\n\n'
-                    '言葉の内容は\n分析しません。\n\n'
-                    '声の高さ、テンポ、\n揺らぎ、沈黙——\n'
-                    'そこにあなたの\nパターンが映ります。',
+                text: l10n.onboarding_mechanism_text,
                 style: AppTypography.philosophy,
               ),
               const Spacer(),
               ZeroButton(
-                label: '次へ',
+                label: l10n.common_next,
                 onPressed: () => context.go('/onboarding/mic-permission'),
               ),
               const SizedBox(height: AppSpacing.xl),

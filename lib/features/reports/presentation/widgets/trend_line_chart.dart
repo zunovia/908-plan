@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_typography.dart';
@@ -12,12 +13,13 @@ class TrendLineChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return ZeroCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '声のトレンド',
+            l10n.report_voice_trend,
             style: AppTypography.heading.copyWith(
               color: Theme.of(context).colorScheme.onSurface,
               fontSize: 16,
@@ -29,7 +31,7 @@ class TrendLineChart extends StatelessWidget {
             child: metrics.isEmpty
                 ? Center(
                     child: Text(
-                      'データがまだありません',
+                      l10n.report_no_data,
                       style: AppTypography.caption.copyWith(
                         color: Theme.of(context)
                             .colorScheme
@@ -53,13 +55,13 @@ class TrendLineChart extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _legendItem(
-                  context, 'エネルギー', Theme.of(context).colorScheme.primary),
+                  context, l10n.report_energy, Theme.of(context).colorScheme.primary),
               const SizedBox(width: AppSpacing.md),
               _legendItem(
-                  context, '明瞭度', Theme.of(context).colorScheme.secondary),
+                  context, l10n.report_clarity, Theme.of(context).colorScheme.secondary),
               const SizedBox(width: AppSpacing.md),
               _legendItem(
-                  context, '表現幅', Theme.of(context).colorScheme.tertiary),
+                  context, l10n.report_expression, Theme.of(context).colorScheme.tertiary),
             ],
           ),
         ],

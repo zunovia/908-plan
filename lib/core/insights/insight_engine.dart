@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 
 import '../../features/recording/data/recording_model.dart';
@@ -16,58 +17,58 @@ class InsightEngine {
 
   /// Returns a two-line mini-insight for the given recording.
   /// Rotates across 4 metrics based on day-of-year.
-  static String generateMiniInsight(RecordingModel recording) {
+  static String generateMiniInsight(RecordingModel recording, AppLocalizations l10n) {
     final dayOfYear = _dayOfYear(recording.recordedAt);
     final slot = dayOfYear % 4;
 
     switch (slot) {
       case 0:
-        return _miniTempo(recording.tempo ?? 3.0);
+        return _miniTempo(recording.tempo ?? 3.0, l10n);
       case 1:
-        return _miniEnergy(recording.energy ?? 0.5);
+        return _miniEnergy(recording.energy ?? 0.5, l10n);
       case 2:
-        return _miniClarity(recording.clarity ?? 0.5);
+        return _miniClarity(recording.clarity ?? 0.5, l10n);
       case 3:
-        return _miniExpression(recording.expressionRange ?? 0.5);
+        return _miniExpression(recording.expressionRange ?? 0.5, l10n);
       default:
-        return _miniTempo(recording.tempo ?? 3.0);
+        return _miniTempo(recording.tempo ?? 3.0, l10n);
     }
   }
 
-  static String _miniTempo(double tempo) {
+  static String _miniTempo(double tempo, AppLocalizations l10n) {
     final tempoStr = tempo.toStringAsFixed(1);
-    final nuance = _tempoNuance(tempo);
-    return '今日の声のテンポは、\n1秒あたり$tempoStr音節でした。\n$nuance';
+    final nuance = _tempoNuance(tempo, l10n);
+    return l10n.insight_mini_tempo(tempoStr, nuance);
   }
 
-  static String _miniEnergy(double energy) {
+  static String _miniEnergy(double energy, AppLocalizations l10n) {
     final pct = (energy * 100).round();
-    final nuance = _levelNuance(energy);
-    return '今日の声のエネルギーは${pct}%でした。\n$nuance';
+    final nuance = _levelNuance(energy, l10n);
+    return l10n.insight_mini_energy(pct, nuance);
   }
 
-  static String _miniClarity(double clarity) {
+  static String _miniClarity(double clarity, AppLocalizations l10n) {
     final pct = (clarity * 100).round();
-    final nuance = _levelNuance(clarity);
-    return '今日の声の明瞭度は${pct}%でした。\n$nuance';
+    final nuance = _levelNuance(clarity, l10n);
+    return l10n.insight_mini_clarity(pct, nuance);
   }
 
-  static String _miniExpression(double expr) {
+  static String _miniExpression(double expr, AppLocalizations l10n) {
     final pct = (expr * 100).round();
-    final nuance = _levelNuance(expr);
-    return '今日の声の抑揚スコアは${pct}%でした。\n$nuance';
+    final nuance = _levelNuance(expr, l10n);
+    return l10n.insight_mini_expression(pct, nuance);
   }
 
-  static String _levelNuance(double value) {
-    if (value < 0.3) return '静かで落ち着いた声でした。';
-    if (value < 0.7) return 'いつもの自分に近い声かもしれません。';
-    return '力強さのある声でした。';
+  static String _levelNuance(double value, AppLocalizations l10n) {
+    if (value < 0.3) return l10n.insight_nuance_quiet;
+    if (value < 0.7) return l10n.insight_nuance_normal;
+    return l10n.insight_nuance_strong;
   }
 
-  static String _tempoNuance(double tempo) {
-    if (tempo < 2.5) return 'ゆったりとした語りのリズムでした。';
-    if (tempo < 4.5) return '自然なペースの語りでした。';
-    return 'テンポの速い語りでした。';
+  static String _tempoNuance(double tempo, AppLocalizations l10n) {
+    if (tempo < 2.5) return l10n.insight_tempo_slow;
+    if (tempo < 4.5) return l10n.insight_tempo_normal;
+    return l10n.insight_tempo_fast;
   }
 
   // ---------------------------------------------------------------------------
@@ -75,46 +76,46 @@ class InsightEngine {
   // ---------------------------------------------------------------------------
 
   /// Returns the most salient inquiry question for the week's metrics.
-  static String? generateWeeklyInquiry(List<DailyMetric> metrics) {
+  static String? generateWeeklyInquiry(List<DailyMetric> metrics, AppLocalizations l10n) {
     if (metrics.length < 2) return null;
 
-    final dayFormat = DateFormat('EEEE', 'ja');
+    final dayFormat = DateFormat('EEEE', l10n.localeName);
 
     // Evaluate all rules and pick the one with the highest salience score
     final candidates = <_ScoredInquiry>[];
 
     // Rule 1: energy_spike
-    _ruleEnergySpike(metrics, dayFormat, candidates);
+    _ruleEnergySpike(metrics, dayFormat, candidates, l10n);
 
     // Rule 2: expression_rich
-    _ruleExpressionRich(metrics, dayFormat, candidates);
+    _ruleExpressionRich(metrics, dayFormat, candidates, l10n);
 
     // Rule 3: clarity_trend
-    _ruleClarityTrend(metrics, candidates);
+    _ruleClarityTrend(metrics, candidates, l10n);
 
     // Rule 4: tempo_variation
-    _ruleTempoVariation(metrics, candidates);
+    _ruleTempoVariation(metrics, candidates, l10n);
 
     // Rule 5: tempo_consistency
-    _ruleTempoConsistency(metrics, candidates);
+    _ruleTempoConsistency(metrics, candidates, l10n);
 
     // Rule 6: energy_clarity_diverge
-    _ruleEnergyClarityDiverge(metrics, candidates);
+    _ruleEnergyClarityDiverge(metrics, candidates, l10n);
 
     // Rule 7: low_energy_week
-    _ruleLowEnergyWeek(metrics, candidates);
+    _ruleLowEnergyWeek(metrics, candidates, l10n);
 
     // Rule 8: high_expression_all
-    _ruleHighExpressionAll(metrics, candidates);
+    _ruleHighExpressionAll(metrics, candidates, l10n);
 
     // Rule 9: weekend_weekday_diff
-    _ruleWeekendWeekdayDiff(metrics, dayFormat, candidates);
+    _ruleWeekendWeekdayDiff(metrics, dayFormat, candidates, l10n);
 
     // Rule 10: stable_week
-    _ruleStableWeek(metrics, candidates);
+    _ruleStableWeek(metrics, candidates, l10n);
 
     if (candidates.isEmpty) {
-      return '今週の声に、耳を澄ませてみてください。';
+      return l10n.insight_weekly_fallback;
     }
 
     candidates.sort((a, b) => b.score.compareTo(a.score));
@@ -127,6 +128,7 @@ class InsightEngine {
     List<DailyMetric> metrics,
     DateFormat dayFormat,
     List<_ScoredInquiry> out,
+    AppLocalizations l10n,
   ) {
     double maxDelta = 0;
     int maxIdx = 0;
@@ -140,10 +142,12 @@ class InsightEngine {
     if (maxDelta > 0.15) {
       final dayName = dayFormat.format(metrics[maxIdx].date);
       final direction =
-          metrics[maxIdx].energy > metrics[maxIdx - 1].energy ? '上がった' : '下がった';
+          metrics[maxIdx].energy > metrics[maxIdx - 1].energy
+              ? l10n.insight_direction_up
+              : l10n.insight_direction_down;
       out.add(_ScoredInquiry(
         score: maxDelta * 5,
-        text: '$dayNameに声のエネルギーが$directionようです。その日の印象を振り返ってみてください。',
+        text: l10n.insight_energy_spike(dayName, direction),
       ));
     }
   }
@@ -152,6 +156,7 @@ class InsightEngine {
     List<DailyMetric> metrics,
     DateFormat dayFormat,
     List<_ScoredInquiry> out,
+    AppLocalizations l10n,
   ) {
     final most = metrics.reduce(
       (a, b) => a.expressionRange > b.expressionRange ? a : b,
@@ -160,7 +165,7 @@ class InsightEngine {
       final dayName = dayFormat.format(most.date);
       out.add(_ScoredInquiry(
         score: most.expressionRange * 1.5,
-        text: '$dayNameは表現が豊かでした。感情が声にのった一日だったようです。',
+        text: l10n.insight_expression_rich(dayName),
       ));
     }
   }
@@ -168,6 +173,7 @@ class InsightEngine {
   static void _ruleClarityTrend(
     List<DailyMetric> metrics,
     List<_ScoredInquiry> out,
+    AppLocalizations l10n,
   ) {
     if (metrics.length < 4) return;
     final mid = metrics.length ~/ 2;
@@ -181,10 +187,10 @@ class InsightEngine {
             secondHalf.length;
     final diff = avgSecond - avgFirst;
     if (diff.abs() > 0.1) {
-      final half = diff > 0 ? '後半' : '前半';
+      final half = diff > 0 ? l10n.insight_half_second : l10n.insight_half_first;
       out.add(_ScoredInquiry(
         score: diff.abs() * 4,
-        text: '週の${half}に声がクリアになっています。生活のリズムが反映されているのかもしれません。',
+        text: l10n.insight_clarity_trend(half),
       ));
     }
   }
@@ -192,12 +198,13 @@ class InsightEngine {
   static void _ruleTempoVariation(
     List<DailyMetric> metrics,
     List<_ScoredInquiry> out,
+    AppLocalizations l10n,
   ) {
     final stdDev = _stdDev(metrics.map((m) => m.tempo).toList());
     if (stdDev > 0.5) {
       out.add(_ScoredInquiry(
         score: stdDev * 2,
-        text: '話すペースに波があった週でした。日々のリズムがそのまま声に表れています。',
+        text: l10n.insight_tempo_variation,
       ));
     }
   }
@@ -205,13 +212,14 @@ class InsightEngine {
   static void _ruleTempoConsistency(
     List<DailyMetric> metrics,
     List<_ScoredInquiry> out,
+    AppLocalizations l10n,
   ) {
     if (metrics.length < 3) return;
     final stdDev = _stdDev(metrics.map((m) => m.tempo).toList());
     if (stdDev < 0.2) {
       out.add(_ScoredInquiry(
         score: (1 - stdDev) * 0.8,
-        text: '一定のリズムで話せた週でした。安定した日々だったのかもしれません。',
+        text: l10n.insight_tempo_consistency,
       ));
     }
   }
@@ -219,6 +227,7 @@ class InsightEngine {
   static void _ruleEnergyClarityDiverge(
     List<DailyMetric> metrics,
     List<_ScoredInquiry> out,
+    AppLocalizations l10n,
   ) {
     if (metrics.length < 3) return;
     final energies = metrics.map((m) => m.energy).toList();
@@ -230,7 +239,7 @@ class InsightEngine {
         (deltaE < -0.05 && deltaC > 0.05)) {
       out.add(_ScoredInquiry(
         score: (deltaE - deltaC).abs() * 3,
-        text: '声の力強さと明瞭さが別の方向に動いた週でした。',
+        text: l10n.insight_energy_clarity_diverge,
       ));
     }
   }
@@ -238,12 +247,13 @@ class InsightEngine {
   static void _ruleLowEnergyWeek(
     List<DailyMetric> metrics,
     List<_ScoredInquiry> out,
+    AppLocalizations l10n,
   ) {
     final maxE = metrics.map((m) => m.energy).reduce(math.max);
     if (maxE < 0.35) {
       out.add(_ScoredInquiry(
         score: (0.35 - maxE) * 4,
-        text: '全体的に静かな週でした。身体が休息を求めていたのかもしれません。',
+        text: l10n.insight_low_energy_week,
       ));
     }
   }
@@ -251,12 +261,13 @@ class InsightEngine {
   static void _ruleHighExpressionAll(
     List<DailyMetric> metrics,
     List<_ScoredInquiry> out,
+    AppLocalizations l10n,
   ) {
     final minER = metrics.map((m) => m.expressionRange).reduce(math.min);
     if (minER > 0.4) {
       out.add(_ScoredInquiry(
         score: minER * 1.5,
-        text: '感情が豊かに声に表れた週でした。',
+        text: l10n.insight_high_expression,
       ));
     }
   }
@@ -265,6 +276,7 @@ class InsightEngine {
     List<DailyMetric> metrics,
     DateFormat dayFormat,
     List<_ScoredInquiry> out,
+    AppLocalizations l10n,
   ) {
     final weekday =
         metrics.where((m) => m.date.weekday <= 5).toList();
@@ -280,7 +292,7 @@ class InsightEngine {
     if (diff > 0.15) {
       out.add(_ScoredInquiry(
         score: diff * 3,
-        text: '平日と週末で声の印象が違いました。',
+        text: l10n.insight_weekend_weekday_diff,
       ));
     }
   }
@@ -288,6 +300,7 @@ class InsightEngine {
   static void _ruleStableWeek(
     List<DailyMetric> metrics,
     List<_ScoredInquiry> out,
+    AppLocalizations l10n,
   ) {
     if (metrics.length < 3) return;
     final stdE = _stdDev(metrics.map((m) => m.energy).toList());
@@ -300,7 +313,7 @@ class InsightEngine {
       final stability = 1.0 - (stdE + stdC + stdER + stdT / 7.0) / 4;
       out.add(_ScoredInquiry(
         score: stability * 1.0,
-        text: '穏やかで安定した一週間でした。',
+        text: l10n.insight_stable_week,
       ));
     }
   }
@@ -314,6 +327,7 @@ class InsightEngine {
   static String? generateMonthlyComparison(
     List<DailyMetric> currentMetrics,
     List<RecordingModel> prevRecordings,
+    AppLocalizations l10n,
   ) {
     if (currentMetrics.isEmpty) return null;
 
@@ -358,29 +372,31 @@ class InsightEngine {
 
     // Find the largest change (normalize tempo to 0-1 scale; range 1.0-8.0, span=7)
     final diffs = <_MetricDiff>[
-      _MetricDiff('エネルギー', curE - prevE),
-      _MetricDiff('明瞭度', curC - prevCAvg),
-      _MetricDiff('抑揚', curER - prevERAvg),
-      _MetricDiff('テンポ', (curT - prevTAvg) / 7.0),
+      _MetricDiff(l10n.insight_metric_energy, curE - prevE),
+      _MetricDiff(l10n.insight_metric_clarity, curC - prevCAvg),
+      _MetricDiff(l10n.insight_metric_expression, curER - prevERAvg),
+      _MetricDiff(l10n.insight_metric_tempo, (curT - prevTAvg) / 7.0),
     ];
 
     diffs.sort((a, b) => b.absDiff.compareTo(a.absDiff));
     final top = diffs.first;
 
     if (top.absDiff < 0.05) {
-      return '声の各指標は先月と同水準です。';
+      return l10n.insight_monthly_same;
     }
 
-    final direction = top.diff > 0 ? '高まって' : '低下して';
-    final nuance = _comparisonNuance(top.name, top.diff);
-    return '${top.name}が先月より${direction}います。$nuance';
+    final direction = top.diff > 0
+        ? l10n.insight_monthly_direction_up
+        : l10n.insight_monthly_direction_down;
+    final nuance = _comparisonNuance(top.name, top.diff, l10n);
+    return l10n.insight_monthly_change(top.name, direction, nuance);
   }
 
-  static String _comparisonNuance(String metric, double diff) {
+  static String _comparisonNuance(String metric, double diff, AppLocalizations l10n) {
     final absDiff = diff.abs();
-    if (absDiff > 0.2) return '大きな変化が見られます。声が新しいリズムに移行しているようです。';
-    if (absDiff > 0.1) return 'はっきりとした変化が見られます。';
-    return '小さな変化ですが、耳を澄ませてみてください。';
+    if (absDiff > 0.2) return l10n.insight_monthly_nuance_large;
+    if (absDiff > 0.1) return l10n.insight_monthly_nuance_clear;
+    return l10n.insight_monthly_nuance_small;
   }
 
   // ---------------------------------------------------------------------------
@@ -388,10 +404,10 @@ class InsightEngine {
   // ---------------------------------------------------------------------------
 
   /// Generates a multi-line highlight showing the best day for each metric.
-  static String? generateHighlight(List<DailyMetric> metrics) {
+  static String? generateHighlight(List<DailyMetric> metrics, AppLocalizations l10n) {
     if (metrics.isEmpty) return null;
 
-    final dayFormat = DateFormat('EEEE', 'ja');
+    final dayFormat = DateFormat('EEEE', l10n.localeName);
 
     final maxEnergy = metrics.reduce((a, b) => a.energy > b.energy ? a : b);
     final maxClarity = metrics.reduce((a, b) => a.clarity > b.clarity ? a : b);
@@ -399,13 +415,13 @@ class InsightEngine {
         .reduce((a, b) => a.expressionRange > b.expressionRange ? a : b);
 
     final lines = <String>[
-      '最も生き生きしていた日: ${dayFormat.format(maxEnergy.date)}',
-      '最もクリアだった日: ${dayFormat.format(maxClarity.date)}',
+      l10n.insight_highlight_lively(dayFormat.format(maxEnergy.date)),
+      l10n.insight_highlight_clear(dayFormat.format(maxClarity.date)),
     ];
 
     // Only add expression line if it's a different day
     if (maxExpr.date != maxEnergy.date && maxExpr.date != maxClarity.date) {
-      lines.add('最も表現豊かだった日: ${dayFormat.format(maxExpr.date)}');
+      lines.add(l10n.insight_highlight_expressive(dayFormat.format(maxExpr.date)));
     }
 
     return lines.join('\n');
