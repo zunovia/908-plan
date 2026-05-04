@@ -151,18 +151,9 @@ jobs:
 
       - name: Configure build.gradle for release
         run: |
-          # Write key.properties — storeFile is relative to android/app/ directory,
-          # matching the keytool output path from the previous step.
-          cat > android/key.properties << 'PROPS'
-storePassword=voxna2024
-keyPassword=voxna2024
-keyAlias=upload
-storeFile=upload-keystore.jks
-PROPS
-
-          # Replace generated Groovy DSL files with repo templates that already
-          # contain the correct applicationId, signingConfigs, and plugin wiring.
-          # This avoids fragile sed pattern matching against generated content.
+          # Write key.properties
+          printf 'storePassword=voxna2024\nkeyPassword=voxna2024\nkeyAlias=upload\nstoreFile=upload-keystore.jks\n' > android/key.properties
+          # Replace generated Groovy DSL files with repo templates
           cp android-templates/app-build.gradle android/app/build.gradle
           cp android-templates/settings.gradle android/settings.gradle
 
