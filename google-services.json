@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:48545467989:android:b23d4110215db8f87d4edc",
+        "mobilesdk_app_id": "1:48545467989:android:cd888a0796c9e0507d4edc",
         "android_client_info": {
-          "package_name": "com.example.zero_app"
+          "package_name": "app.voxna.android"
         }
       },
       "oauth_client": [],
@@ -28,7 +28,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:48545467989:android:794cc98b07bc222f7d4edc",
         "android_client_info": {
-          "package_name": "app.voxna.android"
+          "package_name": "com.voxna.app"
         }
       },
       "oauth_client": [],
