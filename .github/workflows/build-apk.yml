@@ -20,7 +20,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.32.0'
+          flutter-version: '3.27.4'
           channel: 'stable'
           cache: true
 
@@ -54,6 +54,7 @@ jobs:
         run: |
           if [ -f android/app/build.gradle.kts ]; then
             sed -i 's/applicationId = "com.voxna.zero_app"/applicationId = "app.voxna.android"/' android/app/build.gradle.kts
+            sed -i 's/namespace = "com.voxna.zero_app"/namespace = "app.voxna.android"/' android/app/build.gradle.kts
             sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 23/' android/app/build.gradle.kts
             sed -i 's/minSdk = .*$/minSdk = 23/' android/app/build.gradle.kts
             sed -i 's/targetSdk = flutter.targetSdkVersion/targetSdk = 35/' android/app/build.gradle.kts
@@ -65,6 +66,8 @@ jobs:
           elif [ -f android/app/build.gradle ]; then
             sed -i 's/applicationId = "com.voxna.zero_app"/applicationId = "app.voxna.android"/' android/app/build.gradle
             sed -i "s/applicationId \"com.voxna.zero_app\"/applicationId \"app.voxna.android\"/" android/app/build.gradle
+            sed -i 's/namespace = "com.voxna.zero_app"/namespace = "app.voxna.android"/' android/app/build.gradle
+            sed -i "s/namespace \"com.voxna.zero_app\"/namespace \"app.voxna.android\"/" android/app/build.gradle
             sed -i "s/minSdk = flutter.minSdkVersion/minSdk = 23/" android/app/build.gradle
             sed -i "s/minSdkVersion flutter.minSdkVersion/minSdkVersion 23/" android/app/build.gradle
             sed -i "s/targetSdk = flutter.targetSdkVersion/targetSdk = 35/" android/app/build.gradle
@@ -76,6 +79,14 @@ jobs:
             elif [ -f android/build.gradle ]; then
               sed -i '/dependencies {/a\        classpath "com.google.gms:google-services:4.4.2"' android/build.gradle
             fi
+          fi
+
+      - name: Upgrade AGP for 16KB page size support
+        run: |
+          if [ -f android/settings.gradle ]; then
+            sed -i 's/id "com.android.application" version "[^"]*"/id "com.android.application" version "8.7.0"/' android/settings.gradle
+          elif [ -f android/settings.gradle.kts ]; then
+            sed -i 's/id("com.android.application") version "[^"]*"/id("com.android.application") version "8.7.0"/' android/settings.gradle.kts
           fi
 
       - name: Add Android permissions for recording
@@ -128,7 +139,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.32.0'
+          flutter-version: '3.27.4'
           channel: 'stable'
           cache: true
 
