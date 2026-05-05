@@ -81,13 +81,16 @@ jobs:
             fi
           fi
 
-      - name: Upgrade AGP for 16KB page size support
+      - name: Upgrade AGP and Gradle for 16KB page size support
         run: |
+          # Upgrade AGP to 8.7.0
           if [ -f android/settings.gradle ]; then
             sed -i 's/id "com.android.application" version "[^"]*"/id "com.android.application" version "8.7.0"/' android/settings.gradle
           elif [ -f android/settings.gradle.kts ]; then
             sed -i 's/id("com.android.application") version "[^"]*"/id("com.android.application") version "8.7.0"/' android/settings.gradle.kts
           fi
+          # Upgrade Gradle wrapper to 8.9 (required by AGP 8.7.0)
+          sed -i 's|gradle-.*-all.zip|gradle-8.9-all.zip|' android/gradle/wrapper/gradle-wrapper.properties
 
       - name: Add Android permissions for recording
         run: |
