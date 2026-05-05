@@ -53,7 +53,7 @@ jobs:
       - name: Configure build.gradle
         run: |
           if [ -f android/app/build.gradle.kts ]; then
-            sed -i 's/applicationId = "com.voxna.zero_app"/applicationId = "com.voxna.app"/' android/app/build.gradle.kts
+            sed -i 's/applicationId = "com.voxna.zero_app"/applicationId = "app.voxna.android"/' android/app/build.gradle.kts
             sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 23/' android/app/build.gradle.kts
             sed -i 's/minSdk = .*$/minSdk = 23/' android/app/build.gradle.kts
             sed -i 's/targetSdk = flutter.targetSdkVersion/targetSdk = 35/' android/app/build.gradle.kts
@@ -63,8 +63,8 @@ jobs:
               sed -i '/id("com.android.application")/a\    id("com.google.gms.google-services") version "4.4.2" apply false' android/settings.gradle.kts
             fi
           elif [ -f android/app/build.gradle ]; then
-            sed -i 's/applicationId = "com.voxna.zero_app"/applicationId = "com.voxna.app"/' android/app/build.gradle
-            sed -i "s/applicationId \"com.voxna.zero_app\"/applicationId \"com.voxna.app\"/" android/app/build.gradle
+            sed -i 's/applicationId = "com.voxna.zero_app"/applicationId = "app.voxna.android"/' android/app/build.gradle
+            sed -i "s/applicationId \"com.voxna.zero_app\"/applicationId \"app.voxna.android\"/" android/app/build.gradle
             sed -i "s/minSdk = flutter.minSdkVersion/minSdk = 23/" android/app/build.gradle
             sed -i "s/minSdkVersion flutter.minSdkVersion/minSdkVersion 23/" android/app/build.gradle
             sed -i "s/targetSdk = flutter.targetSdkVersion/targetSdk = 35/" android/app/build.gradle
