@@ -162,6 +162,8 @@ jobs:
           # Replace generated Groovy DSL files with repo templates
           cp android-templates/app-build.gradle android/app/build.gradle
           cp android-templates/settings.gradle android/settings.gradle
+          # Upgrade Gradle wrapper to 8.9 (required by AGP 8.7.0)
+          sed -i 's|gradle-.*-all.zip|gradle-8.9-all.zip|' android/gradle/wrapper/gradle-wrapper.properties
 
       - name: Add Android permissions for recording
         run: |
