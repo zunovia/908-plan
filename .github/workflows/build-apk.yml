@@ -157,8 +157,19 @@ jobs:
       - name: Verify DEX contains MainActivity and targetSdk
         run: |
           APK="build/app/outputs/flutter-apk/app-debug.apk"
-          # Verify MainActivity exists in DEX
-          if ! dexdump "$APK" 2>/dev/null | grep -q "app.voxna.android.MainActivity"; then
+          # Extract DEX files and verify MainActivity exists
+          WORK_DIR=$(mktemp -d)
+          unzip -o "$APK" "classes*.dex" -d "$WORK_DIR"
+          FOUND=false
+          for DEX in "$WORK_DIR"/classes*.dex; do
+            # dexdump uses slash-separated class descriptors: Lapp/voxna/android/MainActivity;
+            if dexdump "$DEX" 2>/dev/null | grep -q "app/voxna/android/MainActivity"; then
+              FOUND=true
+              break
+            fi
+          done
+          rm -rf "$WORK_DIR"
+          if [ "$FOUND" = false ]; then
             echo "::error::MainActivity not found in DEX - ClassNotFoundException will occur at runtime"
             exit 1
           fi
@@ -285,10 +296,10 @@ jobs:
           AAB="build/app/outputs/bundle/release/app-release.aab"
           # Extract base module DEX from AAB for inspection
           unzip -o "$AAB" "base/dex/*" -d /tmp/aab-extract
-          # Verify MainActivity exists in DEX
+          # Verify MainActivity exists in DEX (dexdump uses slash-separated descriptors)
           FOUND=false
           for DEX in /tmp/aab-extract/base/dex/*.dex; do
-            if dexdump "$DEX" 2>/dev/null | grep -q "app.voxna.android.MainActivity"; then
+            if dexdump "$DEX" 2>/dev/null | grep -q "app/voxna/android/MainActivity"; then
               FOUND=true
               break
             fi
