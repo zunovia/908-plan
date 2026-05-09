@@ -92,6 +92,26 @@ jobs:
           # Upgrade Gradle wrapper to 8.9 (required by AGP 8.7.0)
           sed -i 's|gradle-.*-all.zip|gradle-8.9-all.zip|' android/gradle/wrapper/gradle-wrapper.properties
 
+      - name: Relocate MainActivity to match namespace
+        run: |
+          # flutter create generates MainActivity under com/voxna/zero_app/
+          # but namespace is app.voxna.android, so Android looks for
+          # app.voxna.android.MainActivity at runtime.
+          # Move the file and rewrite its package declaration.
+          SRC_DIR="android/app/src/main/kotlin/com/voxna/zero_app"
+          DST_DIR="android/app/src/main/kotlin/app/voxna/android"
+          mkdir -p "$DST_DIR"
+          if [ -f "$SRC_DIR/MainActivity.kt" ]; then
+            sed 's/^package .*/package app.voxna.android/' "$SRC_DIR/MainActivity.kt" > "$DST_DIR/MainActivity.kt"
+            rm -rf android/app/src/main/kotlin/com
+          fi
+
+      - name: Fix AndroidManifest for correct MainActivity reference
+        run: |
+          MANIFEST="android/app/src/main/AndroidManifest.xml"
+          # Use fully-qualified class name so it resolves regardless of namespace
+          sed -i 's/android:name="\.MainActivity"/android:name="app.voxna.android.MainActivity"/' "$MANIFEST"
+
       - name: Add Android permissions for recording
         run: |
           MANIFEST="android/app/src/main/AndroidManifest.xml"
@@ -119,6 +139,23 @@ jobs:
 
       - name: Build debug APK
         run: flutter build apk --debug
+
+      - name: Verify DEX contains MainActivity and targetSdk
+        run: |
+          APK="build/app/outputs/flutter-apk/app-debug.apk"
+          # Verify MainActivity exists in DEX
+          if ! dexdump "$APK" 2>/dev/null | grep -q "app.voxna.android.MainActivity"; then
+            echo "::error::MainActivity not found in DEX - ClassNotFoundException will occur at runtime"
+            exit 1
+          fi
+          echo "MainActivity found in DEX"
+          # Verify targetSdkVersion >= 35
+          TARGET_SDK=$(aapt2 dump badging "$APK" 2>/dev/null | grep -oP "targetSdkVersion:'\K[0-9]+")
+          if [ -z "$TARGET_SDK" ] || [ "$TARGET_SDK" -lt 35 ]; then
+            echo "::error::targetSdkVersion is ${TARGET_SDK:-unknown}, must be >= 35"
+            exit 1
+          fi
+          echo "targetSdkVersion=$TARGET_SDK (>= 35)"
 
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
@@ -158,12 +195,34 @@ jobs:
       - name: Configure build.gradle for release
         run: |
           # Write key.properties
-          printf 'storePassword=voxna2024\nkeyPassword=voxna2024\nkeyAlias=upload\nstoreFile=upload-keystore.jks\n' > android/key.properties
+          printf 'storePassword=${{ secrets.KEYSTORE_STORE_PASSWORD }}\nkeyPassword=${{ secrets.KEYSTORE_KEY_PASSWORD }}\nkeyAlias=upload\nstoreFile=upload-keystore.jks\n' > android/key.properties
+          # Remove KTS files to avoid Groovy/KTS conflict
+          rm -f android/app/build.gradle.kts android/settings.gradle.kts
           # Replace generated Groovy DSL files with repo templates
           cp android-templates/app-build.gradle android/app/build.gradle
           cp android-templates/settings.gradle android/settings.gradle
           # Upgrade Gradle wrapper to 8.9 (required by AGP 8.7.0)
           sed -i 's|gradle-.*-all.zip|gradle-8.9-all.zip|' android/gradle/wrapper/gradle-wrapper.properties
+
+      - name: Relocate MainActivity to match namespace
+        run: |
+          # flutter create generates MainActivity under com/voxna/zero_app/
+          # but namespace is app.voxna.android, so Android looks for
+          # app.voxna.android.MainActivity at runtime.
+          # Move the file and rewrite its package declaration.
+          SRC_DIR="android/app/src/main/kotlin/com/voxna/zero_app"
+          DST_DIR="android/app/src/main/kotlin/app/voxna/android"
+          mkdir -p "$DST_DIR"
+          if [ -f "$SRC_DIR/MainActivity.kt" ]; then
+            sed 's/^package .*/package app.voxna.android/' "$SRC_DIR/MainActivity.kt" > "$DST_DIR/MainActivity.kt"
+            rm -rf android/app/src/main/kotlin/com
+          fi
+
+      - name: Fix AndroidManifest for correct MainActivity reference
+        run: |
+          MANIFEST="android/app/src/main/AndroidManifest.xml"
+          # Use fully-qualified class name so it resolves regardless of namespace
+          sed -i 's/android:name="\.MainActivity"/android:name="app.voxna.android.MainActivity"/' "$MANIFEST"
 
       - name: Add Android permissions for recording
         run: |
@@ -174,6 +233,9 @@ jobs:
         run: |
           MANIFEST="android/app/src/main/AndroidManifest.xml"
           sed -i 's/android:label="zero_app"/android:label="Voxna"/' "$MANIFEST"
+
+      - name: Add proguard rules
+        run: cp proguard-rules.pro android/app/proguard-rules.pro
 
       - name: Generate app icons
         run: dart run flutter_launcher_icons
@@ -189,6 +251,34 @@ jobs:
 
       - name: Build release AAB
         run: flutter build appbundle --release
+
+      - name: Verify DEX contains MainActivity and targetSdk
+        run: |
+          AAB="build/app/outputs/bundle/release/app-release.aab"
+          # Extract base module DEX from AAB for inspection
+          unzip -o "$AAB" "base/dex/*" -d /tmp/aab-extract
+          # Verify MainActivity exists in DEX
+          FOUND=false
+          for DEX in /tmp/aab-extract/base/dex/*.dex; do
+            if dexdump "$DEX" 2>/dev/null | grep -q "app.voxna.android.MainActivity"; then
+              FOUND=true
+              break
+            fi
+          done
+          if [ "$FOUND" = false ]; then
+            echo "::error::MainActivity not found in DEX - ClassNotFoundException will occur at runtime"
+            exit 1
+          fi
+          echo "MainActivity found in DEX"
+          # Verify targetSdkVersion >= 35 from AndroidManifest in AAB
+          unzip -o "$AAB" "base/manifest/AndroidManifest.xml" -d /tmp/aab-extract
+          TARGET_SDK=$(aapt2 dump xmltree --file base/manifest/AndroidManifest.xml "$AAB" 2>/dev/null | grep -oP 'targetSdkVersion.*?=\K[0-9]+' || true)
+          if [ -n "$TARGET_SDK" ] && [ "$TARGET_SDK" -lt 35 ]; then
+            echo "::error::targetSdkVersion is $TARGET_SDK, must be >= 35"
+            exit 1
+          fi
+          echo "targetSdkVersion check passed"
+          rm -rf /tmp/aab-extract
 
       - name: Upload release AAB
         uses: actions/upload-artifact@v4
