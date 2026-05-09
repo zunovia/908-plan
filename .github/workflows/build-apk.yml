@@ -94,23 +94,37 @@ jobs:
 
       - name: Relocate MainActivity to match namespace
         run: |
-          # flutter create generates MainActivity under com/voxna/zero_app/
-          # but namespace is app.voxna.android, so Android looks for
-          # app.voxna.android.MainActivity at runtime.
-          # Move the file and rewrite its package declaration.
-          SRC_DIR="android/app/src/main/kotlin/com/voxna/zero_app"
-          DST_DIR="android/app/src/main/kotlin/app/voxna/android"
-          mkdir -p "$DST_DIR"
-          if [ -f "$SRC_DIR/MainActivity.kt" ]; then
-            sed 's/^package .*/package app.voxna.android/' "$SRC_DIR/MainActivity.kt" > "$DST_DIR/MainActivity.kt"
-            rm -rf android/app/src/main/kotlin/com
+          # Find where flutter create put MainActivity
+          echo "=== Searching for MainActivity ==="
+          MAIN_KT=$(find android/app/src/main -name "MainActivity.kt" -type f 2>/dev/null | head -1)
+          echo "Found: ${MAIN_KT:-not found}"
+          if [ -z "$MAIN_KT" ]; then
+            echo "ERROR: MainActivity.kt not found anywhere under android/app/src/main/"
+            find android/app/src/main -type f 2>/dev/null
+            exit 1
           fi
+          # Determine the target directory (same parent type: kotlin/ or java/)
+          if echo "$MAIN_KT" | grep -q "/kotlin/"; then
+            DST_DIR="android/app/src/main/kotlin/app/voxna/android"
+          else
+            DST_DIR="android/app/src/main/java/app/voxna/android"
+          fi
+          mkdir -p "$DST_DIR"
+          sed 's/^package .*/package app.voxna.android/' "$MAIN_KT" > "$DST_DIR/MainActivity.kt"
+          echo "Relocated to: $DST_DIR/MainActivity.kt"
+          cat "$DST_DIR/MainActivity.kt"
+          # Remove old com/ tree
+          SRC_ROOT=$(echo "$MAIN_KT" | sed 's|/com/.*|/com|')
+          rm -rf "$SRC_ROOT"
 
       - name: Fix AndroidManifest for correct MainActivity reference
         run: |
           MANIFEST="android/app/src/main/AndroidManifest.xml"
-          # Use fully-qualified class name so it resolves regardless of namespace
+          echo "=== Before ==="
+          grep "android:name" "$MANIFEST" || true
           sed -i 's/android:name="\.MainActivity"/android:name="app.voxna.android.MainActivity"/' "$MANIFEST"
+          echo "=== After ==="
+          grep "android:name" "$MANIFEST" || true
 
       - name: Add Android permissions for recording
         run: |
@@ -206,23 +220,37 @@ jobs:
 
       - name: Relocate MainActivity to match namespace
         run: |
-          # flutter create generates MainActivity under com/voxna/zero_app/
-          # but namespace is app.voxna.android, so Android looks for
-          # app.voxna.android.MainActivity at runtime.
-          # Move the file and rewrite its package declaration.
-          SRC_DIR="android/app/src/main/kotlin/com/voxna/zero_app"
-          DST_DIR="android/app/src/main/kotlin/app/voxna/android"
-          mkdir -p "$DST_DIR"
-          if [ -f "$SRC_DIR/MainActivity.kt" ]; then
-            sed 's/^package .*/package app.voxna.android/' "$SRC_DIR/MainActivity.kt" > "$DST_DIR/MainActivity.kt"
-            rm -rf android/app/src/main/kotlin/com
+          # Find where flutter create put MainActivity
+          echo "=== Searching for MainActivity ==="
+          MAIN_KT=$(find android/app/src/main -name "MainActivity.kt" -type f 2>/dev/null | head -1)
+          echo "Found: ${MAIN_KT:-not found}"
+          if [ -z "$MAIN_KT" ]; then
+            echo "ERROR: MainActivity.kt not found anywhere under android/app/src/main/"
+            find android/app/src/main -type f 2>/dev/null
+            exit 1
           fi
+          # Determine the target directory (same parent type: kotlin/ or java/)
+          if echo "$MAIN_KT" | grep -q "/kotlin/"; then
+            DST_DIR="android/app/src/main/kotlin/app/voxna/android"
+          else
+            DST_DIR="android/app/src/main/java/app/voxna/android"
+          fi
+          mkdir -p "$DST_DIR"
+          sed 's/^package .*/package app.voxna.android/' "$MAIN_KT" > "$DST_DIR/MainActivity.kt"
+          echo "Relocated to: $DST_DIR/MainActivity.kt"
+          cat "$DST_DIR/MainActivity.kt"
+          # Remove old com/ tree
+          SRC_ROOT=$(echo "$MAIN_KT" | sed 's|/com/.*|/com|')
+          rm -rf "$SRC_ROOT"
 
       - name: Fix AndroidManifest for correct MainActivity reference
         run: |
           MANIFEST="android/app/src/main/AndroidManifest.xml"
-          # Use fully-qualified class name so it resolves regardless of namespace
+          echo "=== Before ==="
+          grep "android:name" "$MANIFEST" || true
           sed -i 's/android:name="\.MainActivity"/android:name="app.voxna.android.MainActivity"/' "$MANIFEST"
+          echo "=== After ==="
+          grep "android:name" "$MANIFEST" || true
 
       - name: Add Android permissions for recording
         run: |
