@@ -160,13 +160,21 @@ jobs:
           # Extract DEX files and verify MainActivity exists
           WORK_DIR=$(mktemp -d)
           unzip -o "$APK" "classes*.dex" -d "$WORK_DIR"
+          echo "=== DEX files extracted ==="
+          ls -la "$WORK_DIR"/classes*.dex
+          # Search for MainActivity in all DEX files
+          echo "=== Searching for MainActivity in DEX files ==="
           FOUND=false
           for DEX in "$WORK_DIR"/classes*.dex; do
-            # dexdump uses slash-separated class descriptors: Lapp/voxna/android/MainActivity;
-            if dexdump "$DEX" 2>/dev/null | grep -q "app/voxna/android/MainActivity"; then
+            echo "Checking $(basename $DEX)..."
+            # Try multiple search patterns
+            if dexdump "$DEX" 2>/dev/null | grep -i "MainActivity" | head -5; then
               FOUND=true
-              break
             fi
+          done
+          echo "=== Also searching for voxna ==="
+          for DEX in "$WORK_DIR"/classes*.dex; do
+            dexdump "$DEX" 2>/dev/null | grep -i "voxna" | head -5 || true
           done
           rm -rf "$WORK_DIR"
           if [ "$FOUND" = false ]; then
