@@ -10,7 +10,7 @@
 -dontwarn com.google.firebase.**
 
 # Keep app classes
--keep class com.voxna.app.** { *; }
+-keep class app.voxna.android.** { *; }
 
 # Audioplayers
 -keep class xyz.luan.audioplayers.** { *; }
