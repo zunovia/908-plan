@@ -157,33 +157,30 @@ jobs:
       - name: Verify DEX contains MainActivity and targetSdk
         run: |
           APK="build/app/outputs/flutter-apk/app-debug.apk"
+          # Locate Android SDK tools (not in default PATH on GitHub Actions)
+          DEXDUMP=$(find "$ANDROID_HOME/build-tools" -name "dexdump" -type f 2>/dev/null | sort -V | tail -1)
+          AAPT2=$(find "$ANDROID_HOME/build-tools" -name "aapt2" -type f 2>/dev/null | sort -V | tail -1)
+          echo "dexdump: $DEXDUMP"
+          echo "aapt2: $AAPT2"
           # Extract DEX files and verify MainActivity exists
           WORK_DIR=$(mktemp -d)
           unzip -o "$APK" "classes*.dex" -d "$WORK_DIR"
-          echo "=== DEX files extracted ==="
-          ls -la "$WORK_DIR"/classes*.dex
-          # Search for MainActivity in all DEX files
-          echo "=== Searching for MainActivity in DEX files ==="
           FOUND=false
           for DEX in "$WORK_DIR"/classes*.dex; do
-            echo "Checking $(basename $DEX)..."
-            # Try multiple search patterns
-            if dexdump "$DEX" 2>/dev/null | grep -i "MainActivity" | head -5; then
+            if "$DEXDUMP" "$DEX" 2>/dev/null | grep -q "app/voxna/android/MainActivity"; then
+              echo "MainActivity found in $(basename $DEX)"
               FOUND=true
+              break
             fi
-          done
-          echo "=== Also searching for voxna ==="
-          for DEX in "$WORK_DIR"/classes*.dex; do
-            dexdump "$DEX" 2>/dev/null | grep -i "voxna" | head -5 || true
           done
           rm -rf "$WORK_DIR"
           if [ "$FOUND" = false ]; then
             echo "::error::MainActivity not found in DEX - ClassNotFoundException will occur at runtime"
             exit 1
           fi
-          echo "MainActivity found in DEX"
+          echo "MainActivity verified in DEX"
           # Verify targetSdkVersion >= 35
-          TARGET_SDK=$(aapt2 dump badging "$APK" 2>/dev/null | grep -oP "targetSdkVersion:'\K[0-9]+")
+          TARGET_SDK=$("$AAPT2" dump badging "$APK" 2>/dev/null | grep -oP "targetSdkVersion:'\K[0-9]+" || echo "")
           if [ -z "$TARGET_SDK" ] || [ "$TARGET_SDK" -lt 35 ]; then
             echo "::error::targetSdkVersion is ${TARGET_SDK:-unknown}, must be >= 35"
             exit 1
@@ -302,12 +299,15 @@ jobs:
       - name: Verify DEX contains MainActivity and targetSdk
         run: |
           AAB="build/app/outputs/bundle/release/app-release.aab"
+          # Locate Android SDK tools
+          DEXDUMP=$(find "$ANDROID_HOME/build-tools" -name "dexdump" -type f 2>/dev/null | sort -V | tail -1)
+          AAPT2=$(find "$ANDROID_HOME/build-tools" -name "aapt2" -type f 2>/dev/null | sort -V | tail -1)
           # Extract base module DEX from AAB for inspection
           unzip -o "$AAB" "base/dex/*" -d /tmp/aab-extract
-          # Verify MainActivity exists in DEX (dexdump uses slash-separated descriptors)
           FOUND=false
           for DEX in /tmp/aab-extract/base/dex/*.dex; do
-            if dexdump "$DEX" 2>/dev/null | grep -q "app/voxna/android/MainActivity"; then
+            if "$DEXDUMP" "$DEX" 2>/dev/null | grep -q "app/voxna/android/MainActivity"; then
+              echo "MainActivity found in $(basename $DEX)"
               FOUND=true
               break
             fi
@@ -316,10 +316,9 @@ jobs:
             echo "::error::MainActivity not found in DEX - ClassNotFoundException will occur at runtime"
             exit 1
           fi
-          echo "MainActivity found in DEX"
-          # Verify targetSdkVersion >= 35 from AndroidManifest in AAB
-          unzip -o "$AAB" "base/manifest/AndroidManifest.xml" -d /tmp/aab-extract
-          TARGET_SDK=$(aapt2 dump xmltree --file base/manifest/AndroidManifest.xml "$AAB" 2>/dev/null | grep -oP 'targetSdkVersion.*?=\K[0-9]+' || true)
+          echo "MainActivity verified in DEX"
+          # Verify targetSdkVersion >= 35
+          TARGET_SDK=$("$AAPT2" dump xmltree --file base/manifest/AndroidManifest.xml "$AAB" 2>/dev/null | grep -oP 'targetSdkVersion.*?=\K[0-9]+' || echo "")
           if [ -n "$TARGET_SDK" ] && [ "$TARGET_SDK" -lt 35 ]; then
             echo "::error::targetSdkVersion is $TARGET_SDK, must be >= 35"
             exit 1
