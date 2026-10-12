@@ -9,7 +9,7 @@ void main() {
       const state = HomeState();
       expect(state.dayCount, 0);
       expect(state.streak, 0);
-      expect(state.dailyPrompt, '');
+      expect(state.promptDayNumber, 0);
       expect(state.recentRecordings, isEmpty);
       expect(state.hasEnoughData, isFalse);
     });
@@ -25,7 +25,7 @@ void main() {
       final state = HomeState(
         dayCount: 10,
         streak: 3,
-        dailyPrompt: 'テスト',
+        promptDayNumber: 7,
         selectedDuration: RecordingDuration.short15,
         recentRecordings: recordings,
         hasEnoughData: true,
@@ -35,7 +35,7 @@ void main() {
 
       expect(copied.dayCount, 10);
       expect(copied.streak, 3);
-      expect(copied.dailyPrompt, 'テスト');
+      expect(copied.promptDayNumber, 7);
       expect(copied.selectedDuration, RecordingDuration.short15);
       expect(copied.recentRecordings, recordings);
       expect(copied.hasEnoughData, isTrue);
@@ -49,7 +49,7 @@ void main() {
       expect(updated.hasEnoughData, isTrue);
       // Unchanged
       expect(updated.streak, 2);
-      expect(updated.dailyPrompt, '');
+      expect(updated.promptDayNumber, 0);
       expect(updated.selectedDuration, RecordingDuration.normal30);
     });
   });

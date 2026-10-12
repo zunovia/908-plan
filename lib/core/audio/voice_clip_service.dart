@@ -189,8 +189,9 @@ class VoiceClipService {
   /// Concatenates [parts] with [gapSeconds] of silence between them.
   static Float64List concatWithGaps(List<Float64List> parts, int sampleRate) {
     final gap = (sampleRate * gapSeconds).round();
-    final total = parts.fold<int>(0, (sum, p) => sum + p.length) +
-        gap * max(parts.length - 1, 0);
+    final gaps = parts.length > 1 ? parts.length - 1 : 0;
+    final int total =
+        parts.fold<int>(0, (sum, p) => sum + p.length) + gap * gaps;
     final out = Float64List(total);
     var offset = 0;
     for (var i = 0; i < parts.length; i++) {
