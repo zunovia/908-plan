@@ -7,7 +7,9 @@ import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_typography.dart';
 import '../../../../core/providers/audio_providers.dart';
 import '../../../../shared/widgets/zero_app_bar.dart';
+import '../widgets/agreement_card.dart';
 import '../widgets/trend_line_chart.dart';
+import '../widgets/weekly_voice_card.dart';
 import '../widgets/highlight_card.dart';
 import '../widgets/inquiry_card.dart';
 import '../widgets/normalization_card.dart';
@@ -63,6 +65,10 @@ class _WeeklyReportScreenState extends ConsumerState<WeeklyReportScreen> {
                   TrendLineChart(metrics: reportState.metrics),
                   const SizedBox(height: AppSpacing.lg),
                   HighlightCard(highlight: reportState.highlight),
+                  const SizedBox(height: AppSpacing.lg),
+                  const WeeklyVoiceCard(),
+                  const SizedBox(height: AppSpacing.lg),
+                  AgreementCard(result: reportState.agreement),
                   const SizedBox(height: AppSpacing.lg),
                   InquiryCard(inquiry: reportState.inquiry),
                   const SizedBox(height: AppSpacing.lg),

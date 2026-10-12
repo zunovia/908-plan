@@ -111,7 +111,19 @@ class SettingsScreen extends ConsumerWidget {
                       if (picked != null) {
                         final formatted =
                             '${picked.hour.toString().padLeft(2, '0')}:${picked.minute.toString().padLeft(2, '0')}';
-                        ref.read(settingsProvider.notifier).setReminderTime(formatted);
+                        final notifier = ref.read(settingsProvider.notifier);
+                        final granted =
+                            await notifier.requestNotificationPermission();
+                        notifier.setReminderTime(formatted);
+                        if (!granted && context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                l10n.settings_reminder_permission_denied,
+                              ),
+                            ),
+                          );
+                        }
                       } else {
                         ref.read(settingsProvider.notifier).setReminderTime(null);
                       }

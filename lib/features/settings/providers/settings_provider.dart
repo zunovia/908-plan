@@ -1,7 +1,12 @@
+import 'dart:ui';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/providers/audio_providers.dart';
 import '../../../core/providers/auth_provider.dart';
+import '../../../core/notifications/notification_service.dart';
+import '../../../core/providers/notification_providers.dart';
 import '../../../core/providers/storage_providers.dart';
 import '../../onboarding/providers/onboarding_provider.dart';
 
@@ -83,6 +88,53 @@ class SettingsNotifier extends Notifier<SettingsState> {
       pauseMode: pauseMode,
     );
     ref.read(soundManagerProvider).enabled = soundEnabled;
+
+    // Re-sync scheduled notifications with the stored settings on every
+    // start, so schedules survive app updates and setting changes.
+    await _syncNotifications();
+  }
+
+  /// Loads the localization for the current UI language (used for
+  /// notification texts, which are rendered outside the widget tree).
+  Future<AppLocalizations> _loadL10n() {
+    final code = state.localeCode;
+    final locale =
+        code == 'system' ? PlatformDispatcher.instance.locale : Locale(code);
+    return AppLocalizations.delegate.load(locale);
+  }
+
+  Future<void> _syncNotifications() async {
+    final service = ref.read(notificationServiceProvider);
+    try {
+      final l10n = await _loadL10n();
+      final time = NotificationService.parseTime(state.reminderTime);
+      if (time != null) {
+        await service.scheduleDailyReminder(
+          hour: time.hour,
+          minute: time.minute,
+          title: l10n.notification_reminder_title,
+          body: l10n.notification_reminder_body,
+        );
+      } else {
+        await service.cancelDailyReminder();
+      }
+      if (state.reportNotification) {
+        await service.scheduleWeeklyReport(
+          title: l10n.notification_report_title,
+          body: l10n.notification_report_body,
+        );
+      } else {
+        await service.cancelWeeklyReport();
+      }
+    } catch (_) {
+      // Notifications are best-effort; never surface scheduling failures.
+    }
+  }
+
+  /// Asks for the notification permission (Android 13+). Returns false when
+  /// the user declined, so the UI can explain how to enable it.
+  Future<bool> requestNotificationPermission() {
+    return ref.read(notificationServiceProvider).requestPermission();
   }
 
   void setSoundEnabled(bool value) {
@@ -99,11 +151,13 @@ class SettingsNotifier extends Notifier<SettingsState> {
   void setReportNotification(bool value) {
     state = state.copyWith(reportNotification: value);
     ref.read(secureStorageProvider).setReportNotification(value);
+    _syncNotifications();
   }
 
   void setReminderTime(String? time) {
     state = state.copyWith(reminderTime: time);
     ref.read(secureStorageProvider).setReminderTime(time);
+    _syncNotifications();
   }
 
   void setThemeMode(String mode) {
@@ -114,6 +168,8 @@ class SettingsNotifier extends Notifier<SettingsState> {
   void setLocale(String code) {
     state = state.copyWith(localeCode: code);
     ref.read(secureStorageProvider).setLocale(code == 'system' ? null : code);
+    // Notification texts follow the UI language.
+    _syncNotifications();
   }
 
   void setPauseMode(bool value) {
@@ -131,6 +187,8 @@ class SettingsNotifier extends Notifier<SettingsState> {
     try {
       await db.clearAll();
       await storage.deleteAll();
+      await ref.read(voiceClipServiceProvider).deleteAll();
+      await ref.read(notificationServiceProvider).cancelAll();
     } finally {
       ref.invalidate(onboardingCompleteProvider);
     }

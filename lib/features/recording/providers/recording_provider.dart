@@ -144,6 +144,16 @@ class RecordingNotifier extends Notifier<RecordingState> {
     final repo = ref.read(localRecordingRepositoryProvider);
     await repo.saveRecording(recording);
 
+    // Keep the first seconds on-device for the weekly voice collage.
+    try {
+      await ref.read(voiceClipServiceProvider).saveClip(
+            sourceWavPath: path,
+            recordingId: recordingId,
+          );
+    } catch (_) {
+      // Non-fatal: the collage simply skips this day.
+    }
+
     // Delete WAV file after analysis — metrics are saved in Hive
     try {
       final file = File(path);

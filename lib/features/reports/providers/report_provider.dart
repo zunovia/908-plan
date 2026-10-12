@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import '../../../core/insights/agreement_engine.dart';
 import '../../../core/insights/insight_engine.dart';
 import '../../../core/providers/storage_providers.dart';
 import '../../recording/data/recording_model.dart';
@@ -16,6 +17,7 @@ class ReportState {
   final List<DailyMetric> metrics;
   final String? highlight;
   final String? inquiry;
+  final AgreementResult agreement;
 
   const ReportState({
     this.dateRange = '',
@@ -23,6 +25,7 @@ class ReportState {
     this.metrics = const [],
     this.highlight,
     this.inquiry,
+    this.agreement = AgreementResult.empty,
   });
 
   bool get hasData => metrics.isNotEmpty;
@@ -33,6 +36,7 @@ class ReportState {
     List<DailyMetric>? metrics,
     String? highlight,
     String? inquiry,
+    AgreementResult? agreement,
   }) {
     return ReportState(
       dateRange: dateRange ?? this.dateRange,
@@ -40,6 +44,7 @@ class ReportState {
       metrics: metrics ?? this.metrics,
       highlight: highlight ?? this.highlight,
       inquiry: inquiry ?? this.inquiry,
+      agreement: agreement ?? this.agreement,
     );
   }
 }
@@ -80,12 +85,17 @@ class ReportNotifier extends Notifier<ReportState> {
 
     final inquiry = InsightEngine.generateWeeklyInquiry(dailyMetrics, l10n);
 
+    // Subjective-objective agreement over the last two weeks (all recordings,
+    // not only this week's, so the window is stable across weekdays).
+    final agreement = AgreementEngine.compute(repo.getRecordings(), now: now);
+
     state = ReportState(
       dateRange: dateRange,
       isLoading: false,
       metrics: dailyMetrics,
       highlight: highlight,
       inquiry: inquiry,
+      agreement: agreement,
     );
   }
 
