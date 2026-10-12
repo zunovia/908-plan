@@ -239,5 +239,20 @@
   "privacy_body": "Voxna Privacy Policy\n\nLast updated: January 1, 2025\n\n1. Information We Collect\nVoxna collects the following information:\n- Voice recording data (stored only on your device)\n- Voice analysis metrics (energy, clarity, expression range, tempo)\n- Self-assessment data\n- App settings\n\n2. Data Storage\nAll data is stored in your device's local storage. Voice data and analysis results are never sent to external servers.\n\n3. Purpose of Data Use\nCollected data is used solely for visualizing voice changes and generating reports.\n\n4. Data Sharing\nWe do not share your data with third parties.\n\n5. Data Deletion\nAll data can be deleted through the \"Delete Account\" feature or by uninstalling the app.\n\n6. Contact\nFor questions about this policy, please use the in-app feedback feature.",
 
   "terms_title": "Terms of Service",
-  "terms_body": "Voxna Terms of Service\n\nLast updated: January 1, 2025\n\n1. Service Overview\nVoxna is an application designed to deepen self-understanding through daily voice recording.\n\n2. Terms of Use\n- This app is intended for personal use\n- Copyright of recorded audio belongs to the user\n- Unauthorized use or modification of the app is prohibited\n\n3. Disclaimer\n- This app is not intended for medical diagnosis\n- Voice analysis results are for reference only\n- The developer is not liable for data loss\n\n4. Service Changes\nThe developer may change or terminate the service without prior notice.\n\n5. Governing Law\nThese terms are governed by the laws of Japan."
+  "terms_body": "Voxna Terms of Service\n\nLast updated: January 1, 2025\n\n1. Service Overview\nVoxna is an application designed to deepen self-understanding through daily voice recording.\n\n2. Terms of Use\n- This app is intended for personal use\n- Copyright of recorded audio belongs to the user\n- Unauthorized use or modification of the app is prohibited\n\n3. Disclaimer\n- This app is not intended for medical diagnosis\n- Voice analysis results are for reference only\n- The developer is not liable for data loss\n\n4. Service Changes\nThe developer may change or terminate the service without prior notice.\n\n5. Governing Law\nThese terms are governed by the laws of Japan.",
+
+  "notification_reminder_title": "Voxna",
+  "notification_reminder_body": "Thirty seconds for your voice today.",
+  "notification_report_title": "Your weekly report is ready",
+  "notification_report_body": "Take a moment to look back on this week's voice.",
+  "report_weekly_voice_title": "Voice of the Week",
+  "report_weekly_voice_desc": "The first three seconds of each recording from Monday to Sunday, joined together. Listen to your voice as it is, not as numbers.",
+  "report_weekly_voice_play": "Listen",
+  "report_weekly_voice_stop": "Stop",
+  "report_weekly_voice_insufficient": "Once you have recordings on two or more days this week, you can listen here.",
+  "report_agreement_title": "Where Feeling Meets Voice",
+  "report_agreement_body": "Over the past two weeks, your sense of your voice and the data overlapped {matched} of {total} times.",
+  "report_agreement_rising": "Lately, your sense and the data have been drawing closer. You may be starting to hear your own voice.",
+  "report_agreement_insufficient": "Choose how you feel after recording, and the overlap between feeling and voice will appear here.",
+  "settings_reminder_permission_denied": "Notifications are not allowed. Enable notifications for Voxna in your device settings."
 }

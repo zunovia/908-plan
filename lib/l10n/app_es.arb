@@ -239,5 +239,20 @@
   "privacy_body": "Política de privacidad de Voxna\n\nÚltima actualización: 1 de enero de 2025\n\n1. Información que recopilamos\nVoxna recopila la siguiente información:\n- Datos de grabación de voz (almacenados solo en tu dispositivo)\n- Métricas de análisis de voz (energía, claridad, rango de expresión, tempo)\n- Datos de autoevaluación\n- Configuración de la app\n\n2. Almacenamiento de datos\nTodos los datos se almacenan en el almacenamiento local de tu dispositivo. Los datos de voz y los resultados del análisis nunca se envían a servidores externos.\n\n3. Propósito del uso de datos\nLos datos recopilados se utilizan únicamente para visualizar cambios en la voz y generar informes.\n\n4. Compartir datos\nNo compartimos tus datos con terceros.\n\n5. Eliminación de datos\nTodos los datos pueden eliminarse a través de la función \"Eliminar cuenta\" o desinstalando la app.\n\n6. Contacto\nPara preguntas sobre esta política, utiliza la función de comentarios en la app.",
 
   "terms_title": "Términos de servicio",
-  "terms_body": "Términos de servicio de Voxna\n\nÚltima actualización: 1 de enero de 2025\n\n1. Descripción del servicio\nVoxna es una aplicación diseñada para profundizar el autoconocimiento a través de la grabación diaria de voz.\n\n2. Condiciones de uso\n- Esta app es para uso personal\n- Los derechos de autor del audio grabado pertenecen al usuario\n- El uso no autorizado o la modificación de la app está prohibido\n\n3. Descargo de responsabilidad\n- Esta app no está destinada al diagnóstico médico\n- Los resultados del análisis de voz son solo de referencia\n- El desarrollador no es responsable de la pérdida de datos\n\n4. Cambios en el servicio\nEl desarrollador puede cambiar o terminar el servicio sin previo aviso.\n\n5. Ley aplicable\nEstos términos se rigen por las leyes de Japón."
+  "terms_body": "Términos de servicio de Voxna\n\nÚltima actualización: 1 de enero de 2025\n\n1. Descripción del servicio\nVoxna es una aplicación diseñada para profundizar el autoconocimiento a través de la grabación diaria de voz.\n\n2. Condiciones de uso\n- Esta app es para uso personal\n- Los derechos de autor del audio grabado pertenecen al usuario\n- El uso no autorizado o la modificación de la app está prohibido\n\n3. Descargo de responsabilidad\n- Esta app no está destinada al diagnóstico médico\n- Los resultados del análisis de voz son solo de referencia\n- El desarrollador no es responsable de la pérdida de datos\n\n4. Cambios en el servicio\nEl desarrollador puede cambiar o terminar el servicio sin previo aviso.\n\n5. Ley aplicable\nEstos términos se rigen por las leyes de Japón.",
+
+  "notification_reminder_title": "Voxna",
+  "notification_reminder_body": "Treinta segundos para tu voz, hoy.",
+  "notification_report_title": "Tu informe semanal está listo",
+  "notification_report_body": "Tómate un momento para repasar la voz de esta semana.",
+  "report_weekly_voice_title": "La voz de la semana",
+  "report_weekly_voice_desc": "Los primeros tres segundos de cada grabación de lunes a domingo, unidos. Escucha tu voz tal como es, no como números.",
+  "report_weekly_voice_play": "Escuchar",
+  "report_weekly_voice_stop": "Detener",
+  "report_weekly_voice_insufficient": "Cuando tengas grabaciones de dos o más días esta semana, podrás escucharlas aquí.",
+  "report_agreement_title": "Donde la sensación se encuentra con la voz",
+  "report_agreement_body": "En las últimas dos semanas, tu sensación y los datos de tu voz coincidieron {matched} de {total} veces.",
+  "report_agreement_rising": "Últimamente, tu sensación y los datos se acercan cada vez más. Puede que estés empezando a oír tu propia voz.",
+  "report_agreement_insufficient": "Elige cómo te sientes tras grabar y aquí aparecerá la coincidencia entre sensación y voz.",
+  "settings_reminder_permission_denied": "Las notificaciones no están permitidas. Activa las notificaciones de Voxna en los ajustes del dispositivo."
 }
