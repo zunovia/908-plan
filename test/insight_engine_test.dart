@@ -1,11 +1,16 @@
 import 'package:flutter_gen/gen_l10n/app_localizations_ja.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:zero_app/core/insights/insight_engine.dart';
 import 'package:zero_app/features/recording/data/recording_model.dart';
 import 'package:zero_app/features/reports/data/report_model.dart';
 
 void main() {
   final l10n = AppLocalizationsJa();
+
+  setUpAll(() async {
+    await initializeDateFormatting('ja');
+  });
 
   group('InsightEngine - Mini-Insight', () {
     test('rotates by day-of-year mod 4', () {
