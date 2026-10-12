@@ -4,10 +4,8 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:zero_app/core/notifications/notification_service.dart';
 
 void main() {
-  setUpAll(() {
-    tzdata.initializeTimeZones();
-  });
-
+  // Time zone data must be loaded before any location lookup.
+  tzdata.initializeTimeZones();
   final tokyo = tz.getLocation('Asia/Tokyo');
 
   group('NotificationService.parseTime', () {
