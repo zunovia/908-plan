@@ -1,0 +1,26 @@
+Voxna es una app de autocuidado que registra y analiza cómo cambia tu voz con el tiempo.
+
+CÓMO FUNCIONA
+1. Abre la app y toca el botón de grabar
+2. Habla libremente durante 30 segundos
+3. Tu voz se analiza automáticamente y los resultados aparecen al instante
+
+CUATRO INDICADORES
+- Energía: la fuerza y vitalidad de tu voz
+- Claridad: qué tan nítida es tu pronunciación
+- Rango expresivo: entonación y expresividad
+- Tempo: el ritmo y la velocidad al hablar
+
+IDEAL PARA
+- Reflexionar sobre tu estado diario a través de la voz
+- Practicar discursos y presentaciones
+- Notar cambios graduales en tu voz
+
+CARACTERÍSTICAS
+- Todos los datos se guardan solo en tu dispositivo. No se envía nada a servidores externos
+- Sin registro de cuenta (inicio de sesión anónimo)
+- Disponible en español, inglés, japonés y portugués
+- Informes semanales y mensuales para revisar tus cambios
+- Insights generados por IA a partir de los patrones de tu voz
+
+Un hábito para encontrarte contigo a través de tu voz, respetando tu privacidad.
