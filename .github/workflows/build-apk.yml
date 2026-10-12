@@ -49,6 +49,8 @@ jobs:
         run: |
           flutter create --project-name zero_app --org com.voxna --platforms android --no-pub .
           git checkout -- pubspec.yaml l10n.yaml
+          # flutter create also drops a template test that references a non-existent MyApp
+          rm -f test/widget_test.dart
 
       - name: Configure build.gradle
         run: |
@@ -239,6 +241,8 @@ jobs:
         run: |
           flutter create --project-name zero_app --org com.voxna --platforms android --no-pub .
           git checkout -- pubspec.yaml l10n.yaml
+          # flutter create also drops a template test that references a non-existent MyApp
+          rm -f test/widget_test.dart
 
       - name: Decode upload keystore from secret
         run: |
