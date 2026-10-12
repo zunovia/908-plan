@@ -168,11 +168,9 @@ jobs:
         run: flutter gen-l10n
 
       - name: Analyze
-        continue-on-error: true
         run: flutter analyze --no-fatal-infos
 
       - name: Unit tests
-        continue-on-error: true
         run: flutter test
 
       - name: Build debug APK

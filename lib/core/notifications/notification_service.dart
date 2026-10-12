@@ -73,6 +73,8 @@ class NotificationService {
       nextInstanceOfTime(hour, minute),
       _details(channelName: 'Voxna'),
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
       matchDateTimeComponents: DateTimeComponents.time,
     );
   }
@@ -92,6 +94,8 @@ class NotificationService {
       nextInstanceOfWeekday(weeklyReportWeekday, weeklyReportHour, 0),
       _details(channelName: 'Voxna'),
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
       matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
     );
   }

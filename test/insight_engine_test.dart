@@ -1,36 +1,39 @@
+import 'package:flutter_gen/gen_l10n/app_localizations_ja.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:zero_app/core/insights/insight_engine.dart';
 import 'package:zero_app/features/recording/data/recording_model.dart';
 import 'package:zero_app/features/reports/data/report_model.dart';
 
 void main() {
+  final l10n = AppLocalizationsJa();
+
   group('InsightEngine - Mini-Insight', () {
     test('rotates by day-of-year mod 4', () {
       // Jan 1 = day 0 → slot 0 (tempo)
       final r0 = _recording(DateTime(2025, 1, 1), tempo: 4.2);
       expect(
-        InsightEngine.generateMiniInsight(r0),
+        InsightEngine.generateMiniInsight(r0, l10n),
         contains('テンポ'),
       );
 
       // Jan 2 = day 1 → slot 1 (energy)
       final r1 = _recording(DateTime(2025, 1, 2), energy: 0.8);
       expect(
-        InsightEngine.generateMiniInsight(r1),
+        InsightEngine.generateMiniInsight(r1, l10n),
         contains('エネルギー'),
       );
 
       // Jan 3 = day 2 → slot 2 (clarity)
       final r2 = _recording(DateTime(2025, 1, 3), clarity: 0.6);
       expect(
-        InsightEngine.generateMiniInsight(r2),
+        InsightEngine.generateMiniInsight(r2, l10n),
         contains('明瞭度'),
       );
 
       // Jan 4 = day 3 → slot 3 (expression)
       final r3 = _recording(DateTime(2025, 1, 4), expressionRange: 0.9);
       expect(
-        InsightEngine.generateMiniInsight(r3),
+        InsightEngine.generateMiniInsight(r3, l10n),
         contains('抑揚'),
       );
     });
@@ -39,14 +42,14 @@ void main() {
       // Low energy (< 0.3)
       final rLow = _recording(DateTime(2025, 1, 2), energy: 0.1);
       expect(
-        InsightEngine.generateMiniInsight(rLow),
+        InsightEngine.generateMiniInsight(rLow, l10n),
         contains('静かで落ち着いた'),
       );
 
       // High energy (> 0.7)
       final rHigh = _recording(DateTime(2025, 1, 2), energy: 0.9);
       expect(
-        InsightEngine.generateMiniInsight(rHigh),
+        InsightEngine.generateMiniInsight(rHigh, l10n),
         contains('力強さ'),
       );
     });
@@ -57,14 +60,14 @@ void main() {
         recordedAt: DateTime(2025, 1, 1),
         durationSeconds: 60,
       );
-      final result = InsightEngine.generateMiniInsight(r);
+      final result = InsightEngine.generateMiniInsight(r, l10n);
       expect(result, isNotEmpty);
     });
   });
 
   group('InsightEngine - Weekly Inquiry', () {
     test('returns null for less than 2 metrics', () {
-      expect(InsightEngine.generateWeeklyInquiry([]), isNull);
+      expect(InsightEngine.generateWeeklyInquiry([], l10n), isNull);
       expect(
         InsightEngine.generateWeeklyInquiry([
           DailyMetric(
@@ -73,7 +76,7 @@ void main() {
             clarity: 0.5,
             expressionRange: 0.5,
           ),
-        ]),
+        ], l10n),
         isNull,
       );
     });
@@ -93,7 +96,7 @@ void main() {
           expressionRange: 0.3,
         ),
       ];
-      final result = InsightEngine.generateWeeklyInquiry(metrics);
+      final result = InsightEngine.generateWeeklyInquiry(metrics, l10n);
       expect(result, contains('エネルギー'));
       expect(result, contains('上がった'));
     });
@@ -113,7 +116,7 @@ void main() {
           expressionRange: 0.8,
         ),
       ];
-      final result = InsightEngine.generateWeeklyInquiry(metrics);
+      final result = InsightEngine.generateWeeklyInquiry(metrics, l10n);
       // Could be energy_spike or expression_rich depending on salience
       expect(result, isNotNull);
     });
@@ -142,7 +145,7 @@ void main() {
           tempo: 2.0,
         ),
       ];
-      final result = InsightEngine.generateWeeklyInquiry(metrics);
+      final result = InsightEngine.generateWeeklyInquiry(metrics, l10n);
       expect(result, contains('ペース'));
     });
 
@@ -167,7 +170,7 @@ void main() {
           expressionRange: 0.3,
         ),
       ];
-      final result = InsightEngine.generateWeeklyInquiry(metrics);
+      final result = InsightEngine.generateWeeklyInquiry(metrics, l10n);
       expect(result, contains('静かな週'));
     });
 
@@ -182,7 +185,7 @@ void main() {
           tempo: 3.0 + (i * 0.05),
         ),
       );
-      final result = InsightEngine.generateWeeklyInquiry(metrics);
+      final result = InsightEngine.generateWeeklyInquiry(metrics, l10n);
       expect(result, contains('安定'));
     });
 
@@ -204,7 +207,7 @@ void main() {
           tempo: 3.0,
         ),
       ];
-      final result = InsightEngine.generateWeeklyInquiry(metrics);
+      final result = InsightEngine.generateWeeklyInquiry(metrics, l10n);
       // tempo_consistency requires >=3 metrics, so no rules fire
       expect(result, contains('耳を澄ませて'));
     });
@@ -226,7 +229,7 @@ void main() {
           expressionRange: 0.3,
         ),
       ];
-      final result = InsightEngine.generateWeeklyInquiry(metrics);
+      final result = InsightEngine.generateWeeklyInquiry(metrics, l10n);
       // energy spike delta is 0.2 → score 1.0
       // low_energy_week: maxE=0.3 < 0.35 → score (0.35-0.3)*4 = 0.2
       // energy_spike wins
@@ -236,7 +239,7 @@ void main() {
 
   group('InsightEngine - Monthly Comparison', () {
     test('returns null for empty current metrics', () {
-      expect(InsightEngine.generateMonthlyComparison([], []), isNull);
+      expect(InsightEngine.generateMonthlyComparison([], [], l10n), isNull);
     });
 
     test('returns null for empty previous recordings', () {
@@ -248,7 +251,7 @@ void main() {
           expressionRange: 0.5,
         ),
       ];
-      expect(InsightEngine.generateMonthlyComparison(current, []), isNull);
+      expect(InsightEngine.generateMonthlyComparison(current, [], l10n), isNull);
     });
 
     test('reports largest metric change', () {
@@ -272,7 +275,7 @@ void main() {
           tempo: 3.0,
         ),
       ];
-      final result = InsightEngine.generateMonthlyComparison(current, prev);
+      final result = InsightEngine.generateMonthlyComparison(current, prev, l10n);
       expect(result, contains('エネルギー'));
       expect(result, contains('高まって'));
     });
@@ -300,7 +303,7 @@ void main() {
       ];
       // energy diff = 0.6, tempo diff (raw) = 0.8 but normalized = 0.114
       // energy should win after normalization
-      final result = InsightEngine.generateMonthlyComparison(current, prev);
+      final result = InsightEngine.generateMonthlyComparison(current, prev, l10n);
       expect(result, contains('エネルギー'));
     });
 
@@ -325,14 +328,14 @@ void main() {
           tempo: 3.00,
         ),
       ];
-      final result = InsightEngine.generateMonthlyComparison(current, prev);
+      final result = InsightEngine.generateMonthlyComparison(current, prev, l10n);
       expect(result, contains('同水準'));
     });
   });
 
   group('InsightEngine - Highlight', () {
     test('returns null for empty metrics', () {
-      expect(InsightEngine.generateHighlight([]), isNull);
+      expect(InsightEngine.generateHighlight([], l10n), isNull);
     });
 
     test('includes energy and clarity best days', () {
@@ -350,7 +353,7 @@ void main() {
           expressionRange: 0.3,
         ),
       ];
-      final result = InsightEngine.generateHighlight(metrics)!;
+      final result = InsightEngine.generateHighlight(metrics, l10n)!;
       expect(result, contains('生き生き'));
       expect(result, contains('クリア'));
     });
@@ -376,7 +379,7 @@ void main() {
           expressionRange: 0.9,
         ),
       ];
-      final result = InsightEngine.generateHighlight(metrics)!;
+      final result = InsightEngine.generateHighlight(metrics, l10n)!;
       expect(result, contains('表現豊か'));
     });
 
@@ -395,7 +398,7 @@ void main() {
           expressionRange: 0.3,
         ),
       ];
-      final result = InsightEngine.generateHighlight(metrics)!;
+      final result = InsightEngine.generateHighlight(metrics, l10n)!;
       expect(result, isNot(contains('表現豊か')));
     });
   });
