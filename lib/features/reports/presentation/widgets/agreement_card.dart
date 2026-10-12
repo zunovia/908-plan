@@ -22,7 +22,7 @@ class AgreementCard extends StatelessWidget {
     if (!result.hasEnoughData) {
       body = l10n.report_agreement_insufficient;
     } else {
-      body = l10n.report_agreement_body(result.matched, result.total);
+      body = l10n.report_agreement_body(result.total, result.matched);
     }
 
     return ZeroCard(

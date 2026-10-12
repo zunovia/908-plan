@@ -361,7 +361,7 @@
   "report_weekly_voice_insufficient": "今週の録音が2日以上たまると、ここで聴けるようになります。",
   "report_agreement_title": "感覚と声の重なり",
   "report_agreement_body": "この2週間、あなたの感覚と声のデータは、{total}回のうち{matched}回で重なりました。",
-  "@report_agreement_body": {"placeholders": {"matched": {"type": "int"}, "total": {"type": "int"}}},
+  "@report_agreement_body": {"placeholders": {"total": {"type": "int"}, "matched": {"type": "int"}}},
   "report_agreement_rising": "最近、あなたの感覚と声のデータが、とても近くなっています。自分の声が、聴こえ始めているのかもしれません。",
   "report_agreement_insufficient": "録音後の一呼吸で感覚を選ぶと、ここに感覚と声の重なりが表れます。",
   "settings_reminder_permission_denied": "通知が許可されていません。端末の設定で Voxna の通知を有効にしてください。"
