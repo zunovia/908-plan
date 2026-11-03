@@ -31,24 +31,26 @@ class RecordingScreen extends ConsumerWidget {
       canPop: false,
       onPopInvokedWithResult: (didPop, _) {
         if (didPop) return;
+        // Back during the take discards it, exactly like the × button.
+        // After the take (breathing and later) it is already saved and
+        // back just leaves.
         if (phase == RecordingPhase.recording) {
-          ref.read(recordingProvider.notifier).stopRecording();
+          // Once 完了 / auto-stop has begun the take is being saved: back
+          // must not pretend to cancel it.
+          if (ref.read(recordingProvider).isStopping) return;
+          _cancelAndLeave(context, ref);
+        } else {
+          ref.read(soundManagerProvider).stopAll();
+          ref.read(recordingPhaseProvider.notifier).reset();
+          _leave(context);
         }
-        ref.read(soundManagerProvider).stopAll();
-        ref.read(recordingPhaseProvider.notifier).reset();
-        context.pop();
       },
       child: Scaffold(
         body: SafeArea(
           child: switch (phase) {
           RecordingPhase.recording => _RecordingView(
               durationSeconds: durationSeconds,
-              onCancel: () {
-                ref.read(recordingProvider.notifier).stopRecording();
-                ref.read(soundManagerProvider).stopAll();
-                ref.read(recordingPhaseProvider.notifier).reset();
-                context.pop();
-              },
+              onCancel: () => _cancelAndLeave(context, ref),
               onFinished: () async {
                 final sound = ref.read(soundManagerProvider);
                 await sound.stopAll();
@@ -94,6 +96,28 @@ class RecordingScreen extends ConsumerWidget {
       ),
     );
   }
+
+  /// Discards the take in progress (no analysis, no record, no voice clip,
+  /// temp WAV deleted) and leaves the screen.
+  void _cancelAndLeave(BuildContext context, WidgetRef ref) {
+    // cancelRecording resets the state synchronously; the rest (stopping the
+    // recorder, deleting the file) finishes in the background.
+    ref.read(recordingProvider.notifier).cancelRecording();
+    ref.read(soundManagerProvider).stopAll();
+    ref.read(recordingPhaseProvider.notifier).reset();
+    _leave(context);
+  }
+
+  /// Pops when the screen was pushed (home); otherwise — opened with
+  /// `go('/recording')`, e.g. the onboarding first recording — there is
+  /// nothing to pop, so go home.
+  void _leave(BuildContext context) {
+    if (context.canPop()) {
+      context.pop();
+    } else {
+      context.go('/home');
+    }
+  }
 }
 
 class _RecordingView extends ConsumerStatefulWidget {
@@ -137,7 +161,8 @@ class _RecordingViewState extends ConsumerState<_RecordingView> {
 
     // Auto-complete when recording stops (totalDuration reached).
     ref.listen<RecordingState>(recordingProvider, (prev, next) {
-      if (prev?.isRecording == true && !next.isRecording && next.filePath != null) {
+      // A cancelled take (× / back) is not "finished": never move on.
+      if (prev?.isRecording == true && next.isFinished) {
         widget.onFinished();
       }
     });
@@ -155,7 +180,7 @@ class _RecordingViewState extends ConsumerState<_RecordingView> {
             child: IconButton(
               icon: const Icon(Icons.close),
               tooltip: l10n.recording_cancel,
-              onPressed: widget.onCancel,
+              onPressed: recordingState.isStopping ? null : widget.onCancel,
             ),
           ),
           const Spacer(),
@@ -171,10 +196,12 @@ class _RecordingViewState extends ConsumerState<_RecordingView> {
           const ArcProgress(),
           const SizedBox(height: AppSpacing.lg),
           ElevatedButton.icon(
-            onPressed: () {
-              ref.read(recordingProvider.notifier).stopRecording();
-              // onFinished is triggered by ref.listen above when isRecording becomes false
-            },
+            onPressed: recordingState.isStopping
+                ? null
+                : () {
+                    ref.read(recordingProvider.notifier).stopRecording();
+                    // onFinished is triggered by ref.listen above when isRecording becomes false
+                  },
             icon: const Icon(Icons.stop),
             label: Text(l10n.recording_done),
             style: ElevatedButton.styleFrom(
