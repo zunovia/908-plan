@@ -43,9 +43,19 @@ class FirstRecordingScreen extends ConsumerWidget {
                 button: true,
                 label: l10n.onboarding_start_recording,
                 child: GestureDetector(
-                  onTap: () {
-                    // Mark onboarding complete and navigate to recording
-                    ref.read(onboardingCompleteProvider.notifier).complete();
+                  onTap: () async {
+                    // Mark onboarding complete first: the router's redirect
+                    // sends '/recording' back to onboarding while it is still
+                    // false (the router is no longer rebuilt, so nothing
+                    // would correct it afterwards).
+                    try {
+                      await ref
+                          .read(onboardingCompleteProvider.notifier)
+                          .complete();
+                    } catch (_) {
+                      // Storage failure: still let the user record.
+                    }
+                    if (!context.mounted) return;
                     context.go('/recording');
                   },
                   child: Container(

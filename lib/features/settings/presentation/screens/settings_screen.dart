@@ -35,8 +35,14 @@ class SettingsScreen extends ConsumerWidget {
               child: Column(
                 children: [
                   SettingTile(
-                    title: settings.isAnonymous ? l10n.settings_login_anonymous : l10n.settings_login_linked,
-                    trailing: settings.isAnonymous
+                    // Local-first: no user yet (offline / slow network) is a
+                    // normal state; linking needs one, so it waits for it.
+                    title: !settings.isSignedIn
+                        ? l10n.settings_login_pending
+                        : settings.isAnonymous
+                            ? l10n.settings_login_anonymous
+                            : l10n.settings_login_linked,
+                    trailing: settings.isSignedIn && settings.isAnonymous
                         ? TextButton(
                             onPressed: () => _showLinkAccountSheet(context, ref),
                             child: Text(l10n.settings_link_account),
@@ -322,6 +328,14 @@ class SettingsScreen extends ConsumerWidget {
   ) async {
     try {
       final auth = ref.read(authServiceProvider);
+      if (auth.currentUser == null) {
+        // Signed out meanwhile (or never signed in): nothing to link yet.
+        ref.read(backgroundSignInProvider).ensureSignedIn();
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.settings_login_pending)),
+        );
+        return;
+      }
       if (provider == LinkProvider.apple) {
         await auth.linkWithApple();
       } else {
@@ -471,6 +485,9 @@ class SettingsScreen extends ConsumerWidget {
   void _showDeleteDialog(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final messenger = ScaffoldMessenger.of(context);
+    // Captured now: the deletion changes auth / onboarding, the router's
+    // redirect may already move away from this screen before it finishes.
+    final router = GoRouter.of(context);
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
@@ -500,13 +517,16 @@ class SettingsScreen extends ConsumerWidget {
                     SnackBar(content: Text(l10n.rel_vx_cloud_delete_partial)),
                   );
                 }
-                if (!context.mounted) return;
-                context.go('/');
               } catch (e) {
                 messenger.showSnackBar(
                   SnackBar(content: Text(l10n.delete_failed(e.toString()))),
                 );
               }
+              // Every step was attempted and onboarding was reset, so always
+              // start over at the splash: it signs in again (fresh anonymous
+              // user) and continues to onboarding. The router is never rebuilt
+              // any more, so this has to be an explicit navigation.
+              router.go('/');
             },
             child: Text(l10n.delete_button),
           ),

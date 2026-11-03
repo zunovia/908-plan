@@ -131,6 +131,7 @@
   "settings_account": "Conta",
   "settings_login_anonymous": "Login: Anônimo",
   "settings_login_linked": "Login: Vinculado",
+  "settings_login_pending": "Login: ainda não conectado (entra sozinho quando estiver online)",
   "settings_link_account": "Vincular Conta",
   "settings_sound": "Som",
   "settings_sound_effects": "Efeitos sonoros",

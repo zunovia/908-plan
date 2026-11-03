@@ -131,6 +131,7 @@
   "settings_account": "Cuenta",
   "settings_login_anonymous": "Sesión: Anónimo",
   "settings_login_linked": "Sesión: Vinculado",
+  "settings_login_pending": "Sesión: aún sin conexión (se inicia sola al tener internet)",
   "settings_link_account": "Vincular cuenta",
   "settings_sound": "Sonido",
   "settings_sound_effects": "Efectos de sonido",

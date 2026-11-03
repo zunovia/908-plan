@@ -131,6 +131,7 @@
   "settings_account": "Account",
   "settings_login_anonymous": "Login: Anonymous",
   "settings_login_linked": "Login: Linked",
+  "settings_login_pending": "Login: Not connected yet (signs in automatically when online)",
   "settings_link_account": "Link Account",
   "settings_sound": "Sound",
   "settings_sound_effects": "Sound effects",

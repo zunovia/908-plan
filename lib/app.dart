@@ -27,33 +27,44 @@ import 'features/release/presentation/release_routes.dart';
 import 'features/release/providers/release_providers.dart';
 import 'shared/widgets/zero_bottom_nav.dart';
 
+/// Tells the router to run `redirect` again (onboarding state changed).
+class RouterRefresh extends ChangeNotifier {
+  void refresh() => notifyListeners();
+}
+
+/// The app's one GoRouter. It is built once and never rebuilt.
+///
+/// It used to `watch` auth and onboarding, so every sign-in created a new
+/// GoRouter (back at '/'), which disposed the splash in the middle of its
+/// startup work ("Cannot use ref after the widget was disposed"). Now an
+/// onboarding change only re-runs `redirect` (via [RouterRefresh]), which
+/// reads the current value.
+///
+/// Local-first: no route needs a Firebase user (all data stays on the
+/// device; the anonymous sign-in runs in the background and may arrive
+/// minutes later on networks that black-hole IPv6), so auth changes never
+/// move the user anywhere.
 final routerProvider = Provider<GoRouter>((ref) {
-  final authState = ref.watch(authStateProvider);
-  final onboardingComplete = ref.watch(onboardingCompleteProvider);
+  final refresh = RouterRefresh();
+  ref.listen(onboardingCompleteProvider, (_, __) => refresh.refresh());
+  ref.onDispose(refresh.dispose);
 
   final rootNavigatorKey = GlobalKey<NavigatorState>();
 
   return GoRouter(
     navigatorKey: rootNavigatorKey,
     initialLocation: '/',
+    refreshListenable: refresh,
     redirect: (context, state) {
-      final isAuthenticated = authState.valueOrNull != null;
-      final isOnboardingDone = onboardingComplete.valueOrNull ?? false;
+      final isOnboardingDone =
+          ref.read(onboardingCompleteProvider).valueOrNull ?? false;
       final currentPath = state.uri.path;
 
-      // Splash handles its own logic
-      if (currentPath == '/') return null;
+      // Splash handles its own logic; the demo is open to everyone.
+      if (currentPath == '/' || currentPath.startsWith('/demo')) return null;
 
-      // Not authenticated → splash
-      if (!isAuthenticated && !currentPath.startsWith('/demo')) {
-        return '/';
-      }
-
-      // Authenticated but onboarding not complete → onboarding
-      if (isAuthenticated &&
-          !isOnboardingDone &&
-          !currentPath.startsWith('/onboarding') &&
-          !currentPath.startsWith('/demo')) {
+      // Onboarding not complete → onboarding
+      if (!isOnboardingDone && !currentPath.startsWith('/onboarding')) {
         return '/onboarding/philosophy';
       }
 
@@ -161,11 +172,35 @@ final routerProvider = Provider<GoRouter>((ref) {
   );
 });
 
-class ZeroApp extends ConsumerWidget {
+class ZeroApp extends ConsumerStatefulWidget {
   const ZeroApp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ZeroApp> createState() => _ZeroAppState();
+}
+
+class _ZeroAppState extends ConsumerState<ZeroApp> {
+  late final AppLifecycleListener _lifecycle;
+
+  @override
+  void initState() {
+    super.initState();
+    // Still no Firebase user (offline / slow network at the first start):
+    // try again in the background each time the app comes back. Never
+    // blocks the UI; the splash starts the first attempt.
+    _lifecycle = AppLifecycleListener(
+      onResume: () => ref.read(backgroundSignInProvider).ensureSignedIn(),
+    );
+  }
+
+  @override
+  void dispose() {
+    _lifecycle.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final router = ref.watch(routerProvider);
 
     // 通知のタップ: 開く場所へ移ってから null に戻す。スプラッシュ・オンボーディング中は

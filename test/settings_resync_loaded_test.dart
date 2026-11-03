@@ -36,6 +36,13 @@ class _Storage implements SecureStorageService {
   dynamic noSuchMethod(Invocation i) => null;
 }
 
+class _AnonUser implements User {
+  @override
+  bool get isAnonymous => true;
+  @override
+  dynamic noSuchMethod(Invocation i) => null;
+}
+
 class _Sound implements SoundManager {
   @override
   bool enabled = true;
@@ -69,7 +76,7 @@ class _Service implements NotificationService {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  test('resync never runs with default settings, also after an auth change', () async {
+  test('resync never runs with default settings; an auth change keeps the loaded settings', () async {
     final service = _Service();
     final storage = _Storage();
     final authCtl = StreamController<User?>();
@@ -93,19 +100,26 @@ void main() {
     expect(c.read(settingsProvider).reminderTime, '21:00');
     expect(service.scheduleDaily, 1);
 
-    // build() re-runs (auth change) -> defaults again until reloaded.
-    storage.gate = Completer<void>();
-    authCtl.add(null);
+    // Local-first: the sign-in can arrive minutes later, while the user is in
+    // the app. An auth change only updates the account fields; the loaded
+    // settings stay (no default theme / language flash, no reload).
+    storage.gate = Completer<void>(); // a reload would hang here
+    expect(c.read(settingsProvider).isSignedIn, isFalse);
+    authCtl.add(_AnonUser());
     await Future<void>.delayed(Duration.zero);
-    expect(c.read(settingsProvider).reminderTime, isNull);
-    await notifier.resyncNotifications();
-    expect(service.cancelDaily, 0);
-
-    storage.gate!.complete();
-    await Future<void>.delayed(const Duration(milliseconds: 200));
+    expect(c.read(settingsProvider).isSignedIn, isTrue);
+    expect(c.read(settingsProvider).isAnonymous, isTrue);
     expect(c.read(settingsProvider).reminderTime, '21:00');
+    expect(c.read(settingsProvider).localeCode, 'ja');
+
+    authCtl.add(null); // signed out (e.g. after a failed cloud delete)
+    await Future<void>.delayed(Duration.zero);
+    expect(c.read(settingsProvider).isSignedIn, isFalse);
+    expect(c.read(settingsProvider).reminderTime, '21:00');
+
     await notifier.resyncNotifications();
     expect(service.cancelDaily, 0);
     expect(service.scheduleDaily, greaterThanOrEqualTo(2));
+    storage.gate!.complete();
   });
 }

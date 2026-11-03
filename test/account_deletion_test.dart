@@ -10,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_ce/hive_ce.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:timezone/data/latest_all.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:zero_app/core/audio/sound_manager.dart';
@@ -38,13 +39,21 @@ class _NoFirebase implements FirebaseAuth {
       throw UnsupportedError('FirebaseAuth is not used in this test');
 }
 
+class _MockUser extends Mock implements User {}
+
 /// AuthService whose delete / sign-out are scripted per test.
 class _FakeAuth extends AuthService {
-  _FakeAuth(this.onDelete) : super(_NoFirebase());
+  _FakeAuth(this.onDelete, {this.signedIn = true}) : super(_NoFirebase());
 
   final Future<void> Function() onDelete;
+
+  /// False: the background sign-in never arrived (local-first, offline).
+  final bool signedIn;
   int deleteCalls = 0;
   int signOutCalls = 0;
+
+  @override
+  User? get currentUser => signedIn ? _MockUser() : null;
 
   @override
   Future<void> deleteAccount() {
@@ -168,8 +177,8 @@ void main() {
     _Storage storage,
     _Notifications notifications,
     FakeSink sink,
-  }) setup(Future<void> Function() onDelete, {LocalDb? db}) {
-    final auth = _FakeAuth(onDelete);
+  }) setup(Future<void> Function() onDelete, {LocalDb? db, bool signedIn = true}) {
+    final auth = _FakeAuth(onDelete, signedIn: signedIn);
     final storage = _Storage();
     final notifications = _Notifications();
     final sink = FakeSink();
@@ -280,6 +289,20 @@ void main() {
     expect(localDb.recordings.isEmpty, isTrue);
     await expectOtherLocalDataDeleted(t);
     expect(t.auth.deleteCalls, 1);
+    expect(t.auth.signOutCalls, 0);
+  });
+
+  test('never signed in (offline, local-first) → device data deleted, '
+      'no cloud call, cloudDeleted true', () async {
+    final t = setup(() async => fail('no user: nothing to delete'), signedIn: false);
+
+    final result =
+        await t.c.read(settingsProvider.notifier).deleteAccountData();
+
+    expect(result.cloudDeleted, isTrue);
+    expect(localDb.recordings.isEmpty, isTrue);
+    await expectOtherLocalDataDeleted(t);
+    expect(t.auth.deleteCalls, 0);
     expect(t.auth.signOutCalls, 0);
   });
 

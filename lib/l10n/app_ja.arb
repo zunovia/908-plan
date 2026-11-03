@@ -229,6 +229,7 @@
   "settings_account": "アカウント",
   "settings_login_anonymous": "ログイン状態: 匿名",
   "settings_login_linked": "ログイン状態: 連携済み",
+  "settings_login_pending": "ログイン状態: 未接続（つながると自動で行います）",
   "settings_link_account": "アカウント連携",
   "settings_sound": "音の設定",
   "settings_sound_effects": "効果音",

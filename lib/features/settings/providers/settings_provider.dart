@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:firebase_auth/firebase_auth.dart' show User;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_ce/hive_ce.dart';
@@ -15,6 +16,9 @@ import '../../release/data/release_db.dart';
 import '../../release/providers/release_providers.dart';
 
 class SettingsState {
+  /// A Firebase user exists. Local-first: false until the background sign-in
+  /// arrives (offline / slow network); the app works the same either way.
+  final bool isSignedIn;
   final bool isAnonymous;
   final bool soundEnabled;
   final bool binauralEnabled;
@@ -25,6 +29,7 @@ class SettingsState {
   final bool pauseMode;
 
   const SettingsState({
+    this.isSignedIn = false,
     this.isAnonymous = true,
     this.soundEnabled = true,
     this.binauralEnabled = true,
@@ -36,6 +41,7 @@ class SettingsState {
   });
 
   SettingsState copyWith({
+    bool? isSignedIn,
     bool? isAnonymous,
     bool? soundEnabled,
     bool? binauralEnabled,
@@ -46,6 +52,7 @@ class SettingsState {
     bool? pauseMode,
   }) {
     return SettingsState(
+      isSignedIn: isSignedIn ?? this.isSignedIn,
       isAnonymous: isAnonymous ?? this.isAnonymous,
       soundEnabled: soundEnabled ?? this.soundEnabled,
       binauralEnabled: binauralEnabled ?? this.binauralEnabled,
@@ -68,14 +75,25 @@ class SettingsNotifier extends Notifier<SettingsState> {
 
   @override
   SettingsState build() {
-    final authState = ref.watch(authStateProvider);
-    final isAnonymous = authState.valueOrNull?.isAnonymous ?? true;
+    // Local-first: the sign-in can arrive minutes after start, while the
+    // user is in the app. Only the account fields follow it; rebuilding the
+    // whole state would flash the default theme / language and reset the
+    // loaded settings.
+    ref.listen<AsyncValue<User?>>(authStateProvider, (_, next) {
+      final user = next.valueOrNull;
+      state = state.copyWith(
+        isSignedIn: user != null,
+        isAnonymous: user?.isAnonymous ?? true,
+      );
+    });
+    final user = ref.read(authStateProvider).valueOrNull;
 
-    // build() also re-runs when the auth state changes and returns defaults
-    // again, so the settings count as not loaded until the next load ends.
     _loaded = false;
     Future.microtask(_loadFromStorage);
-    return SettingsState(isAnonymous: isAnonymous);
+    return SettingsState(
+      isSignedIn: user != null,
+      isAnonymous: user?.isAnonymous ?? true,
+    );
   }
 
   Future<void> _loadFromStorage() async {
@@ -276,7 +294,8 @@ class SettingsNotifier extends Notifier<SettingsState> {
   }
 
   /// Deletes the Firebase user; on timeout or error signs out instead and
-  /// returns false. Never throws.
+  /// returns false. Never throws. With no user (local-first: the background
+  /// sign-in never arrived) there is nothing in the cloud, so it returns true.
   Future<bool> _deleteCloudAccount({
     required Duration cloudTimeout,
     required Duration signOutTimeout,
@@ -285,6 +304,7 @@ class SettingsNotifier extends Notifier<SettingsState> {
     try {
       final service = ref.read(authServiceProvider);
       auth = service;
+      if (service.currentUser == null) return true;
       await service.deleteAccount().timeout(cloudTimeout);
       return true;
     } catch (_) {
