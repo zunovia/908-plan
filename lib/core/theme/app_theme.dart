@@ -5,19 +5,32 @@ import '../constants/app_typography.dart';
 import '../constants/app_spacing.dart';
 
 abstract final class AppTheme {
+  static const lightColorScheme = ColorScheme.light(
+      surface: AppColors.lightSurfacePrimary,
+      surfaceContainerHighest: AppColors.lightSurfaceSecondary,
+      primary: AppColors.lightAccentWarm,
+      onPrimary: AppColors.lightSurfacePrimary,
+      secondary: AppColors.lightAccentCool,
+      tertiary: AppColors.lightAccentCalm,
+      onSurface: AppColors.lightTextPrimary,
+      outline: AppColors.lightBorder,
+  );
+
+  static const darkColorScheme = ColorScheme.dark(
+      surface: AppColors.darkSurfacePrimary,
+      surfaceContainerHighest: AppColors.darkSurfaceSecondary,
+      primary: AppColors.darkAccentWarm,
+      onPrimary: AppColors.darkSurfacePrimary,
+      secondary: AppColors.darkAccentCool,
+      tertiary: AppColors.darkAccentCalm,
+      onSurface: AppColors.darkTextPrimary,
+      outline: AppColors.darkBorder,
+  );
+
   static ThemeData get dark => ThemeData(
         brightness: Brightness.dark,
         scaffoldBackgroundColor: AppColors.darkSurfacePrimary,
-        colorScheme: const ColorScheme.dark(
-          surface: AppColors.darkSurfacePrimary,
-          surfaceContainerHighest: AppColors.darkSurfaceSecondary,
-          primary: AppColors.darkAccentWarm,
-          onPrimary: AppColors.darkSurfacePrimary,
-          secondary: AppColors.darkAccentCool,
-          tertiary: AppColors.darkAccentCalm,
-          onSurface: AppColors.darkTextPrimary,
-          outline: AppColors.darkBorder,
-        ),
+        colorScheme: darkColorScheme,
         textTheme: TextTheme(
           headlineMedium: AppTypography.heading.copyWith(
             color: AppColors.darkTextPrimary,
@@ -56,16 +69,7 @@ abstract final class AppTheme {
   static ThemeData get light => ThemeData(
         brightness: Brightness.light,
         scaffoldBackgroundColor: AppColors.lightSurfacePrimary,
-        colorScheme: const ColorScheme.light(
-          surface: AppColors.lightSurfacePrimary,
-          surfaceContainerHighest: AppColors.lightSurfaceSecondary,
-          primary: AppColors.lightAccentWarm,
-          onPrimary: AppColors.lightSurfacePrimary,
-          secondary: AppColors.lightAccentCool,
-          tertiary: AppColors.lightAccentCalm,
-          onSurface: AppColors.lightTextPrimary,
-          outline: AppColors.lightBorder,
-        ),
+        colorScheme: lightColorScheme,
         textTheme: TextTheme(
           headlineMedium: AppTypography.heading.copyWith(
             color: AppColors.lightTextPrimary,

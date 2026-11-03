@@ -179,6 +179,9 @@ class _RecordingViewState extends ConsumerState<_RecordingView> {
             label: Text(l10n.recording_done),
             style: ElevatedButton.styleFrom(
               backgroundColor: Theme.of(context).colorScheme.primary,
+              // Without this the label and icon use the primary color too
+              // and disappear into the button.
+              foregroundColor: Theme.of(context).colorScheme.onPrimary,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
               ),
