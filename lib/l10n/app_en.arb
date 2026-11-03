@@ -206,7 +206,7 @@
   "demo_weekly_report": "Weekly Report",
   "demo_features": "Features",
   "demo_feature_daily": "30-second daily voice recording",
-  "demo_feature_ai": "AI-powered inquiries",
+  "demo_feature_ai": "Prompts that fit your voice",
   "demo_feature_reports": "Weekly & monthly reports",
   "demo_feature_patterns": "Voice pattern tracking",
   "demo_start": "Start →",
@@ -512,5 +512,6 @@
   "rel_vx_notif_channel_name": "Let go",
   "rel_vx_notif_channel_desc": "Morning and evening check-ins, and your own timing to let go.",
   "rel_vx_write_crisis_not_saved": "What you just wrote has not been saved.",
-  "rel_vx_chat_error": "Something went wrong with the reply. Please try again in a moment."
+  "rel_vx_chat_error": "Something went wrong with the reply. Please try again in a moment.",
+  "rel_vx_records_deleted": "All records have been deleted."
 }

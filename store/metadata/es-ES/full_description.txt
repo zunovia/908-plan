@@ -21,12 +21,12 @@ CARACTERÍSTICAS
 - Sin registro de cuenta (inicio de sesión anónimo)
 - Disponible en español, inglés, japonés y portugués
 - Informes semanales y mensuales para revisar tus cambios
-- Insights generados por IA a partir de los patrones de tu voz
+- Observaciones a partir de los patrones de tu voz, calculadas en tu dispositivo
 
 SOLTAR (NUEVO)
 - Una práctica breve: escribe lo que te pesa, repite unas palabras fijas y suéltalo con calma
 - Un "soltar" rápido de 15 segundos, una carta del día y una guía de respiración
-- "Soltar esta voz" justo después de grabar, partiendo de la tendencia de tu voz
+- "Soltar esta voz" justo después de grabar
 - Avisos de mañana y de noche, con horas de silencio y pausa de una semana
 - El chat solo da respuestas fijas dentro del dispositivo. No usa IA y nada de lo que escribes se envía
 - Revisa cuántas veces soltaste en el calendario y en el informe semanal

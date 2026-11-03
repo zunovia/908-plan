@@ -206,7 +206,7 @@
   "demo_weekly_report": "Informe semanal",
   "demo_features": "Características",
   "demo_feature_daily": "Grabación diaria de voz de 30 segundos",
-  "demo_feature_ai": "Reflexiones impulsadas por IA",
+  "demo_feature_ai": "Preguntas que se ajustan a tu voz",
   "demo_feature_reports": "Informes semanales y mensuales",
   "demo_feature_patterns": "Seguimiento de patrones de voz",
   "demo_start": "Comenzar →",
@@ -512,5 +512,6 @@
   "rel_vx_notif_channel_name": "Soltar",
   "rel_vx_notif_channel_desc": "Avisos de mañana y de noche, y tus propios momentos para soltar.",
   "rel_vx_write_crisis_not_saved": "Lo que acabas de escribir no se ha guardado.",
-  "rel_vx_chat_error": "No se pudo mostrar la respuesta. Inténtalo de nuevo en un momento."
+  "rel_vx_chat_error": "No se pudo mostrar la respuesta. Inténtalo de nuevo en un momento.",
+  "rel_vx_records_deleted": "Se han borrado todos los registros."
 }

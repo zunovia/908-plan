@@ -34,53 +34,63 @@ class SelfAssessmentChips extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            l10n.assessment_question,
-            style: AppTypography.philosophy.copyWith(
-              color: Theme.of(context).colorScheme.onSurface,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: AppSpacing.xl),
-          Wrap(
-            spacing: AppSpacing.sm,
-            runSpacing: AppSpacing.sm,
-            alignment: WrapAlignment.center,
-            children: SelfAssessment.values.map((assessment) {
-              return ActionChip(
-                label: Text(
-                  assessment.label(l10n),
-                  style: AppTypography.body.copyWith(
-                    color: Theme.of(context).colorScheme.onSurface,
+    // Scaffold gives its body a loose width, so a bare Column would shrink to
+    // its widest child and sit at the left edge. Center + full width keeps
+    // the question, the chips and スキップ centred on the screen; the scroll
+    // view keeps large font scales from overflowing.
+    return Center(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.lg,
+          vertical: AppSpacing.lg,
+        ),
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                l10n.assessment_question,
+                style: AppTypography.philosophy.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: AppSpacing.xl),
+              Wrap(
+                spacing: AppSpacing.sm,
+                runSpacing: AppSpacing.sm,
+                alignment: WrapAlignment.center,
+                children: SelfAssessment.values.map((assessment) {
+                  return ActionChip(
+                    label: Text(
+                      assessment.label(l10n),
+                      style: AppTypography.body.copyWith(
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
+                    ),
+                    backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
+                    ),
+                    onPressed: () => onSelected(assessment),
+                  );
+                }).toList(),
+              ),
+              const SizedBox(height: AppSpacing.lg),
+              TextButton(
+                onPressed: onSkip,
+                child: Text(
+                  l10n.common_skip,
+                  style: AppTypography.caption.copyWith(
+                    color: isDark ? AppColors.darkTextMuted : AppColors.lightTextMuted,
                   ),
                 ),
-                backgroundColor:
-                    Theme.of(context).colorScheme.surfaceContainerHighest,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
-                ),
-                onPressed: () => onSelected(assessment),
-              );
-            }).toList(),
-          ),
-          const SizedBox(height: AppSpacing.lg),
-          TextButton(
-            onPressed: onSkip,
-            child: Text(
-              l10n.common_skip,
-              style: AppTypography.caption.copyWith(
-                color: isDark
-                    ? AppColors.darkTextMuted
-                    : AppColors.lightTextMuted,
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

@@ -147,6 +147,9 @@ class ReleaseSettingsNotifier extends Notifier<ReleaseSettings> {
   Future<void> pushRecentCardId(String id) => _apply((r) => r.pushRecentCardId(id));
   Future<void> pushRecentReplayId(String id) => _apply((r) => r.pushRecentReplayId(id));
 
+  /// 危機判定の時刻を消す（24 時間の相談窓口バナーを閉じる。「すべての記録を削除」用）。
+  Future<void> clearLastCrisis() => _apply((r) => r.setLastCrisisAt(0));
+
   /// 他の経路（DialogueRepository 等）が保存した値を読み直す。
   void reload() => state = _repo.current;
 }

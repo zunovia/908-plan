@@ -229,7 +229,7 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
           children: [
             Text(l10n.rel_write_title, style: RelStyles.heading.copyWith(color: p.text)),
             if (_fromRecord) Text(l10n.rel_write_from_record, style: label),
-            if (_eventAt != null) Text(l10n.rel_write_from_event(relTimeLabel(_eventAt!)), style: label),
+            if (_eventAt != null) Text(l10n.rel_write_from_event(relTimeLabel(_eventAt!, l10n.localeName)), style: label),
             const SizedBox(height: AppSpacing.md),
             if (freeTextAllowed)
               TextField(

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,9 +12,21 @@ import 'package:zero_app/features/history/providers/history_provider.dart';
 import 'package:zero_app/features/release/data/release_db.dart';
 import 'package:zero_app/features/release/domain/models.dart';
 import 'package:zero_app/features/release/providers/release_providers.dart';
+import 'package:zero_app/features/settings/providers/settings_provider.dart';
 
 import 'release/release_test_helpers.dart';
 import 'fakes/release_notification_fakes.dart';
+
+/// Records reschedules of the daily reminder / weekly report (1001/1002).
+class _FakeSettings extends SettingsNotifier {
+  int resyncs = 0;
+
+  @override
+  SettingsState build() => const SettingsState();
+
+  @override
+  Future<void> resyncNotifications() async => resyncs++;
+}
 
 void main() {
   late Directory tmp;
@@ -38,18 +51,21 @@ void main() {
 
   setUp(() async => db.clearAll());
 
-  ({ProviderContainer c, FakeSink sink}) setup() {
+  ({ProviderContainer c, FakeSink sink, _FakeSettings settings}) setup({ReleaseTimeZoneResolver? resolver}) {
     final sink = FakeSink();
+    final settings = _FakeSettings();
     final c = ProviderContainer(overrides: [
+      settingsProvider.overrideWith(() => settings),
       releaseDbProvider.overrideWithValue(db),
       contentAssetLoaderProvider.overrideWithValue(const FileContentLoader()),
       releaseClockProvider.overrideWithValue(() => now),
       releaseContentLangProvider.overrideWithValue(AppLang.ja),
       releaseNotificationSinkProvider.overrideWithValue(sink),
-      releaseNotificationZoneProvider.overrideWithValue(zone),
+      releaseNotificationZoneProvider.overrideWith((ref) => zone),
+      releaseTimeZoneResolverProvider.overrideWithValue(resolver ?? () async => zone),
     ]);
     addTearDown(c.dispose);
-    return (c: c, sink: sink);
+    return (c: c, sink: sink, settings: settings);
   }
 
   Future<void> settle() => Future<void>.delayed(const Duration(milliseconds: 600));
@@ -128,5 +144,67 @@ void main() {
     await repo.finishSession(id, 27);
     await Future<void>.delayed(const Duration(milliseconds: 50));
     expect(t.c.read(historyReleaseCountsProvider).valueOrNull, {DateTime(2026, 11, 3): 1});
+  });
+
+  group('time zone on resume', () {
+    final previousLocal = tz.local;
+    tearDown(() => tz.setLocalLocation(previousLocal));
+
+    test('a travelling user: the zone is re-resolved before the window is rebuilt', () async {
+      final paris = tz.getLocation('Europe/Paris');
+      var current = zone;
+      final t = setup(resolver: () async => current);
+      final sync = t.c.read(releaseNotificationSyncProvider);
+      await t.c.read(releaseSettingsProvider.notifier).setCheckinMorning(enabled: true, time: '07:30');
+      await sync.resync();
+      expect((t.sink.scheduled.first['at']! as tz.TZDateTime).location.name, 'Asia/Tokyo');
+
+      current = paris;
+      t.sink.scheduled.clear();
+      await sync.onResume();
+      await settle();
+      expect(t.c.read(releaseNotificationZoneProvider).name, 'Europe/Paris');
+      expect(tz.local.name, 'Europe/Paris');
+      final first = t.sink.scheduled.first['at']! as tz.TZDateTime;
+      expect(first.location.name, 'Europe/Paris');
+      expect((first.hour, first.minute), (7, 30));
+      // The daily reminder and weekly report move to the new zone too.
+      expect(t.settings.resyncs, 1);
+    });
+
+    test('same zone on resume: the daily / weekly reminders are left alone', () async {
+      final t = setup();
+      final sync = t.c.read(releaseNotificationSyncProvider);
+      await sync.onResume();
+      await settle();
+      expect(t.settings.resyncs, 0);
+    });
+
+    test('an unresolvable zone keeps the previous one and still reschedules', () async {
+      final t = setup(resolver: () async => throw StateError('no zone'));
+      final sync = t.c.read(releaseNotificationSyncProvider);
+      await t.c.read(releaseSettingsProvider.notifier).setCheckinMorning(enabled: true, time: '07:30');
+      await settle();
+      t.sink.scheduled.clear();
+      expect(await sync.refreshTimeZone(), isFalse);
+      await sync.onResume();
+      await settle();
+      expect(t.c.read(releaseNotificationZoneProvider).name, 'Asia/Tokyo');
+      expect(t.sink.scheduled, isNotEmpty);
+    });
+
+    test('a resolver that never answers times out and keeps the zone', () async {
+      final t = setup(resolver: () => Completer<tz.Location?>().future);
+      final sync = t.c.read(releaseNotificationSyncProvider);
+      expect(await sync.refreshTimeZone(timeout: const Duration(milliseconds: 50)), isFalse);
+      expect(t.c.read(releaseNotificationZoneProvider).name, 'Asia/Tokyo');
+    });
+
+    test('a null zone (platform could not answer) is ignored', () async {
+      final t = setup(resolver: () async => null);
+      final sync = t.c.read(releaseNotificationSyncProvider);
+      expect(await sync.refreshTimeZone(), isFalse);
+      expect(t.c.read(releaseNotificationZoneProvider).name, 'Asia/Tokyo');
+    });
   });
 }

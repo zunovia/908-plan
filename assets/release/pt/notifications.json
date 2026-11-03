@@ -49,7 +49,7 @@
     {
       "id": "n010",
       "slot": "MORNING",
-      "text": "E se o que você vê hoje parecesse um pouco diferente?"
+      "text": "E se o que você vir hoje parecer um pouco diferente?"
     },
     {
       "id": "n011",
@@ -69,7 +69,7 @@
     {
       "id": "n014",
       "slot": "NOON",
-      "text": "Deixe a tarde começar também a partir de como você se sente agora."
+      "text": "Comece a tarde também a partir do que você sente agora."
     },
     {
       "id": "n015",
@@ -114,12 +114,12 @@
     {
       "id": "n023",
       "slot": "NOON",
-      "text": "A esta respiração do meio-dia: “gratidão”, uma vez."
+      "text": "A esta pausa do meio-dia: “gratidão”, uma vez."
     },
     {
       "id": "n024",
       "slot": "NOON",
-      "text": "A tarde também pode ser solta com uma palavra."
+      "text": "À tarde, também dá para soltar com uma palavra."
     },
     {
       "id": "n025",
@@ -209,7 +209,7 @@
     {
       "id": "n042",
       "slot": "BELL",
-      "text": "(sino) “Eu te amo”, dito a você, agora mesmo."
+      "text": "(sino) Diga “eu te amo” a quem você é agora."
     },
     {
       "id": "n043",

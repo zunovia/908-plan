@@ -28,6 +28,7 @@
 | `rel_vx_notif_channel_desc` | 朝夕のチェックインと、手放すタイミングのお知らせ。 |
 | `rel_vx_write_crisis_not_saved` | いま書いた内容は保存していません。 |
 | `rel_vx_chat_error` | うまくお返事できませんでした。少し置いて、もう一度どうぞ。 |
+| `rel_vx_records_deleted` | すべての記録を削除しました。 |
 
 ## 導入画面などで再利用する Luckarise 由来のキー
 

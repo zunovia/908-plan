@@ -57,10 +57,17 @@ class ReleaseNotificationPlan {
 /// session (so the zero-day reminder for today disappears once the user has
 /// released something).
 ///
-/// IDs (all within 2000–2099, part of the 2000–2999 release range):
-/// `base + 10 * index` where base is 2001 (morning), 2002 (evening),
-/// 2003 (zero day) and index is 0..[occurrencesPerReminder]-1.
-/// Existing Voxna ids 1001/1002 are never touched here.
+/// The window covers [occurrencesPerReminder] (28) days, so reminders keep
+/// coming for four weeks even if the app is never opened.
+///
+/// IDs (all within 2001–2084, part of the 2000–2999 release range; 2100+ stays
+/// reserved for trigger cues): `base + 3 * index` where base is 2001 (morning),
+/// 2002 (evening), 2003 (zero day) and index is 0..[occurrencesPerReminder]-1.
+/// The three bases interleave, so the ids are unique and together cover
+/// 2001–2084 contiguously — which also includes every id of the former 7-day
+/// layout (`base + 10 * index`, 2001–2063), so an upgrade cancels those too.
+/// At most 84 release notifications are pending at once (far below Android's
+/// ~500 alarm limit). Existing Voxna ids 1001/1002 are never touched here.
 class ReleaseNotificationScheduler {
   ReleaseNotificationScheduler(this._sink);
 
@@ -68,12 +75,15 @@ class ReleaseNotificationScheduler {
 
   static const String channelId = 'voxna_release';
 
-  /// Upcoming notifications kept per reminder.
-  static const int occurrencesPerReminder = 7;
+  /// Upcoming notifications kept per reminder (one per day → 28 days).
+  static const int occurrencesPerReminder = 28;
 
   /// How many days ahead to look for occurrences (pause / quiet hours can
   /// collapse several days into one).
-  static const int searchDays = 21;
+  static const int searchDays = 56;
+
+  /// Id stride between two occurrences of the same reminder (one per base).
+  static const int idStride = 3;
 
   /// Title used when the user has not written their own sentence.
   static const String fallbackTitle = 'Voxna';
@@ -88,7 +98,7 @@ class ReleaseNotificationScheduler {
   ];
 
   /// Notification id for the [index]-th occurrence of [baseId].
-  static int idFor(int baseId, int index) => baseId + 10 * index;
+  static int idFor(int baseId, int index) => baseId + idStride * index;
 
   /// Every id this scheduler may use.
   static List<int> get allIds => [
@@ -214,6 +224,6 @@ class ReleaseNotificationScheduler {
     return plan;
   }
 
-  /// Cancels every release notification (ids 2001–2063).
+  /// Cancels every release notification (ids 2001–2084).
   Future<void> cancelAll() => _sink.cancelIds(allIds);
 }

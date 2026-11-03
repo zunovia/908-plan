@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 
 import '../../../core/providers/storage_providers.dart';
 import '../domain/models.dart';
@@ -214,9 +215,16 @@ void relBack(BuildContext context) {
   }
 }
 
-/// "M/d HH:mm"。
-String relTimeLabel(int epochMillis) {
+/// 月日と時刻（24 時間）を [locale] の書き方で（例: ja/en "11/3 14:05"、es/pt "3/11 14:05"）。
+///
+/// 日付の書式データは flutter_localizations（GlobalMaterialLocalizations）が
+/// 読み込む。読み込まれていない言語では "M/d HH:mm" に戻す。
+String relTimeLabel(int epochMillis, String locale) {
   final t = DateTime.fromMillisecondsSinceEpoch(epochMillis);
-  String two(int v) => v.toString().padLeft(2, '0');
-  return '${t.month}/${t.day} ${two(t.hour)}:${two(t.minute)}';
+  try {
+    return DateFormat.Md(locale).add_Hm().format(t);
+  } catch (_) {
+    String two(int v) => v.toString().padLeft(2, '0');
+    return '${t.month}/${t.day} ${two(t.hour)}:${two(t.minute)}';
+  }
 }

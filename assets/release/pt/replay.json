@@ -22,7 +22,7 @@
     {
       "id": "U04",
       "category": "URGE",
-      "text": "A expectativa e a pressa também são repetições. Passar um pano na tela não as detém; o projetor está dentro.",
+      "text": "A expectativa e a pressa também são repetições. Passar um pano na tela não faz parar; o projetor está do lado de dentro.",
       "slot": null
     },
     {
@@ -46,7 +46,7 @@
     {
       "id": "U08",
       "category": "URGE",
-      "text": "A irritação de hoje pode ser só uma lembrança antiga, guardada há muito tempo, chegando a sua vez de tocar.",
+      "text": "A irritação de hoje pode ser só uma lembrança antiga, guardada há muito tempo, que agora teve a sua vez de tocar.",
       "slot": null
     },
     {
@@ -64,7 +64,7 @@
     {
       "id": "U11",
       "category": "URGE",
-      "text": "Quanto mais “sabemos”, mais grossa fica a parede. Admitir “não sei” abre uma porta.",
+      "text": "Quanto mais “sabemos”, mais grossa fica a parede. Admitir “eu não sei nada” abre uma porta.",
       "slot": null
     },
     {
@@ -106,7 +106,7 @@
     {
       "id": "O06",
       "category": "OTHER",
-      "text": "O seu julgamento sobre a pessoa é um rótulo que uma lembrança colou. Solte o rótulo, e ela parece um pouco diferente.",
+      "text": "O seu julgamento sobre a pessoa é um rótulo que uma lembrança colou. Solte o rótulo e ela vai parecer um pouco diferente.",
       "slot": null
     },
     {
@@ -124,13 +124,13 @@
     {
       "id": "O09",
       "category": "OTHER",
-      "text": "A vontade de culpar é real. E também é uma lembrança se repetindo. Você pode segurar as duas coisas ao mesmo tempo.",
+      "text": "A vontade de culpar é real. E também é uma lembrança se repetindo. Você pode reconhecer as duas coisas ao mesmo tempo.",
       "slot": null
     },
     {
       "id": "O10",
       "category": "OTHER",
-      "text": "O que parece ser a outra pessoa não entender pode ser a sua própria lembrança de “por favor, me entenda” se repetindo.",
+      "text": "O que parece falta de compreensão da outra pessoa pode ser a sua própria lembrança de “por favor, me entenda” se repetindo.",
       "slot": null
     },
     {
@@ -154,7 +154,7 @@
     {
       "id": "S02",
       "category": "SELF",
-      "text": "Culpar a si também é uma repetição. Quem você é de verdade não é quem culpa nem quem recebe a culpa.",
+      "text": "Culpar-se também é uma repetição. Quem você é de verdade não é quem culpa nem quem recebe a culpa.",
       "slot": null
     },
     {
@@ -172,19 +172,19 @@
     {
       "id": "S05",
       "category": "SELF",
-      "text": "Você não é o problema. Uma lembrança se repetindo dentro de você está vestindo a forma de um problema.",
+      "text": "Você não é o problema. É só uma lembrança se repetindo dentro de você que tomou a forma de um problema.",
       "slot": null
     },
     {
       "id": "S06",
       "category": "SELF",
-      "text": "“Faça melhor” pode ser uma voz antiga que alguém usou um dia, se repetindo agora. Não é quem você é de verdade falando.",
+      "text": "“Faça melhor” pode ser a repetição de palavras antigas que alguém disse a você um dia. Não é a sua voz de verdade.",
       "slot": null
     },
     {
       "id": "S07",
       "category": "SELF",
-      "text": "O olhar que observa você quando não conseguiu também é uma lembrança. Diga “gratidão” a esse olhar.",
+      "text": "O olhar que você lança sobre o que não conseguiu fazer também é uma lembrança. Diga “gratidão” a esse olhar.",
       "slot": null
     },
     {
@@ -196,13 +196,13 @@
     {
       "id": "S09",
       "category": "SELF",
-      "text": "Quando estiver a ponto de não gostar de si, lembre: há um lugar tranquilo dentro de você para onde é possível voltar.",
+      "text": "Quando estiver a ponto de não gostar de si, lembre-se: há um lugar tranquilo dentro de você para onde você pode voltar.",
       "slot": null
     },
     {
       "id": "S10",
       "category": "SELF",
-      "text": "Experimente dizer “não sei”. O seu veredito sobre si é uma das coisas que você não precisa saber.",
+      "text": "Experimente dizer “eu não sei nada”. O seu veredito sobre si é uma das coisas que você não precisa saber.",
       "slot": null
     },
     {
@@ -310,13 +310,13 @@
     {
       "id": "R01",
       "category": "RESP",
-      "text": "Não coloque a causa fora. Assuma 100% como uma repetição dentro de você. Isso não é se culpar — é retomar o poder de soltar.",
+      "text": "Não coloque a causa fora. Assuma 100% do que acontece como uma repetição dentro de você. Isso não é se culpar — é retomar o poder de soltar.",
       "slot": null
     },
     {
       "id": "R02",
       "category": "RESP",
-      "text": "É você quem pega, e é você quem solta. Ninguém pode fazer isso por você — então não há a quem culpar.",
+      "text": "É você quem pega, e é você quem solta. Ninguém pode fazer isso por você — então você não precisa culpar ninguém.",
       "slot": null
     },
     {
@@ -328,7 +328,7 @@
     {
       "id": "R04",
       "category": "RESP",
-      "text": "Saia do lugar de vítima, e o lugar de quem cria fica livre.",
+      "text": "Ao sair do lugar de vítima, você encontra livre o lugar de quem cria.",
       "slot": null
     },
     {

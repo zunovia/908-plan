@@ -63,11 +63,17 @@ class SettingsState {
 }
 
 class SettingsNotifier extends Notifier<SettingsState> {
+  /// True once the stored settings have been read (and the reminders synced).
+  bool _loaded = false;
+
   @override
   SettingsState build() {
     final authState = ref.watch(authStateProvider);
     final isAnonymous = authState.valueOrNull?.isAnonymous ?? true;
 
+    // build() also re-runs when the auth state changes and returns defaults
+    // again, so the settings count as not loaded until the next load ends.
+    _loaded = false;
     Future.microtask(_loadFromStorage);
     return SettingsState(isAnonymous: isAnonymous);
   }
@@ -96,6 +102,7 @@ class SettingsNotifier extends Notifier<SettingsState> {
     // Re-sync scheduled notifications with the stored settings on every
     // start, so schedules survive app updates and setting changes.
     await _syncNotifications();
+    _loaded = true;
   }
 
   /// Loads the localization for the current UI language (used for
@@ -105,6 +112,15 @@ class SettingsNotifier extends Notifier<SettingsState> {
     final locale =
         code == 'system' ? PlatformDispatcher.instance.locale : Locale(code);
     return AppLocalizations.delegate.load(locale);
+  }
+
+  /// Reschedules the daily reminder and the weekly report (e.g. after the
+  /// device time zone changed while the app was in the background).
+  /// Before the stored settings are loaded this does nothing: the reminder
+  /// time is not known yet, and loading syncs the reminders itself.
+  Future<void> resyncNotifications() async {
+    if (!_loaded) return;
+    await _syncNotifications();
   }
 
   Future<void> _syncNotifications() async {

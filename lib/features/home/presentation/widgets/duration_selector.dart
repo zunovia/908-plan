@@ -19,6 +19,13 @@ enum RecordingDuration {
   };
 }
 
+/// The 15 / 30 / 60 second choice on the home screen.
+///
+/// Chips keep their natural width (the selected one is shown by its filled
+/// colour, without a checkmark, so selecting never changes its width) and sit
+/// in a centred [Wrap]: one row when they fit, a second row instead of a cut
+/// label when they do not (large font scale). A label that is wider than the
+/// whole row on its own shrinks to fit rather than being clipped.
 class DurationSelector extends StatelessWidget {
   final RecordingDuration selected;
   final ValueChanged<RecordingDuration> onChanged;
@@ -32,30 +39,33 @@ class DurationSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    final scheme = Theme.of(context).colorScheme;
+    return Wrap(
+      alignment: WrapAlignment.center,
+      spacing: AppSpacing.xs,
+      runSpacing: AppSpacing.xs,
       children: RecordingDuration.values.map((duration) {
         final isSelected = duration == selected;
-        return Flexible(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 2),
-            child: ChoiceChip(
-            label: Text(
+        return ChoiceChip(
+          label: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
               duration.label(l10n),
+              maxLines: 1,
+              softWrap: false,
               style: AppTypography.caption.copyWith(
-                color: isSelected
-                    ? Theme.of(context).colorScheme.onPrimary
-                    : Theme.of(context).colorScheme.onSurface,
+                color: isSelected ? scheme.onPrimary : scheme.onSurface,
               ),
             ),
-            selected: isSelected,
-            selectedColor: Theme.of(context).colorScheme.primary,
-            backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
-            onSelected: (_) => onChanged(duration),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
-            ),
           ),
+          selected: isSelected,
+          showCheckmark: false,
+          labelPadding: const EdgeInsets.symmetric(horizontal: 6),
+          selectedColor: scheme.primary,
+          backgroundColor: scheme.surfaceContainerHighest,
+          onSelected: (_) => onChanged(duration),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
           ),
         );
       }).toList(),

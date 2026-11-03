@@ -552,6 +552,7 @@ class _ReleaseSettingsSectionState extends ConsumerState<ReleaseSettingsSection>
   }
 
   /// 手放した記録・対話の履歴・あとで手放すをすべて消す（設定は残す）。
+  /// 危機判定の時刻も消すので、24 時間の相談窓口バナーも閉じる。
   Future<void> _confirmDeleteRecords(BuildContext context) async {
     final l10n = AppLocalizations.of(context);
     final ok = await showDialog<bool>(
@@ -571,11 +572,11 @@ class _ReleaseSettingsSectionState extends ConsumerState<ReleaseSettingsSection>
         ],
       ),
     );
-    if (ok != true) return;
-    final db = ref.read(releaseDbProvider);
-    await db.sessions.clear();
-    await db.turns.clear();
-    await db.pending.clear();
+    if (ok != true || !context.mounted) return;
+    final messenger = ScaffoldMessenger.maybeOf(context);
+    await ref.read(releaseRepositoryProvider).deleteAll();
+    await _notifier.clearLastCrisis();
+    messenger?.showSnackBar(SnackBar(content: Text(l10n.rel_vx_records_deleted)));
   }
 
   void _showCredits(BuildContext context) {

@@ -42,13 +42,17 @@ void main() {
       expect(plan(const ReleaseSettings()), isEmpty);
     });
 
-    test('morning check-in: a rolling week of one-shot notifications', () {
+    test('morning check-in: a rolling 28 days of one-shot notifications', () {
       final p = plan(const ReleaseSettings(checkinMorningEnabled: true, checkinMorningTime: '07:30'));
       expect(p, hasLength(ReleaseNotificationScheduler.occurrencesPerReminder));
       // 07:30 already passed today → starts tomorrow.
       expect(p.first.at, tz.TZDateTime(tokyo, 2026, 11, 4, 7, 30));
-      expect(p.last.at, tz.TZDateTime(tokyo, 2026, 11, 10, 7, 30));
-      expect(p.map((e) => e.id), [2001, 2011, 2021, 2031, 2041, 2051, 2061]);
+      // Four weeks without opening the app still get a reminder every day.
+      expect(p.last.at, tz.TZDateTime(tokyo, 2026, 12, 1, 7, 30));
+      expect(p.map((e) => e.id), [for (var i = 0; i < 28; i++) 2001 + 3 * i]);
+      for (var i = 1; i < p.length; i++) {
+        expect(p[i].at.difference(p[i - 1].at), const Duration(days: 1));
+      }
       expect(p.every((e) => e.payload == '/release/quick'), isTrue);
       expect(p.every((e) => e.title == 'Voxna'), isTrue);
       // Body: Luckarise's per-day pick among the MORNING texts.
@@ -126,11 +130,32 @@ void main() {
 
     test('ids stay in the release range and never touch 1001 / 1002', () {
       final ids = ReleaseNotificationScheduler.allIds;
-      expect(ids, hasLength(21));
-      expect(ids.toSet(), hasLength(21));
+      expect(ids, hasLength(84));
+      expect(ids.toSet(), hasLength(84));
+      // Contiguous 2001–2084: below the 2100+ trigger range.
+      expect(ids.toSet(), {for (var id = 2001; id <= 2084; id++) id});
       expect(ids.every((id) => id >= 2000 && id < 2100), isTrue);
+      // Every id of the former 7-day layout (base + 10 * i) is still cancelled.
+      for (final base in [2001, 2002, 2003]) {
+        for (var i = 0; i < 7; i++) {
+          expect(ids, contains(base + 10 * i));
+        }
+      }
       expect(ids, isNot(contains(NotificationService.reminderId)));
       expect(ids, isNot(contains(NotificationService.weeklyReportId)));
+    });
+    test('all three reminders: 28 days each, unique ids, well under the alarm limit', () {
+      final p = plan(const ReleaseSettings(
+        checkinMorningEnabled: true,
+        checkinEveningEnabled: true,
+        zeroDayEnabled: true,
+      ));
+      expect(p, hasLength(84));
+      expect(p.map((e) => e.id).toSet(), hasLength(84));
+      expect(p.every((e) => ReleaseNotificationScheduler.allIds.contains(e.id)), isTrue);
+      final latest = p.map((e) => e.at).reduce((a, b) => a.isAfter(b) ? a : b);
+      expect(latest.difference(tz.TZDateTime.fromMillisecondsSinceEpoch(tokyo, now)).inDays,
+          greaterThanOrEqualTo(27));
     });
   });
 
@@ -147,8 +172,8 @@ void main() {
         channelDescription: 'desc',
       );
       expect(sink.cancelled, ReleaseNotificationScheduler.allIds);
-      expect(sink.scheduled, hasLength(14));
-      expect(result, hasLength(14));
+      expect(sink.scheduled, hasLength(56));
+      expect(result, hasLength(56));
       expect(sink.scheduled.every((c) => c['channel'] == '手放す' && c['desc'] == 'desc'), isTrue);
     });
   });

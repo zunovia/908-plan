@@ -55,7 +55,7 @@ class _RecordCardState extends State<RecordCard> {
                 runSpacing: 4,
                 crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
-                  Text(relTimeLabel(r.sortAt), style: RelStyles.caption.copyWith(color: p.subText, fontSize: 11)),
+                  Text(relTimeLabel(r.sortAt, l10n.localeName), style: RelStyles.caption.copyWith(color: p.subText, fontSize: 11)),
                   for (final t in tags) RelTagPill(label: relTagLabel(l10n, t)),
                 ],
               ),

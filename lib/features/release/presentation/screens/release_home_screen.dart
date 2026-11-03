@@ -192,7 +192,7 @@ class _PendingCard extends ConsumerWidget {
               children: [
                 Expanded(
                   child: Text(
-                    l10n.rel_review_later_item(relTimeLabel(e.occurredAt)),
+                    l10n.rel_review_later_item(relTimeLabel(e.occurredAt, l10n.localeName)),
                     style: RelStyles.body.copyWith(color: p.text, fontSize: 13),
                   ),
                 ),

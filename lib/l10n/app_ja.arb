@@ -315,7 +315,7 @@
   "demo_weekly_report": "ウィークリーレポート",
   "demo_features": "機能一覧",
   "demo_feature_daily": "毎日30秒の声の記録",
-  "demo_feature_ai": "AIによる問いかけ",
+  "demo_feature_ai": "あなたの声に合わせた問いかけ",
   "demo_feature_reports": "週次・月次レポート",
   "demo_feature_patterns": "声のパターン追跡",
   "demo_start": "始める →",
@@ -645,5 +645,6 @@
   "rel_vx_notif_channel_name": "手放す",
   "rel_vx_notif_channel_desc": "朝夕のチェックインと、手放すタイミングのお知らせ。",
   "rel_vx_write_crisis_not_saved": "いま書いた内容は保存していません。",
-  "rel_vx_chat_error": "うまくお返事できませんでした。少し置いて、もう一度どうぞ。"
+  "rel_vx_chat_error": "うまくお返事できませんでした。少し置いて、もう一度どうぞ。",
+  "rel_vx_records_deleted": "すべての記録を削除しました。"
 }
