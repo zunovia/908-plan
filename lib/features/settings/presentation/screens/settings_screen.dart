@@ -10,6 +10,7 @@ import '../../../../core/constants/app_typography.dart';
 import '../../../../core/providers/auth_provider.dart';
 import '../../../../shared/widgets/zero_app_bar.dart';
 import '../../../../shared/widgets/zero_card.dart';
+import '../widgets/release_settings_section.dart';
 import '../widgets/setting_tile.dart';
 import '../../providers/settings_provider.dart';
 
@@ -163,6 +164,11 @@ class SettingsScreen extends ConsumerWidget {
                 ],
               ),
             ),
+
+            const SizedBox(height: AppSpacing.lg),
+
+            // 手放す (release) section
+            const ReleaseSettingsSection(),
 
             const SizedBox(height: AppSpacing.lg),
 

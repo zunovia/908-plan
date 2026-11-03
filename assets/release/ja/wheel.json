@@ -1,0 +1,259 @@
+{
+  "version": 1,
+  "core": [
+    {
+      "id": "sad",
+      "label": "悲しい",
+      "emotion": "SADNESS",
+      "children": [
+        {
+          "id": "sad_grieving",
+          "label": "悲しみに沈む",
+          "emotion": "SADNESS"
+        },
+        {
+          "id": "sad_heartbroken",
+          "label": "傷ついた",
+          "emotion": "SADNESS"
+        },
+        {
+          "id": "sad_lonely",
+          "label": "孤独",
+          "emotion": "LONELINESS"
+        },
+        {
+          "id": "sad_empty",
+          "label": "空っぽ",
+          "emotion": "SADNESS"
+        },
+        {
+          "id": "sad_disappointed",
+          "label": "残念",
+          "emotion": "SADNESS"
+        },
+        {
+          "id": "sad_hopeless",
+          "label": "望みがない",
+          "emotion": "SADNESS"
+        }
+      ]
+    },
+    {
+      "id": "angry",
+      "label": "怒り",
+      "emotion": "ANGER",
+      "children": [
+        {
+          "id": "angry_irritated",
+          "label": "イライラ",
+          "emotion": "ANGER"
+        },
+        {
+          "id": "angry_resentful",
+          "label": "根に持つ",
+          "emotion": "ANGER"
+        },
+        {
+          "id": "angry_frustrated",
+          "label": "もどかしい",
+          "emotion": "ANGER"
+        },
+        {
+          "id": "angry_betrayed",
+          "label": "裏切られた",
+          "emotion": "ANGER"
+        },
+        {
+          "id": "angry_envious",
+          "label": "うらやましい",
+          "emotion": "ENVY"
+        },
+        {
+          "id": "angry_contemptuous",
+          "label": "見下された",
+          "emotion": "ANGER"
+        }
+      ]
+    },
+    {
+      "id": "scared",
+      "label": "こわい",
+      "emotion": "FEAR",
+      "children": [
+        {
+          "id": "scared_nervous",
+          "label": "緊張",
+          "emotion": "FEAR"
+        },
+        {
+          "id": "scared_panicked",
+          "label": "パニック",
+          "emotion": "FEAR"
+        },
+        {
+          "id": "scared_insecure",
+          "label": "不安定",
+          "emotion": "FEAR"
+        },
+        {
+          "id": "scared_threatened",
+          "label": "脅かされた",
+          "emotion": "FEAR"
+        },
+        {
+          "id": "scared_vulnerable",
+          "label": "無防備",
+          "emotion": "FEAR"
+        },
+        {
+          "id": "scared_ashamed",
+          "label": "恥ずかしい",
+          "emotion": "SHAME"
+        }
+      ]
+    },
+    {
+      "id": "anxious",
+      "label": "不安",
+      "emotion": "ANXIETY",
+      "children": [
+        {
+          "id": "anxious_worried",
+          "label": "心配",
+          "emotion": "ANXIETY"
+        },
+        {
+          "id": "anxious_overwhelmed",
+          "label": "圧倒される",
+          "emotion": "ANXIETY"
+        },
+        {
+          "id": "anxious_uneasy",
+          "label": "落ち着かない",
+          "emotion": "ANXIETY"
+        },
+        {
+          "id": "anxious_confused",
+          "label": "混乱",
+          "emotion": "CONFUSION"
+        },
+        {
+          "id": "anxious_restless",
+          "label": "そわそわ",
+          "emotion": "ANXIETY"
+        },
+        {
+          "id": "anxious_impatient",
+          "label": "焦り",
+          "emotion": "IMPATIENCE"
+        }
+      ]
+    },
+    {
+      "id": "guilty",
+      "label": "自分を責める",
+      "emotion": "GUILT",
+      "children": [
+        {
+          "id": "guilty_regretful",
+          "label": "後悔",
+          "emotion": "GUILT"
+        },
+        {
+          "id": "guilty_apologetic",
+          "label": "申し訳ない",
+          "emotion": "GUILT"
+        },
+        {
+          "id": "guilty_ashamed_of_self",
+          "label": "自分が情けない",
+          "emotion": "GUILT"
+        },
+        {
+          "id": "guilty_unworthy",
+          "label": "自分には価値がない",
+          "emotion": "GUILT"
+        },
+        {
+          "id": "guilty_self_critical",
+          "label": "自分に厳しい",
+          "emotion": "GUILT"
+        },
+        {
+          "id": "guilty_responsible",
+          "label": "責任を感じる",
+          "emotion": "GUILT"
+        }
+      ]
+    },
+    {
+      "id": "tired",
+      "label": "疲れた",
+      "emotion": "FATIGUE",
+      "children": [
+        {
+          "id": "tired_drained",
+          "label": "消耗した",
+          "emotion": "FATIGUE"
+        },
+        {
+          "id": "tired_exhausted",
+          "label": "へとへと",
+          "emotion": "FATIGUE"
+        },
+        {
+          "id": "tired_burnt_out",
+          "label": "燃え尽きた",
+          "emotion": "FATIGUE"
+        },
+        {
+          "id": "tired_sleepy",
+          "label": "眠い",
+          "emotion": "FATIGUE"
+        },
+        {
+          "id": "tired_overworked",
+          "label": "働きすぎ",
+          "emotion": "FATIGUE"
+        },
+        {
+          "id": "tired_numb",
+          "label": "無感覚",
+          "emotion": "FATIGUE"
+        }
+      ]
+    },
+    {
+      "id": "calm",
+      "label": "穏やか",
+      "emotion": "CALM",
+      "children": [
+        {
+          "id": "calm_peaceful",
+          "label": "平和",
+          "emotion": "CALM"
+        },
+        {
+          "id": "calm_relieved",
+          "label": "安心",
+          "emotion": "CALM"
+        },
+        {
+          "id": "calm_content",
+          "label": "満たされた",
+          "emotion": "CALM"
+        },
+        {
+          "id": "calm_grateful",
+          "label": "感謝",
+          "emotion": "CALM"
+        },
+        {
+          "id": "calm_relaxed",
+          "label": "くつろいだ",
+          "emotion": "CALM"
+        }
+      ]
+    }
+  ]
+}

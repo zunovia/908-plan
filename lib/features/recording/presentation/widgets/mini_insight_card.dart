@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_typography.dart';
@@ -39,42 +40,89 @@ class MiniInsightCard extends ConsumerWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            l10n.insight_voice_received,
-            style: AppTypography.philosophy.copyWith(
-              color: Theme.of(context).colorScheme.onSurface,
+      child: LayoutBuilder(
+        // Scrolls on short screens; stays centred otherwise.
+        builder: (context, constraints) => SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: constraints.maxHeight),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  l10n.insight_voice_received,
+                  style: AppTypography.philosophy.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: AppSpacing.lg),
+                Text(
+                  mainText,
+                  style: AppTypography.miniInsight.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: AppSpacing.md),
+                Text(
+                  nuanceText,
+                  style: AppTypography.body.copyWith(
+                    color: Theme.of(context)
+                        .colorScheme
+                        .onSurface
+                        .withValues(alpha: 0.7),
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: AppSpacing.xl),
+                ZeroButton(
+                  label: l10n.common_next,
+                  onPressed: onNext,
+                ),
+                if (lastId != null) ...[
+                  const SizedBox(height: AppSpacing.md),
+                  ReleaseThisVoiceButton(recordingId: lastId),
+                ],
+              ],
             ),
-            textAlign: TextAlign.center,
           ),
-          const SizedBox(height: AppSpacing.lg),
-          Text(
-            mainText,
-            style: AppTypography.miniInsight.copyWith(
-              color: Theme.of(context).colorScheme.onSurface,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: AppSpacing.md),
-          Text(
-            nuanceText,
-            style: AppTypography.body.copyWith(
-              color: Theme.of(context)
-                  .colorScheme
-                  .onSurface
-                  .withValues(alpha: 0.7),
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: AppSpacing.xl),
-          ZeroButton(
-            label: l10n.common_next,
-            onPressed: onNext,
-          ),
-        ],
+        ),
       ),
+    );
+  }
+}
+
+/// 「この声を手放す」: opens the release write screen with this recording's
+/// voice tendency pre-selected as memory chips (the user can remove them).
+class ReleaseThisVoiceButton extends StatelessWidget {
+  final String recordingId;
+
+  const ReleaseThisVoiceButton({super.key, required this.recordingId});
+
+  /// Route of the write screen for [recordingId].
+  static String routeFor(String recordingId) =>
+      Uri(path: '/release/write', queryParameters: {'voice': recordingId}).toString();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final color = Theme.of(context).colorScheme.onSurface;
+    return Column(
+      children: [
+        OutlinedButton.icon(
+          onPressed: () => context.push(routeFor(recordingId)),
+          icon: const Icon(Icons.spa_outlined, size: 18),
+          label: Text(l10n.rel_vx_release_this_voice),
+        ),
+        const SizedBox(height: AppSpacing.xs),
+        Text(
+          l10n.rel_vx_release_this_voice_hint,
+          style: AppTypography.caption.copyWith(
+            color: color.withValues(alpha: 0.5),
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
     );
   }
 }

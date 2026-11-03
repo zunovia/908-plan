@@ -3,12 +3,14 @@ import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/data/latest_all.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 
-/// Local notification scheduling for the daily reminder and the weekly
-/// report notice.
+import 'release_notification_scheduler.dart';
+
+/// Local notification scheduling for the daily reminder, the weekly
+/// report notice and the release (手放す) check-ins.
 ///
 /// All scheduling is done on the device with inexact alarms, so no exact-alarm
 /// permission is required and nothing is sent to any server.
-class NotificationService {
+class NotificationService implements ReleaseNotificationSink {
   static const int reminderId = 1001;
   static const int weeklyReportId = 1002;
 
@@ -26,6 +28,10 @@ class NotificationService {
 
   bool get isInitialized => _initialized;
 
+  /// Called with the route of a tapped notification while the app is running
+  /// (only routes accepted by [routeFromPayload]).
+  void Function(String route)? onRoute;
+
   /// Initializes time zone data and the platform plugin. Safe to call twice.
   Future<void> init() async {
     if (_initialized) return;
@@ -40,8 +46,36 @@ class NotificationService {
     const android = AndroidInitializationSettings('@mipmap/ic_launcher');
     await _plugin.initialize(
       const InitializationSettings(android: android),
+      onDidReceiveNotificationResponse: handleResponse,
     );
     _initialized = true;
+  }
+
+  /// Forwards a tapped notification's route to [onRoute].
+  void handleResponse(NotificationResponse response) {
+    final route = routeFromPayload(response.payload);
+    if (route != null) onRoute?.call(route);
+  }
+
+  /// Route of the notification that launched the app, if any.
+  Future<String?> launchRoute() async {
+    try {
+      final details = await _plugin.getNotificationAppLaunchDetails();
+      if (details == null || !details.didNotificationLaunchApp) return null;
+      return routeFromPayload(details.notificationResponse?.payload);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  static final RegExp _routePattern = RegExp(r'^/release(/[a-z]+)?$');
+
+  /// Accepts only in-app release routes ('/release', '/release/write',
+  /// '/release/quick', ...). Anything else (including the payload-less
+  /// daily / weekly notifications) yields null.
+  static String? routeFromPayload(String? payload) {
+    if (payload == null) return null;
+    return _routePattern.hasMatch(payload) ? payload : null;
   }
 
   /// Requests the Android 13+ notification permission.
@@ -103,6 +137,46 @@ class NotificationService {
   Future<void> cancelWeeklyReport() => _plugin.cancel(weeklyReportId);
 
   Future<void> cancelAll() => _plugin.cancelAll();
+
+  @override
+  Future<void> scheduleRelease({
+    required int id,
+    required String title,
+    required String body,
+    required tz.TZDateTime at,
+    required String payload,
+    required String channelName,
+    required String channelDescription,
+  }) {
+    return _plugin.zonedSchedule(
+      id,
+      title,
+      body,
+      at,
+      NotificationDetails(
+        android: AndroidNotificationDetails(
+          ReleaseNotificationScheduler.channelId,
+          channelName,
+          channelDescription: channelDescription,
+          importance: Importance.defaultImportance,
+          priority: Priority.defaultPriority,
+          playSound: false,
+          enableVibration: false,
+        ),
+      ),
+      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
+      payload: payload,
+    );
+  }
+
+  @override
+  Future<void> cancelIds(Iterable<int> ids) async {
+    for (final id in ids) {
+      await _plugin.cancel(id);
+    }
+  }
 
   NotificationDetails _details({required String channelName}) {
     return NotificationDetails(

@@ -13,6 +13,7 @@ import '../widgets/weekly_voice_card.dart';
 import '../widgets/highlight_card.dart';
 import '../widgets/inquiry_card.dart';
 import '../widgets/normalization_card.dart';
+import '../widgets/release_letter_card.dart';
 import '../../providers/report_provider.dart';
 
 class WeeklyReportScreen extends ConsumerStatefulWidget {
@@ -67,6 +68,8 @@ class _WeeklyReportScreenState extends ConsumerState<WeeklyReportScreen> {
                   HighlightCard(highlight: reportState.highlight),
                   const SizedBox(height: AppSpacing.lg),
                   const WeeklyVoiceCard(),
+                  const SizedBox(height: AppSpacing.lg),
+                  const ReleaseLetterCard(),
                   const SizedBox(height: AppSpacing.lg),
                   AgreementCard(result: reportState.agreement),
                   const SizedBox(height: AppSpacing.lg),

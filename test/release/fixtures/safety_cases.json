@@ -1,0 +1,751 @@
+{
+  "ja": {
+    "crisis": [
+      {
+        "text": "もう死にたい",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "死にたくなることがある",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "死のうと思ってしまう",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "本気で死にたい気分",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "自殺したいと思う",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "死ぬ方法を調べてしまう",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "楽に死ねる方法はないか",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "リストカットしてしまった",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "リスカが止まらない",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "自傷行為をしてしまう",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "首を吊ることばかり考える",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "飛び降りたい気持ちになる",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "オーバードーズしてしまった",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "薬を大量に飲んでしまった",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "もう死ぬしかないと思う",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "死ぬことばかり考えてしまう",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "生きていても仕方ないと思う",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "もういなくなりたい",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "全部終わりにしたいと思った",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "遺書を書いた",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "生まれてこなければよかった",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "この世から消えたいと思う",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "生きるのがつらすぎる",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "あいつを殺したいと思ってしまう",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "本気で殺したいほど腹が立つ",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "誰か殺したい気分になる",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "今すぐ殴ってやると思った",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "最近、夫に殴られている",
+        "expect": "CRISIS",
+        "abuse": true
+      },
+      {
+        "text": "怖くて家に帰れない",
+        "expect": "CRISIS",
+        "abuse": true
+      },
+      {
+        "text": "パートナーに監視されている",
+        "expect": "CRISIS",
+        "abuse": true
+      },
+      {
+        "text": "首を絞められたことがある",
+        "expect": "CRISIS",
+        "abuse": true
+      },
+      {
+        "text": "お金を取り上げられて逃げられない",
+        "expect": "CRISIS",
+        "abuse": true
+      },
+      {
+        "text": "もう消えたい気持ちでいっぱい",
+        "expect": "CRISIS_SOFT",
+        "abuse": false
+      },
+      {
+        "text": "本当に消えたいと感じる",
+        "expect": "CRISIS_SOFT",
+        "abuse": false
+      },
+      {
+        "text": "もう無理で、限界かもしれない",
+        "expect": "CRISIS_SOFT",
+        "abuse": false
+      },
+      {
+        "text": "しんどいし、何もしたくない",
+        "expect": "CRISIS_SOFT",
+        "abuse": false
+      },
+      {
+        "text": "パワハラを受けていて、もう無理で限界",
+        "expect": "CRISIS_SOFT",
+        "abuse": true
+      },
+      {
+        "text": "生きてても仕方ないよ",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "もう全部終わりにしたい。",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "消えてしまいたい…",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "もうここにいたくない",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "生きてたくない",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "全部終わってほしい",
+        "expect": "CRISIS",
+        "abuse": false
+      }
+    ],
+    "safe": [
+      {
+        "text": "死ぬほど眠い一日だった",
+        "expect": "OK"
+      },
+      {
+        "text": "死ぬほど笑った動画を見た",
+        "expect": "OK"
+      },
+      {
+        "text": "死ぬほど疲れたけど楽しかった",
+        "expect": "OK"
+      },
+      {
+        "text": "殺人事件のドラマを見ていた",
+        "expect": "OK"
+      },
+      {
+        "text": "推理小説を読んで過ごした",
+        "expect": "OK"
+      },
+      {
+        "text": "必死に頑張った一日だった",
+        "expect": "OK"
+      },
+      {
+        "text": "疲れた",
+        "expect": "OK"
+      },
+      {
+        "text": "無理しないでねと言われた",
+        "expect": "OK"
+      },
+      {
+        "text": "今日はちょっと限界かもと思ったけど大丈夫",
+        "expect": "OK"
+      },
+      {
+        "text": "焦ってしまって急いでしまった",
+        "expect": "OK"
+      },
+      {
+        "text": "上司に言われたことで落ち込んだ",
+        "expect": "OK"
+      },
+      {
+        "text": "友達と出かけて楽しかった",
+        "expect": "OK"
+      },
+      {
+        "text": "今日は穏やかな気分だった",
+        "expect": "OK"
+      },
+      {
+        "text": "仕事が忙しくて疲れている",
+        "expect": "OK"
+      },
+      {
+        "text": "ちょっと不安だけど大丈夫",
+        "expect": "OK"
+      },
+      {
+        "text": "腹が立ったけど我慢した",
+        "expect": "OK"
+      },
+      {
+        "text": "悲しい気持ちになった",
+        "expect": "OK"
+      },
+      {
+        "text": "寂しい夜だった",
+        "expect": "OK"
+      },
+      {
+        "text": "申し訳ない気持ちになった",
+        "expect": "OK"
+      },
+      {
+        "text": "恥ずかしい思いをした",
+        "expect": "OK"
+      },
+      {
+        "text": "ちょっと怖い映画を見た",
+        "expect": "OK"
+      },
+      {
+        "text": "眠くてだるい朝だった",
+        "expect": "OK"
+      },
+      {
+        "text": "羨ましいなと思った",
+        "expect": "OK"
+      },
+      {
+        "text": "頭が混乱している",
+        "expect": "OK"
+      },
+      {
+        "text": "今日は何もしたくない気分",
+        "expect": "OK"
+      },
+      {
+        "text": "パワハラのニュースを見た",
+        "expect": "OK",
+        "abuse": true
+      },
+      {
+        "text": "職場でいじめの話を聞いた",
+        "expect": "OK",
+        "abuse": true
+      },
+      {
+        "text": "キャラがゲームで死んでしまった",
+        "expect": "OK"
+      },
+      {
+        "text": "腹筋が死ぬほど笑った",
+        "expect": "OK"
+      },
+      {
+        "text": "即死だったとゲームで言われた",
+        "expect": "OK"
+      },
+      {
+        "text": "友達が殺虫剤を買っていた",
+        "expect": "OK"
+      },
+      {
+        "text": "ここにいたいな",
+        "expect": "OK"
+      }
+    ]
+  },
+  "en": {
+    "crisis": [
+      {
+        "text": "i want to kill myself tonight",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i keep killing myself in my thoughts, i can't stop",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i really want to die right now",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i just wanna die today",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "sometimes i think i want to die",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i'm going to end my life",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i want to end it all",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i've been thinking about suicide a lot",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i feel suicidal lately",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i might commit suicide",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "thinking about self harm again",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i keep cutting myself when it's bad",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i took an overdose last night",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i feel like everyone is better off dead",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "there's no reason to live anymore",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i am going to kill myself",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i want to hang myself",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i keep thinking about jumping off a bridge",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "there's no point in living anymore",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "honestly life isn't worth living",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i don't want to exist anymore",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i wish i was never born",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "everyone would be better off without me",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i'm so tired of living",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i can't go on living like this",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i'm writing a goodbye note right now",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i really want to kill him for what he did",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i want to hurt someone right now",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "he hits me almost every night",
+        "expect": "CRISIS",
+        "abuse": true
+      },
+      {
+        "text": "i'm afraid to go home because of him",
+        "expect": "CRISIS",
+        "abuse": true
+      },
+      {
+        "text": "he locked me in a room last week",
+        "expect": "CRISIS",
+        "abuse": true
+      },
+      {
+        "text": "he won't let me leave the house",
+        "expect": "CRISIS",
+        "abuse": true
+      },
+      {
+        "text": "i just want to vanish from everyone",
+        "expect": "CRISIS_SOFT",
+        "abuse": false
+      },
+      {
+        "text": "part of me wants to disappear completely",
+        "expect": "CRISIS_SOFT",
+        "abuse": false
+      },
+      {
+        "text": "i'm so exhausted and overwhelmed lately",
+        "expect": "CRISIS_SOFT",
+        "abuse": false
+      },
+      {
+        "text": "i'm being harassed at work and i'm exhausted",
+        "expect": "CRISIS_SOFT",
+        "abuse": true
+      },
+      {
+        "text": "I dont want to live anymore",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "I don't want to live anymore.",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i dont want to live anymore!!",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "Honestly I'm better off dead",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "I wish I was dead",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "I can't go on like this",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "I don't want to live in this city anymore",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i dont want to be here anymore",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "I don't want to be here anymore.",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "i cant go on",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "I cant go on like this",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "I dont want to exist",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "I want it all to end",
+        "expect": "CRISIS",
+        "abuse": false
+      },
+      {
+        "text": "there's no point in living",
+        "expect": "CRISIS",
+        "abuse": false
+      }
+    ],
+    "safe": [
+      {
+        "text": "that joke was killing it tonight",
+        "expect": "OK"
+      },
+      {
+        "text": "we killed it at the competition",
+        "expect": "OK"
+      },
+      {
+        "text": "i'm dying to see the new movie",
+        "expect": "OK"
+      },
+      {
+        "text": "that was so funny, i'm die laughing",
+        "expect": "OK"
+      },
+      {
+        "text": "this cake is to die for",
+        "expect": "OK"
+      },
+      {
+        "text": "let's kill time until the bus comes",
+        "expect": "OK"
+      },
+      {
+        "text": "this deadline is killing me this week",
+        "expect": "OK"
+      },
+      {
+        "text": "i'm dead tired after the trip",
+        "expect": "OK"
+      },
+      {
+        "text": "the deadline is tomorrow morning",
+        "expect": "OK"
+      },
+      {
+        "text": "we watched a murder mystery show",
+        "expect": "OK"
+      },
+      {
+        "text": "that true crime documentary was great",
+        "expect": "OK"
+      },
+      {
+        "text": "she looked drop dead gorgeous tonight",
+        "expect": "OK"
+      },
+      {
+        "text": "i'm so tired today",
+        "expect": "OK"
+      },
+      {
+        "text": "please don't push yourself too hard",
+        "expect": "OK"
+      },
+      {
+        "text": "i was so exhausted after the run",
+        "expect": "OK"
+      },
+      {
+        "text": "i'm a bit worried about the exam",
+        "expect": "OK"
+      },
+      {
+        "text": "i'm annoyed but it's fine",
+        "expect": "OK"
+      },
+      {
+        "text": "feeling pretty sad about the news",
+        "expect": "OK"
+      },
+      {
+        "text": "i felt so lonely last night",
+        "expect": "OK"
+      },
+      {
+        "text": "i'm sorry about yesterday",
+        "expect": "OK"
+      },
+      {
+        "text": "that was embarrassing but funny",
+        "expect": "OK"
+      },
+      {
+        "text": "i was scared during the movie",
+        "expect": "OK"
+      },
+      {
+        "text": "i'm jealous of her new job",
+        "expect": "OK"
+      },
+      {
+        "text": "i'm confused about the plan",
+        "expect": "OK"
+      },
+      {
+        "text": "i feel calm and relaxed today",
+        "expect": "OK"
+      },
+      {
+        "text": "i read an article about workplace harassment",
+        "expect": "OK",
+        "abuse": true
+      },
+      {
+        "text": "my coworker said he's being bullied",
+        "expect": "OK",
+        "abuse": true
+      },
+      {
+        "text": "the game character died again",
+        "expect": "OK"
+      },
+      {
+        "text": "i laughed so hard i could die",
+        "expect": "OK"
+      },
+      {
+        "text": "that was an instant kill in the game",
+        "expect": "OK"
+      },
+      {
+        "text": "I'd die for a coffee right now",
+        "expect": "OK"
+      },
+      {
+        "text": "this deadline will be the end of me",
+        "expect": "OK"
+      },
+      {
+        "text": "I want to be here for my friend",
+        "expect": "OK"
+      },
+      {
+        "text": "I'll be here all day",
+        "expect": "OK"
+      },
+      {
+        "text": "the movie is over",
+        "expect": "OK"
+      }
+    ]
+  }
+}

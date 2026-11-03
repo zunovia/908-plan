@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "n001",
+      "slot": "MORNING",
+      "text": "Who gets your first \"thank you\" today?"
+    },
+    {
+      "id": "n002",
+      "slot": "MORNING",
+      "text": "What you see today passes through a memory filter. One word, this morning."
+    },
+    {
+      "id": "n003",
+      "slot": "MORNING",
+      "text": "Offer a word to today's filter before you head out."
+    },
+    {
+      "id": "n004",
+      "slot": "MORNING",
+      "text": "Feel the morning air, and say \"thank you,\" once."
+    },
+    {
+      "id": "n005",
+      "slot": "MORNING",
+      "text": "Who is the person you most want to see today?"
+    },
+    {
+      "id": "n006",
+      "slot": "MORNING",
+      "text": "If you named the feeling you woke up with, what would it be?"
+    },
+    {
+      "id": "n007",
+      "slot": "MORNING",
+      "text": "Before today's plans, take a moment to settle inside."
+    },
+    {
+      "id": "n008",
+      "slot": "MORNING",
+      "text": "What matters most to you today?"
+    },
+    {
+      "id": "n009",
+      "slot": "MORNING",
+      "text": "To this new day: \"thank you,\" once."
+    },
+    {
+      "id": "n010",
+      "slot": "MORNING",
+      "text": "What if what you see today looked a little different?"
+    },
+    {
+      "id": "n011",
+      "slot": "MORNING",
+      "text": "To your first step today: \"I love you,\" once."
+    },
+    {
+      "id": "n012",
+      "slot": "MORNING",
+      "text": "What kind of self do you want to be today?"
+    },
+    {
+      "id": "n013",
+      "slot": "NOON",
+      "text": "Give your current feeling one ×."
+    },
+    {
+      "id": "n014",
+      "slot": "NOON",
+      "text": "Let the afternoon begin from how you feel right now, too."
+    },
+    {
+      "id": "n015",
+      "slot": "NOON",
+      "text": "Offer a word to what you just heard, before moving on."
+    },
+    {
+      "id": "n016",
+      "slot": "NOON",
+      "text": "To the morning so far: \"thank you,\" once."
+    },
+    {
+      "id": "n017",
+      "slot": "NOON",
+      "text": "Try letting your shoulders soften, just a little, right now."
+    },
+    {
+      "id": "n018",
+      "slot": "NOON",
+      "text": "A word to the afternoon's filter."
+    },
+    {
+      "id": "n019",
+      "slot": "NOON",
+      "text": "To the tiredness right now: \"thank you,\" once."
+    },
+    {
+      "id": "n020",
+      "slot": "NOON",
+      "text": "To today, so far: \"I love you,\" once."
+    },
+    {
+      "id": "n021",
+      "slot": "NOON",
+      "text": "Whatever you see or hear this afternoon, one word to the filter."
+    },
+    {
+      "id": "n022",
+      "slot": "NOON",
+      "text": "If you named your mood right now, what would it be?"
+    },
+    {
+      "id": "n023",
+      "slot": "NOON",
+      "text": "To this midday breath: \"thank you,\" once."
+    },
+    {
+      "id": "n024",
+      "slot": "NOON",
+      "text": "The afternoon, too, can be released with one word."
+    },
+    {
+      "id": "n025",
+      "slot": "NIGHT",
+      "text": "This is enough for today. Release it with one word, and sleep."
+    },
+    {
+      "id": "n026",
+      "slot": "NIGHT",
+      "text": "Before sleep, one \"thank you\" to everything you saw and heard today."
+    },
+    {
+      "id": "n027",
+      "slot": "NIGHT",
+      "text": "Today's portion can be released now."
+    },
+    {
+      "id": "n028",
+      "slot": "NIGHT",
+      "text": "Once in bed, leave today's filter outside."
+    },
+    {
+      "id": "n029",
+      "slot": "NIGHT",
+      "text": "To the heaviest feeling of today: \"I love you,\" once."
+    },
+    {
+      "id": "n030",
+      "slot": "NIGHT",
+      "text": "Leave the rest to tomorrow's you. Good night."
+    },
+    {
+      "id": "n031",
+      "slot": "NIGHT",
+      "text": "Offer one word to today, and close your eyes."
+    },
+    {
+      "id": "n032",
+      "slot": "NIGHT",
+      "text": "Tonight, releasing and sleeping is enough."
+    },
+    {
+      "id": "n033",
+      "slot": "NIGHT",
+      "text": "To the quiet before sleep: \"thank you,\" once."
+    },
+    {
+      "id": "n034",
+      "slot": "NIGHT",
+      "text": "Set down today's events, one by one."
+    },
+    {
+      "id": "n035",
+      "slot": "NIGHT",
+      "text": "Who will tonight's one word be for?"
+    },
+    {
+      "id": "n036",
+      "slot": "NIGHT",
+      "text": "Before the light goes out, \"thank you\" to today."
+    },
+    {
+      "id": "n037",
+      "slot": "BELL",
+      "text": "(small bell) Right now. Right here."
+    },
+    {
+      "id": "n038",
+      "slot": "BELL",
+      "text": "(bell) Which filter are you looking through right now? One \"thank you.\""
+    },
+    {
+      "id": "n039",
+      "slot": "BELL",
+      "text": "(bell) One word, for this very moment."
+    },
+    {
+      "id": "n040",
+      "slot": "BELL",
+      "text": "(bell) What's replaying, right now?"
+    },
+    {
+      "id": "n041",
+      "slot": "BELL",
+      "text": "(bell) \"Thank you\" to the sound you hear right now."
+    },
+    {
+      "id": "n042",
+      "slot": "BELL",
+      "text": "(bell) \"I love you\" to yourself, right now."
+    },
+    {
+      "id": "n043",
+      "slot": "BELL",
+      "text": "(bell) Pause here, just a little."
+    },
+    {
+      "id": "n044",
+      "slot": "BELL",
+      "text": "(bell) Are your shoulders tense, right now?"
+    },
+    {
+      "id": "n045",
+      "slot": "BELL",
+      "text": "(bell) Offer a word to the view in front of you, right now."
+    },
+    {
+      "id": "n046",
+      "slot": "BELL",
+      "text": "(bell) What were you just thinking, right now?"
+    },
+    {
+      "id": "n047",
+      "slot": "BELL",
+      "text": "(bell) \"Thank you\" to this one breath."
+    },
+    {
+      "id": "n048",
+      "slot": "BELL",
+      "text": "(bell) Come back to right here, right now."
+    },
+    {
+      "id": "n049",
+      "slot": "BELL",
+      "text": "(bell) One word, for how you feel right now."
+    },
+    {
+      "id": "n050",
+      "slot": "BELL",
+      "text": "(bell) Right now, you don't need to know anything."
+    }
+  ]
+}

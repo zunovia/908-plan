@@ -11,10 +11,14 @@ class DayDetailCard extends StatelessWidget {
   final DateTime date;
   final List<RecordingModel> recordings;
 
+  /// Releases (手放す) completed on [date]. Hidden when 0.
+  final int releaseCount;
+
   const DayDetailCard({
     super.key,
     required this.date,
     required this.recordings,
+    this.releaseCount = 0,
   });
 
   String _localizeAssessment(String value, AppLocalizations l10n) {
@@ -51,6 +55,7 @@ class DayDetailCard extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
               ),
             ),
+            if (releaseCount > 0) _releaseRow(context, l10n),
           ],
         ),
       );
@@ -90,6 +95,29 @@ class DayDetailCard extends StatelessWidget {
                 ),
               ),
             ),
+          if (releaseCount > 0) _releaseRow(context, l10n),
+        ],
+      ),
+    );
+  }
+
+  Widget _releaseRow(BuildContext context, AppLocalizations l10n) {
+    return Padding(
+      padding: const EdgeInsets.only(top: AppSpacing.sm),
+      child: Row(
+        children: [
+          Icon(
+            Icons.spa_outlined,
+            size: 16,
+            color: Theme.of(context).colorScheme.tertiary,
+          ),
+          const SizedBox(width: AppSpacing.xs),
+          Text(
+            l10n.rel_vx_calendar_release_count(releaseCount),
+            style: AppTypography.body.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
+          ),
         ],
       ),
     );

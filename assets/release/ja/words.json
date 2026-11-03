@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "four": [
+    "thank_you",
+    "sorry",
+    "forgive",
+    "love",
+    "ice_blue",
+    "delete"
+  ],
+  "items": [
+    {
+      "id": "thank_you",
+      "text": "ありがとう"
+    },
+    {
+      "id": "sorry",
+      "text": "ごめんなさい"
+    },
+    {
+      "id": "forgive",
+      "text": "許してください"
+    },
+    {
+      "id": "love",
+      "text": "愛しています"
+    },
+    {
+      "id": "ice_blue",
+      "text": "アイスブルー"
+    },
+    {
+      "id": "delete",
+      "text": "消去"
+    },
+    {
+      "id": "like_so_much",
+      "text": "大好きです"
+    },
+    {
+      "id": "idk",
+      "text": "わたしは何も知らない"
+    }
+  ]
+}

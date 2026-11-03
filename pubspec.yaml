@@ -1,7 +1,7 @@
 name: zero_app
 description: Voxna — 声の鏡。毎日30秒の声から、あなたの無意識のパターンを映し出す。
 publish_to: 'none'
-version: 1.1.0+8
+version: 1.2.0+9
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
@@ -47,10 +47,17 @@ dependencies:
   timezone: ^0.10.0
   flutter_timezone: ^3.0.1
 
+  # Release (手放す) feature
+  crypto: ^3.0.3
+  # 4.2.4 以降は Kotlin 2.2.20 / compileSdk 36 を要求し、Flutter 3.27 の Android テンプレート
+  # （Kotlin 1.8.22）と合わないため 4.2.3（Kotlin 1.9.10 / compileSdk 34 / minSdk 21）に固定。
+  flutter_tts: 4.2.3
+
   # Utilities
   permission_handler: ^11.3.0
   intl: ^0.19.0
   google_fonts: ^6.2.1
+  url_launcher: 6.3.1
 
 dev_dependencies:
   flutter_test:
@@ -73,3 +80,8 @@ flutter:
   assets:
     - assets/sounds/
     - assets/images/
+    - assets/release/en/
+    - assets/release/ja/
+    - assets/release/es/
+    - assets/release/pt/
+    - assets/release/common/

@@ -1,0 +1,320 @@
+{
+  "ja": [
+    {
+      "text": "今日は仕事に追われて、すごく焦ってしまう",
+      "emotion": "IMPATIENCE"
+    },
+    {
+      "text": "間に合わないかもと思うと焦る",
+      "emotion": "IMPATIENCE"
+    },
+    {
+      "text": "明日のことがどうしようと不安になる",
+      "emotion": "ANXIETY"
+    },
+    {
+      "text": "ずっと心配でそわそわする",
+      "emotion": "ANXIETY"
+    },
+    {
+      "text": "さっきの発言に本当に腹が立つ",
+      "emotion": "ANGER"
+    },
+    {
+      "text": "どうしても納得できなくてイライラする",
+      "emotion": "ANGER"
+    },
+    {
+      "text": "ひとりで悲しい気持ちになった",
+      "emotion": "SADNESS"
+    },
+    {
+      "text": "涙が出るくらい切ない夜だった",
+      "emotion": "SADNESS"
+    },
+    {
+      "text": "誰にも分かってもらえなくて寂しい",
+      "emotion": "LONELINESS"
+    },
+    {
+      "text": "ひとりぼっちで取り残された気がする",
+      "emotion": "LONELINESS"
+    },
+    {
+      "text": "自分が悪いと思って申し訳なくなる",
+      "emotion": "GUILT"
+    },
+    {
+      "text": "後悔して自分を責めてしまう",
+      "emotion": "GUILT"
+    },
+    {
+      "text": "恥ずかしくて消え入りたい気持ち",
+      "emotion": "SHAME"
+    },
+    {
+      "text": "情けなくて穴があったら入りたい",
+      "emotion": "SHAME"
+    },
+    {
+      "text": "怖くて身がすくむ思いだった",
+      "emotion": "FEAR"
+    },
+    {
+      "text": "震えてしまうほど恐ろしかった",
+      "emotion": "FEAR"
+    },
+    {
+      "text": "もう疲れてだるい毎日だ",
+      "emotion": "FATIGUE"
+    },
+    {
+      "text": "へとへとで休みたい気分",
+      "emotion": "FATIGUE"
+    },
+    {
+      "text": "友達の成功がうらやましい",
+      "emotion": "ENVY"
+    },
+    {
+      "text": "つい自分と比べてしまう",
+      "emotion": "ENVY"
+    },
+    {
+      "text": "頭がぐちゃぐちゃで混乱している",
+      "emotion": "CONFUSION"
+    },
+    {
+      "text": "どうすればいいかわからなくなる",
+      "emotion": "CONFUSION"
+    },
+    {
+      "text": "今はとても穏やかな気持ち",
+      "emotion": "CALM"
+    },
+    {
+      "text": "ほっとして落ち着いている",
+      "emotion": "CALM"
+    },
+    {
+      "text": "上司に言われたことで申し訳ない気持ちになる",
+      "emotion": "GUILT",
+      "trigger": "OTHER"
+    },
+    {
+      "text": "彼氏に無視されてつらい",
+      "emotion": "SADNESS",
+      "trigger": "OTHER"
+    },
+    {
+      "text": "同僚にされたことが許せない",
+      "emotion": "ANGER",
+      "trigger": "OTHER"
+    },
+    {
+      "text": "自分が悪いと思ってダメな自分が嫌になる",
+      "emotion": "GUILT",
+      "trigger": "SELF"
+    },
+    {
+      "text": "自己嫌悪で自分を責めてしまう",
+      "emotion": "GUILT",
+      "trigger": "SELF"
+    },
+    {
+      "text": "私なんてダメだと思って自分を責めてしまう",
+      "emotion": "GUILT",
+      "trigger": "SELF"
+    },
+    {
+      "text": "イライラして、もっと欲しいと思って我慢できない",
+      "emotion": "ANGER",
+      "trigger": "URGE"
+    },
+    {
+      "text": "認められたくて不安になり、どうしても欲しい",
+      "emotion": "ANXIETY",
+      "trigger": "URGE"
+    },
+    {
+      "text": "こうでなければ嫌だと思って腹が立つ",
+      "emotion": "ANGER",
+      "trigger": "URGE"
+    },
+    {
+      "text": "全然疲れてないけど、焦ってる",
+      "emotion": "IMPATIENCE"
+    },
+    {
+      "text": "眠くないけど、だるい",
+      "emotion": "FATIGUE"
+    },
+    {
+      "text": "落ち着かないけど、それより腹が立つ",
+      "emotion": "ANGER"
+    },
+    {
+      "text": "寂しいけど、でも怒りの方が強い",
+      "emotion": "ANGER"
+    }
+  ],
+  "en": [
+    {
+      "text": "i keep rushing and feel so hurried today",
+      "emotion": "IMPATIENCE"
+    },
+    {
+      "text": "i feel so rushed because i won't make it in time",
+      "emotion": "IMPATIENCE"
+    },
+    {
+      "text": "i feel anxious about tomorrow",
+      "emotion": "ANXIETY"
+    },
+    {
+      "text": "i've been nervous and restless all day",
+      "emotion": "ANXIETY"
+    },
+    {
+      "text": "i'm really angry about what happened",
+      "emotion": "ANGER"
+    },
+    {
+      "text": "i feel so frustrated and irritated",
+      "emotion": "ANGER"
+    },
+    {
+      "text": "i feel sad and heartbroken tonight",
+      "emotion": "SADNESS"
+    },
+    {
+      "text": "i just want to cry, it's so sad",
+      "emotion": "SADNESS"
+    },
+    {
+      "text": "i feel so lonely and isolated lately",
+      "emotion": "LONELINESS"
+    },
+    {
+      "text": "nobody understands me and i feel alone",
+      "emotion": "LONELINESS"
+    },
+    {
+      "text": "i feel guilty about what i said",
+      "emotion": "GUILT"
+    },
+    {
+      "text": "i deeply regret what happened and feel guilty",
+      "emotion": "GUILT"
+    },
+    {
+      "text": "i'm so ashamed of myself right now",
+      "emotion": "SHAME"
+    },
+    {
+      "text": "i feel embarrassed and humiliated",
+      "emotion": "SHAME"
+    },
+    {
+      "text": "i'm scared and frightened of what's next",
+      "emotion": "FEAR"
+    },
+    {
+      "text": "i was trembling, i felt so afraid",
+      "emotion": "FEAR"
+    },
+    {
+      "text": "i'm exhausted and so tired today",
+      "emotion": "FATIGUE"
+    },
+    {
+      "text": "i feel drained and worn out",
+      "emotion": "FATIGUE"
+    },
+    {
+      "text": "i'm jealous of her new job",
+      "emotion": "ENVY"
+    },
+    {
+      "text": "i keep comparing myself to others",
+      "emotion": "ENVY"
+    },
+    {
+      "text": "i'm confused about what to do",
+      "emotion": "CONFUSION"
+    },
+    {
+      "text": "i feel lost and mixed up",
+      "emotion": "CONFUSION"
+    },
+    {
+      "text": "i feel calm and peaceful right now",
+      "emotion": "CALM"
+    },
+    {
+      "text": "i feel relaxed and settled today",
+      "emotion": "CALM"
+    },
+    {
+      "text": "my boss told me something and now i feel so guilty",
+      "emotion": "GUILT",
+      "trigger": "OTHER"
+    },
+    {
+      "text": "my friend ignored me and i feel so sad",
+      "emotion": "SADNESS",
+      "trigger": "OTHER"
+    },
+    {
+      "text": "my coworker said something i can't forgive",
+      "emotion": "ANGER",
+      "trigger": "OTHER"
+    },
+    {
+      "text": "i hate myself for failing again and feel so guilty",
+      "emotion": "GUILT",
+      "trigger": "SELF"
+    },
+    {
+      "text": "i always mess things up, it's my fault and i feel guilty",
+      "emotion": "GUILT",
+      "trigger": "SELF"
+    },
+    {
+      "text": "i'm not good enough, i feel so guilty",
+      "emotion": "GUILT",
+      "trigger": "SELF"
+    },
+    {
+      "text": "i'm so frustrated, i want it so badly and i can't stop craving it",
+      "emotion": "ANGER",
+      "trigger": "URGE"
+    },
+    {
+      "text": "i feel anxious and i need to be right, i can't resist arguing",
+      "emotion": "ANXIETY",
+      "trigger": "URGE"
+    },
+    {
+      "text": "it has to be this way and honestly it makes me angry",
+      "emotion": "ANGER",
+      "trigger": "URGE"
+    },
+    {
+      "text": "i'm not tired at all, but i feel so rushed",
+      "emotion": "IMPATIENCE"
+    },
+    {
+      "text": "i'm not sleepy, but i'm drained",
+      "emotion": "FATIGUE"
+    },
+    {
+      "text": "i'm anxious but honestly more angry about it",
+      "emotion": "ANGER"
+    },
+    {
+      "text": "i feel lonely but the anger is stronger",
+      "emotion": "ANGER"
+    }
+  ]
+}

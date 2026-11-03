@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 class ZeroBottomNav extends StatelessWidget {
   const ZeroBottomNav({super.key});
 
-  static const _paths = ['/home', '/reports', '/history', '/settings'];
+  static const _paths = ['/home', '/reports', '/history', '/release', '/settings'];
 
   int _currentIndex(BuildContext context) {
     final location = GoRouterState.of(context).uri.path;
@@ -34,6 +34,11 @@ class ZeroBottomNav extends StatelessWidget {
           icon: const Icon(Icons.calendar_today_outlined),
           activeIcon: const Icon(Icons.calendar_today),
           label: l10n.nav_history,
+        ),
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.spa_outlined),
+          activeIcon: const Icon(Icons.spa),
+          label: l10n.rel_vx_tab_label,
         ),
         BottomNavigationBarItem(
           icon: const Icon(Icons.settings_outlined),

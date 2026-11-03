@@ -23,4 +23,13 @@ FEATURES
 - Weekly and monthly reports to look back on changes
 - AI-generated insights based on your voice patterns
 
+LET GO (NEW)
+- A short practice: write what is on your mind, repeat a few set words and gently let it go
+- A 15-second quick release, a card for today and a breathing guide
+- "Let go of this voice" right after a recording, using your voice tendency as a starting point
+- Morning and evening check-in notifications, with quiet hours and a one-week pause
+- The chat only gives fixed replies on your device. No AI is used and nothing you write is sent anywhere
+- See how many times you let go in the calendar and the weekly report
+- Not a substitute for medical care. Helplines are one tap away when things feel hard
+
 A habit of facing yourself through your voice, with your privacy respected.

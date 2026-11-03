@@ -1,0 +1,259 @@
+{
+  "version": 1,
+  "core": [
+    {
+      "id": "sad",
+      "label": "Sad",
+      "emotion": "SADNESS",
+      "children": [
+        {
+          "id": "sad_grieving",
+          "label": "Grieving",
+          "emotion": "SADNESS"
+        },
+        {
+          "id": "sad_heartbroken",
+          "label": "Heartbroken",
+          "emotion": "SADNESS"
+        },
+        {
+          "id": "sad_lonely",
+          "label": "Lonely",
+          "emotion": "LONELINESS"
+        },
+        {
+          "id": "sad_empty",
+          "label": "Empty",
+          "emotion": "SADNESS"
+        },
+        {
+          "id": "sad_disappointed",
+          "label": "Disappointed",
+          "emotion": "SADNESS"
+        },
+        {
+          "id": "sad_hopeless",
+          "label": "Hopeless",
+          "emotion": "SADNESS"
+        }
+      ]
+    },
+    {
+      "id": "angry",
+      "label": "Angry",
+      "emotion": "ANGER",
+      "children": [
+        {
+          "id": "angry_irritated",
+          "label": "Irritated",
+          "emotion": "ANGER"
+        },
+        {
+          "id": "angry_resentful",
+          "label": "Resentful",
+          "emotion": "ANGER"
+        },
+        {
+          "id": "angry_frustrated",
+          "label": "Frustrated",
+          "emotion": "ANGER"
+        },
+        {
+          "id": "angry_betrayed",
+          "label": "Betrayed",
+          "emotion": "ANGER"
+        },
+        {
+          "id": "angry_envious",
+          "label": "Envious",
+          "emotion": "ENVY"
+        },
+        {
+          "id": "angry_contemptuous",
+          "label": "Contemptuous",
+          "emotion": "ANGER"
+        }
+      ]
+    },
+    {
+      "id": "scared",
+      "label": "Scared",
+      "emotion": "FEAR",
+      "children": [
+        {
+          "id": "scared_nervous",
+          "label": "Nervous",
+          "emotion": "FEAR"
+        },
+        {
+          "id": "scared_panicked",
+          "label": "Panicked",
+          "emotion": "FEAR"
+        },
+        {
+          "id": "scared_insecure",
+          "label": "Insecure",
+          "emotion": "FEAR"
+        },
+        {
+          "id": "scared_threatened",
+          "label": "Threatened",
+          "emotion": "FEAR"
+        },
+        {
+          "id": "scared_vulnerable",
+          "label": "Vulnerable",
+          "emotion": "FEAR"
+        },
+        {
+          "id": "scared_ashamed",
+          "label": "Ashamed",
+          "emotion": "SHAME"
+        }
+      ]
+    },
+    {
+      "id": "anxious",
+      "label": "Anxious",
+      "emotion": "ANXIETY",
+      "children": [
+        {
+          "id": "anxious_worried",
+          "label": "Worried",
+          "emotion": "ANXIETY"
+        },
+        {
+          "id": "anxious_overwhelmed",
+          "label": "Overwhelmed",
+          "emotion": "ANXIETY"
+        },
+        {
+          "id": "anxious_uneasy",
+          "label": "Uneasy",
+          "emotion": "ANXIETY"
+        },
+        {
+          "id": "anxious_confused",
+          "label": "Confused",
+          "emotion": "CONFUSION"
+        },
+        {
+          "id": "anxious_restless",
+          "label": "Restless",
+          "emotion": "ANXIETY"
+        },
+        {
+          "id": "anxious_impatient",
+          "label": "Impatient",
+          "emotion": "IMPATIENCE"
+        }
+      ]
+    },
+    {
+      "id": "guilty",
+      "label": "Guilty",
+      "emotion": "GUILT",
+      "children": [
+        {
+          "id": "guilty_regretful",
+          "label": "Regretful",
+          "emotion": "GUILT"
+        },
+        {
+          "id": "guilty_apologetic",
+          "label": "Apologetic",
+          "emotion": "GUILT"
+        },
+        {
+          "id": "guilty_ashamed_of_self",
+          "label": "Ashamed of myself",
+          "emotion": "GUILT"
+        },
+        {
+          "id": "guilty_unworthy",
+          "label": "Unworthy",
+          "emotion": "GUILT"
+        },
+        {
+          "id": "guilty_self_critical",
+          "label": "Self-critical",
+          "emotion": "GUILT"
+        },
+        {
+          "id": "guilty_responsible",
+          "label": "Responsible",
+          "emotion": "GUILT"
+        }
+      ]
+    },
+    {
+      "id": "tired",
+      "label": "Tired",
+      "emotion": "FATIGUE",
+      "children": [
+        {
+          "id": "tired_drained",
+          "label": "Drained",
+          "emotion": "FATIGUE"
+        },
+        {
+          "id": "tired_exhausted",
+          "label": "Exhausted",
+          "emotion": "FATIGUE"
+        },
+        {
+          "id": "tired_burnt_out",
+          "label": "Burnt out",
+          "emotion": "FATIGUE"
+        },
+        {
+          "id": "tired_sleepy",
+          "label": "Sleepy",
+          "emotion": "FATIGUE"
+        },
+        {
+          "id": "tired_overworked",
+          "label": "Overworked",
+          "emotion": "FATIGUE"
+        },
+        {
+          "id": "tired_numb",
+          "label": "Numb",
+          "emotion": "FATIGUE"
+        }
+      ]
+    },
+    {
+      "id": "calm",
+      "label": "Calm",
+      "emotion": "CALM",
+      "children": [
+        {
+          "id": "calm_peaceful",
+          "label": "Peaceful",
+          "emotion": "CALM"
+        },
+        {
+          "id": "calm_relieved",
+          "label": "Relieved",
+          "emotion": "CALM"
+        },
+        {
+          "id": "calm_content",
+          "label": "Content",
+          "emotion": "CALM"
+        },
+        {
+          "id": "calm_grateful",
+          "label": "Grateful",
+          "emotion": "CALM"
+        },
+        {
+          "id": "calm_relaxed",
+          "label": "Relaxed",
+          "emotion": "CALM"
+        }
+      ]
+    }
+  ]
+}

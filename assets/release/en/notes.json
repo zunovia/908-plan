@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "items": [
+    {"id": "NOTE1", "text": "No need to feel it. Just say it, plainly, like pressing delete."},
+    {"id": "NOTE2", "text": "These words aren't for them. They're for the memory inside you."},
+    {"id": "NOTE3", "text": "There's no required order or count."}
+  ]
+}

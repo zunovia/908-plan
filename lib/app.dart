@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import 'core/theme/app_theme.dart';
 import 'core/providers/auth_provider.dart';
+import 'core/notifications/notification_route.dart';
 import 'features/settings/providers/settings_provider.dart';
 import 'features/onboarding/providers/onboarding_provider.dart';
 import 'features/onboarding/presentation/screens/splash_screen.dart';
@@ -22,13 +23,18 @@ import 'features/history/presentation/screens/history_screen.dart';
 import 'features/settings/presentation/screens/settings_screen.dart';
 import 'features/demo/presentation/screens/demo_screen.dart';
 import 'features/demo/presentation/screens/demo_report_screen.dart';
+import 'features/release/presentation/release_routes.dart';
+import 'features/release/providers/release_providers.dart';
 import 'shared/widgets/zero_bottom_nav.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authStateProvider);
   final onboardingComplete = ref.watch(onboardingCompleteProvider);
 
+  final rootNavigatorKey = GlobalKey<NavigatorState>();
+
   return GoRouter(
+    navigatorKey: rootNavigatorKey,
     initialLocation: '/',
     redirect: (context, state) {
       final isAuthenticated = authState.valueOrNull != null;
@@ -49,6 +55,17 @@ final routerProvider = Provider<GoRouter>((ref) {
           !currentPath.startsWith('/onboarding') &&
           !currentPath.startsWith('/demo')) {
         return '/onboarding/philosophy';
+      }
+
+      // 通知から開く場所（起動直後はスプラッシュが /home へ進むときに回す）。
+      if (currentPath == '/home') {
+        final pendingRoute = ref.read(notificationRouteProvider);
+        if (pendingRoute != null && pendingRoute != '/home') {
+          Future.microtask(
+            () => ref.read(notificationRouteProvider.notifier).state = null,
+          );
+          return pendingRoute;
+        }
       }
 
       return null;
@@ -102,6 +119,12 @@ final routerProvider = Provider<GoRouter>((ref) {
             path: '/history',
             builder: (_, __) => const HistoryScreen(),
           ),
+          // 手放す（タブ + 全画面ルート。初回説明に同意するまでは説明へ）
+          releaseTabRoute(
+            rootNavigatorKey: rootNavigatorKey,
+            isIntroAccepted: () =>
+                ref.read(releaseSettingsProvider).disclaimerAccepted,
+          ),
           GoRoute(
             path: '/settings',
             builder: (_, __) => const SettingsScreen(),
@@ -144,6 +167,18 @@ class ZeroApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
+
+    // 通知のタップ: 開く場所へ移ってから null に戻す。スプラッシュ・オンボーディング中は
+    // そのまま残し、/home に進むときに routerProvider の redirect が回す。
+    ref.listen<String?>(notificationRouteProvider, (_, route) {
+      if (route == null) return;
+      final path = router.routerDelegate.currentConfiguration.uri.path;
+      if (path == '/' || path.startsWith('/onboarding')) return;
+      router.go(route);
+      Future.microtask(
+        () => ref.read(notificationRouteProvider.notifier).state = null,
+      );
+    });
     final themeMode = ref.watch(
       settingsProvider.select((s) => s.themeMode),
     );

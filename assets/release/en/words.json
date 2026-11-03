@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "four": [
+    "thank_you",
+    "sorry",
+    "forgive",
+    "love",
+    "ice_blue",
+    "delete"
+  ],
+  "items": [
+    {
+      "id": "thank_you",
+      "text": "Thank you"
+    },
+    {
+      "id": "sorry",
+      "text": "I'm sorry"
+    },
+    {
+      "id": "forgive",
+      "text": "Please forgive me"
+    },
+    {
+      "id": "love",
+      "text": "I love you"
+    },
+    {
+      "id": "ice_blue",
+      "text": "Ice Blue"
+    },
+    {
+      "id": "delete",
+      "text": "Delete"
+    },
+    {
+      "id": "like_so_much",
+      "text": "I like you so much"
+    },
+    {
+      "id": "idk",
+      "text": "I don't know"
+    }
+  ]
+}

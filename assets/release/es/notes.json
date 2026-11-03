@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "items": [
+    {"id": "NOTE1", "text": "No hace falta sentirlo. Dilo sin más, como quien pulsa borrar."},
+    {"id": "NOTE2", "text": "Estas palabras no son para la otra persona. Son para el recuerdo que llevas dentro."},
+    {"id": "NOTE3", "text": "No hay un orden ni un número fijo."}
+  ]
+}

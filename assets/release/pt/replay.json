@@ -1,0 +1,347 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "U01",
+      "category": "URGE",
+      "text": "Esse “eu quero” ou “não suporto” pode ser o som de uma lembrança guardada que se repete sozinha.",
+      "slot": null
+    },
+    {
+      "id": "U02",
+      "category": "URGE",
+      "text": "Esse impulso não é você de verdade. É uma lembrança antiga se repetindo. Experimente falar com a repetição.",
+      "slot": null
+    },
+    {
+      "id": "U03",
+      "category": "URGE",
+      "text": "Quando “tem que ser assim” soa alto, é sinal de que uma lembrança está se repetindo.",
+      "slot": null
+    },
+    {
+      "id": "U04",
+      "category": "URGE",
+      "text": "A expectativa e a pressa também são repetições. Passar um pano na tela não as detém; o projetor está dentro.",
+      "slot": null
+    },
+    {
+      "id": "U05",
+      "category": "URGE",
+      "text": "Se a mesma preocupação volta sempre, talvez seja o mesmo filme passando por dentro, não por fora.",
+      "slot": null
+    },
+    {
+      "id": "U06",
+      "category": "URGE",
+      "text": "Perguntar “por quê?” sem parar alimenta a repetição. Você não precisa do motivo. Pode simplesmente soltar.",
+      "slot": null
+    },
+    {
+      "id": "U07",
+      "category": "URGE",
+      "text": "A fixação não faz parte de você. É uma lembrança que você vem carregando.",
+      "slot": null
+    },
+    {
+      "id": "U08",
+      "category": "URGE",
+      "text": "A irritação de hoje pode ser só uma lembrança antiga, guardada há muito tempo, chegando a sua vez de tocar.",
+      "slot": null
+    },
+    {
+      "id": "U09",
+      "category": "URGE",
+      "text": "Perceber que é uma repetição é mais rápido do que ficar pensando. Perceber já é metade do soltar.",
+      "slot": null
+    },
+    {
+      "id": "U10",
+      "category": "URGE",
+      "text": "Essa sensação de vazio não é um buraco em quem você é de verdade. É a forma de uma lembrança se repetindo.",
+      "slot": null
+    },
+    {
+      "id": "U11",
+      "category": "URGE",
+      "text": "Quanto mais “sabemos”, mais grossa fica a parede. Admitir “não sei” abre uma porta.",
+      "slot": null
+    },
+    {
+      "id": "U12",
+      "category": "URGE",
+      "text": "Fazer força para parar a repetição também é uma repetição. Relaxe e dedique uma palavra.",
+      "slot": null
+    },
+    {
+      "id": "O01",
+      "category": "OTHER",
+      "text": "Parece que as palavras da outra pessoa mexeram com você, mas o que se mexeu foi uma lembrança dentro de você. Você pode soltá-la sem mudar ninguém.",
+      "slot": null
+    },
+    {
+      "id": "O02",
+      "category": "OTHER",
+      "text": "O sentimento dirigido a alguém é uma lembrança se repetindo dentro de você. Quem você é de verdade está fora dessa repetição.",
+      "slot": null
+    },
+    {
+      "id": "O03",
+      "category": "OTHER",
+      "text": "Algo está se repetindo em você, não na pessoa que provocou a sua raiva. Diga “gratidão” a isso.",
+      "slot": null
+    },
+    {
+      "id": "O04",
+      "category": "OTHER",
+      "text": "Talvez essa pessoa só tenha mostrado onde mora uma lembrança em você. O que foi mostrado pode ser solto.",
+      "slot": null
+    },
+    {
+      "id": "O05",
+      "category": "OTHER",
+      "text": "“Se ao menos a pessoa mudasse” é tentar alcançar a tela. O projetor está deste lado.",
+      "slot": null
+    },
+    {
+      "id": "O06",
+      "category": "OTHER",
+      "text": "O seu julgamento sobre a pessoa é um rótulo que uma lembrança colou. Solte o rótulo, e ela parece um pouco diferente.",
+      "slot": null
+    },
+    {
+      "id": "O07",
+      "category": "OTHER",
+      "text": "Se você sempre tropeça no mesmo tipo de pessoa, talvez seja o mesmo filme se repetindo, não a mesma pessoa.",
+      "slot": null
+    },
+    {
+      "id": "O08",
+      "category": "OTHER",
+      "text": "Você não precisa consertar ninguém. Quando a repetição dentro de você se acalma, a temperatura da relação também muda.",
+      "slot": null
+    },
+    {
+      "id": "O09",
+      "category": "OTHER",
+      "text": "A vontade de culpar é real. E também é uma lembrança se repetindo. Você pode segurar as duas coisas ao mesmo tempo.",
+      "slot": null
+    },
+    {
+      "id": "O10",
+      "category": "OTHER",
+      "text": "O que parece ser a outra pessoa não entender pode ser a sua própria lembrança de “por favor, me entenda” se repetindo.",
+      "slot": null
+    },
+    {
+      "id": "O11",
+      "category": "OTHER",
+      "text": "A paz não começa na outra pessoa. Começa onde a repetição dentro de você fica em silêncio.",
+      "slot": null
+    },
+    {
+      "id": "O12",
+      "category": "OTHER",
+      "text": "As palavras da pessoa podem ter sido um botão que iniciou uma repetição em você. Diga “gratidão” ao botão.",
+      "slot": null
+    },
+    {
+      "id": "S01",
+      "category": "SELF",
+      "text": "A voz que diz “eu não presto” não é você. É uma lembrança guardada se repetindo.",
+      "slot": null
+    },
+    {
+      "id": "S02",
+      "category": "SELF",
+      "text": "Culpar a si também é uma repetição. Quem você é de verdade não é quem culpa nem quem recebe a culpa.",
+      "slot": null
+    },
+    {
+      "id": "S03",
+      "category": "SELF",
+      "text": "Uma lembrança de vergonha está se repetindo agora. Diga “eu te amo” à repetição.",
+      "slot": null
+    },
+    {
+      "id": "S04",
+      "category": "SELF",
+      "text": "Assumir a responsabilidade e se culpar são coisas diferentes. Assumir devolve o poder de soltar.",
+      "slot": null
+    },
+    {
+      "id": "S05",
+      "category": "SELF",
+      "text": "Você não é o problema. Uma lembrança se repetindo dentro de você está vestindo a forma de um problema.",
+      "slot": null
+    },
+    {
+      "id": "S06",
+      "category": "SELF",
+      "text": "“Faça melhor” pode ser uma voz antiga que alguém usou um dia, se repetindo agora. Não é quem você é de verdade falando.",
+      "slot": null
+    },
+    {
+      "id": "S07",
+      "category": "SELF",
+      "text": "O olhar que observa você quando não conseguiu também é uma lembrança. Diga “gratidão” a esse olhar.",
+      "slot": null
+    },
+    {
+      "id": "S08",
+      "category": "SELF",
+      "text": "A imperfeição não é um defeito. São só lembranças que ainda não foram soltas.",
+      "slot": null
+    },
+    {
+      "id": "S09",
+      "category": "SELF",
+      "text": "Quando estiver a ponto de não gostar de si, lembre: há um lugar tranquilo dentro de você para onde é possível voltar.",
+      "slot": null
+    },
+    {
+      "id": "S10",
+      "category": "SELF",
+      "text": "Experimente dizer “não sei”. O seu veredito sobre si é uma das coisas que você não precisa saber.",
+      "slot": null
+    },
+    {
+      "id": "S11",
+      "category": "SELF",
+      "text": "A criança dentro de você está mostrando uma dor antiga. Não repreenda. Diga “agradeço por me mostrar”.",
+      "slot": null
+    },
+    {
+      "id": "S12",
+      "category": "SELF",
+      "text": "O arrependimento é um filme antigo. Se você perceber que ele está passando agora, pode soltá-lo agora.",
+      "slot": null
+    },
+    {
+      "id": "G01",
+      "category": "UNKNOWN",
+      "text": "O que está acontecendo agora pode ser uma lembrança se repetindo, não quem você é de verdade. Dedique a ela uma palavra.",
+      "slot": null
+    },
+    {
+      "id": "G02",
+      "category": "UNKNOWN",
+      "text": "O que aparece fora é a sombra de uma repetição dentro. Você não precisa lutar contra a sombra.",
+      "slot": null
+    },
+    {
+      "id": "G03",
+      "category": "UNKNOWN",
+      "text": "Aquilo de que você tem consciência é só uma pequena parte do que está acontecendo. Você pode soltar sem entender tudo.",
+      "slot": null
+    },
+    {
+      "id": "N01",
+      "category": "NIGHT",
+      "text": "A repetição de hoje, solta hoje. Dizer “gratidão” uma vez já basta.",
+      "slot": null
+    },
+    {
+      "id": "N02",
+      "category": "NIGHT",
+      "text": "Uma palavra antes de dormir. O resto pode ficar para amanhã.",
+      "slot": null
+    },
+    {
+      "id": "F01",
+      "category": "FILTER",
+      "text": "O que você vê e ouve chega por um filtro de lembranças. Dedique uma palavra ao filtro, e o que entra chega um pouco mais nítido.",
+      "slot": null
+    },
+    {
+      "id": "F02",
+      "category": "FILTER",
+      "text": "A mesma paisagem parece diferente conforme a lembrança que está se repetindo. Antes de olhar: “gratidão”.",
+      "slot": null
+    },
+    {
+      "id": "F03",
+      "category": "FILTER",
+      "text": "Quando você escuta alguém, talvez seja a sua lembrança que está escutando. Uma palavra antes de escutar.",
+      "slot": null
+    },
+    {
+      "id": "F04",
+      "category": "FILTER",
+      "text": "Notícias e mensagens chegam pelo filtro das lembranças. Antes de abri-las: “eu te amo”.",
+      "slot": null
+    },
+    {
+      "id": "F05",
+      "category": "FILTER",
+      "text": "Nada novo consegue entrar quando um filme antigo tapa a entrada. Libere a entrada, com frequência.",
+      "slot": null
+    },
+    {
+      "id": "F06",
+      "category": "FILTER",
+      "text": "Solte antes da reação, e às vezes a repetição que ia tocar não toca.",
+      "slot": null
+    },
+    {
+      "id": "F07",
+      "category": "FILTER",
+      "text": "Tudo o que você vê e ouve é uma chance de soltar. Não é preciso um momento especial.",
+      "slot": null
+    },
+    {
+      "id": "F08",
+      "category": "FILTER",
+      "text": "Só perceber que há um filtro já muda um pouco o que entra.",
+      "slot": null
+    },
+    {
+      "id": "F09",
+      "category": "FILTER",
+      "text": "Tudo o que você vai ver e ouvir hoje passa por um filtro de lembranças. Uma palavra ao filtro, nesta manhã.",
+      "slot": "MORNING"
+    },
+    {
+      "id": "F10",
+      "category": "FILTER",
+      "text": "(sino) Por qual filtro você está olhando agora? Diga “gratidão”, uma vez.",
+      "slot": "BELL"
+    },
+    {
+      "id": "R01",
+      "category": "RESP",
+      "text": "Não coloque a causa fora. Assuma 100% como uma repetição dentro de você. Isso não é se culpar — é retomar o poder de soltar.",
+      "slot": null
+    },
+    {
+      "id": "R02",
+      "category": "RESP",
+      "text": "É você quem pega, e é você quem solta. Ninguém pode fazer isso por você — então não há a quem culpar.",
+      "slot": null
+    },
+    {
+      "id": "R03",
+      "category": "RESP",
+      "text": "Nem um centímetro do problema está fora. Está tudo deste lado — o que não é desespero; quer dizer que tudo pode ser solto daqui.",
+      "slot": null
+    },
+    {
+      "id": "R04",
+      "category": "RESP",
+      "text": "Saia do lugar de vítima, e o lugar de quem cria fica livre.",
+      "slot": null
+    },
+    {
+      "id": "R05",
+      "category": "RESP",
+      "text": "Há exatamente um jeito de o mundo mudar sem mudar os outros: assumir a repetição dentro de você.",
+      "slot": null
+    },
+    {
+      "id": "R06",
+      "category": "RESP",
+      "text": "Assumir 100% é ser 100% livre.",
+      "slot": null
+    }
+  ]
+}

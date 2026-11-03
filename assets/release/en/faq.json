@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "FAQ1",
+      "patterns": ["doesn't feel right", "don't feel it", "not feeling it", "not working", "no effect", "is this even working", "does this actually work"],
+      "text": "Feeling isn't required. Pressing delete needs no emotion. Just say the words plainly, and the replay loosens."
+    },
+    {
+      "id": "FAQ2",
+      "patterns": ["why did this happen", "i want to know why", "i want the reason", "what caused this", "i don't understand why", "why is this happening"],
+      "text": "The more you search for the reason, the longer the same film runs. Set it down with \"I don't know,\" and offer one word."
+    },
+    {
+      "id": "FAQ3",
+      "patterns": ["they're the one who's wrong", "why should i", "it's not my fault", "they started it", "i'm not the one who's wrong", "shouldn't they apologize"],
+      "text": "This isn't about forgiving them. It's about releasing the memory replaying in you. You don't have to change them."
+    },
+    {
+      "id": "FAQ4",
+      "patterns": ["nothing is changing", "no results", "it's not working", "i don't see any change", "nothing has changed"],
+      "text": "\"I want results\" is a replay too. Release the outcome and watch; something arrives from outside the expectation."
+    },
+    {
+      "id": "FAQ5",
+      "patterns": ["too hard to say all of them", "can't say all of them", "too long and hard", "it's exhausting to say all of them", "four phrases is too much", "release words are too much", "too many words to say"],
+      "text": "One word is enough. \"I love you\" or \"Thank you\" alone carries the rest."
+    },
+    {
+      "id": "FAQ6",
+      "patterns": ["when should i do this", "what's the best time", "when do i say it", "is there a right time", "when is best"],
+      "text": "Anytime, anywhere. Like breathing, as a daily habit."
+    }
+  ]
+}

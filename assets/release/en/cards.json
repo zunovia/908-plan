@@ -1,0 +1,2307 @@
+{
+  "version": 1,
+  "cards": [
+    {
+      "id": "r001",
+      "kind": "WORDS1",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the replay in you, not to them: \"Thank you,\" seven times.",
+      "prompt": "Which memory did that person show you?",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r002",
+      "kind": "WORDS4",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the replay of \"I won't make it\": the release words, once around.",
+      "prompt": "Whose voice is in a hurry?",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r003",
+      "kind": "IDK",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "\"I don't know,\" three times. Until a door opens.",
+      "prompt": "What's something you don't need to know?",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r004",
+      "kind": "WORDS1",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the voice of self-blame: \"I love you,\" four times.",
+      "prompt": "Whose words were those, originally?",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r005",
+      "kind": "CROSS",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [
+        "URGE"
+      ],
+      "scenes": [],
+      "text": "Picture one \"it has to be this way,\" and ×.",
+      "prompt": "If that fell apart, would it truly be a problem?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r006",
+      "kind": "WORDS1",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the feeling of being watched: \"I like you so much,\" ten times.",
+      "prompt": "Whose eyes were you imagining?",
+      "repeat": 10,
+      "words": [
+        "like_so_much"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r007",
+      "kind": "WORDS1",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the feeling that never arrived: \"I'm sorry, thank you.\"",
+      "prompt": "What was it you wanted?",
+      "repeat": 1,
+      "words": [
+        "sorry",
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r008",
+      "kind": "BREATH",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Exhale for 8 seconds. Three times, until the replay feels a little farther away.",
+      "prompt": "What's the scariest \"what if\"?",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        0,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r009",
+      "kind": "WORDS1",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the comparing voice: \"Thank you,\" seven times.",
+      "prompt": "What are you comparing with what?",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r010",
+      "kind": "WORDS4",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the replay of \"keep pushing\": the release words, slowly, once around.",
+      "prompt": "Who gives permission to rest?",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r011",
+      "kind": "IDK",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "\"I don't know what will happen,\" three times. Not knowing, and letting it be.",
+      "prompt": "What did you assume you knew?",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r012",
+      "kind": "WORDS1",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [
+        "OTHER"
+      ],
+      "scenes": [],
+      "text": "To their words, the button that started the replay: \"Thank you,\" four times.",
+      "prompt": "What sounded when that button was pressed?",
+      "repeat": 4,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r013",
+      "kind": "WORDS4",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the sense of loss: start with \"I love you,\" then the rest.",
+      "prompt": "What memory feels closest right now?",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r014",
+      "kind": "CROSS",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [
+        "OTHER"
+      ],
+      "scenes": [],
+      "text": "To \"if only they would change,\" ×.",
+      "prompt": "Even if they don't change, can you let go?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r015",
+      "kind": "WATER",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "A sip from the blue bottle. A pause in today's replay.",
+      "prompt": "What's another signal you could use as a pause?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r016",
+      "kind": "WORDS1",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [
+        "SELF"
+      ],
+      "scenes": [],
+      "text": "To the voice of \"be better\": \"I like you so much,\" seven times.",
+      "prompt": "Who said that word first?",
+      "repeat": 7,
+      "words": [
+        "like_so_much"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r017",
+      "kind": "WORDS4",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To this quiet: \"Thank you,\" once. To remember it.",
+      "prompt": "What would you name this feeling?",
+      "repeat": 1,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r018",
+      "kind": "IDK",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "\"I don't know their side,\" three times.",
+      "prompt": "Did you think you knew what you didn't?",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r019",
+      "kind": "WORDS1",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Each time you look at the clock, one \"thank you.\" All day.",
+      "prompt": "Which memory is rushing you?",
+      "repeat": 1,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "r020",
+      "kind": "WORDS4",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the replay of \"it was my fault\": start with \"Please forgive me.\"",
+      "prompt": "If a friend did the same, what would you say?",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "p001",
+      "kind": "PRE",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Before you meet them, say \"thank you\" three times — not to them, to your own filter.",
+      "prompt": null,
+      "repeat": 3,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": "Before meeting someone",
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "p002",
+      "kind": "PRE",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Before you open it: \"I love you,\" once.",
+      "prompt": null,
+      "repeat": 1,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": "Before you open a message",
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "p003",
+      "kind": "PRE",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Before you watch: \"I don't know,\" once.",
+      "prompt": null,
+      "repeat": 1,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": "Before you watch the news",
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "p004",
+      "kind": "PRE",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Before you begin: the release words, once around. Leave expectations behind too.",
+      "prompt": null,
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": "Before a meeting or work",
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "p005",
+      "kind": "PRE",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "At the door: \"thank you,\" three times. Leave today's filter outside.",
+      "prompt": null,
+      "repeat": 3,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": "Before coming home",
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "p006",
+      "kind": "PRE",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Before you close your eyes, one \"thank you\" to everything you saw and heard today.",
+      "prompt": null,
+      "repeat": 1,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": "Before sleep",
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c001",
+      "kind": "WORDS4",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To this hurry: \"thank you,\" four times.",
+      "prompt": "Is what just came to mind a fact, or an interpretation?",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c002",
+      "kind": "WORDS1",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the feeling of a voice that never arrived: \"I'm sorry, thank you.\"",
+      "prompt": "What's the thing you wanted, underneath that?",
+      "repeat": 1,
+      "words": [
+        "sorry",
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c003",
+      "kind": "CROSS",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Recall that one remark, and ×, once.",
+      "prompt": "What were you trying to protect, beneath the anger?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c004",
+      "kind": "BREATH",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Breathe out slowly, 8 seconds. Just three times.",
+      "prompt": "What's the \"what if\" worrying you most?",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        0,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c005",
+      "kind": "WORDS4",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To yourself: \"please forgive me,\" seven times.",
+      "prompt": "If a friend did the same thing, what would you say?",
+      "repeat": 7,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c006",
+      "kind": "WORDS4",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To your body: \"thank you,\" ten times. Slowly.",
+      "prompt": "How many minutes did you get to rest today?",
+      "repeat": 10,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c007",
+      "kind": "CROSS",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Picture one \"to-do\" from your head, and ×.",
+      "prompt": "Which one doesn't need doing today?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c008",
+      "kind": "WORDS4",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the moment you wanted to disappear: \"I love you,\" four times.",
+      "prompt": "Whose eyes were you imagining?",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c009",
+      "kind": "WATER",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [
+        "WORK"
+      ],
+      "text": "A sip from the blue bottle. A pause for today's portion.",
+      "prompt": "What's another signal you could use as a pause?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c010",
+      "kind": "WORDS4",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To this calm: \"thank you,\" once.",
+      "prompt": "What would you call this feeling?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c011",
+      "kind": "WORDS1",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the anger still burning: \"I love you,\" four times.",
+      "prompt": "What was that anger protecting?",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c012",
+      "kind": "CROSS",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [
+        "OTHER"
+      ],
+      "scenes": [
+        "FAMILY"
+      ],
+      "text": "Recall one moment you couldn't forgive, and ×.",
+      "prompt": "Will you still be angry about it in ten years?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c013",
+      "kind": "WORDS4",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [
+        "WORK"
+      ],
+      "text": "To what won't sit right: the release words, once each.",
+      "prompt": "Who do you want to feel understood by?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c014",
+      "kind": "BREATH",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Breathe for the anger: in 4, hold 4, out 8. Three times.",
+      "prompt": "Where in the body does the anger sit?",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c015",
+      "kind": "IDK",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "\"I don't know their reasons,\" three times.",
+      "prompt": "What did you assume without knowing?",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c016",
+      "kind": "WORDS1",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [
+        "URGE"
+      ],
+      "scenes": [
+        "COMMUTE"
+      ],
+      "text": "To the voice that says hurry: \"thank you,\" seven times.",
+      "prompt": "What happens if you don't make it in time?",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c017",
+      "kind": "CROSS",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [
+        "COMMUTE"
+      ],
+      "text": "To the hurry while waiting for the train, one ×.",
+      "prompt": "Is the rushing only about today?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c018",
+      "kind": "WORDS4",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the replay of \"not yet?\": the release words, once around.",
+      "prompt": "Since when has waiting felt hard?",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c019",
+      "kind": "BREATH",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [
+        "MORNING"
+      ],
+      "text": "For the rush: in 4, hold 2, out 6. Three times.",
+      "prompt": "If you didn't rush, what would you lose?",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        2,
+        6
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c020",
+      "kind": "IDK",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "\"It doesn't have to be right now,\" three times.",
+      "prompt": "What's actually wrong with waiting?",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c021",
+      "kind": "WORDS1",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [
+        "URGE"
+      ],
+      "scenes": [
+        "WORK"
+      ],
+      "text": "To the thoughts sounding all at once: \"thank you,\" seven times.",
+      "prompt": "Which voice is loudest?",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c022",
+      "kind": "CROSS",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [
+        "SELF"
+      ],
+      "scenes": [],
+      "text": "Picture the \"self that can't decide,\" and ×.",
+      "prompt": "Is it missing information, or just worry?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c023",
+      "kind": "WORDS4",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Before sorting it out: the release words, once each, quietly.",
+      "prompt": "Is it your mind you want to sort, or your heart?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c024",
+      "kind": "BREATH",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [
+        "WORK"
+      ],
+      "text": "When thoughts swirl: in 4, hold 4, out 8. Three times.",
+      "prompt": "What doesn't need deciding right now?",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c025",
+      "kind": "WATER",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "A sip from the blue bottle. A pause for the swirl of thoughts.",
+      "prompt": "What comes to mind first, after the pause?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c026",
+      "kind": "WORDS1",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [
+        "MORNING"
+      ],
+      "text": "To not knowing which is true: \"I love you,\" four times.",
+      "prompt": "What's one step you can take, even unsure?",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c027",
+      "kind": "WORDS1",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [
+        "SELF"
+      ],
+      "scenes": [
+        "FAMILY"
+      ],
+      "text": "To the voice blaming yourself: \"please forgive me,\" seven times.",
+      "prompt": "Whose forgiveness are you hoping for?",
+      "repeat": 7,
+      "words": [
+        "forgive"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c028",
+      "kind": "CROSS",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [
+        "FAMILY"
+      ],
+      "text": "One moment you felt you said too much, and ×.",
+      "prompt": "If you could say it again, what would you say?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c029",
+      "kind": "WORDS4",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the replay of \"it was my fault\": the release words, once around.",
+      "prompt": "Was all of it really your fault?",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c030",
+      "kind": "BREATH",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "For the heaviness: in 4, hold 4, out 8. Three times.",
+      "prompt": "How long has that heaviness been there?",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c031",
+      "kind": "IDK",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "\"Maybe it isn't all my fault,\" three times.",
+      "prompt": "Were you carrying all of it alone?",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c032",
+      "kind": "WORDS1",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [
+        "OTHER"
+      ],
+      "scenes": [],
+      "text": "To the memory of feeling watched: \"I like you so much,\" ten times.",
+      "prompt": "Is that gaze still watching, even now?",
+      "repeat": 10,
+      "words": [
+        "like_so_much"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c033",
+      "kind": "CROSS",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [
+        "SELF"
+      ],
+      "scenes": [],
+      "text": "One moment you wanted to disappear, and ×.",
+      "prompt": "In that moment, who did you want to see you?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c034",
+      "kind": "WORDS4",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the memory of feeling pathetic: the release words, slowly, once around.",
+      "prompt": "Who decided it was pathetic?",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c035",
+      "kind": "BREATH",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "For the shame: breathe out slowly for 8 seconds. Three times.",
+      "prompt": "If a friend were in that scene, how would they see it?",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        0,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c036",
+      "kind": "WATER",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "A sip from the blue bottle. A pause for today's shame.",
+      "prompt": "After the pause, is it a little lighter?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c037",
+      "kind": "IDK",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "\"I don't really know if I'm no good,\" three times.",
+      "prompt": "When did you decide you were no good?",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c038",
+      "kind": "WORDS1",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [
+        "OTHER"
+      ],
+      "scenes": [
+        "FAMILY"
+      ],
+      "text": "Not to them, but to the replay in you: \"thank you,\" seven times.",
+      "prompt": "What was the word you wanted to reach them?",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c039",
+      "kind": "CROSS",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "Recall one night spent alone, and ×.",
+      "prompt": "What did you want most, in that moment?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c040",
+      "kind": "WORDS4",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the feeling of being left behind: the release words, once each.",
+      "prompt": "Whose signal were you waiting for?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c041",
+      "kind": "BREATH",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "For time alone: in 4, hold 4, out 8. Three times.",
+      "prompt": "What's growing, in that time alone?",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c042",
+      "kind": "WORDS1",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [
+        "FAMILY"
+      ],
+      "text": "To the feeling that no one hears you: \"I love you,\" four times.",
+      "prompt": "Who did you want to notice you?",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c043",
+      "kind": "IDK",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "\"I don't really know if I'm truly alone,\" three times.",
+      "prompt": "Who decided you go unnoticed?",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c044",
+      "kind": "BREATH",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "For the fear: breathe out slowly for 8 seconds. Three times.",
+      "prompt": "What's the scariest \"what if\"?",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        0,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c045",
+      "kind": "WORDS1",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [
+        "MORNING"
+      ],
+      "text": "To the body that's frozen: \"I love you,\" four times.",
+      "prompt": "Is that fear happening now, or already past?",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c046",
+      "kind": "CROSS",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Picture the thing you're braced for, and ×.",
+      "prompt": "What would change if you weren't braced?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c047",
+      "kind": "WORDS4",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the fear: the release words, slowly, once each.",
+      "prompt": "What hope lies beneath the fear?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c048",
+      "kind": "IDK",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "\"I don't really know if it will happen,\" three times.",
+      "prompt": "Were you afraid of something that hasn't happened?",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c049",
+      "kind": "WORDS1",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the trembling fingers: \"thank you,\" seven times.",
+      "prompt": "What is that fear trying to protect?",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c050",
+      "kind": "WATER",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "A sip from the blue bottle. A small pause within the fear.",
+      "prompt": "After the pause, is your breath a little deeper?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c051",
+      "kind": "WORDS1",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [
+        "URGE"
+      ],
+      "scenes": [
+        "COMMUTE"
+      ],
+      "text": "To the feeling of being left behind by them: \"thank you,\" seven times.",
+      "prompt": "When did the comparing begin?",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c052",
+      "kind": "CROSS",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "One scene of wanting but not having, and ×.",
+      "prompt": "Do you want the thing itself, or something else?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c053",
+      "kind": "WORDS4",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the sense of lacking: the release words, once around.",
+      "prompt": "Whose standard decided you're lacking?",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c054",
+      "kind": "BREATH",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "For the comparing: in 4, hold 4, out 8. Three times.",
+      "prompt": "Seeing them, what did you notice in yourself?",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c055",
+      "kind": "IDK",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "\"I don't know their whole story,\" three times.",
+      "prompt": "How much of their story can you actually see?",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c056",
+      "kind": "WORDS1",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the self that wants: \"I like you so much,\" ten times.",
+      "prompt": "Is wanting something itself a bad thing?",
+      "repeat": 10,
+      "words": [
+        "like_so_much"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c057",
+      "kind": "WORDS4",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [
+        "WORK"
+      ],
+      "text": "To comparing yourself with a coworker: the release words, once each.",
+      "prompt": "When did that comparing begin?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c058",
+      "kind": "WORDS1",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [
+        "URGE"
+      ],
+      "scenes": [
+        "COMMUTE"
+      ],
+      "text": "To the voice saying \"I can't anymore\": \"thank you,\" ten times.",
+      "prompt": "Is wanting to rest a bad thing?",
+      "repeat": 10,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c059",
+      "kind": "CROSS",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "The moment you felt most tired today, and ×.",
+      "prompt": "Is that tiredness in the body, or the mind?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c060",
+      "kind": "WORDS4",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the tired body: the release words, slowly, once each.",
+      "prompt": "What was your body trying to tell you first?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c061",
+      "kind": "BREATH",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [
+        "WORK"
+      ],
+      "text": "For the fatigue: breathe out slowly for 8 seconds. Five times.",
+      "prompt": "What keeps you going, even though you're tired?",
+      "repeat": 5,
+      "words": [],
+      "breath": [
+        4,
+        0,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c062",
+      "kind": "WATER",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "A sip from the blue bottle. That's enough for today.",
+      "prompt": "What if this is enough, right here?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c063",
+      "kind": "IDK",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "\"I don't really know if I can push further,\" three times.",
+      "prompt": "Whose voice is telling you to push on?",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c064",
+      "kind": "WORDS1",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [
+        "URGE"
+      ],
+      "scenes": [
+        "COMMUTE"
+      ],
+      "text": "To the voice saying \"what should I do\": \"thank you,\" seven times.",
+      "prompt": "Is the worry about now, or about later?",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c065",
+      "kind": "CROSS",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [
+        "MORNING"
+      ],
+      "text": "Picture one worry for today, and ×.",
+      "prompt": "Will that worry actually happen today?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c066",
+      "kind": "WORDS4",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the restless feeling: the release words, once each.",
+      "prompt": "What came first, before the restlessness?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c067",
+      "kind": "BREATH",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [
+        "COMMUTE"
+      ],
+      "text": "For the jittery feeling: in 4, hold 4, out 8. Five times.",
+      "prompt": "What's one certain thing, amid the unease?",
+      "repeat": 5,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c068",
+      "kind": "IDK",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "\"I don't need to know what comes next,\" three times.",
+      "prompt": "Can you let it be, without knowing?",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c069",
+      "kind": "WORDS1",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [
+        "MORNING"
+      ],
+      "text": "To what's ahead: \"I love you,\" four times.",
+      "prompt": "What's one thing you can do right now?",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c070",
+      "kind": "WORDS1",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [
+        "OTHER"
+      ],
+      "scenes": [
+        "FAMILY"
+      ],
+      "text": "Not to the person who left, but to the memory inside: \"please forgive me,\" seven times.",
+      "prompt": "What is it you feel you've lost?",
+      "repeat": 7,
+      "words": [
+        "forgive"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c071",
+      "kind": "CROSS",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [
+        "SELF"
+      ],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "One quietly heavy feeling, and ×.",
+      "prompt": "Is it okay to cry as much as you need to?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c072",
+      "kind": "WORDS4",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the sense of loss: the release words, slowly, once around.",
+      "prompt": "What did that time with them teach you?",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c073",
+      "kind": "BREATH",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "For the sadness: in 4, hold 4, out 8. Three times.",
+      "prompt": "Where does the sadness have room to sit?",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c074",
+      "kind": "IDK",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "\"I don't need a reason to be sad,\" three times.",
+      "prompt": "Is it okay to feel sad without a reason?",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c075",
+      "kind": "WORDS1",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the quiet heaviness: \"I like you so much,\" ten times.",
+      "prompt": "What kindness lies beneath that heaviness?",
+      "repeat": 10,
+      "words": [
+        "like_so_much"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c076",
+      "kind": "WATER",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "A sip from the blue bottle. A pause within the sadness.",
+      "prompt": "After the pause, does breathing feel a little easier?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c077",
+      "kind": "WORDS1",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [
+        "SELF"
+      ],
+      "scenes": [],
+      "text": "To this quiet, right now: \"thank you,\" once.",
+      "prompt": "What would you name this quiet?",
+      "repeat": 1,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c078",
+      "kind": "CROSS",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To this time when the replay has paused, ×.",
+      "prompt": "What's different, when the replay is quiet?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c079",
+      "kind": "WORDS4",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [
+        "MORNING"
+      ],
+      "text": "To a calm morning: the release words, once each.",
+      "prompt": "Where will you carry this calm, today?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c080",
+      "kind": "BREATH",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To remember this calm: in 4, hold 4, out 8. Three times.",
+      "prompt": "Where is this feeling coming from?",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c081",
+      "kind": "WORDS1",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "To a quiet night: \"I love you,\" once.",
+      "prompt": "Can you remember this quiet?",
+      "repeat": 1,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c082",
+      "kind": "WATER",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "A sip from the blue bottle. A pause, to mark this quiet.",
+      "prompt": "Where does this quiet really belong, in you?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c083",
+      "kind": "WORDS4",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the memory that rushes you: the release words, slowly, once around.",
+      "prompt": "Is it today's schedule rushing you, or an old voice?",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c084",
+      "kind": "WORDS4",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the memory of anger: the release words, once each.",
+      "prompt": "What do you see, once the anger settles?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c085",
+      "kind": "WORDS4",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To not forgiving yourself: the release words, once each.",
+      "prompt": "What gets lighter, once you forgive?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c086",
+      "kind": "WORDS4",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the feeling of being left behind: the release words, once around.",
+      "prompt": "When was a time alone that felt okay?",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c087",
+      "kind": "WORDS4",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To this calm: the release words, once each, quietly.",
+      "prompt": "Where did this calm come from?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c088",
+      "kind": "WORDS1",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the memory of shame: \"please forgive me,\" seven times.",
+      "prompt": "Whose standard decided it was shameful?",
+      "repeat": 7,
+      "words": [
+        "forgive"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c089",
+      "kind": "WORDS1",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the feeling of bracing yourself: \"thank you,\" four times.",
+      "prompt": "Is there a case where bracing isn't needed?",
+      "repeat": 4,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c090",
+      "kind": "WORDS1",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the wanting feeling: \"I love you,\" four times.",
+      "prompt": "What is that want really standing in for?",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c091",
+      "kind": "WORDS1",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "To the tired self: \"I like you so much,\" ten times.",
+      "prompt": "What part of you worked hardest today?",
+      "repeat": 10,
+      "words": [
+        "like_so_much"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c092",
+      "kind": "CROSS",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "Today's biggest worry, one ×.",
+      "prompt": "Can you leave that worry to tomorrow's you?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c093",
+      "kind": "CROSS",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "One more quietly heavy feeling, ×.",
+      "prompt": "If the heaviness were halved, what would change?",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    },
+    {
+      "id": "c094",
+      "kind": "BREATH",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "When thoughts won't stop: in 4, hold 4, out 8. Three times.",
+      "prompt": "What's underneath the thoughts that won't stop?",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "en",
+      "ver": 1
+    }
+  ]
+}

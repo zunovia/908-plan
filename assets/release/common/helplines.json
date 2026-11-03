@@ -1,0 +1,326 @@
+{
+  "version": 1,
+  "countries": [
+    {
+      "code": "JP",
+      "lines": [
+        {
+          "id": "jp_inochi_sos",
+          "name": {
+            "en": "#InochiSOS",
+            "ja": "#いのちSOS"
+          },
+          "number": "0120-061-338",
+          "sms": null,
+          "hours": {
+            "en": "24 hours",
+            "ja": "24時間"
+          },
+          "kind": "CRISIS"
+        },
+        {
+          "id": "jp_yorisoi",
+          "name": {
+            "en": "Yorisoi Hotline",
+            "ja": "よりそいホットライン"
+          },
+          "number": "0120-279-338",
+          "sms": null,
+          "hours": {
+            "en": "24 hours",
+            "ja": "24時間"
+          },
+          "kind": "CRISIS"
+        },
+        {
+          "id": "jp_inochi_denwa",
+          "name": {
+            "en": "Inochi no Denwa (Lifeline)",
+            "ja": "いのちの電話"
+          },
+          "number": "0120-783-556",
+          "sms": null,
+          "hours": {
+            "en": "16:00-21:00 (24 hours on the 10th of each month)",
+            "ja": "16〜21時（毎月10日は24時間）"
+          },
+          "kind": "CRISIS"
+        },
+        {
+          "id": "jp_kokoro_soudan",
+          "name": {
+            "en": "Mental Health Consultation Dial",
+            "ja": "こころの健康相談統一ダイヤル"
+          },
+          "number": "0570-064-556",
+          "sms": null,
+          "hours": {
+            "en": "Varies by region",
+            "ja": "地域により異なる"
+          },
+          "kind": "CRISIS"
+        },
+        {
+          "id": "jp_dv_plus",
+          "name": {
+            "en": "DV Consultation Plus",
+            "ja": "DV相談プラス"
+          },
+          "number": "0120-279-889",
+          "sms": null,
+          "hours": {
+            "en": "24 hours",
+            "ja": "24時間"
+          },
+          "kind": "ABUSE"
+        },
+        {
+          "id": "jp_dv_navi",
+          "name": {
+            "en": "DV Consultation Navi",
+            "ja": "DV相談ナビ"
+          },
+          "number": "#8008",
+          "sms": null,
+          "hours": {
+            "en": "Varies by region",
+            "ja": "地域により異なる"
+          },
+          "kind": "ABUSE"
+        },
+        {
+          "id": "jp_child_abuse",
+          "name": {
+            "en": "Child Abuse Hotline",
+            "ja": "児童相談所 虐待対応ダイヤル"
+          },
+          "number": "189",
+          "sms": null,
+          "hours": {
+            "en": "24 hours",
+            "ja": "24時間"
+          },
+          "kind": "ABUSE"
+        }
+      ]
+    },
+    {
+      "code": "US",
+      "lines": [
+        {
+          "id": "us_988",
+          "name": {
+            "en": "988 Suicide & Crisis Lifeline",
+            "ja": "988 自殺・危機ライフライン"
+          },
+          "number": "988",
+          "sms": "988",
+          "hours": {
+            "en": "24/7, call or text",
+            "ja": "24時間（電話またはSMS）"
+          },
+          "kind": "CRISIS"
+        },
+        {
+          "id": "us_crisis_text_line",
+          "name": {
+            "en": "Crisis Text Line",
+            "ja": "クライシス・テキストライン"
+          },
+          "number": "741741",
+          "sms": "741741",
+          "hours": {
+            "en": "24/7, text HOME",
+            "ja": "24時間（SMSで HOME と送信）"
+          },
+          "kind": "CRISIS"
+        },
+        {
+          "id": "us_ndvh",
+          "name": {
+            "en": "National Domestic Violence Hotline",
+            "ja": "全国DVホットライン"
+          },
+          "number": "1-800-799-7233",
+          "sms": "88788",
+          "hours": {
+            "en": "24/7, text START",
+            "ja": "24時間（SMSで START と送信）"
+          },
+          "kind": "ABUSE"
+        }
+      ]
+    },
+    {
+      "code": "GB",
+      "lines": [
+        {
+          "id": "gb_samaritans",
+          "name": {
+            "en": "Samaritans",
+            "ja": "サマリタンズ"
+          },
+          "number": "116 123",
+          "sms": null,
+          "hours": {
+            "en": "24/7",
+            "ja": "24時間"
+          },
+          "kind": "CRISIS"
+        },
+        {
+          "id": "gb_shout",
+          "name": {
+            "en": "Shout",
+            "ja": "シャウト"
+          },
+          "number": "85258",
+          "sms": "85258",
+          "hours": {
+            "en": "24/7, text SHOUT",
+            "ja": "24時間（SMSで SHOUT と送信）"
+          },
+          "kind": "CRISIS"
+        },
+        {
+          "id": "gb_ndah",
+          "name": {
+            "en": "National Domestic Abuse Helpline",
+            "ja": "全国DV相談ヘルプライン"
+          },
+          "number": "0808 2000 247",
+          "sms": null,
+          "hours": {
+            "en": "24/7",
+            "ja": "24時間"
+          },
+          "kind": "ABUSE"
+        }
+      ]
+    },
+    {
+      "code": "BR",
+      "lines": [
+        {
+          "id": "br_cvv",
+          "name": {
+            "en": "CVV (Centro de Valorização da Vida)",
+            "ja": "CVV（命を大切にするセンター）",
+            "es": "CVV (Centro de Valorização da Vida)",
+            "pt": "CVV – Centro de Valorização da Vida"
+          },
+          "number": "188",
+          "sms": null,
+          "hours": {
+            "en": "24 hours, free",
+            "ja": "24時間・無料",
+            "es": "24 horas, gratuito",
+            "pt": "24 horas, gratuito"
+          },
+          "kind": "CRISIS"
+        },
+        {
+          "id": "br_ligue180",
+          "name": {
+            "en": "Ligue 180 (Women's Helpline)",
+            "ja": "Ligue 180（女性のための相談窓口）",
+            "es": "Ligue 180 (Atención a la Mujer)",
+            "pt": "Ligue 180 – Central de Atendimento à Mulher"
+          },
+          "number": "180",
+          "sms": null,
+          "hours": {
+            "en": "24 hours, free",
+            "ja": "24時間・無料",
+            "es": "24 horas, gratuito",
+            "pt": "24 horas, gratuito"
+          },
+          "kind": "ABUSE"
+        }
+      ]
+    },
+    {
+      "code": "PT",
+      "lines": [
+        {
+          "id": "pt_1411",
+          "name": {
+            "en": "Suicide Prevention Line 1411",
+            "ja": "自殺予防ライン 1411",
+            "es": "Línea de prevención del suicidio 1411",
+            "pt": "Linha de Prevenção do Suicídio 1411"
+          },
+          "number": "1411",
+          "sms": null,
+          "hours": {
+            "en": "24 hours, free",
+            "ja": "24時間・無料",
+            "es": "24 horas, gratuito",
+            "pt": "24 horas, gratuito"
+          },
+          "kind": "CRISIS"
+        },
+        {
+          "id": "pt_cig_vd",
+          "name": {
+            "en": "Domestic Violence Information Line (CIG)",
+            "ja": "DV被害者のための情報ライン（CIG）",
+            "es": "Línea de información a víctimas de violencia doméstica (CIG)",
+            "pt": "Serviço de Informação às Vítimas de Violência Doméstica"
+          },
+          "number": "800 202 148",
+          "sms": "3060",
+          "hours": {
+            "en": "24 hours, free",
+            "ja": "24時間・無料",
+            "es": "24 horas, gratuito",
+            "pt": "24 horas, gratuito"
+          },
+          "kind": "ABUSE"
+        }
+      ]
+    },
+    {
+      "code": "ES",
+      "lines": [
+        {
+          "id": "es_024",
+          "name": {
+            "en": "024 Suicide Crisis Line",
+            "ja": "024 自殺に関する相談ライン",
+            "es": "024 Línea de atención a la conducta suicida",
+            "pt": "024 Linha de atenção ao comportamento suicida"
+          },
+          "number": "024",
+          "sms": null,
+          "hours": {
+            "en": "24 hours, free",
+            "ja": "24時間・無料",
+            "es": "24 horas, gratuito",
+            "pt": "24 horas, gratuito"
+          },
+          "kind": "CRISIS"
+        },
+        {
+          "id": "es_016",
+          "name": {
+            "en": "016 Gender Violence Helpline",
+            "ja": "016 ジェンダーに基づく暴力の相談窓口",
+            "es": "016 Atención a víctimas de violencia de género",
+            "pt": "016 Atendimento a vítimas de violência de género"
+          },
+          "number": "016",
+          "sms": null,
+          "hours": {
+            "en": "24 hours, free",
+            "ja": "24時間・無料",
+            "es": "24 horas, gratuito",
+            "pt": "24 horas, gratuito"
+          },
+          "kind": "ABUSE"
+        }
+      ]
+    }
+  ],
+  "fallbackUrl": "https://findahelpline.com/"
+}

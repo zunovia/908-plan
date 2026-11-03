@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "items": [
+    {"id": "T01", "text": "Noticing is already enough."},
+    {"id": "T02", "text": "One word, before anything else today."},
+    {"id": "T03", "text": "You don't need the reason. You can just let it go."},
+    {"id": "T04", "text": "What you see today passes through a memory. Offer it a word."},
+    {"id": "T05", "text": "No feeling required. Say it plainly, like pressing delete."},
+    {"id": "T06", "text": "The reaction is the replay, not you."},
+    {"id": "T07", "text": "Let go first. Then look."},
+    {"id": "T08", "text": "A small word is enough for a big memory."},
+    {"id": "T09", "text": "Nothing to fix. Only something to set down."},
+    {"id": "T10", "text": "Today's portion only. The rest can wait."},
+    {"id": "T11", "text": "Before you reply, before you decide: one word."},
+    {"id": "T12", "text": "You can let go as many times as it takes."},
+    {"id": "T13", "text": "I don't know. And so, I can let it be."},
+    {"id": "T14", "text": "Quiet is where you already live."},
+    {"id": "T15", "text": "Whatever shows up, thank it, and release it."},
+    {"id": "T16", "text": "To the memory inside, not to them."},
+    {"id": "T17", "text": "Breathe once. That is the whole practice."},
+    {"id": "T18", "text": "Expectation is a memory too."},
+    {"id": "T19", "text": "What you carried this far, you may set down here."},
+    {"id": "T20", "text": "No order, no count. Just the next word."},
+    {"id": "T21", "text": "What you let go of leaves room for luck."},
+    {"id": "T22", "text": "Make space first, so there is a place for luck to come in."},
+    {"id": "T23", "text": "Whatever feels owed today, lighten it today."},
+    {"id": "T24", "text": "Set the weight down, and make room for good things."}
+  ]
+}

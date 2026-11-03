@@ -148,6 +148,16 @@ jobs:
           # flutter_local_notifications: scheduled-notification receivers
           sed -i 's#</application>#    <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />\n        <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">\n            <intent-filter>\n                <action android:name="android.intent.action.BOOT_COMPLETED"/>\n                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>\n                <action android:name="android.intent.action.QUICKBOOT_POWERON" />\n                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>\n            </intent-filter>\n        </receiver>\n    </application>#' "$MANIFEST"
           grep -c "flutterlocalnotifications" "$MANIFEST"
+          # flutter_tts: Android 11+ package visibility for the device TTS engine
+          # url_launcher: helpline numbers open the dialer / SMS app / browser
+          TTS_INTENT="        <intent>\n            <action android:name=\"android.intent.action.TTS_SERVICE\"/>\n        </intent>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\"/>\n            <data android:scheme=\"tel\"/>\n        </intent>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\"/>\n            <data android:scheme=\"sms\"/>\n        </intent>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\"/>\n            <data android:scheme=\"https\"/>\n        </intent>"
+          if grep -q "<queries>" "$MANIFEST"; then
+            sed -i "0,/<queries>/s#<queries>#<queries>\n${TTS_INTENT}#" "$MANIFEST"
+          else
+            sed -i "s#</manifest>#    <queries>\n${TTS_INTENT}\n    </queries>\n</manifest>#" "$MANIFEST"
+          fi
+          grep -q 'android.intent.action.TTS_SERVICE' "$MANIFEST"
+          grep -n -A4 "<queries>" "$MANIFEST"
 
       - name: Set app label to Voxna
         run: |
@@ -301,6 +311,16 @@ jobs:
           # flutter_local_notifications: scheduled-notification receivers
           sed -i 's#</application>#    <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />\n        <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">\n            <intent-filter>\n                <action android:name="android.intent.action.BOOT_COMPLETED"/>\n                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>\n                <action android:name="android.intent.action.QUICKBOOT_POWERON" />\n                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>\n            </intent-filter>\n        </receiver>\n    </application>#' "$MANIFEST"
           grep -c "flutterlocalnotifications" "$MANIFEST"
+          # flutter_tts: Android 11+ package visibility for the device TTS engine
+          # url_launcher: helpline numbers open the dialer / SMS app / browser
+          TTS_INTENT="        <intent>\n            <action android:name=\"android.intent.action.TTS_SERVICE\"/>\n        </intent>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\"/>\n            <data android:scheme=\"tel\"/>\n        </intent>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\"/>\n            <data android:scheme=\"sms\"/>\n        </intent>\n        <intent>\n            <action android:name=\"android.intent.action.VIEW\"/>\n            <data android:scheme=\"https\"/>\n        </intent>"
+          if grep -q "<queries>" "$MANIFEST"; then
+            sed -i "0,/<queries>/s#<queries>#<queries>\n${TTS_INTENT}#" "$MANIFEST"
+          else
+            sed -i "s#</manifest>#    <queries>\n${TTS_INTENT}\n    </queries>\n</manifest>#" "$MANIFEST"
+          fi
+          grep -q 'android.intent.action.TTS_SERVICE' "$MANIFEST"
+          grep -n -A4 "<queries>" "$MANIFEST"
 
       - name: Set app label to Voxna
         run: |

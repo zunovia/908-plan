@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/providers/storage_providers.dart';
 import '../../recording/data/recording_model.dart';
+import '../../release/providers/release_providers.dart';
 
 class HistoryState {
   final Set<DateTime> recordedDates;
@@ -77,3 +78,15 @@ class HistoryNotifier extends Notifier<HistoryState> {
 final historyProvider = NotifierProvider<HistoryNotifier, HistoryState>(
   HistoryNotifier.new,
 );
+
+/// Number of releases (手放した回数) per local day, for the calendar dots and
+/// the day detail. Keys are local midnight `DateTime(y, m, d)`. Updates when
+/// a release session is saved or deleted.
+final historyReleaseCountsProvider = StreamProvider<Map<DateTime, int>>((ref) async* {
+  final repo = ref.watch(releaseRepositoryProvider);
+  Map<DateTime, int> read() => repo.countsByDay(DateTime(2000), repo.today());
+  yield read();
+  await for (final _ in repo.watch()) {
+    yield read();
+  }
+});

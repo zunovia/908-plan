@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "C01",
+      "text": "Agradeço por me mostrar. Vamos soltar isso, você e eu.",
+      "night": false
+    },
+    {
+      "id": "C02",
+      "text": "Então esse sentimento estava aqui. Agradeço por me contar.",
+      "night": false
+    },
+    {
+      "id": "C03",
+      "text": "Não precisamos saber o motivo. Foi difícil. Estou aqui com você.",
+      "night": false
+    },
+    {
+      "id": "C04",
+      "text": "Não estou com raiva. Tudo o que você me mostrou, vamos deixar mais leve, você e eu.",
+      "night": false
+    },
+    {
+      "id": "C05",
+      "text": "Você carrega isso há muito tempo. Agora pode deixar de lado.",
+      "night": false
+    },
+    {
+      "id": "C06",
+      "text": "Sinto muito por ter ignorado você. Agora estou ouvindo.",
+      "night": false
+    },
+    {
+      "id": "C07",
+      "text": "Agradeço por me dizer: “tem uma lembrança aqui”.",
+      "night": false
+    },
+    {
+      "id": "C08",
+      "text": "Você não precisa carregar isso por conta própria. Vamos dizer as palavras, você e eu.",
+      "night": false
+    },
+    {
+      "id": "C09",
+      "text": "Sem pressa. Podemos soltar quantas vezes for preciso.",
+      "night": false
+    },
+    {
+      "id": "C10",
+      "text": "Eu te amo. Com lembrança e tudo, eu te amo.",
+      "night": false
+    },
+    {
+      "id": "C11",
+      "text": "Percebemos, então está tudo bem. Daqui em diante, estamos lado a lado.",
+      "night": false
+    },
+    {
+      "id": "C12",
+      "text": "Agradeço por hoje. Boa noite. Deixe o resto comigo.",
+      "night": true
+    }
+  ]
+}

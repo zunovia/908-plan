@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "items": [
+    {"id": "T01", "text": "Darte cuenta ya es suficiente."},
+    {"id": "T02", "text": "Una palabra, antes que cualquier otra cosa hoy."},
+    {"id": "T03", "text": "No necesitas saber por qué. Puedes soltarlo sin más."},
+    {"id": "T04", "text": "Lo que ves hoy pasa por un recuerdo. Dedícale una palabra."},
+    {"id": "T05", "text": "No hace falta sentirlo. Dilo sin más, como quien pulsa borrar."},
+    {"id": "T06", "text": "La reacción es la repetición, no tú."},
+    {"id": "T07", "text": "Suelta primero. Luego mira."},
+    {"id": "T08", "text": "Una palabra pequeña basta para un recuerdo grande."},
+    {"id": "T09", "text": "No hay nada que arreglar. Solo algo que dejar a un lado."},
+    {"id": "T10", "text": "Solo lo de hoy. Lo demás puede esperar."},
+    {"id": "T11", "text": "Antes de responder, antes de decidir: una palabra."},
+    {"id": "T12", "text": "Puedes soltar tantas veces como haga falta."},
+    {"id": "T13", "text": "No lo sé. Y por eso puedo dejarlo estar."},
+    {"id": "T14", "text": "La calma es donde ya vives."},
+    {"id": "T15", "text": "A lo que aparezca, dale las gracias y suéltalo."},
+    {"id": "T16", "text": "Al recuerdo que llevas dentro, no a los demás."},
+    {"id": "T17", "text": "Respira una vez. Esa es toda la práctica."},
+    {"id": "T18", "text": "La expectativa también es un recuerdo."},
+    {"id": "T19", "text": "Lo que has traído hasta aquí, puedes dejarlo aquí."},
+    {"id": "T20", "text": "Sin orden, sin cuenta. Solo la siguiente palabra."},
+    {"id": "T21", "text": "Lo que sueltas hace espacio a la suerte."},
+    {"id": "T22", "text": "Haz espacio primero, para que la suerte tenga dónde entrar."},
+    {"id": "T23", "text": "Lo que hoy sientas pendiente, aligéralo hoy."},
+    {"id": "T24", "text": "Deja el peso a un lado y haz sitio a lo bueno."}
+  ]
+}

@@ -1,0 +1,2307 @@
+{
+  "version": 1,
+  "cards": [
+    {
+      "id": "r001",
+      "kind": "WORDS1",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "相手ではなく、あなたの中の再生に向かって、ありがとう、と7回。",
+      "prompt": "その人は、どの記憶を見せてくれた？",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r002",
+      "kind": "WORDS4",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「間に合わない」という再生に向かって、手放す言葉を1周。",
+      "prompt": "急いでいるのは、誰の声？",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r003",
+      "kind": "IDK",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「わたしは何も知らない」と、3回。扉が開くまで。",
+      "prompt": "知らなくていいことは、どれ？",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r004",
+      "kind": "WORDS1",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "自分を責める声に向かって、愛しています、と4回。",
+      "prompt": "その声は、もともと誰の言葉？",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r005",
+      "kind": "CROSS",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [
+        "URGE"
+      ],
+      "scenes": [],
+      "text": "「こうでなければ」を1つ思い浮かべて、×。",
+      "prompt": "それが崩れたら、本当に困る？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r006",
+      "kind": "WORDS1",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "見られている感じに向かって、大好きです、と10回。",
+      "prompt": "誰の目を想像していた？",
+      "repeat": 10,
+      "words": [
+        "like_so_much"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r007",
+      "kind": "WORDS1",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "届かなかった気持ちに、ごめんなさい、ありがとう。",
+      "prompt": "欲しかったものは、何？",
+      "repeat": 1,
+      "words": [
+        "sorry",
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r008",
+      "kind": "BREATH",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "吐く息を8秒。再生が少し遠くなるまで、3回。",
+      "prompt": "いちばん怖い「もしも」は？",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        0,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r009",
+      "kind": "WORDS1",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "比べる声に向かって、ありがとう、と7回。",
+      "prompt": "比べているのは、何と何？",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r010",
+      "kind": "WORDS4",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「まだ頑張れ」という再生に向かって、手放す言葉をゆっくり1周。",
+      "prompt": "休む許可は、誰が出す？",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r011",
+      "kind": "IDK",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「どうなるか、わたしは知らない」と3回。知らないまま、委ねる。",
+      "prompt": "知っていると思い込んでいたことは？",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r012",
+      "kind": "WORDS1",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [
+        "OTHER"
+      ],
+      "scenes": [],
+      "text": "相手の言葉というボタンに向かって、ありがとう、と4回。",
+      "prompt": "ボタンが押されたとき、何が鳴った？",
+      "repeat": 4,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r013",
+      "kind": "WORDS4",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "失った感じに向かって、愛しています、を先頭に1周。",
+      "prompt": "いま、いちばん近くにある記憶は？",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r014",
+      "kind": "CROSS",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [
+        "OTHER"
+      ],
+      "scenes": [],
+      "text": "「あの人さえ変われば」に、×。",
+      "prompt": "変わらなくても、あなたは手放せる？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r015",
+      "kind": "WATER",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "青い瓶の水をひと口。今日の再生の区切りに。",
+      "prompt": "区切りの合図を、もう1つ決めるなら？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r016",
+      "kind": "WORDS1",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [
+        "SELF"
+      ],
+      "scenes": [],
+      "text": "「ちゃんとしなきゃ」の声に向かって、大好きです、と7回。",
+      "prompt": "その言葉を最初に言ったのは誰？",
+      "repeat": 7,
+      "words": [
+        "like_so_much"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r017",
+      "kind": "WORDS4",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "この静けさに向かって、ありがとう、と1回。覚えておくために。",
+      "prompt": "この感じに、名前をつけるなら？",
+      "repeat": 1,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r018",
+      "kind": "IDK",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「相手の事情を、わたしは知らない」と3回。",
+      "prompt": "知らないことを、知っていると思っていた？",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r019",
+      "kind": "WORDS1",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "時計を見るたびに、ありがとう、と1回。今日いっぱい。",
+      "prompt": "急がせているのは、何の記憶？",
+      "repeat": 1,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "r020",
+      "kind": "WORDS4",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「悪かった」という再生に向かって、許してください、を先頭に1周。",
+      "prompt": "同じことを友人がしたら、何と言う？",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "p001",
+      "kind": "PRE",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "会う前に、相手に向かってではなく、自分のフィルターに向かって、ありがとう、と3回。",
+      "prompt": null,
+      "repeat": 3,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": "人と会う前",
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "p002",
+      "kind": "PRE",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "開く前に、愛しています、と1回。",
+      "prompt": null,
+      "repeat": 1,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": "メッセージを開く前",
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "p003",
+      "kind": "PRE",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "見る前に、「わたしは何も知らない」と1回。",
+      "prompt": null,
+      "repeat": 1,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": "ニュースを見る前",
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "p004",
+      "kind": "PRE",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "始める前に、手放す言葉を1周。期待も一緒に置いていく。",
+      "prompt": null,
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": "会議・仕事の前",
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "p005",
+      "kind": "PRE",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "玄関の前で、ありがとう、と3回。今日のフィルターを外に置く。",
+      "prompt": null,
+      "repeat": 3,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": "家に帰る前",
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "p006",
+      "kind": "PRE",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "目を閉じる前に、今日見聞きしたものに、ありがとう、と1回。",
+      "prompt": null,
+      "repeat": 1,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": "眠る前",
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c001",
+      "kind": "WORDS4",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "その『焦り』に向かって、ありがとう、と4回。",
+      "prompt": "いま浮かんだ言葉は、事実？それとも解釈？",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c002",
+      "kind": "WORDS1",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "声が届かなかった気持ちに、ごめんなさい、ありがとう。",
+      "prompt": "その下にあった、欲しかったものは何？",
+      "repeat": 1,
+      "words": [
+        "sorry",
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c003",
+      "kind": "CROSS",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "さっきの一言を思い出して、×をひとつ。",
+      "prompt": "怒りの奥に、守りたかったものは？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c004",
+      "kind": "BREATH",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "吐く息を長く、8秒。3回だけ。",
+      "prompt": "いちばん心配している「もしも」は？",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        0,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c005",
+      "kind": "WORDS4",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "自分に向かって、許してください、と7回。",
+      "prompt": "同じことを友人がしたら、何と言う？",
+      "repeat": 7,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c006",
+      "kind": "WORDS4",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "身体に向かって、ありがとう、と10回。ゆっくり。",
+      "prompt": "今日、休めた時間は何分あった？",
+      "repeat": 10,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c007",
+      "kind": "CROSS",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "頭の中の「やること」を1つ思い浮かべて、×。",
+      "prompt": "今日やらなくていいものは、どれ？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c008",
+      "kind": "WORDS4",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "消えたくなった瞬間に、愛しています、と4回。",
+      "prompt": "誰の目を想像していた？",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c009",
+      "kind": "WATER",
+      "emotions": [
+        "ANY"
+      ],
+      "triggers": [],
+      "scenes": [
+        "WORK"
+      ],
+      "text": "青い瓶の水をひと口。今日の分の区切りに。",
+      "prompt": "区切りの合図を、ほかに1つ決めるなら？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c010",
+      "kind": "WORDS4",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "この穏やかさに、ありがとう、と1回。",
+      "prompt": "この感じを何と名づける？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c011",
+      "kind": "WORDS1",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "まだ熱いままの怒りに向かって、愛しています、と4回。",
+      "prompt": "その怒りが守っていたものは？",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c012",
+      "kind": "CROSS",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [
+        "OTHER"
+      ],
+      "scenes": [
+        "FAMILY"
+      ],
+      "text": "許せないと思った場面を1つ思い出して、×。",
+      "prompt": "同じ場面を10年後も怒る？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c013",
+      "kind": "WORDS4",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [
+        "WORK"
+      ],
+      "text": "納得できない気持ちに、手放す言葉を1回ずつ。",
+      "prompt": "納得したいのは、誰に対して？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c014",
+      "kind": "BREATH",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "怒りで速くなった息を、吸う4・止める4・吐く8。3回。",
+      "prompt": "怒りは、身体のどこにある？",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c015",
+      "kind": "IDK",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「相手の言い分を、わたしは知らない」と3回。",
+      "prompt": "知らずに決めつけていたことは？",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c016",
+      "kind": "WORDS1",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [
+        "URGE"
+      ],
+      "scenes": [
+        "COMMUTE"
+      ],
+      "text": "急がなきゃの声に向かって、ありがとう、と7回。",
+      "prompt": "間に合わないと、何が起きる？",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c017",
+      "kind": "CROSS",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [
+        "COMMUTE"
+      ],
+      "text": "電車を待つ間の焦りに、×をひとつ。",
+      "prompt": "急いでいるのは、今日だけ？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c018",
+      "kind": "WORDS4",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「まだ？」という再生に、手放す言葉を1周。",
+      "prompt": "待つことが苦手なのは、いつから？",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c019",
+      "kind": "BREATH",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [
+        "MORNING"
+      ],
+      "text": "急ぐ気持ちに、吸う4・止める2・吐く6。3回。",
+      "prompt": "急がなかったら、何を失う？",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        2,
+        6
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c020",
+      "kind": "IDK",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「今すぐでなくていい」と3回。",
+      "prompt": "今すぐでないと、何がまずい？",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c021",
+      "kind": "WORDS1",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [
+        "URGE"
+      ],
+      "scenes": [
+        "WORK"
+      ],
+      "text": "同時に鳴る考えに向かって、ありがとう、と7回。",
+      "prompt": "いちばん大きい声は、どれ？",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c022",
+      "kind": "CROSS",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [
+        "SELF"
+      ],
+      "scenes": [],
+      "text": "「決められない自分」を思い浮かべて、×。",
+      "prompt": "決められないのは、情報不足？不安？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c023",
+      "kind": "WORDS4",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "整理する前に、手放す言葉を1回ずつ、静かに。",
+      "prompt": "整理したいのは、頭？それとも心？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c024",
+      "kind": "BREATH",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [
+        "WORK"
+      ],
+      "text": "考えが渦巻くとき、吸う4・止める4・吐く8。3回。",
+      "prompt": "いま、決めなくていいことは？",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c025",
+      "kind": "WATER",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "青い瓶の水をひと口。考えの渦に、区切りを。",
+      "prompt": "区切った後、最初に浮かぶのは？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c026",
+      "kind": "WORDS1",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [
+        "MORNING"
+      ],
+      "text": "どれが本当かわからない気持ちに、愛しています、と4回。",
+      "prompt": "わからないままでも、進める一歩は？",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c027",
+      "kind": "WORDS1",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [
+        "SELF"
+      ],
+      "scenes": [
+        "FAMILY"
+      ],
+      "text": "自分を責める声に向かって、許してください、と7回。",
+      "prompt": "許してほしいのは、誰から？",
+      "repeat": 7,
+      "words": [
+        "forgive"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c028",
+      "kind": "CROSS",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [
+        "FAMILY"
+      ],
+      "text": "言い過ぎたと思う場面を1つ、×。",
+      "prompt": "言い直せるなら、なんと言う？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c029",
+      "kind": "WORDS4",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「悪かった」の再生に、手放す言葉を1周。",
+      "prompt": "悪かったのは、全部あなた？",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c030",
+      "kind": "BREATH",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "重い気持ちに、吸う4・止める4・吐く8。3回。",
+      "prompt": "その重さは、いつからある？",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c031",
+      "kind": "IDK",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「全部わたしのせい、ではないかもしれない」と3回。",
+      "prompt": "一人で全部背負っていた？",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c032",
+      "kind": "WORDS1",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [
+        "OTHER"
+      ],
+      "scenes": [],
+      "text": "見られていた気がする記憶に向かって、大好きです、と10回。",
+      "prompt": "その視線は、今も見ている？",
+      "repeat": 10,
+      "words": [
+        "like_so_much"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c033",
+      "kind": "CROSS",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [
+        "SELF"
+      ],
+      "scenes": [],
+      "text": "消えたくなった瞬間を1つ、×。",
+      "prompt": "その瞬間、誰かに見てほしかった？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c034",
+      "kind": "WORDS4",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "情けなさの記憶に、手放す言葉を1周、ゆっくり。",
+      "prompt": "情けないと決めたのは、誰？",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c035",
+      "kind": "BREATH",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "恥ずかしさに、吐く息を長く8秒。3回。",
+      "prompt": "同じ場面、友人ならどう見る？",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        0,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c036",
+      "kind": "WATER",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "青い瓶の水をひと口。今日の恥ずかしさに区切りを。",
+      "prompt": "区切った後、少し軽い？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c037",
+      "kind": "IDK",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「本当にダメなのか、わたしは知らない」と3回。",
+      "prompt": "ダメだと決めたのは、いつ？",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c038",
+      "kind": "WORDS1",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [
+        "OTHER"
+      ],
+      "scenes": [
+        "FAMILY"
+      ],
+      "text": "届かなかった相手ではなく、自分の中の再生に、ありがとう、と7回。",
+      "prompt": "届けたかった言葉は、何？",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c039",
+      "kind": "CROSS",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "ひとりで過ごした夜を1つ思い出して、×。",
+      "prompt": "そのとき、いちばん欲しかったものは？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c040",
+      "kind": "WORDS4",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "置いていかれた感じに、手放す言葉を1回ずつ。",
+      "prompt": "誰からの合図を待っていた？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c041",
+      "kind": "BREATH",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "ひとりの時間に、吸う4・止める4・吐く8。3回。",
+      "prompt": "ひとりの時間に、何が育っている？",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c042",
+      "kind": "WORDS1",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [
+        "FAMILY"
+      ],
+      "text": "誰にも届かない感じに、愛しています、と4回。",
+      "prompt": "気づいてほしかったのは、誰？",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c043",
+      "kind": "IDK",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「本当にひとりか、わたしは知らない」と3回。",
+      "prompt": "気づかれていない、と決めたのは誰？",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c044",
+      "kind": "BREATH",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "怖さに、吐く息を長く8秒。3回。",
+      "prompt": "いちばん怖い「もしも」は？",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        0,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c045",
+      "kind": "WORDS1",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [
+        "MORNING"
+      ],
+      "text": "すくんだ身体に向かって、愛しています、と4回。",
+      "prompt": "その怖さは、今も起きている？",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c046",
+      "kind": "CROSS",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "身構えている出来事を1つ思い浮かべて、×。",
+      "prompt": "身構えなかったら、何が変わる？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c047",
+      "kind": "WORDS4",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "怖さに、手放す言葉を1回ずつ、ゆっくり。",
+      "prompt": "怖さの奥にある望みは？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c048",
+      "kind": "IDK",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「本当に起きるか、わたしは知らない」と3回。",
+      "prompt": "まだ起きていないことに、怖がっていた？",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c049",
+      "kind": "WORDS1",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "震える指先に向かって、ありがとう、と7回。",
+      "prompt": "その怖さが、守っているものは？",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c050",
+      "kind": "WATER",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "青い瓶の水をひと口。怖さの合間に、ひと区切り。",
+      "prompt": "区切った後、呼吸は少し深い？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c051",
+      "kind": "WORDS1",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [
+        "URGE"
+      ],
+      "scenes": [
+        "COMMUTE"
+      ],
+      "text": "追い越されたような気持ちに向かって、ありがとう、と7回。",
+      "prompt": "比べはじめたのは、いつから？",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c052",
+      "kind": "CROSS",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "欲しいのに持てない場面を1つ、×。",
+      "prompt": "本当に欲しいのは、そのもの自体？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c053",
+      "kind": "WORDS4",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "足りない感じに、手放す言葉を1周。",
+      "prompt": "足りないと決めたのは、誰の基準？",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c054",
+      "kind": "BREATH",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "比べる気持ちに、吸う4・止める4・吐く8。3回。",
+      "prompt": "その人を見て、何に気づいた？",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c055",
+      "kind": "IDK",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「その人の全部は、わたしは知らない」と3回。",
+      "prompt": "見えている部分は、どれくらい？",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c056",
+      "kind": "WORDS1",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "欲しがる自分に向かって、大好きです、と10回。",
+      "prompt": "欲しいという気持ちは、悪いもの？",
+      "repeat": 10,
+      "words": [
+        "like_so_much"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c057",
+      "kind": "WORDS4",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [
+        "WORK"
+      ],
+      "text": "同僚への比べる気持ちに、手放す言葉を1回ずつ。",
+      "prompt": "その比べが始まったのは、いつ？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c058",
+      "kind": "WORDS1",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [
+        "URGE"
+      ],
+      "scenes": [
+        "COMMUTE"
+      ],
+      "text": "もう無理、という声に向かって、ありがとう、と10回。",
+      "prompt": "休みたいと思うのは、悪いこと？",
+      "repeat": 10,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c059",
+      "kind": "CROSS",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "今日いちばん疲れた瞬間を1つ、×。",
+      "prompt": "その疲れは、身体？心？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c060",
+      "kind": "WORDS4",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "疲れた身体に、手放す言葉を1回ずつ、ゆっくり。",
+      "prompt": "身体が先に伝えていたことは？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c061",
+      "kind": "BREATH",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [
+        "WORK"
+      ],
+      "text": "疲れに、吐く息を長く8秒。5回。",
+      "prompt": "疲れているのに続けている理由は？",
+      "repeat": 5,
+      "words": [],
+      "breath": [
+        4,
+        0,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c062",
+      "kind": "WATER",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "青い瓶の水をひと口。今日の分はここまで。",
+      "prompt": "ここまでで十分、と決めるとしたら？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c063",
+      "kind": "IDK",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「まだ頑張れるか、わたしは知らない」と3回。",
+      "prompt": "頑張れと言っているのは、誰の声？",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c064",
+      "kind": "WORDS1",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [
+        "URGE"
+      ],
+      "scenes": [
+        "COMMUTE"
+      ],
+      "text": "どうしようという声に向かって、ありがとう、と7回。",
+      "prompt": "心配しているのは、いつのこと？",
+      "repeat": 7,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c065",
+      "kind": "CROSS",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [
+        "MORNING"
+      ],
+      "text": "今日の不安を1つ思い浮かべて、×。",
+      "prompt": "その不安は、今日のうち、起きる？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c066",
+      "kind": "WORDS4",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "落ち着かない気持ちに、手放す言葉を1回ずつ。",
+      "prompt": "落ち着かないのは、何より先に？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c067",
+      "kind": "BREATH",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [
+        "COMMUTE"
+      ],
+      "text": "そわそわする気持ちに、吸う4・止める4・吐く8。5回。",
+      "prompt": "そわそわの中で、確かなことは何？",
+      "repeat": 5,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c068",
+      "kind": "IDK",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「この先どうなるか、知らなくていい」と3回。",
+      "prompt": "知らないまま、委ねられる？",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c069",
+      "kind": "WORDS1",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [
+        "MORNING"
+      ],
+      "text": "先のことに向かって、愛しています、と4回。",
+      "prompt": "いまできる、ひとつのことは？",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c070",
+      "kind": "WORDS1",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [
+        "OTHER"
+      ],
+      "scenes": [
+        "FAMILY"
+      ],
+      "text": "離れていった人ではなく、自分の中の記憶に、許してください、と7回。",
+      "prompt": "失ったと感じているのは、何？",
+      "repeat": 7,
+      "words": [
+        "forgive"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c071",
+      "kind": "CROSS",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [
+        "SELF"
+      ],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "静かに重い気持ちを1つ、×。",
+      "prompt": "泣きたい分、泣いてもいい？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c072",
+      "kind": "WORDS4",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "失った感じに、手放す言葉を1周、ゆっくり。",
+      "prompt": "その人がいた時間に、何を学んだ？",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c073",
+      "kind": "BREATH",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "悲しみに、吸う4・止める4・吐く8。3回。",
+      "prompt": "悲しみは、どこに居場所がある？",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c074",
+      "kind": "IDK",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "「悲しくていい理由を、わたしは知らない」と3回。",
+      "prompt": "理由なく悲しくても、大丈夫？",
+      "repeat": 3,
+      "words": [
+        "idk"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c075",
+      "kind": "WORDS1",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "静かに重い気持ちに向かって、大好きです、と10回。",
+      "prompt": "重さの奥にある、優しさは？",
+      "repeat": 10,
+      "words": [
+        "like_so_much"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c076",
+      "kind": "WATER",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "青い瓶の水をひと口。悲しみに、ひと区切り。",
+      "prompt": "区切った後、少し息が楽？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c077",
+      "kind": "WORDS1",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [
+        "SELF"
+      ],
+      "scenes": [],
+      "text": "いまの静けさに向かって、ありがとう、と1回。",
+      "prompt": "この静けさに、名前をつけるなら？",
+      "repeat": 1,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c078",
+      "kind": "CROSS",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "再生が止んでいる、この時間に×。",
+      "prompt": "再生が止んでいると、何が違う？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c079",
+      "kind": "WORDS4",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [
+        "MORNING"
+      ],
+      "text": "穏やかな朝に、手放す言葉を1回ずつ。",
+      "prompt": "この穏やかさを、今日はどこへ運ぶ？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c080",
+      "kind": "BREATH",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "穏やかさを覚えておくために、吸う4・止める4・吐く8。3回。",
+      "prompt": "この感じは、どこから来ている？",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c081",
+      "kind": "WORDS1",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [
+        "NIGHT"
+      ],
+      "text": "静かな夜に向かって、愛しています、と1回。",
+      "prompt": "この静けさを、覚えておける？",
+      "repeat": 1,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c082",
+      "kind": "WATER",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "青い瓶の水をひと口。この静けさの、区切りに。",
+      "prompt": "この静けさは、本来のどこ？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c083",
+      "kind": "WORDS4",
+      "emotions": [
+        "IMPATIENCE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "急かす記憶に、手放す言葉を1周、ゆっくり。",
+      "prompt": "急かしているのは、今日の予定？昔の声？",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c084",
+      "kind": "WORDS4",
+      "emotions": [
+        "ANGER"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "怒りの記憶に、手放す言葉を1回ずつ。",
+      "prompt": "怒りが収まったら、何が見える？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c085",
+      "kind": "WORDS4",
+      "emotions": [
+        "GUILT"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "自分を許せない気持ちに、手放す言葉を1回ずつ。",
+      "prompt": "許せたら、何が軽くなる？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c086",
+      "kind": "WORDS4",
+      "emotions": [
+        "LONELINESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "取り残された感じに、手放す言葉を1周。",
+      "prompt": "ひとりでも、大丈夫だった時間は？",
+      "repeat": 4,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c087",
+      "kind": "WORDS4",
+      "emotions": [
+        "CALM"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "この落ち着きに、手放す言葉を1回ずつ、静かに。",
+      "prompt": "この落ち着きは、どこから来た？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c088",
+      "kind": "WORDS1",
+      "emotions": [
+        "SHAME"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "恥ずかしさの記憶に向かって、許してください、と7回。",
+      "prompt": "恥ずかしいと決めたのは、誰の基準？",
+      "repeat": 7,
+      "words": [
+        "forgive"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c089",
+      "kind": "WORDS1",
+      "emotions": [
+        "FEAR"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "身構えている気持ちに向かって、ありがとう、と4回。",
+      "prompt": "身構えなくても、大丈夫な場面は？",
+      "repeat": 4,
+      "words": [
+        "thank_you"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c090",
+      "kind": "WORDS1",
+      "emotions": [
+        "ENVY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "欲しがる気持ちに向かって、愛しています、と4回。",
+      "prompt": "本当に欲しいのは、何の代わり？",
+      "repeat": 4,
+      "words": [
+        "love"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c091",
+      "kind": "WORDS1",
+      "emotions": [
+        "FATIGUE"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "疲れた自分に向かって、大好きです、と10回。",
+      "prompt": "今日、いちばん頑張った部分は？",
+      "repeat": 10,
+      "words": [
+        "like_so_much"
+      ],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c092",
+      "kind": "CROSS",
+      "emotions": [
+        "ANXIETY"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "今日のいちばんの心配事を1つ、×。",
+      "prompt": "その心配、明日のあなたに任せられる？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c093",
+      "kind": "CROSS",
+      "emotions": [
+        "SADNESS"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "静かに重い気持ちをもう1つ、×。",
+      "prompt": "重さが半分になったら、何が変わる？",
+      "repeat": 1,
+      "words": [],
+      "breath": null,
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    },
+    {
+      "id": "c094",
+      "kind": "BREATH",
+      "emotions": [
+        "CONFUSION"
+      ],
+      "triggers": [],
+      "scenes": [],
+      "text": "考えが止まらないとき、吸う4・止める4・吐く8。3回。",
+      "prompt": "止まらない考えの、いちばん下にあるのは？",
+      "repeat": 3,
+      "words": [],
+      "breath": [
+        4,
+        4,
+        8
+      ],
+      "preScene": null,
+      "lang": "ja",
+      "ver": 1
+    }
+  ]
+}

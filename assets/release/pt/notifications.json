@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "n001",
+      "slot": "MORNING",
+      "text": "A quem você vai dizer “gratidão” primeiro hoje?"
+    },
+    {
+      "id": "n002",
+      "slot": "MORNING",
+      "text": "O que você vir hoje passa por um filtro de lembranças. Uma palavra, nesta manhã."
+    },
+    {
+      "id": "n003",
+      "slot": "MORNING",
+      "text": "Antes de sair, dedique uma palavra ao filtro de hoje."
+    },
+    {
+      "id": "n004",
+      "slot": "MORNING",
+      "text": "Sinta o ar da manhã e diga “gratidão”, uma vez."
+    },
+    {
+      "id": "n005",
+      "slot": "MORNING",
+      "text": "Quem é a pessoa que você mais quer ver hoje?"
+    },
+    {
+      "id": "n006",
+      "slot": "MORNING",
+      "text": "Se você desse um nome ao sentimento com que acordou, qual seria?"
+    },
+    {
+      "id": "n007",
+      "slot": "MORNING",
+      "text": "Antes dos planos de hoje, tire um momento para se acalmar por dentro."
+    },
+    {
+      "id": "n008",
+      "slot": "MORNING",
+      "text": "O que mais importa para você hoje?"
+    },
+    {
+      "id": "n009",
+      "slot": "MORNING",
+      "text": "A este novo dia: “gratidão”, uma vez."
+    },
+    {
+      "id": "n010",
+      "slot": "MORNING",
+      "text": "E se o que você vê hoje parecesse um pouco diferente?"
+    },
+    {
+      "id": "n011",
+      "slot": "MORNING",
+      "text": "Ao seu primeiro passo de hoje: “eu te amo”, uma vez."
+    },
+    {
+      "id": "n012",
+      "slot": "MORNING",
+      "text": "Quem você quer ser hoje?"
+    },
+    {
+      "id": "n013",
+      "slot": "NOON",
+      "text": "Ao que você sente agora, uma palavra."
+    },
+    {
+      "id": "n014",
+      "slot": "NOON",
+      "text": "Deixe a tarde começar também a partir de como você se sente agora."
+    },
+    {
+      "id": "n015",
+      "slot": "NOON",
+      "text": "Antes de seguir, dedique uma palavra ao que você acabou de ouvir."
+    },
+    {
+      "id": "n016",
+      "slot": "NOON",
+      "text": "À manhã até aqui: “gratidão”, uma vez."
+    },
+    {
+      "id": "n017",
+      "slot": "NOON",
+      "text": "Experimente soltar os ombros, só um pouco, agora mesmo."
+    },
+    {
+      "id": "n018",
+      "slot": "NOON",
+      "text": "Uma palavra ao filtro da tarde."
+    },
+    {
+      "id": "n019",
+      "slot": "NOON",
+      "text": "Ao cansaço de agora: “gratidão”, uma vez."
+    },
+    {
+      "id": "n020",
+      "slot": "NOON",
+      "text": "Ao dia até aqui: “eu te amo”, uma vez."
+    },
+    {
+      "id": "n021",
+      "slot": "NOON",
+      "text": "Tudo o que você vir ou ouvir nesta tarde: uma palavra ao filtro."
+    },
+    {
+      "id": "n022",
+      "slot": "NOON",
+      "text": "Se você desse um nome ao seu humor agora, qual seria?"
+    },
+    {
+      "id": "n023",
+      "slot": "NOON",
+      "text": "A esta respiração do meio-dia: “gratidão”, uma vez."
+    },
+    {
+      "id": "n024",
+      "slot": "NOON",
+      "text": "A tarde também pode ser solta com uma palavra."
+    },
+    {
+      "id": "n025",
+      "slot": "NIGHT",
+      "text": "Por hoje, já basta. Solte com uma palavra e durma."
+    },
+    {
+      "id": "n026",
+      "slot": "NIGHT",
+      "text": "Antes de dormir, diga “gratidão” a tudo o que viu e ouviu hoje."
+    },
+    {
+      "id": "n027",
+      "slot": "NIGHT",
+      "text": "O que é de hoje já pode ser solto."
+    },
+    {
+      "id": "n028",
+      "slot": "NIGHT",
+      "text": "Já na cama, deixe o filtro de hoje do lado de fora."
+    },
+    {
+      "id": "n029",
+      "slot": "NIGHT",
+      "text": "Ao sentimento mais pesado de hoje: “eu te amo”, uma vez."
+    },
+    {
+      "id": "n030",
+      "slot": "NIGHT",
+      "text": "Deixe o resto para quem você vai ser amanhã. Boa noite."
+    },
+    {
+      "id": "n031",
+      "slot": "NIGHT",
+      "text": "Dedique uma palavra ao dia de hoje e feche os olhos."
+    },
+    {
+      "id": "n032",
+      "slot": "NIGHT",
+      "text": "Hoje à noite, soltar e dormir já é suficiente."
+    },
+    {
+      "id": "n033",
+      "slot": "NIGHT",
+      "text": "Ao silêncio antes de dormir: “gratidão”, uma vez."
+    },
+    {
+      "id": "n034",
+      "slot": "NIGHT",
+      "text": "Deixe de lado os acontecimentos de hoje, um por um."
+    },
+    {
+      "id": "n035",
+      "slot": "NIGHT",
+      "text": "Para quem vai ser a palavra desta noite?"
+    },
+    {
+      "id": "n036",
+      "slot": "NIGHT",
+      "text": "Antes de apagar a luz, “gratidão” ao dia de hoje."
+    },
+    {
+      "id": "n037",
+      "slot": "BELL",
+      "text": "(sininho) Agora mesmo. Aqui mesmo."
+    },
+    {
+      "id": "n038",
+      "slot": "BELL",
+      "text": "(sino) Por qual filtro você está olhando agora? Diga “gratidão”, uma vez."
+    },
+    {
+      "id": "n039",
+      "slot": "BELL",
+      "text": "(sino) Uma palavra, para este exato momento."
+    },
+    {
+      "id": "n040",
+      "slot": "BELL",
+      "text": "(sino) O que está se repetindo agora mesmo?"
+    },
+    {
+      "id": "n041",
+      "slot": "BELL",
+      "text": "(sino) “Gratidão” ao som que você ouve agora."
+    },
+    {
+      "id": "n042",
+      "slot": "BELL",
+      "text": "(sino) “Eu te amo”, dito a você, agora mesmo."
+    },
+    {
+      "id": "n043",
+      "slot": "BELL",
+      "text": "(sino) Faça uma pausa aqui, só um pouco."
+    },
+    {
+      "id": "n044",
+      "slot": "BELL",
+      "text": "(sino) Seus ombros estão tensos agora?"
+    },
+    {
+      "id": "n045",
+      "slot": "BELL",
+      "text": "(sino) Dedique uma palavra ao que está diante de você, agora."
+    },
+    {
+      "id": "n046",
+      "slot": "BELL",
+      "text": "(sino) No que você estava pensando agora mesmo?"
+    },
+    {
+      "id": "n047",
+      "slot": "BELL",
+      "text": "(sino) “Gratidão” a esta respiração."
+    },
+    {
+      "id": "n048",
+      "slot": "BELL",
+      "text": "(sino) Volte para cá, para o agora."
+    },
+    {
+      "id": "n049",
+      "slot": "BELL",
+      "text": "(sino) Uma palavra, para como você se sente agora."
+    },
+    {
+      "id": "n050",
+      "slot": "BELL",
+      "text": "(sino) Agora mesmo, você não precisa saber nada."
+    }
+  ]
+}

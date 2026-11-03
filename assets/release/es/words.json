@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "four": [
+    "thank_you",
+    "sorry",
+    "forgive",
+    "love",
+    "ice_blue",
+    "delete"
+  ],
+  "items": [
+    {"id": "thank_you", "text": "Gracias"},
+    {"id": "sorry", "text": "Lo siento"},
+    {"id": "forgive", "text": "Por favor, perdóname"},
+    {"id": "love", "text": "Te amo"},
+    {"id": "ice_blue", "text": "Azul hielo"},
+    {"id": "delete", "text": "Borrar"},
+    {"id": "like_so_much", "text": "Te quiero mucho"},
+    {"id": "idk", "text": "No sé nada"}
+  ]
+}

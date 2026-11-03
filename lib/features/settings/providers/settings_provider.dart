@@ -2,13 +2,17 @@ import 'dart:ui';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hive_ce/hive_ce.dart';
 
 import '../../../core/providers/audio_providers.dart';
 import '../../../core/providers/auth_provider.dart';
 import '../../../core/notifications/notification_service.dart';
+import '../../../core/notifications/release_notification_sync.dart';
 import '../../../core/providers/notification_providers.dart';
 import '../../../core/providers/storage_providers.dart';
 import '../../onboarding/providers/onboarding_provider.dart';
+import '../../release/data/release_db.dart';
+import '../../release/providers/release_providers.dart';
 
 class SettingsState {
   final bool isAnonymous;
@@ -177,6 +181,23 @@ class SettingsNotifier extends Notifier<SettingsState> {
     ref.read(secureStorageProvider).setPauseMode(value);
   }
 
+  /// Empties the 4 release boxes. If they could not be opened at start-up,
+  /// the box files are deleted from disk instead, so nothing is left behind.
+  Future<void> _clearReleaseData() async {
+    try {
+      await ref.read(releaseDbProvider).clearAll();
+    } catch (_) {
+      for (final name in const [
+        ReleaseDb.sessionsBoxName,
+        ReleaseDb.turnsBoxName,
+        ReleaseDb.pendingBoxName,
+        ReleaseDb.settingsBoxName,
+      ]) {
+        await Hive.deleteBoxFromDisk(name);
+      }
+    }
+  }
+
   Future<void> deleteAccountData() async {
     final db = ref.read(localDbProvider);
     final storage = ref.read(secureStorageProvider);
@@ -188,9 +209,18 @@ class SettingsNotifier extends Notifier<SettingsState> {
       await db.clearAll();
       await storage.deleteAll();
       await ref.read(voiceClipServiceProvider).deleteAll();
+      // 手放す: records, chat turns, "later" queue and release settings.
+      await _clearReleaseData();
+      // Every scheduled notification: daily / weekly and release (2001–2063).
       await ref.read(notificationServiceProvider).cancelAll();
+      try {
+        await ref.read(releaseNotificationSyncProvider).cancelAll();
+      } catch (_) {
+        // Already covered by cancelAll above.
+      }
     } finally {
       ref.invalidate(onboardingCompleteProvider);
+      ref.invalidate(releaseSettingsProvider);
     }
   }
 }

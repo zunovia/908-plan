@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "items": [
+    {"id": "A01", "text": "Noticing it is already the beginning of letting go.", "night": false},
+    {"id": "A02", "text": "You came here and wrote it down. That's enough.", "night": false},
+    {"id": "A03", "text": "Even if the words don't come out right, what you feel is real.", "night": false},
+    {"id": "A04", "text": "You can let go without knowing why.", "night": false},
+    {"id": "A05", "text": "No need to blame. The one who noticed the replay is already standing outside it.", "night": false},
+    {"id": "A06", "text": "However many times it returns, you can release it as many times.", "night": false},
+    {"id": "A07", "text": "You don't have to feel it. The words alone are enough.", "night": false},
+    {"id": "A08", "text": "If you can offer one word, today is enough.", "night": false},
+    {"id": "A09", "text": "Being able to say \"I don't know\" is strength.", "night": false},
+    {"id": "A10", "text": "Right now, you're the one watching the replay.", "night": false},
+    {"id": "A11", "text": "Just knowing you don't have to change them makes it lighter.", "night": false},
+    {"id": "A12", "text": "You noticed the child inside.", "night": false},
+    {"id": "A13", "text": "You don't need to release it perfectly. A little lighter is enough.", "night": false},
+    {"id": "A14", "text": "Noticing the fixation proves you can stand outside it.", "night": false},
+    {"id": "A15", "text": "As much as you've let go of the outcome, you've made room.", "night": false},
+    {"id": "A16", "text": "Thank you for coming back here today.", "night": false},
+    {"id": "A17", "text": "This is enough for today. Leave the rest to tomorrow's you.", "night": true},
+    {"id": "A18", "text": "Letting go before sleep may be today's most important work.", "night": true},
+    {"id": "A19", "text": "Noticing the replay won't stop, and still offering a word. That's the practice.", "night": false},
+    {"id": "A20", "text": "The way back to zero is always inside.", "night": false}
+  ]
+}

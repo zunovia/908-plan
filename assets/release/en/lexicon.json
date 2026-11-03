@@ -1,0 +1,384 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "emotion": "IMPATIENCE",
+      "terms": [
+        "hurried",
+        "rushed",
+        "impatient",
+        "impatience",
+        "hasty",
+        "haste",
+        "urgent",
+        "urgency",
+        "pressured",
+        "pressure",
+        "late",
+        "overdue"
+      ],
+      "quote": "hurry",
+      "weight": 1
+    },
+    {
+      "emotion": "IMPATIENCE",
+      "terms": [
+        "frantic",
+        "panicked",
+        "scrambling"
+      ],
+      "quote": "hurry",
+      "weight": 2
+    },
+    {
+      "emotion": "ANXIETY",
+      "terms": [
+        "worried",
+        "anxious",
+        "anxiety",
+        "nervous",
+        "nervousness",
+        "uneasy",
+        "restless",
+        "jittery",
+        "apprehensive",
+        "fretting",
+        "fretful",
+        "on edge"
+      ],
+      "quote": "worry",
+      "weight": 1
+    },
+    {
+      "emotion": "ANXIETY",
+      "terms": [
+        "terrified of what's next",
+        "panicky",
+        "overwhelmed with worry"
+      ],
+      "quote": "worry",
+      "weight": 2
+    },
+    {
+      "emotion": "ANGER",
+      "terms": [
+        "angry",
+        "anger",
+        "mad",
+        "furious",
+        "irritated",
+        "annoyed",
+        "frustrated",
+        "resentful",
+        "resentment",
+        "can't forgive",
+        "unfair"
+      ],
+      "quote": "anger",
+      "weight": 1
+    },
+    {
+      "emotion": "ANGER",
+      "terms": [
+        "livid",
+        "seething",
+        "enraged",
+        "boiling with anger"
+      ],
+      "quote": "anger",
+      "weight": 2
+    },
+    {
+      "emotion": "SADNESS",
+      "terms": [
+        "sad",
+        "sadness",
+        "sorrow",
+        "sorrowful",
+        "unhappy",
+        "down",
+        "downhearted",
+        "blue",
+        "heartbroken",
+        "tearful",
+        "crying",
+        "want to cry",
+        "grief",
+        "grieving"
+      ],
+      "quote": "sadness",
+      "weight": 1
+    },
+    {
+      "emotion": "SADNESS",
+      "terms": [
+        "devastated",
+        "deep sorrow",
+        "can't stop crying"
+      ],
+      "quote": "sadness",
+      "weight": 2
+    },
+    {
+      "emotion": "LONELINESS",
+      "terms": [
+        "lonely",
+        "loneliness",
+        "alone",
+        "isolated",
+        "isolation",
+        "unseen",
+        "unheard",
+        "left out",
+        "left behind",
+        "nobody understands",
+        "abandoned",
+        "no one cares"
+      ],
+      "quote": "loneliness",
+      "weight": 1
+    },
+    {
+      "emotion": "LONELINESS",
+      "terms": [
+        "utterly alone",
+        "completely isolated",
+        "desperately lonely"
+      ],
+      "quote": "loneliness",
+      "weight": 2
+    },
+    {
+      "emotion": "GUILT",
+      "terms": [
+        "guilty",
+        "guilt",
+        "sorry",
+        "apologetic",
+        "my fault",
+        "i blame myself",
+        "regret",
+        "regretful",
+        "remorse",
+        "remorseful",
+        "ashamed of what i did",
+        "blew it"
+      ],
+      "quote": "guilt",
+      "weight": 1
+    },
+    {
+      "emotion": "GUILT",
+      "terms": [
+        "deeply guilty",
+        "consumed with guilt",
+        "so sorry"
+      ],
+      "quote": "guilt",
+      "weight": 2
+    },
+    {
+      "emotion": "SHAME",
+      "terms": [
+        "ashamed",
+        "shame",
+        "shameful",
+        "embarrassed",
+        "humiliated",
+        "pathetic",
+        "mortified",
+        "want to hide",
+        "self-conscious",
+        "cringing",
+        "flustered",
+        "exposed"
+      ],
+      "quote": "shame",
+      "weight": 1
+    },
+    {
+      "emotion": "SHAME",
+      "terms": [
+        "utterly humiliated",
+        "so embarrassed",
+        "deeply ashamed"
+      ],
+      "quote": "shame",
+      "weight": 2
+    },
+    {
+      "emotion": "FEAR",
+      "terms": [
+        "scared",
+        "afraid",
+        "fear",
+        "fearful",
+        "frightened",
+        "terrified",
+        "trembling",
+        "shaking",
+        "freezing up",
+        "on guard",
+        "bracing",
+        "jumpy",
+        "wary"
+      ],
+      "quote": "fear",
+      "weight": 1
+    },
+    {
+      "emotion": "FEAR",
+      "terms": [
+        "petrified",
+        "paralyzed with fear",
+        "so scared i can't move"
+      ],
+      "quote": "fear",
+      "weight": 2
+    },
+    {
+      "emotion": "FATIGUE",
+      "terms": [
+        "tired",
+        "tiredness",
+        "exhausted",
+        "sleepy",
+        "drained",
+        "worn out",
+        "fatigued",
+        "burnt out",
+        "drowsy",
+        "need to rest",
+        "no energy left",
+        "weary"
+      ],
+      "quote": "tiredness",
+      "weight": 1
+    },
+    {
+      "emotion": "FATIGUE",
+      "terms": [
+        "completely exhausted",
+        "running on empty",
+        "at my limit"
+      ],
+      "quote": "tiredness",
+      "weight": 2
+    },
+    {
+      "emotion": "ENVY",
+      "terms": [
+        "envious",
+        "envy",
+        "jealous",
+        "jealousy",
+        "wish i had that",
+        "comparing myself",
+        "comparing",
+        "feel inferior",
+        "inferior",
+        "not good enough compared to them",
+        "wish i had what they have",
+        "why do they get it and not me"
+      ],
+      "quote": "envy",
+      "weight": 1
+    },
+    {
+      "emotion": "ENVY",
+      "terms": [
+        "burning with envy",
+        "deeply jealous",
+        "so envious"
+      ],
+      "quote": "envy",
+      "weight": 2
+    },
+    {
+      "emotion": "CONFUSION",
+      "terms": [
+        "confused",
+        "confusion",
+        "don't know",
+        "can't figure out",
+        "mixed up",
+        "lost",
+        "bewildered",
+        "puzzled",
+        "torn",
+        "unsure what to do",
+        "baffled"
+      ],
+      "quote": "confusion",
+      "weight": 1
+    },
+    {
+      "emotion": "CONFUSION",
+      "terms": [
+        "completely confused",
+        "totally lost",
+        "mind is blank",
+        "can't make sense of it"
+      ],
+      "quote": "confusion",
+      "weight": 2
+    },
+    {
+      "emotion": "CALM",
+      "terms": [
+        "calm",
+        "calmness",
+        "peaceful",
+        "relaxed",
+        "settled",
+        "at ease",
+        "content",
+        "steady",
+        "quiet inside",
+        "gentle",
+        "soothed",
+        "unruffled"
+      ],
+      "quote": "calm",
+      "weight": 1
+    },
+    {
+      "emotion": "CALM",
+      "terms": [
+        "deeply calm",
+        "completely at peace",
+        "very relaxed"
+      ],
+      "quote": "calm",
+      "weight": 2
+    }
+  ],
+  "intensifiers": [
+    "very",
+    "really",
+    "so",
+    "extremely",
+    "totally",
+    "completely",
+    "super"
+  ],
+  "negations": [
+    "not",
+    "no",
+    "never",
+    "don't",
+    "dont",
+    "isn't",
+    "wasn't",
+    "aren't",
+    "didn't",
+    "can't",
+    "cannot"
+  ],
+  "contrasts": [
+    "but",
+    "though",
+    "however",
+    "yet"
+  ]
+}

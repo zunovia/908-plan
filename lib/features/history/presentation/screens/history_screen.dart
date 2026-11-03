@@ -16,6 +16,8 @@ class HistoryScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final historyState = ref.watch(historyProvider);
+    final releaseCounts =
+        ref.watch(historyReleaseCountsProvider).valueOrNull ?? const <DateTime, int>{};
 
     return Scaffold(
       appBar: ZeroAppBar(title: l10n.history_title),
@@ -26,6 +28,7 @@ class HistoryScreen extends ConsumerWidget {
           children: [
             CalendarGrid(
               recordedDates: historyState.recordedDates,
+              releasedDates: releaseCounts.keys.toSet(),
               selectedDate: historyState.selectedDate,
               onDateSelected: (date) {
                 ref.read(historyProvider.notifier).selectDate(date);
@@ -43,6 +46,7 @@ class HistoryScreen extends ConsumerWidget {
               DayDetailCard(
                 date: historyState.selectedDate!,
                 recordings: historyState.selectedDateRecordings,
+                releaseCount: releaseCounts[historyState.selectedDate!] ?? 0,
               )
             else if (historyState.recordedDates.isEmpty)
               Padding(

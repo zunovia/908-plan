@@ -6,12 +6,16 @@ import '../../../../core/constants/app_typography.dart';
 
 class CalendarGrid extends StatefulWidget {
   final Set<DateTime> recordedDates;
+
+  /// Days with at least one release (手放す); shown as a second, softer dot.
+  final Set<DateTime> releasedDates;
   final DateTime? selectedDate;
   final ValueChanged<DateTime> onDateSelected;
 
   const CalendarGrid({
     super.key,
     required this.recordedDates,
+    this.releasedDates = const {},
     required this.selectedDate,
     required this.onDateSelected,
   });
@@ -142,6 +146,7 @@ class _CalendarGridState extends State<CalendarGrid> {
     for (var day = 1; day <= daysInMonth; day++) {
       final date = DateTime(year, month, day);
       final hasRecording = widget.recordedDates.contains(date);
+      final hasRelease = widget.releasedDates.contains(date);
       final isSelected = widget.selectedDate != null &&
           widget.selectedDate!.year == date.year &&
           widget.selectedDate!.month == date.month &&
@@ -174,14 +179,33 @@ class _CalendarGridState extends State<CalendarGrid> {
                           .withValues(alpha: hasRecording ? 0.9 : 0.4),
                     ),
                   ),
-                  if (hasRecording)
-                    Container(
-                      width: 4,
-                      height: 4,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                  if (hasRecording || hasRelease)
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (hasRecording)
+                          Container(
+                            width: 4,
+                            height: 4,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                          ),
+                        if (hasRecording && hasRelease) const SizedBox(width: 2),
+                        if (hasRelease)
+                          Container(
+                            width: 4,
+                            height: 4,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: Theme.of(context).colorScheme.tertiary,
+                                width: 1,
+                              ),
+                            ),
+                          ),
+                      ],
                     ),
                 ],
               ),

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "items": [
+    {"id": "L01", "text": "No controles el resultado. Solo suelta. Con eso basta.", "night": false},
+    {"id": "L02", "text": "Deja a un lado también el «ojalá salga así».", "night": false},
+    {"id": "L03", "text": "No necesitas saber qué llenará el espacio que acabas de hacer.", "night": false},
+    {"id": "L04", "text": "No planees nada. Suelta. Observa.", "night": false},
+    {"id": "L05", "text": "No lo sé. Y por eso puedo dejarlo estar.", "night": false},
+    {"id": "L06", "text": "Lo de hoy ya está soltado. Lo demás, cuando vuelva a repetirse.", "night": false},
+    {"id": "L07", "text": "La calma que acabas de encontrar es donde vives de verdad.", "night": false},
+    {"id": "L08", "text": "Sin prisa. Como respirar, habrá una próxima vez.", "night": false},
+    {"id": "L09", "text": "Lo de fuera no tiene que cambiar enseguida. Lo de dentro ya pesa un poco menos.", "night": false},
+    {"id": "L10", "text": "La paz ya está empezando, justo aquí.", "night": false},
+    {"id": "L11", "text": "La expectativa también es un recuerdo. Ahora que se ha soltado, hay espacio.", "night": false},
+    {"id": "L12", "text": "Deja el resto y duerme.", "night": true}
+  ]
+}

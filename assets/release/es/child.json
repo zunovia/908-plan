@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "items": [
+    {"id": "C01", "text": "Gracias por mostrármelo. Soltémoslo juntos.", "night": false},
+    {"id": "C02", "text": "Así que este sentimiento estaba aquí. Gracias por decírmelo.", "night": false},
+    {"id": "C03", "text": "No hace falta saber por qué. Ha sido duro. Estoy aquí contigo.", "night": false},
+    {"id": "C04", "text": "No me he enfadado. Aligeremos juntos todo lo que me has mostrado.", "night": false},
+    {"id": "C05", "text": "Llevas mucho tiempo cargando con esto. Ya puedes dejarlo.", "night": false},
+    {"id": "C06", "text": "Perdona por no hacerte caso. Ahora te escucho.", "night": false},
+    {"id": "C07", "text": "Gracias por avisarme: «aquí hay un recuerdo».", "night": false},
+    {"id": "C08", "text": "No tienes que cargar con ello a solas. Hablémosle juntos.", "night": false},
+    {"id": "C09", "text": "Sin prisa. Podemos soltar tantas veces como haga falta.", "night": false},
+    {"id": "C10", "text": "Te amo. Con este recuerdo y todo, te amo.", "night": false},
+    {"id": "C11", "text": "Nos hemos dado cuenta, y con eso basta. A partir de aquí, vamos juntos.", "night": false},
+    {"id": "C12", "text": "Gracias por hoy. Buenas noches. Deja el resto en mis manos.", "night": true}
+  ]
+}
