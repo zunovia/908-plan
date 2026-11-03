@@ -29,6 +29,7 @@
 | `rel_vx_write_crisis_not_saved` | いま書いた内容は保存していません。 |
 | `rel_vx_chat_error` | うまくお返事できませんでした。少し置いて、もう一度どうぞ。 |
 | `rel_vx_records_deleted` | すべての記録を削除しました。 |
+| `rel_vx_cloud_delete_partial` | 端末のデータは削除しました。サインイン情報の削除はできなかったため、サインアウトしました。 |
 
 ## 導入画面などで再利用する Luckarise 由来のキー
 

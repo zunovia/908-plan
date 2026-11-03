@@ -73,7 +73,10 @@ void main() {
 
     setUp(() async {
       tmp = await Directory.systemTemp.createTemp('voxna_clips_');
-      service = VoiceClipService(documentsDirectory: () async => tmp);
+      service = VoiceClipService(
+        documentsDirectory: () async => tmp,
+        temporaryDirectory: () async => tmp,
+      );
     });
 
     tearDown(() async {

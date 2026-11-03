@@ -214,21 +214,47 @@ class SettingsNotifier extends Notifier<SettingsState> {
     }
   }
 
-  Future<void> deleteAccountData() async {
-    final db = ref.read(localDbProvider);
-    final storage = ref.read(secureStorageProvider);
-    final auth = ref.read(authServiceProvider);
+  /// How long account deletion waits for Firebase to delete the user.
+  static const Duration cloudDeleteTimeout = Duration(seconds: 10);
 
-    // Firebase first — if this fails, local data is preserved
-    await auth.deleteAccount();
+  /// How long the fallback sign-out may take after the cloud step failed.
+  static const Duration cloudSignOutTimeout = Duration(seconds: 3);
+
+  /// Deletes everything on the device, then the (anonymous) Firebase user.
+  ///
+  /// The device data goes first and unconditionally: Firebase holds only the
+  /// anonymous UID, so a hanging or failing cloud call (no network,
+  /// requires-recent-login, ...) must never keep the user's data on the
+  /// device. Every local step runs even when an earlier one throws; the first
+  /// local error is rethrown at the end, after the cloud step was attempted.
+  ///
+  /// When the Firebase user could not be deleted within [cloudTimeout], the
+  /// app signs out (best-effort, at most [signOutTimeout]) so the next launch
+  /// starts as a fresh anonymous user, and the result has
+  /// `cloudDeleted: false`.
+  Future<({bool cloudDeleted})> deleteAccountData({
+    Duration cloudTimeout = cloudDeleteTimeout,
+    Duration signOutTimeout = cloudSignOutTimeout,
+  }) async {
+    Object? firstError;
+    StackTrace? firstStack;
+    Future<void> step(Future<void> Function() run) async {
+      try {
+        await run();
+      } catch (e, st) {
+        firstError ??= e;
+        firstStack ??= st;
+      }
+    }
+
     try {
-      await db.clearAll();
-      await storage.deleteAll();
-      await ref.read(voiceClipServiceProvider).deleteAll();
+      await step(() => ref.read(localDbProvider).clearAll());
+      await step(() => ref.read(secureStorageProvider).deleteAll());
+      await step(() => ref.read(voiceClipServiceProvider).deleteAll());
       // 手放す: records, chat turns, "later" queue and release settings.
-      await _clearReleaseData();
+      await step(_clearReleaseData);
       // Every scheduled notification: daily / weekly and release (2001–2063).
-      await ref.read(notificationServiceProvider).cancelAll();
+      await step(() => ref.read(notificationServiceProvider).cancelAll());
       try {
         await ref.read(releaseNotificationSyncProvider).cancelAll();
       } catch (_) {
@@ -237,6 +263,37 @@ class SettingsNotifier extends Notifier<SettingsState> {
     } finally {
       ref.invalidate(onboardingCompleteProvider);
       ref.invalidate(releaseSettingsProvider);
+    }
+
+    final cloudDeleted = await _deleteCloudAccount(
+      cloudTimeout: cloudTimeout,
+      signOutTimeout: signOutTimeout,
+    );
+
+    final error = firstError;
+    if (error != null) Error.throwWithStackTrace(error, firstStack!);
+    return (cloudDeleted: cloudDeleted);
+  }
+
+  /// Deletes the Firebase user; on timeout or error signs out instead and
+  /// returns false. Never throws.
+  Future<bool> _deleteCloudAccount({
+    required Duration cloudTimeout,
+    required Duration signOutTimeout,
+  }) async {
+    AuthService? auth;
+    try {
+      final service = ref.read(authServiceProvider);
+      auth = service;
+      await service.deleteAccount().timeout(cloudTimeout);
+      return true;
+    } catch (_) {
+      try {
+        await auth?.signOut().timeout(signOutTimeout);
+      } catch (_) {
+        // Best-effort: the device data is already gone.
+      }
+      return false;
     }
   }
 }

@@ -18,11 +18,18 @@ class VoiceClipService {
   static const double gapSeconds = 0.15;
   static const double fadeSeconds = 0.05;
 
-  final Future<Directory> Function() _documentsDirectory;
+  /// File name of the weekly collage in the temporary directory.
+  static const String collageFileName = 'voxna_weekly_voice.wav';
 
-  VoiceClipService({Future<Directory> Function()? documentsDirectory})
-      : _documentsDirectory =
-            documentsDirectory ?? getApplicationDocumentsDirectory;
+  final Future<Directory> Function() _documentsDirectory;
+  final Future<Directory> Function() _temporaryDirectory;
+
+  VoiceClipService({
+    Future<Directory> Function()? documentsDirectory,
+    Future<Directory> Function()? temporaryDirectory,
+  })  : _documentsDirectory =
+            documentsDirectory ?? getApplicationDocumentsDirectory,
+        _temporaryDirectory = temporaryDirectory ?? getTemporaryDirectory;
 
   Future<Directory> clipDirectory() async {
     final root = await _documentsDirectory();
@@ -132,10 +139,27 @@ class VoiceClipService {
   }
 
   Future<void> deleteAll() async {
-    final dir = await clipDirectory();
-    if (await dir.exists()) {
-      await dir.delete(recursive: true);
+    Object? firstError;
+    StackTrace? firstStack;
+    try {
+      final dir = await clipDirectory();
+      if (await dir.exists()) {
+        await dir.delete(recursive: true);
+      }
+    } catch (e, st) {
+      firstError = e;
+      firstStack = st;
     }
+    // The weekly collage (built from the clips) lives in the cache dir.
+    try {
+      final tmp = await _temporaryDirectory();
+      final collage = File('${tmp.path}/$collageFileName');
+      if (await collage.exists()) await collage.delete();
+    } catch (e, st) {
+      firstError ??= e;
+      firstStack ??= st;
+    }
+    if (firstError != null) Error.throwWithStackTrace(firstError, firstStack!);
   }
 
   // ---- pure helpers (unit tested) ----

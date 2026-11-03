@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../../../core/audio/voice_clip_service.dart';
 import '../../../core/providers/audio_providers.dart';
 import '../../../core/providers/storage_providers.dart';
 
@@ -24,6 +25,6 @@ final weeklyVoiceCollageProvider =
   final tempDir = await getTemporaryDirectory();
   return clips.buildCollage(
     recordingIds: recordings.map((r) => r.id).toList(),
-    outputPath: '${tempDir.path}/voxna_weekly_voice.wav',
+    outputPath: '${tempDir.path}/${VoiceClipService.collageFileName}',
   );
 });

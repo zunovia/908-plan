@@ -488,7 +488,18 @@ class SettingsScreen extends ConsumerWidget {
             onPressed: () async {
               Navigator.pop(dialogContext);
               try {
-                await ref.read(settingsProvider.notifier).deleteAccountData();
+                final result = await ref
+                    .read(settingsProvider.notifier)
+                    .deleteAccountData();
+                // The device data is gone; the sign-in could not be deleted
+                // (e.g. offline), so the app signed out instead. The
+                // messenger was captured before the await, so this survives
+                // the navigation below.
+                if (!result.cloudDeleted) {
+                  messenger.showSnackBar(
+                    SnackBar(content: Text(l10n.rel_vx_cloud_delete_partial)),
+                  );
+                }
                 if (!context.mounted) return;
                 context.go('/');
               } catch (e) {
